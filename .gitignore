@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# VitePress build output and cache
+power-system-web/docs/.vitepress/dist/
+power-system-web/docs/.vitepress/cache/
+dist/
+cache/
+
+# Local Environment & Logs
+*.log
+.env
+.env.local
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Large binary files (GitHub rejects files > 100MB)
+*.pdf
+
+# AI Agent scratch & logs
+.gemini/
+.system_generated/
+scratch/
