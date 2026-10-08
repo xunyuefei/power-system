@@ -41,6 +41,9 @@ jobs:
         working-directory: power-system-web
         run: npm run docs:build
 
+      - name: Copy Quiz App to Pages dist
+        run: cp -r power-system-quiz power-system-web/docs/.vitepress/dist/quiz
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

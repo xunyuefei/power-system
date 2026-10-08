@@ -1,253 +1,382 @@
 <template>
   <div class="chapter-deck-container">
-    <div v-if="loading" class="deck-loading">
-      <div class="spinner"></div>
-      <p>正在装载本章真题与公式题库...</p>
+    <!-- Loading State -->
+    <div v-if="loading" class="deck-state-box">
+      <div class="sleek-spinner"></div>
+      <p class="state-text">正在装载考点与真题库...</p>
     </div>
 
-    <div v-else-if="chapterCards.length === 0" class="deck-empty">
-      <p>本章暂无题目记录。</p>
+    <!-- Empty State -->
+    <div v-else-if="chapterCards.length === 0" class="deck-state-box">
+      <p class="state-text">本章暂无考点题目。</p>
     </div>
 
+    <!-- Main Workspace -->
     <div v-else class="deck-main">
-      <!-- Top Control Bar -->
-      <div class="deck-toolbar">
-        <div class="mode-switch-group">
-          <button 
-            class="switch-btn" 
-            :class="{ active: viewMode === 'card' }" 
-            @click="viewMode = 'card'"
-          >
-            🎴 沉浸切题模式 (零上下滑动)
-          </button>
-          <button 
-            class="switch-btn" 
-            :class="{ active: viewMode === 'list' }" 
-            @click="viewMode = 'list'"
-          >
-            📑 考点折叠清单
-          </button>
+      <!-- ================= COMPACT UNIFIED CONTROL HEADER ================= -->
+      <header class="deck-control-header">
+        <!-- Top Row: Mode Switcher & Filter Pills -->
+        <div class="control-top-row">
+          <!-- Segmented View Mode -->
+          <div class="segmented-control">
+            <button 
+              class="segment-btn" 
+              :class="{ active: viewMode === 'card' }" 
+              @click="viewMode = 'card'"
+            >
+              <span class="seg-icon">🎴</span>
+              <span>沉浸刷题</span>
+            </button>
+            <button 
+              class="segment-btn" 
+              :class="{ active: viewMode === 'list' }" 
+              @click="viewMode = 'list'"
+            >
+              <span class="seg-icon">📑</span>
+              <span>考点清单</span>
+            </button>
+          </div>
+
+          <!-- Quick Status Filter Pills & Notes -->
+          <div class="header-tools-group">
+            <div class="status-filter-pills">
+              <button 
+                class="status-pill" 
+                :class="{ active: cardFilter === 'all' }"
+                @click="cardFilter = 'all'"
+              >
+                全部 {{ chapterCards.length }}
+              </button>
+              <button 
+                class="status-pill" 
+                :class="{ active: cardFilter === 'unlearned' }"
+                @click="cardFilter = 'unlearned'"
+              >
+                未学 {{ filterCounts.unlearned }}
+              </button>
+              <button 
+                class="status-pill lapse" 
+                :class="{ active: cardFilter === 'lapse' }"
+                @click="cardFilter = 'lapse'"
+              >
+                攻坚 {{ filterCounts.lapse }}
+              </button>
+              <button 
+                class="status-pill mastered" 
+                :class="{ active: cardFilter === 'mastered' }"
+                @click="cardFilter = 'mastered'"
+              >
+                已掌握 {{ filterCounts.mastered }}
+              </button>
+            </div>
+
+            <a :href="withBase('/notes')" target="_blank" class="notes-hub-badge" title="打开随堂笔记本">
+              <span>📝 笔记</span>
+              <span class="badge-num" v-if="totalNotesCount > 0">{{ totalNotesCount }}</span>
+            </a>
+          </div>
         </div>
 
-        <div class="deck-filter-group">
-          <label class="filter-label">筛选：</label>
-          <select v-model="cardFilter" class="filter-select">
-            <option value="all">全量题目 ({{ chapterCards.length }} 题)</option>
-            <option value="unlearned">未学新题 ({{ filterCounts.unlearned }} 题)</option>
-            <option value="lapse">攻坚错题 ({{ filterCounts.lapse }} 题)</option>
-            <option value="mastered">已掌握题 ({{ filterCounts.mastered }} 题)</option>
-          </select>
-          <a :href="withBase('/notes')" target="_blank" class="open-notes-hub-link" title="在独立窗口中打开全部笔记">
-            📖 笔记库 ({{ totalNotesCount }})
-          </a>
-        </div>
-      </div>
+        <!-- Bottom Row: Minimalist Topic Scroll Chips -->
+        <div class="topic-chips-row" v-if="topicsList.length > 0">
+          <div class="chips-scroll-track">
+            <button 
+              class="topic-chip" 
+              :class="{ active: selectedTopic === 'all' }" 
+              @click="selectedTopic = 'all'"
+            >
+              <span class="chip-dot"></span>
+              <span class="chip-text">全章总览</span>
+              <span class="chip-qty">{{ chapterCards.length }}</span>
+            </button>
 
-      <!-- ================= MODE 1: SINGLE CARD SWIPER (ZERO SCROLLING) ================= -->
-      <div v-if="viewMode === 'card'" class="single-card-view">
-        <div v-if="filteredCards.length === 0" class="no-filtered-cards">
-          <p>当前筛选条件下暂无卡片！</p>
-          <button class="reset-filter-btn" @click="cardFilter = 'all'">查看本章全部题目</button>
+            <button 
+              v-for="t in topicsList" 
+              :key="t.name" 
+              class="topic-chip" 
+              :class="{ active: selectedTopic === t.name }" 
+              @click="selectedTopic = t.name"
+            >
+              <span class="chip-dot"></span>
+              <span class="chip-text">{{ formatTopicShort(t.name) }}</span>
+              <span class="chip-qty">{{ t.total }}</span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- ================= MODE 1: UNIBODY IMMERSIVE FLASHCARD ================= -->
+      <section v-if="viewMode === 'card'" class="flashcard-section">
+        <!-- Empty filtered fallback -->
+        <div v-if="filteredCards.length === 0" class="no-cards-box">
+          <p>当前筛选条件下暂无卡片</p>
+          <button class="reset-link-btn" @click="resetFilters">重置筛选查看全部题目</button>
         </div>
 
+        <!-- The Sleek Unibody Stage Card -->
         <div 
           v-else 
-          class="card-deck-card" 
-          :class="{ 'with-note-expanded': showNoteDrawer }"
+          class="unibody-card" 
+          :class="{ 'note-open': showNoteDrawer }"
           @touchstart="handleTouchStart"
           @touchend="handleTouchEnd"
         >
-          <!-- Card Progress Header -->
-          <div class="card-deck-header">
-            <div class="header-left">
-              <span class="index-pill">
-                第 <b>{{ currentIndex + 1 }}</b> / {{ filteredCards.length }} 题
+          <!-- Card Micro Meta Bar -->
+          <div class="card-meta-bar">
+            <div class="meta-left">
+              <span class="meta-index">
+                <b class="idx-cur">{{ String(currentIndex + 1).padStart(2, '0') }}</b>
+                <span class="idx-sep">/</span>
+                <span class="idx-tot">{{ filteredCards.length }}</span>
               </span>
-              <span class="source-tag" v-if="currentCard.sourceTag">
+
+              <span 
+                class="ghost-badge topic-badge" 
+                v-if="currentCard.topic" 
+                @click="selectedTopic = currentCard.topic" 
+                :title="'锁定考点：' + currentCard.topic"
+              >
+                📌 {{ formatTopicShort(currentCard.topic) }}
+              </span>
+
+              <span class="ghost-badge source-badge" v-if="currentCard.sourceTag">
                 {{ currentCard.sourceTag }}
               </span>
             </div>
 
-            <div class="header-right">
-              <div class="status-indicator" v-if="currentCardState && currentCardState.lastReviewed">
-                <span v-if="currentCardState.lastRating === 'hard'" class="tag hard">🔴 需重刷</span>
-                <span v-else-if="currentCardState.lastRating === 'medium'" class="tag medium">🟡 模糊</span>
-                <span v-else-if="currentCardState.lastRating === 'easy'" class="tag easy">🟢 已掌握</span>
-              </div>
+            <div class="meta-right">
+              <!-- Memory Status Pill -->
+              <span v-if="currentCardState && currentCardState.lastRating === 'hard'" class="ghost-pill hard">
+                🔴 攻坚题 ({{ currentCardState.lapses || 1 }})
+              </span>
+              <span v-else-if="currentCardState && currentCardState.lastRating === 'medium'" class="ghost-pill medium">
+                🟡 待巩固
+              </span>
+              <span v-else-if="currentCardState && currentCardState.lastRating === 'easy'" class="ghost-pill easy">
+                🟢 已熟练
+              </span>
 
-              <!-- Note Toggle Button -->
+              <!-- Note Toggle -->
               <button 
-                class="note-toggle-btn" 
-                :class="{ 'has-note': cardNote, 'active': showNoteDrawer }" 
+                class="note-pill-btn" 
+                :class="{ 'has-content': cardNote, 'active': showNoteDrawer }" 
                 @click="toggleNoteDrawer"
-                title="打开本题随堂笔记栏"
               >
-                <span class="note-icon">📝</span>
-                <span>{{ cardNote ? '已记笔记' : '记笔记' }}</span>
+                <span>{{ cardNote ? '已记笔记 📝' : '+ 记笔记' }}</span>
               </button>
 
-              <span class="shortcut-tip desktop-only">快捷键: ←/→ 切题 · 空格翻牌 · 1/2/3 打分</span>
-              <span class="mobile-only gesture-tip">📱 左右滑动切题</span>
+              <span class="meta-hint-shortcut desktop-only">Space 翻牌 · 1/2/3 打分 · ←/→ 切题</span>
             </div>
           </div>
 
-          <!-- Progress Line -->
-          <div class="deck-progress-track">
-            <div class="deck-progress-bar" :style="{ width: ((currentIndex + 1) / filteredCards.length * 100) + '%' }"></div>
+          <!-- Micro Progress Line -->
+          <div class="card-progress-strip">
+            <div class="progress-glow-bar" :style="{ width: ((currentIndex + 1) / filteredCards.length * 100) + '%' }"></div>
           </div>
 
-          <!-- Card Content Body & Note Split Layout -->
-          <div class="card-deck-body-wrapper">
-            <div class="card-deck-body">
-              <!-- Question -->
-              <div class="deck-question-box">
-                <div class="q-badge">❓ 考研原题</div>
-                <div class="math-content" v-html="renderMath(currentCard.question)"></div>
+          <!-- Main Question & Answer Body -->
+          <div class="card-body-layout">
+            <div class="card-content-area">
+              <!-- Question Stage -->
+              <div class="question-stage">
+                <div class="q-typography" v-html="renderMath(currentCard.question)"></div>
               </div>
 
-              <!-- Answer Section -->
-              <div class="deck-answer-box" :class="{ 'is-blurred': !isRevealed }">
-                <div class="a-badge">💡 标准解析与采分要点</div>
-                <div class="math-content answer-text" v-html="renderMath(currentCard.answer)"></div>
+              <!-- Divider Line -->
+              <div class="stage-divider"></div>
 
-                <!-- Blur Overlay -->
-                <div class="reveal-overlay" v-if="!isRevealed" @click="revealAnswer">
-                  <button class="reveal-btn-center">
-                    <span>💡 查看答案解析 (空格 Space)</span>
-                  </button>
+              <!-- Answer Stage -->
+              <div class="answer-stage" :class="{ revealed: isRevealed, unrevealed: !isRevealed }">
+                <!-- Revealed content -->
+                <div v-if="isRevealed" class="revealed-wrap">
+                  <div class="answer-header-tag">
+                    <span class="tag-spark">💡</span>
+                    <span>采分要点与标准解析</span>
+                  </div>
+                  <div class="a-typography" v-html="renderMath(currentCard.answer)"></div>
                 </div>
-              </div>
 
-              <!-- Feedback Rating Section (Revealed) -->
-              <div class="deck-feedback-bar" v-if="isRevealed">
-                <div class="feedback-hint">记忆反馈评估：</div>
-                <div class="feedback-btn-row">
-                  <button 
-                    class="fb-btn btn-again" 
-                    :class="{ active: currentCardState && currentCardState.lastRating === 'hard' }"
-                    @click="handleRate('hard')"
-                  >
-                    <span class="fb-main">❌ 完全不会 (1)</span>
-                    <span class="fb-sub">纳入错题攻坚</span>
-                  </button>
-
-                  <button 
-                    class="fb-btn btn-good" 
-                    :class="{ active: currentCardState && currentCardState.lastRating === 'medium' }"
-                    @click="handleRate('medium')"
-                  >
-                    <span class="fb-main">⚠️ 模糊不确定 (2)</span>
-                    <span class="fb-sub">明日再次巩固</span>
-                  </button>
-
-                  <button 
-                    class="fb-btn btn-easy" 
-                    :class="{ active: currentCardState && currentCardState.lastRating === 'easy' }"
-                    @click="handleRate('easy')"
-                  >
-                    <span class="fb-main">✅ 熟练掌握 (3)</span>
-                    <span class="fb-sub">进入长周期</span>
+                <!-- Unrevealed Glass Curtain Overlay -->
+                <div v-else class="glass-curtain" @click="revealAnswer">
+                  <button class="curtain-reveal-btn">
+                    <span class="btn-spark">💡</span>
+                    <span class="btn-text">点击展开答案与采分要点</span>
+                    <kbd class="keycap">Space</kbd>
                   </button>
                 </div>
               </div>
             </div>
 
-            <!-- Integrated Side / Expandable Note Drawer -->
-            <div class="card-note-drawer" v-if="showNoteDrawer">
+            <!-- Integrated Smooth Note Drawer -->
+            <aside class="note-drawer-panel" v-if="showNoteDrawer">
               <div class="drawer-header">
-                <div class="drawer-title-group">
-                  <span class="drawer-title">📝 随堂备忘与易错心得</span>
-                  <span class="save-status">实时自动保存</span>
-                </div>
-                <div class="drawer-actions">
-                  <a :href="withBase('/notes')" target="_blank" class="drawer-link" title="在独立窗口中打开笔记库">全屏笔记库 ↗</a>
-                  <button v-if="cardNote" class="drawer-del" @click="handleDeleteNote" title="清空本题笔记">清空</button>
-                </div>
+                <span class="drawer-title">📝 随堂笔记</span>
+                <span class="auto-save-hint">实时自动保存</span>
               </div>
               <textarea 
                 class="drawer-textarea"
                 v-model="localNoteText"
                 @input="onNoteInput"
-                placeholder="在此写下你对这道题的速记口诀、易错点、推导要领..."
+                placeholder="记录这道题的考点口诀、易错点、推导要领..."
                 rows="6"
               ></textarea>
-              <div class="drawer-tip">💡 提示：输入内容会自动同步保存，可随时在顶栏【📝 考研笔记本】集中复习或删除。</div>
-            </div>
+              <div class="drawer-footer">
+                <button v-if="cardNote" class="drawer-clear-btn" @click="handleDeleteNote">清空笔记</button>
+                <a :href="withBase('/notes')" target="_blank" class="drawer-all-link">笔记本库 ↗</a>
+              </div>
+            </aside>
           </div>
 
-          <!-- Card Navigation Bottom Bar -->
-          <div class="card-deck-nav">
-            <button class="nav-arrow-btn" @click="prevCard" :disabled="currentIndex <= 0">
-              ⬅️ 上一题 (←)
+          <!-- Bottom Floating Action Dock -->
+          <footer class="card-action-dock">
+            <!-- Prev Card -->
+            <button 
+              class="dock-nav-btn prev" 
+              @click="prevCard" 
+              :disabled="currentIndex <= 0" 
+              title="上一题 (←)"
+            >
+              <svg class="dock-arrow-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+              <span class="dock-btn-label">上一题</span>
             </button>
 
-            <!-- Quick Number Jumper -->
-            <div class="nav-jumper">
-              <select v-model.number="currentIndex" class="jumper-select" @change="onJump">
-                <option v-for="(c, idx) in filteredCards" :key="c.id" :value="idx">
-                  第 {{ idx + 1 }} 题: {{ truncateText(c.question, 24) }} {{ getNote(c.id) ? ' [📝]' : '' }}
-                </option>
-              </select>
+            <!-- Middle Main Action (Morphs between Reveal button and 3 SM-2 Rating buttons) -->
+            <div class="dock-center-action">
+              <!-- If Unrevealed -->
+              <button v-if="!isRevealed" class="dock-reveal-trigger" @click="revealAnswer">
+                <span>查看解析 (Space)</span>
+              </button>
+
+              <!-- If Revealed: 3 Tactile Rating Buttons -->
+              <div v-else class="dock-rating-grid">
+                <button 
+                  class="rate-btn hard" 
+                  :class="{ active: currentCardState && currentCardState.lastRating === 'hard' }"
+                  @click="handleRate('hard')"
+                >
+                  <span class="rate-num">1</span>
+                  <span class="rate-name">完全不会</span>
+                  <span class="rate-sub">今日重刷</span>
+                </button>
+
+                <button 
+                  class="rate-btn medium" 
+                  :class="{ active: currentCardState && currentCardState.lastRating === 'medium' }"
+                  @click="handleRate('medium')"
+                >
+                  <span class="rate-num">2</span>
+                  <span class="rate-name">模糊犹豫</span>
+                  <span class="rate-sub">明日巩固</span>
+                </button>
+
+                <button 
+                  class="rate-btn easy" 
+                  :class="{ active: currentCardState && currentCardState.lastRating === 'easy' }"
+                  @click="handleRate('easy')"
+                >
+                  <span class="rate-num">3</span>
+                  <span class="rate-name">牢固掌握</span>
+                  <span class="rate-sub">进入长周期</span>
+                </button>
+              </div>
             </div>
 
-            <button class="nav-arrow-btn primary" @click="nextCard" :disabled="currentIndex >= filteredCards.length - 1">
-              下一题 (→) ➡️
+            <!-- Next Card -->
+            <button 
+              class="dock-nav-btn next" 
+              @click="nextCard" 
+              :disabled="currentIndex >= filteredCards.length - 1" 
+              title="下一题 (→)"
+            >
+              <span class="dock-btn-label">下一题</span>
+              <svg class="dock-arrow-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
             </button>
-          </div>
+          </footer>
         </div>
-      </div>
+      </section>
 
       <!-- ================= MODE 2: TOPIC ACCORDION LIST ================= -->
-      <div v-else class="accordion-list-view">
-        <div class="accordion-summary">
-          共 {{ filteredCards.length }} 道题目，点击考点卡片展开浏览，拒绝漫无边际的长滑动。
+      <section v-else class="topic-list-section">
+        <div class="list-summary-bar">
+          <span class="summary-total">共 {{ filteredCards.length }} 道真题</span>
+          <span class="summary-sep">·</span>
+          <span class="summary-group-info">归纳为 <b>{{ groupedCardsByTopic.length }} 个核心考点专区</b></span>
         </div>
 
-        <div class="accordion-card-list">
+        <div class="topic-cards-stack">
           <div 
-            v-for="(card, idx) in filteredCards" 
-            :key="card.id" 
-            class="list-card-item"
-            :class="{ 'expanded': expandedCards.includes(card.id) }"
+            v-for="(grp, gIdx) in groupedCardsByTopic" 
+            :key="grp.topic" 
+            class="topic-group-card"
           >
-            <div class="item-header" @click="toggleExpand(card.id)">
-              <div class="item-meta">
-                <span class="item-num">#{{ idx + 1 }}</span>
-                <span class="item-source" v-if="card.sourceTag">{{ card.sourceTag }}</span>
-                <span class="item-note-badge" v-if="getNote(card.id)">📝 笔记</span>
-                <span class="item-q-preview" v-html="renderMath(truncateText(card.question, 60))"></span>
+            <!-- Topic Group Header Banner -->
+            <div class="group-banner" @click="toggleTopicCollapse(grp.topic)">
+              <div class="banner-left-info">
+                <span class="topic-index-badge">考点 {{ gIdx + 1 }}</span>
+                <h3 class="topic-title-text">{{ formatTopicShort(grp.topic) }}</h3>
+                <span class="topic-card-count">{{ grp.cards.length }} 题</span>
               </div>
-              <div class="item-expand-icon">
-                {{ expandedCards.includes(card.id) ? '▲ 收起' : '▼ 展开' }}
+
+              <div class="banner-right-actions">
+                <button class="topic-drill-link" @click.stop="drillTopic(grp.topic)">
+                  ⚡ 专项刷题
+                </button>
+                <span class="collapse-caret">
+                  {{ isTopicCollapsed(grp.topic) ? '展开 ▼' : '收起 ▲' }}
+                </span>
               </div>
             </div>
 
-            <!-- Expanded Details -->
-            <div class="item-body" v-if="expandedCards.includes(card.id)">
-              <div class="item-full-question">
-                <div class="q-badge">❓ 完整问题</div>
-                <div class="math-content" v-html="renderMath(card.question)"></div>
-              </div>
-              <div class="item-full-answer">
-                <div class="a-badge">💡 解析</div>
-                <div class="math-content" v-html="renderMath(card.answer)"></div>
-              </div>
+            <!-- Cards inside this topic -->
+            <div class="topic-items-list" v-if="!isTopicCollapsed(grp.topic)">
+              <div 
+                v-for="(card, idx) in grp.cards" 
+                :key="card.id" 
+                class="list-q-row"
+                :class="{ expanded: expandedCards.includes(card.id) }"
+              >
+                <!-- Row Header -->
+                <div class="row-header" @click="toggleExpand(card.id)">
+                  <div class="row-meta">
+                    <span class="row-num">#{{ idx + 1 }}</span>
+                    <span class="row-source" v-if="card.sourceTag">{{ card.sourceTag }}</span>
+                    <span class="row-has-note" v-if="getNote(card.id)">📝</span>
+                    <span class="row-preview" v-html="renderMath(truncateText(card.question, 65))"></span>
+                  </div>
+                  <div class="row-expand-arrow">
+                    {{ expandedCards.includes(card.id) ? '▲' : '▼' }}
+                  </div>
+                </div>
 
-              <!-- Note Section inside Accordion -->
-              <div class="item-note-section">
-                <div class="inline-note-label">📝 我的笔记：</div>
-                <textarea 
-                  class="inline-note-input"
-                  :value="getNote(card.id) ? getNote(card.id).text : ''"
-                  @input="(e) => handleInlineNote(card, e.target.value)"
-                  placeholder="点击记录笔记..."
-                  rows="2"
-                ></textarea>
+                <!-- Expanded Full Question & Answer -->
+                <div class="row-expanded-body" v-if="expandedCards.includes(card.id)">
+                  <div class="full-q-box">
+                    <div class="sub-label">❓ 原题干</div>
+                    <div class="q-content" v-html="renderMath(card.question)"></div>
+                  </div>
+
+                  <div class="full-a-box">
+                    <div class="sub-label">💡 采分点解析</div>
+                    <div class="a-content" v-html="renderMath(card.answer)"></div>
+                  </div>
+
+                  <!-- Inline Note Pad -->
+                  <div class="inline-note-box">
+                    <div class="inline-note-head">📝 我的笔记：</div>
+                    <textarea 
+                      class="inline-note-input"
+                      :value="getNote(card.id) ? getNote(card.id).text : ''"
+                      @input="(e) => handleInlineNote(card, e.target.value)"
+                      placeholder="写下心得口诀..."
+                      rows="2"
+                    ></textarea>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   </div>
 </template>
@@ -285,6 +414,8 @@ const loading = ref(true)
 const allCards = ref([])
 const viewMode = ref('card') // 'card' or 'list'
 const cardFilter = ref('all')
+const selectedTopic = ref('all')
+const collapsedTopics = ref([])
 const currentIndex = ref(0)
 const isRevealed = ref(false)
 const expandedCards = ref([])
@@ -293,7 +424,7 @@ const expandedCards = ref([])
 const showNoteDrawer = ref(false)
 const localNoteText = ref('')
 
-// Touch gesture handling for Android / mobile swiping
+// Touch swipe gestures
 let touchStartX = 0
 let touchStartY = 0
 
@@ -308,13 +439,9 @@ const handleTouchEnd = (e) => {
   if (e.changedTouches && e.changedTouches.length === 1) {
     const deltaX = e.changedTouches[0].clientX - touchStartX
     const deltaY = e.changedTouches[0].clientY - touchStartY
-    // Horizontal swipe threshold: > 45px and mostly horizontal
     if (Math.abs(deltaX) > 45 && Math.abs(deltaY) < 55) {
-      if (deltaX < 0) {
-        nextCard() // Swipe left -> Next card
-      } else {
-        prevCard() // Swipe right -> Prev card
-      }
+      if (deltaX < 0) nextCard()
+      else prevCard()
     }
   }
 }
@@ -331,7 +458,7 @@ const loadData = async () => {
   }
 }
 
-// Cards for this specific chapter
+// Cards for this chapter
 const chapterCards = computed(() => {
   return allCards.value.filter(c => c.chapter === props.chapter)
 })
@@ -356,27 +483,76 @@ const filterCounts = computed(() => {
   return { unlearned, lapse, mastered }
 })
 
+// Clean topic list for this chapter
+const topicsList = computed(() => {
+  const map = {}
+  chapterCards.value.forEach(c => {
+    const t = c.topic || '通用考点'
+    if (!map[t]) {
+      map[t] = { name: t, total: 0 }
+    }
+    map[t].total++
+  })
+  return Object.values(map)
+})
+
 // Filtered cards in view
 const filteredCards = computed(() => {
+  let cards = chapterCards.value
+  if (selectedTopic.value !== 'all') {
+    cards = cards.filter(c => c.topic === selectedTopic.value)
+  }
   if (cardFilter.value === 'unlearned') {
-    return chapterCards.value.filter(c => {
+    return cards.filter(c => {
       const s = ankiState.value[c.id]
       return !s || !s.lastReviewed
     })
   }
   if (cardFilter.value === 'lapse') {
-    return chapterCards.value.filter(c => {
+    return cards.filter(c => {
       const s = ankiState.value[c.id]
       return s && (s.lastRating === 'hard' || (s.lapses && s.lapses > 0))
     })
   }
   if (cardFilter.value === 'mastered') {
-    return chapterCards.value.filter(c => {
+    return cards.filter(c => {
       const s = ankiState.value[c.id]
       return s && s.lastReviewed && s.lastRating !== 'hard'
     })
   }
-  return chapterCards.value
+  return cards
+})
+
+// Grouped cards by topic for Mode 2 Accordion
+const groupedCardsByTopic = computed(() => {
+  const groups = []
+  const topicsToProcess = selectedTopic.value === 'all'
+    ? topicsList.value
+    : topicsList.value.filter(t => t.name === selectedTopic.value)
+
+  topicsToProcess.forEach(t => {
+    let tCards = chapterCards.value.filter(c => c.topic === t.name)
+    if (cardFilter.value === 'unlearned') {
+      tCards = tCards.filter(c => !ankiState.value[c.id] || !ankiState.value[c.id].lastReviewed)
+    } else if (cardFilter.value === 'lapse') {
+      tCards = tCards.filter(c => {
+        const s = ankiState.value[c.id]
+        return s && (s.lastRating === 'hard' || (s.lapses && s.lapses > 0))
+      })
+    } else if (cardFilter.value === 'mastered') {
+      tCards = tCards.filter(c => {
+        const s = ankiState.value[c.id]
+        return s && s.lastReviewed && s.lastRating !== 'hard'
+      })
+    }
+    if (tCards.length > 0) {
+      groups.push({
+        topic: t.name,
+        cards: tCards
+      })
+    }
+  })
+  return groups
 })
 
 const currentCard = computed(() => {
@@ -393,7 +569,6 @@ const cardNote = computed(() => {
   return getNote(currentCard.value.id)
 })
 
-// Sync note text when card changes
 const syncCurrentNote = () => {
   if (currentCard.value) {
     const n = getNote(currentCard.value.id)
@@ -423,7 +598,7 @@ const onNoteInput = () => {
 
 const handleDeleteNote = () => {
   if (!currentCard.value) return
-  if (confirm('确定要删除本题的笔记吗？')) {
+  if (confirm('确定清空本题笔记？')) {
     deleteNote(currentCard.value.id)
     localNoteText.value = ''
   }
@@ -452,10 +627,6 @@ const prevCard = () => {
   }
 }
 
-const onJump = () => {
-  isRevealed.value = false
-}
-
 const revealAnswer = () => {
   isRevealed.value = true
 }
@@ -472,16 +643,41 @@ const handleRate = (level) => {
       currentIndex.value++
       isRevealed.value = false
     }
-  }, 250)
+  }, 220)
 }
 
 const toggleExpand = (id) => {
   const idx = expandedCards.value.indexOf(id)
-  if (idx > -1) {
-    expandedCards.value.splice(idx, 1)
-  } else {
-    expandedCards.value.push(id)
-  }
+  if (idx > -1) expandedCards.value.splice(idx, 1)
+  else expandedCards.value.push(id)
+}
+
+const toggleTopicCollapse = (topic) => {
+  const idx = collapsedTopics.value.indexOf(topic)
+  if (idx > -1) collapsedTopics.value.splice(idx, 1)
+  else collapsedTopics.value.push(topic)
+}
+
+const isTopicCollapsed = (topic) => {
+  return collapsedTopics.value.includes(topic)
+}
+
+const formatTopicShort = (topic) => {
+  if (!topic) return ''
+  const parts = topic.split('：')
+  return parts.length > 1 ? parts[1] : topic
+}
+
+const drillTopic = (topic) => {
+  selectedTopic.value = topic
+  viewMode.value = 'card'
+  currentIndex.value = 0
+  isRevealed.value = false
+}
+
+const resetFilters = () => {
+  cardFilter.value = 'all'
+  selectedTopic.value = 'all'
 }
 
 // KaTeX Math Rendering
@@ -515,11 +711,9 @@ const truncateText = (text, len) => {
   return clean.slice(0, len) + '...'
 }
 
-// Keyboard navigation
+// Keyboard shortcuts
 const handleKey = (e) => {
   if (viewMode.value !== 'card' || !currentCard.value) return
-
-  // Do not intercept if user is typing in textarea
   if (e.target.tagName === 'TEXTAREA' || e.target.tagName === 'INPUT') return
 
   if (!isRevealed.value && (e.code === 'Space' || e.code === 'Enter')) {
@@ -531,14 +725,16 @@ const handleKey = (e) => {
     if (e.key === '3') handleRate('easy')
   }
 
-  if (e.key === 'ArrowLeft') {
-    prevCard()
-  } else if (e.key === 'ArrowRight') {
-    nextCard()
-  }
+  if (e.key === 'ArrowLeft') prevCard()
+  else if (e.key === 'ArrowRight') nextCard()
 }
 
 watch(cardFilter, () => {
+  currentIndex.value = 0
+  isRevealed.value = false
+})
+
+watch(selectedTopic, () => {
   currentIndex.value = 0
   isRevealed.value = false
 })
@@ -558,713 +754,1008 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* ================= ROOT LAYOUT ================= */
 .chapter-deck-container {
-  max-width: 920px;
-  margin: 1rem auto 3rem;
+  max-width: 880px;
+  margin: 0.5rem auto 3rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
-.deck-loading, .deck-empty {
+.deck-state-box {
   text-align: center;
   padding: 4rem 1rem;
   color: var(--vp-c-text-2);
 }
 
-.spinner {
-  width: 36px;
-  height: 36px;
+.sleek-spinner {
+  width: 32px;
+  height: 32px;
   margin: 0 auto 1rem;
-  border: 3px solid rgba(100, 108, 255, 0.2);
+  border: 2px solid rgba(99, 102, 241, 0.15);
   border-top-color: var(--vp-c-brand-1);
   border-radius: 50%;
-  animation: spin 0.8s linear infinite;
+  animation: spin 0.7s linear infinite;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* Toolbar */
-.deck-toolbar {
+/* ================= 1. COMPACT UNIFIED CONTROL HEADER ================= */
+.deck-control-header {
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.control-top-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.5rem;
-  padding: 0.6rem 0.8rem;
-  background: var(--vp-c-bg-soft);
-  border-radius: 12px;
-  border: 1px solid var(--vp-c-border);
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
-.mode-switch-group {
-  display: flex;
-  gap: 0.4rem;
+/* Segmented Control */
+.segmented-control {
+  display: inline-flex;
+  background: rgba(120, 120, 128, 0.08);
+  border: 1px solid rgba(120, 120, 128, 0.14);
+  padding: 3px;
+  border-radius: 10px;
 }
 
-.switch-btn {
-  padding: 0.5rem 1rem;
+.segment-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.38rem 0.85rem;
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: none;
   background: transparent;
-  font-size: 0.9rem;
+  font-size: 0.84rem;
   font-weight: 600;
   color: var(--vp-c-text-2);
   cursor: pointer;
-  transition: all 0.15s;
-}
-.switch-btn:hover {
-  color: var(--vp-c-text-1);
-  background: var(--vp-c-bg-alt);
-}
-.switch-btn.active {
-  background: var(--vp-c-brand-1);
-  color: #fff;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.deck-filter-group {
+.segment-btn:hover {
+  color: var(--vp-c-text-1);
+}
+
+.segment-btn.active {
+  background: var(--vp-c-bg);
+  color: var(--vp-c-text-1);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.seg-icon {
+  font-size: 0.95rem;
+}
+
+/* Status Filter Pills */
+.header-tools-group {
   display: flex;
   align-items: center;
   gap: 0.6rem;
+  flex-wrap: wrap;
 }
-.filter-label {
-  font-size: 0.85rem;
-  color: var(--vp-c-text-3);
-}
-.filter-select {
-  padding: 0.4rem 0.8rem;
-  border-radius: 8px;
-  border: 1px solid var(--vp-c-border);
-  background: var(--vp-c-bg);
-  color: var(--vp-c-text-1);
-  font-size: 0.85rem;
-  outline: none;
-}
-.open-notes-hub-link {
-  font-size: 0.82rem;
-  color: var(--vp-c-brand-1);
-  text-decoration: none;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: 6px;
-  background: rgba(100, 108, 255, 0.08);
-}
-.open-notes-hub-link:hover { text-decoration: underline; }
 
-/* ================= STANDARDIZED CARD CONTAINER ================= */
-.card-deck-card {
-  background: var(--vp-c-bg-soft);
-  border: 1px solid var(--vp-c-border);
-  border-radius: 16px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
-  overflow: hidden;
-  /* Fixed proportional geometry to prevent size jitter */
-  min-height: 560px;
+.status-filter-pills {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: box-shadow 0.2s, border-color 0.2s;
-}
-
-.card-deck-card:hover {
-  border-color: var(--vp-c-brand-1);
-}
-
-.card-deck-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.9rem 1.4rem;
-  background: var(--vp-c-bg-alt);
-  border-bottom: 1px solid var(--vp-c-border);
-}
-
-.header-left {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-
-.index-pill {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--vp-c-text-1);
-}
-.index-pill b {
-  color: var(--vp-c-brand-1);
-  font-size: 1.15rem;
-}
-
-.source-tag {
-  background: rgba(100, 108, 255, 0.1);
-  color: var(--vp-c-brand-1);
-  padding: 2px 10px;
-  border-radius: 6px;
-  font-size: 0.78rem;
-  font-weight: 600;
-}
-
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-}
-
-.tag {
-  display: inline-block;
-  padding: 2px 8px;
-  border-radius: 6px;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-.tag.hard { background: rgba(239, 68, 68, 0.12); color: #ef4444; }
-.tag.medium { background: rgba(245, 158, 11, 0.12); color: #f59e0b; }
-.tag.easy { background: rgba(16, 185, 129, 0.12); color: #10b981; }
-
-.note-toggle-btn {
-  display: flex;
-  align-items: center;
   gap: 0.3rem;
-  padding: 3px 10px;
-  border-radius: 8px;
-  border: 1px solid var(--vp-c-border);
-  background: var(--vp-c-bg);
-  color: var(--vp-c-text-2);
-  font-size: 0.78rem;
-  font-weight: 600;
+  background: rgba(120, 120, 128, 0.06);
+  padding: 3px;
+  border-radius: 20px;
+}
+
+.status-pill {
+  padding: 0.25rem 0.6rem;
+  border-radius: 14px;
+  border: none;
+  background: transparent;
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: var(--vp-c-text-3);
   cursor: pointer;
   transition: all 0.15s;
 }
-.note-toggle-btn:hover, .note-toggle-btn.active {
-  border-color: var(--vp-c-brand-1);
-  color: var(--vp-c-brand-1);
-}
-.note-toggle-btn.has-note {
-  background: rgba(100, 108, 255, 0.1);
-  border-color: var(--vp-c-brand-1);
-  color: var(--vp-c-brand-1);
-}
 
-.shortcut-tip {
-  font-size: 0.72rem;
-  color: var(--vp-c-text-3);
-}
-
-.deck-progress-track {
-  height: 3px;
-  background: var(--vp-c-bg-alt);
-}
-.deck-progress-bar {
-  height: 100%;
-  background: linear-gradient(90deg, var(--vp-c-brand-1), var(--vp-c-brand-2));
-  transition: width 0.25s ease;
-}
-
-/* Card Body Split / Stack Layout */
-.card-deck-body-wrapper {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.card-deck-body {
-  padding: 2rem 1.8rem;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.deck-question-box {
-  margin-bottom: 1.2rem;
-}
-
-.q-badge, .a-badge {
-  display: inline-block;
-  padding: 2px 8px;
-  border-radius: 6px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  margin-bottom: 0.6rem;
-}
-.q-badge { background: rgba(59, 130, 246, 0.12); color: #3b82f6; }
-.a-badge { background: rgba(16, 185, 129, 0.12); color: #10b981; }
-
-.math-content {
-  font-size: 1.05rem;
-  line-height: 1.75;
+.status-pill:hover {
   color: var(--vp-c-text-1);
 }
 
-.answer-text {
+.status-pill.active {
+  background: var(--vp-c-bg);
+  color: var(--vp-c-text-1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  font-weight: 600;
+}
+
+.status-pill.lapse.active {
+  color: #f43f5e;
+}
+
+.status-pill.mastered.active {
+  color: #10b981;
+}
+
+.notes-hub-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--vp-c-brand-1);
+  padding: 0.3rem 0.65rem;
+  border-radius: 14px;
+  background: rgba(99, 102, 241, 0.08);
+  text-decoration: none;
+  transition: all 0.15s;
+}
+
+.notes-hub-badge:hover {
+  background: rgba(99, 102, 241, 0.16);
+}
+
+.badge-num {
+  font-size: 0.7rem;
+  background: var(--vp-c-brand-1);
+  color: #fff;
+  padding: 1px 5px;
+  border-radius: 10px;
+}
+
+/* Topic Chips Row */
+.topic-chips-row {
+  width: 100%;
+}
+
+.chips-scroll-track {
+  display: flex;
+  gap: 0.4rem;
+  overflow-x: auto;
+  padding: 0.1rem 0 0.4rem;
+  scrollbar-width: none;
+}
+.chips-scroll-track::-webkit-scrollbar {
+  display: none;
+}
+
+.topic-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.32rem 0.75rem;
+  border-radius: 16px;
+  border: 1px solid rgba(120, 120, 128, 0.15);
+  background: rgba(120, 120, 128, 0.04);
+  color: var(--vp-c-text-2);
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.topic-chip:hover {
+  background: rgba(120, 120, 128, 0.1);
+  color: var(--vp-c-text-1);
+}
+
+.topic-chip.active {
+  background: rgba(99, 102, 241, 0.12);
+  border-color: rgba(99, 102, 241, 0.4);
+  color: var(--vp-c-brand-1);
+  font-weight: 600;
+}
+
+.chip-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--vp-c-text-3);
+  transition: background 0.15s;
+}
+
+.topic-chip.active .chip-dot {
+  background: var(--vp-c-brand-1);
+}
+
+.chip-qty {
+  font-size: 0.72rem;
+  opacity: 0.7;
+}
+
+/* ================= 2. UNIBODY IMMERSIVE FLASHCARD ================= */
+.flashcard-section {
+  position: relative;
+}
+
+.no-cards-box {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: var(--vp-c-bg-soft);
+  border-radius: 16px;
+}
+
+.reset-link-btn {
+  margin-top: 0.8rem;
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--vp-c-brand-1);
+  background: transparent;
+  color: var(--vp-c-brand-1);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Unibody Stage Card */
+.unibody-card {
+  background: var(--vp-c-bg);
+  border: 1px solid rgba(120, 120, 128, 0.16);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px -8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.dark .unibody-card {
+  background: #151a24;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Micro Meta Header */
+.card-meta-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 1.4rem 0.6rem;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.meta-left, .meta-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.meta-index {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.82rem;
+  color: var(--vp-c-text-3);
+  margin-right: 0.3rem;
+}
+
+.idx-cur {
+  color: var(--vp-c-text-1);
+  font-size: 0.95rem;
+}
+
+.ghost-badge {
+  font-size: 0.76rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.topic-badge {
+  background: rgba(99, 102, 241, 0.08);
+  color: var(--vp-c-brand-1);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.topic-badge:hover {
+  background: rgba(99, 102, 241, 0.18);
+  text-decoration: underline;
+}
+
+.source-badge {
+  background: rgba(120, 120, 128, 0.08);
   color: var(--vp-c-text-2);
 }
 
-.deck-answer-box {
+.ghost-pill {
+  font-size: 0.74rem;
+  padding: 0.18rem 0.55rem;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.ghost-pill.hard {
+  background: rgba(244, 63, 94, 0.12);
+  color: #f43f5e;
+}
+.ghost-pill.medium {
+  background: rgba(245, 158, 11, 0.12);
+  color: #f59e0b;
+}
+.ghost-pill.easy {
+  background: rgba(16, 185, 129, 0.12);
+  color: #10b981;
+}
+
+.note-pill-btn {
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: var(--vp-c-text-3);
+  background: transparent;
+  border: 1px solid rgba(120, 120, 128, 0.18);
+  padding: 0.18rem 0.55rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.note-pill-btn:hover {
+  color: var(--vp-c-brand-1);
+  border-color: var(--vp-c-brand-1);
+}
+
+.note-pill-btn.has-content {
+  color: var(--vp-c-brand-1);
+  background: rgba(99, 102, 241, 0.08);
+  border-color: transparent;
+}
+
+.meta-hint-shortcut {
+  font-size: 0.72rem;
+  color: var(--vp-c-text-3);
+  opacity: 0.6;
+}
+
+/* Progress Strip */
+.card-progress-strip {
+  width: 100%;
+  height: 2px;
+  background: rgba(120, 120, 128, 0.08);
   position: relative;
-  border-top: 1px dashed var(--vp-c-divider);
-  padding-top: 1.2rem;
-  margin-top: 0.8rem;
+}
+
+.progress-glow-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--vp-c-brand-1), #818cf8);
+  transition: width 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Body Split with Drawer */
+.card-body-layout {
+  display: flex;
+  min-height: 380px;
+  position: relative;
+}
+
+.card-content-area {
   flex: 1;
-  min-height: 140px;
+  padding: 1.6rem 2rem;
+  display: flex;
+  flex-direction: column;
 }
 
-.deck-answer-box.is-blurred {
-  user-select: none;
-}
-.deck-answer-box.is-blurred .math-content {
-  filter: blur(5px);
-  opacity: 0.3;
+/* Question Stage */
+.question-stage {
+  padding-bottom: 0.6rem;
 }
 
-.reveal-overlay {
+.q-typography {
+  font-size: 1.15rem;
+  line-height: 1.75;
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+  letter-spacing: -0.01em;
+}
+
+.stage-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(120, 120, 128, 0.15), transparent);
+  margin: 1.2rem 0;
+}
+
+/* Answer Stage */
+.answer-stage {
+  flex: 1;
+  position: relative;
+  min-height: 160px;
+}
+
+.answer-header-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--vp-c-brand-1);
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.02em;
+}
+
+.a-typography {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--vp-c-text-2);
+}
+
+.a-typography :deep(strong) {
+  color: var(--vp-c-text-1);
+  font-weight: 700;
+}
+
+/* Glass Curtain (Unrevealed State) */
+.glass-curtain {
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: rgba(120, 120, 128, 0.03);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
   cursor: pointer;
-  z-index: 5;
+  transition: backdrop-filter 0.2s;
 }
 
-.reveal-btn-center {
-  padding: 0.85rem 2.6rem;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #fff;
-  background: linear-gradient(135deg, var(--vp-c-brand-1), var(--vp-c-brand-2));
-  border: none;
-  border-radius: 30px;
+.curtain-reveal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.6rem;
+  border-radius: 24px;
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  background: var(--vp-c-bg);
+  color: var(--vp-c-brand-1);
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.15);
   cursor: pointer;
-  box-shadow: 0 4px 18px rgba(100, 108, 255, 0.35);
-  transition: transform 0.15s, opacity 0.15s;
-}
-.reveal-btn-center:hover {
-  transform: translateY(-1px);
-  opacity: 0.95;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Note Drawer Inside Card */
-.card-note-drawer {
-  background: var(--vp-c-bg-alt);
-  border-top: 1px solid var(--vp-c-border);
-  padding: 1rem 1.5rem;
-  animation: slideDown 0.2s ease-out;
+.curtain-reveal-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.25);
+  border-color: var(--vp-c-brand-1);
 }
 
-@keyframes slideDown {
-  from { opacity: 0; transform: translateY(-8px); }
-  to { opacity: 1; transform: translateY(0); }
+.keycap {
+  font-family: inherit;
+  font-size: 0.72rem;
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: rgba(120, 120, 128, 0.15);
+  color: var(--vp-c-text-2);
+  border: 1px solid rgba(120, 120, 128, 0.2);
+}
+
+/* Note Drawer Panel */
+.note-drawer-panel {
+  width: 290px;
+  border-left: 1px solid rgba(120, 120, 128, 0.14);
+  background: rgba(120, 120, 128, 0.03);
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 }
 
 .drawer-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.6rem;
+  align-items: baseline;
 }
-.drawer-title-group {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
+
 .drawer-title {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--vp-c-brand-1);
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--vp-c-text-1);
 }
-.save-status {
-  font-size: 0.72rem;
-  color: #10b981;
-}
-.drawer-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-.drawer-link {
-  font-size: 0.78rem;
-  color: var(--vp-c-brand-1);
-  text-decoration: none;
-}
-.drawer-del {
-  background: none;
-  border: none;
-  font-size: 0.75rem;
+
+.auto-save-hint {
+  font-size: 0.7rem;
   color: var(--vp-c-text-3);
-  cursor: pointer;
 }
-.drawer-del:hover { color: #ef4444; }
 
 .drawer-textarea {
+  flex: 1;
   width: 100%;
-  padding: 0.6rem 0.8rem;
   border-radius: 8px;
-  border: 1px solid var(--vp-c-border);
+  border: 1px solid rgba(120, 120, 128, 0.18);
   background: var(--vp-c-bg);
   color: var(--vp-c-text-1);
-  font-size: 0.9rem;
-  line-height: 1.5;
-  resize: vertical;
+  padding: 0.65rem;
+  font-size: 0.84rem;
+  line-height: 1.6;
+  resize: none;
   outline: none;
-  font-family: inherit;
 }
 .drawer-textarea:focus {
   border-color: var(--vp-c-brand-1);
 }
-.drawer-tip {
-  font-size: 0.72rem;
-  color: var(--vp-c-text-3);
-  margin-top: 0.4rem;
-}
 
-/* Feedback rating */
-.deck-feedback-bar {
-  margin-top: 1.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--vp-c-divider);
-}
-
-.feedback-hint {
-  font-size: 0.82rem;
-  color: var(--vp-c-text-3);
-  margin-bottom: 0.6rem;
-}
-
-.feedback-btn-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.8rem;
-}
-
-.fb-btn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0.7rem 0.8rem;
-  border-radius: 10px;
-  border: 1.5px solid transparent;
-  cursor: pointer;
-  transition: all 0.15s;
-  background: var(--vp-c-bg-alt);
-}
-.fb-main {
-  font-size: 0.92rem;
-  font-weight: 700;
-  margin-bottom: 2px;
-}
-.fb-sub {
-  font-size: 0.7rem;
-  opacity: 0.8;
-}
-
-.btn-again { color: #ef4444; }
-.btn-again:hover, .btn-again.active { background: #ef4444; color: #fff; }
-
-.btn-good { color: #f59e0b; }
-.btn-good:hover, .btn-good.active { background: #f59e0b; color: #fff; }
-
-.btn-easy { color: #10b981; }
-.btn-easy:hover, .btn-easy.active { background: #10b981; color: #fff; }
-
-/* Nav bottom bar */
-.card-deck-nav {
+.drawer-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.9rem 1.4rem;
-  background: var(--vp-c-bg-alt);
-  border-top: 1px solid var(--vp-c-border);
 }
 
-.nav-arrow-btn {
-  padding: 0.6rem 1.4rem;
-  border-radius: 20px;
-  border: 1px solid var(--vp-c-border);
-  background: var(--vp-c-bg);
-  color: var(--vp-c-text-1);
-  font-size: 0.9rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.15s;
-}
-.nav-arrow-btn:hover:not(:disabled) {
-  border-color: var(--vp-c-brand-1);
-  color: var(--vp-c-brand-1);
-}
-.nav-arrow-btn.primary {
-  background: var(--vp-c-brand-1);
-  color: #fff;
-  border-color: var(--vp-c-brand-1);
-}
-.nav-arrow-btn.primary:hover:not(:disabled) { opacity: 0.92; color: #fff; }
-.nav-arrow-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-
-.nav-jumper {
-  flex: 1;
-  max-width: 320px;
-  margin: 0 1rem;
-}
-.jumper-select {
-  width: 100%;
-  padding: 0.45rem 0.8rem;
-  border-radius: 8px;
-  border: 1px solid var(--vp-c-border);
-  background: var(--vp-c-bg);
-  color: var(--vp-c-text-1);
-  font-size: 0.85rem;
-  outline: none;
-}
-
-/* Accordion list */
-.accordion-summary {
-  font-size: 0.9rem;
-  color: var(--vp-c-text-3);
-  margin-bottom: 1rem;
-}
-
-.accordion-card-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
-
-.list-card-item {
-  background: var(--vp-c-bg-soft);
-  border: 1px solid var(--vp-c-border);
-  border-radius: 12px;
-  overflow: hidden;
-  transition: border-color 0.2s;
-}
-.list-card-item:hover {
-  border-color: var(--vp-c-brand-1);
-}
-
-.item-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.9rem 1.2rem;
-  cursor: pointer;
-  user-select: none;
-}
-
-.item-meta {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  flex: 1;
-  overflow: hidden;
-}
-
-.item-num {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--vp-c-brand-1);
-}
-
-.item-source {
+.drawer-clear-btn {
   font-size: 0.75rem;
-  background: var(--vp-c-bg-alt);
-  padding: 2px 8px;
-  border-radius: 4px;
-  color: var(--vp-c-text-3);
-  white-space: nowrap;
-}
-
-.item-note-badge {
-  font-size: 0.72rem;
-  background: rgba(100, 108, 255, 0.12);
-  color: var(--vp-c-brand-1);
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-weight: 600;
-}
-
-.item-q-preview {
-  font-size: 0.9rem;
-  color: var(--vp-c-text-1);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.item-expand-icon {
-  font-size: 0.8rem;
-  color: var(--vp-c-text-3);
-  margin-left: 1rem;
-  white-space: nowrap;
-}
-
-.item-body {
-  padding: 1.4rem 1.6rem;
-  background: var(--vp-c-bg-alt);
-  border-top: 1px solid var(--vp-c-divider);
-}
-
-.item-full-question {
-  margin-bottom: 1rem;
-}
-
-.item-note-section {
-  margin-top: 1rem;
-  padding-top: 0.8rem;
-  border-top: 1px dashed var(--vp-c-divider);
-}
-
-.inline-note-label {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--vp-c-brand-1);
-  margin-bottom: 0.4rem;
-}
-
-.inline-note-input {
-  width: 100%;
-  padding: 0.5rem 0.8rem;
-  border-radius: 8px;
-  border: 1px solid var(--vp-c-border);
-  background: var(--vp-c-bg);
-  color: var(--vp-c-text-1);
-  font-size: 0.88rem;
-  outline: none;
-  font-family: inherit;
-  resize: vertical;
-}
-
-.no-filtered-cards {
-  text-align: center;
-  padding: 4rem 1rem;
-  background: var(--vp-c-bg-soft);
-  border-radius: 16px;
-}
-.reset-filter-btn {
-  margin-top: 1rem;
-  padding: 0.5rem 1.5rem;
-  border-radius: 20px;
-  background: var(--vp-c-brand-1);
-  color: #fff;
+  color: #f43f5e;
+  background: transparent;
   border: none;
   cursor: pointer;
 }
 
-.mobile-only {
-  display: none;
-}
-.desktop-only {
-  display: inline;
+.drawer-all-link {
+  font-size: 0.75rem;
+  color: var(--vp-c-brand-1);
+  text-decoration: none;
 }
 
+/* Bottom Action Dock */
+.card-action-dock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 1.6rem;
+  background: rgba(120, 120, 128, 0.03);
+  border-top: 1px solid rgba(120, 120, 128, 0.1);
+  gap: 1rem;
+}
+
+.dock-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.48rem 0.9rem;
+  border-radius: 12px;
+  border: 1px solid rgba(120, 120, 128, 0.16);
+  background: var(--vp-c-bg);
+  color: var(--vp-c-text-2);
+  font-size: 0.84rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.dock-nav-btn:hover:not(:disabled) {
+  color: var(--vp-c-text-1);
+  border-color: var(--vp-c-brand-1);
+}
+
+.dock-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.dock-arrow-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Center Action Area */
+.dock-center-action {
+  flex: 1;
+  max-width: 440px;
+  display: flex;
+  justify-content: center;
+}
+
+.dock-reveal-trigger {
+  width: 100%;
+  max-width: 280px;
+  padding: 0.6rem 1rem;
+  border-radius: 20px;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  background: rgba(99, 102, 241, 0.06);
+  color: var(--vp-c-brand-1);
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+
+.dock-reveal-trigger:hover {
+  background: rgba(99, 102, 241, 0.14);
+}
+
+/* 3 Tactile Rating Buttons */
+.dock-rating-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.rate-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.45rem 0.5rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  background: rgba(120, 120, 128, 0.05);
+}
+
+.rate-btn .rate-num {
+  font-size: 0.68rem;
+  opacity: 0.55;
+  font-family: ui-monospace, SFMono-Regular, monospace;
+}
+
+.rate-btn .rate-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 1px 0;
+}
+
+.rate-btn .rate-sub {
+  font-size: 0.68rem;
+  opacity: 0.7;
+}
+
+/* Rating Hover & Active Themes */
+.rate-btn.hard {
+  color: #f43f5e;
+}
+.rate-btn.hard:hover, .rate-btn.hard.active {
+  background: rgba(244, 63, 94, 0.12);
+  border-color: rgba(244, 63, 94, 0.35);
+}
+
+.rate-btn.medium {
+  color: #f59e0b;
+}
+.rate-btn.medium:hover, .rate-btn.medium.active {
+  background: rgba(245, 158, 11, 0.12);
+  border-color: rgba(245, 158, 11, 0.35);
+}
+
+.rate-btn.easy {
+  color: #10b981;
+}
+.rate-btn.easy:hover, .rate-btn.easy.active {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.35);
+}
+
+/* ================= 3. MODE 2: TOPIC ACCORDION LIST ================= */
+.topic-list-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.list-summary-bar {
+  font-size: 0.84rem;
+  color: var(--vp-c-text-3);
+  padding: 0 0.2rem;
+}
+
+.list-summary-bar b {
+  color: var(--vp-c-text-1);
+}
+
+.summary-sep {
+  margin: 0 0.4rem;
+}
+
+.topic-cards-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.topic-group-card {
+  background: var(--vp-c-bg);
+  border: 1px solid rgba(120, 120, 128, 0.16);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.05);
+}
+
+.dark .topic-group-card {
+  background: #151a24;
+  border-color: rgba(255, 255, 255, 0.07);
+}
+
+.group-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.95rem 1.4rem;
+  background: rgba(120, 120, 128, 0.03);
+  cursor: pointer;
+  user-select: none;
+  border-bottom: 1px solid rgba(120, 120, 128, 0.08);
+  transition: background 0.15s;
+}
+
+.group-banner:hover {
+  background: rgba(120, 120, 128, 0.06);
+}
+
+.banner-left-info {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.topic-index-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: var(--vp-c-brand-1);
+  color: #fff;
+}
+
+.topic-title-text {
+  margin: 0;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--vp-c-text-1);
+}
+
+.topic-card-count {
+  font-size: 0.76rem;
+  color: var(--vp-c-brand-1);
+  background: rgba(99, 102, 241, 0.1);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.banner-right-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.topic-drill-link {
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 14px;
+  border: 1px solid var(--vp-c-brand-1);
+  background: transparent;
+  color: var(--vp-c-brand-1);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.topic-drill-link:hover {
+  background: var(--vp-c-brand-1);
+  color: #fff;
+}
+
+.collapse-caret {
+  font-size: 0.76rem;
+  color: var(--vp-c-text-3);
+}
+
+/* Rows Inside Topic Accordion */
+.topic-items-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-q-row {
+  border-bottom: 1px solid rgba(120, 120, 128, 0.08);
+}
+
+.list-q-row:last-child {
+  border-bottom: none;
+}
+
+.row-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 1.4rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.row-header:hover {
+  background: rgba(120, 120, 128, 0.03);
+}
+
+.row-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex: 1;
+  overflow: hidden;
+}
+
+.row-num {
+  font-family: ui-monospace, monospace;
+  font-size: 0.78rem;
+  color: var(--vp-c-text-3);
+}
+
+.row-source {
+  font-size: 0.74rem;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: rgba(120, 120, 128, 0.08);
+  color: var(--vp-c-text-2);
+  white-space: nowrap;
+}
+
+.row-preview {
+  font-size: 0.9rem;
+  color: var(--vp-c-text-1);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.row-expand-arrow {
+  font-size: 0.76rem;
+  color: var(--vp-c-text-3);
+  margin-left: 0.6rem;
+}
+
+/* Row Expanded Body */
+.row-expanded-body {
+  padding: 1rem 1.4rem 1.4rem;
+  background: rgba(120, 120, 128, 0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  border-top: 1px dashed rgba(120, 120, 128, 0.1);
+}
+
+.sub-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--vp-c-brand-1);
+  margin-bottom: 0.3rem;
+}
+
+.q-content {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--vp-c-text-1);
+}
+
+.a-content {
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: var(--vp-c-text-2);
+}
+
+.inline-note-box {
+  margin-top: 0.4rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid rgba(120, 120, 128, 0.1);
+}
+
+.inline-note-head {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--vp-c-text-3);
+  margin-bottom: 0.3rem;
+}
+
+.inline-note-input {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid rgba(120, 120, 128, 0.16);
+  background: var(--vp-c-bg);
+  color: var(--vp-c-text-1);
+  padding: 0.5rem;
+  font-size: 0.82rem;
+  outline: none;
+}
+.inline-note-input:focus {
+  border-color: var(--vp-c-brand-1);
+}
+
+/* ================= 4. MOBILE ADAPTATION ================= */
 @media (max-width: 768px) {
-  .mobile-only {
-    display: inline;
-  }
-  .desktop-only {
-    display: none !important;
-  }
-  .gesture-tip {
-    font-size: 0.72rem;
-    color: var(--vp-c-brand-1);
-    font-weight: 500;
-  }
   .chapter-deck-container {
-    padding: 0;
+    margin: 0.2rem auto 2rem;
   }
-  .deck-toolbar {
+
+  .control-top-row {
     flex-direction: column;
-    gap: 0.6rem;
-    margin-bottom: 0.8rem;
+    align-items: stretch;
+    gap: 0.5rem;
   }
-  .mode-switch-group {
+
+  .segmented-control {
     width: 100%;
-    display: flex;
   }
-  .switch-btn {
+  .segment-btn {
     flex: 1;
-    padding: 0.45rem 0.3rem;
-    font-size: 0.78rem;
-    text-align: center;
-    white-space: nowrap;
+    justify-content: center;
   }
-  .deck-filter-group {
-    width: 100%;
-    display: flex;
+
+  .header-tools-group {
     justify-content: space-between;
-    gap: 0.5rem;
   }
-  .filter-select {
+
+  .status-filter-pills {
     flex: 1;
-    font-size: 0.8rem;
-    padding: 0.35rem 0.5rem;
+    justify-content: space-between;
   }
-  .open-notes-hub-link {
-    font-size: 0.78rem;
-    padding: 0.35rem 0.6rem;
+
+  .unibody-card {
+    border-radius: 16px;
   }
-  .card-deck-card {
-    min-height: 480px;
-    border-radius: 12px;
-    margin: 0;
+
+  .card-meta-bar {
+    padding: 0.8rem 1rem 0.5rem;
   }
-  .card-deck-header {
-    padding: 0.8rem 1rem;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-  .header-left {
-    gap: 0.4rem;
-  }
-  .header-right {
-    gap: 0.5rem;
-  }
-  .card-deck-body {
+
+  .card-content-area {
     padding: 1.2rem 1rem;
   }
-  .reveal-btn-center {
-    width: 90%;
-    max-width: 320px;
-    min-height: 46px;
-    font-size: 0.92rem;
-    border-radius: 24px;
+
+  .q-typography {
+    font-size: 1.05rem;
+    line-height: 1.65;
   }
-  .feedback-btn-row {
-    grid-template-columns: repeat(3, 1fr);
+
+  .a-typography {
+    font-size: 0.94rem;
+    line-height: 1.75;
+  }
+
+  .card-body-layout {
+    flex-direction: column;
+    min-height: 320px;
+  }
+
+  .note-drawer-panel {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid rgba(120, 120, 128, 0.14);
+    padding: 1rem;
+  }
+
+  .card-action-dock {
+    padding: 0.75rem 0.8rem;
     gap: 0.4rem;
   }
-  .fb-btn {
-    min-height: 46px;
-    padding: 0.4rem 0.2rem;
-    font-size: 0.82rem;
-    border-radius: 10px;
+
+  .dock-btn-label {
+    display: none;
   }
-  .card-deck-nav {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.6rem;
-    padding: 0.8rem 1rem;
+
+  .dock-nav-btn {
+    padding: 0.5rem;
   }
-  .nav-jumper {
-    grid-column: span 2;
-    order: -1;
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
+
+  .dock-rating-grid {
+    gap: 0.3rem;
   }
-  .jumper-select {
-    width: 100%;
-    height: 42px;
-    font-size: 0.84rem;
+
+  .rate-btn {
+    padding: 0.35rem 0.2rem;
   }
-  .nav-arrow-btn {
-    min-height: 44px;
-    font-size: 0.88rem;
-    justify-content: center;
-    border-radius: 22px;
+
+  .rate-btn .rate-name {
+    font-size: 0.78rem;
   }
-  .card-deck-card.with-note-expanded .card-deck-body-wrapper {
-    flex-direction: column;
+
+  .rate-btn .rate-sub {
+    display: none;
   }
-  .card-deck-note-drawer {
-    width: 100%;
-    max-width: 100%;
-    border-left: none;
-    border-top: 1px solid var(--vp-c-divider);
-    padding: 1rem;
+
+  .row-header {
+    padding: 0.75rem 1rem;
+  }
+  .row-expanded-body {
+    padding: 0.8rem 1rem 1rem;
   }
 }
 </style>

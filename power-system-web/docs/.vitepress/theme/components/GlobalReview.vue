@@ -224,7 +224,7 @@
               <span v-else-if="item.state.lastRating === 'easy'">🟢 已掌握</span>
             </div>
             <div class="record-content">
-              <div class="record-ch">第 {{ item.chapter }} 章 · {{ item.sourceTag }}</div>
+              <div class="record-ch">第 {{ item.chapter }} 章 · <span class="record-topic-pill" v-if="item.topic">📌 {{ item.topic.split('：')[1] || item.topic }} · </span>{{ item.sourceTag }}</div>
               <div class="record-q">{{ item.question.slice(0, 55) }}...</div>
             </div>
             <div class="record-actions">
@@ -257,7 +257,7 @@
           进度: <b>{{ currentCardIndex + 1 }}</b> / {{ sessionCards.length }} 题
         </div>
         <div class="card-origin">
-          第 {{ currentCard.chapter }} 章 · {{ currentCard.sourceTag || '历年真题' }}
+          第 {{ currentCard.chapter }} 章 · <span class="origin-topic-pill" v-if="currentCard.topic">📌 {{ currentCard.topic.split('：')[1] || currentCard.topic }} · </span>{{ currentCard.sourceTag || '历年真题' }}
         </div>
         <div class="topbar-actions">
           <button 
@@ -1333,8 +1333,22 @@ onUnmounted(() => {
   .btn-main {
     font-size: 0.92rem;
   }
-  .btn-sub {
-    font-size: 0.72rem;
+  .origin-topic-pill {
+    color: var(--vp-c-brand-1);
+    font-weight: 600;
   }
+  .record-topic-pill {
+    color: var(--vp-c-brand-1);
+    font-weight: 600;
+  }
+}
+
+.origin-topic-pill {
+  color: var(--vp-c-brand-1);
+  font-weight: 600;
+}
+.record-topic-pill {
+  color: var(--vp-c-brand-1);
+  font-weight: 600;
 }
 </style>

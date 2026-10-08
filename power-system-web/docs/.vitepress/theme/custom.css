@@ -1,43 +1,46 @@
 /* Mobile & Responsive optimization */
 :root {
-  --vp-c-brand-1: #646cff;
-  --vp-c-brand-2: #42b883;
-  --vp-c-brand-rgb: 100, 108, 255;
+  --vp-c-brand-1: #6366f1;
+  --vp-c-brand-2: #818cf8;
+  --vp-c-brand-rgb: 99, 102, 241;
 }
 
 .dark {
-  --vp-c-bg: #1a1a1a;
-  --vp-c-bg-soft: #242424;
-  --vp-c-border: #333;
+  --vp-c-bg: #0b0f19;
+  --vp-c-bg-soft: #111827;
+  --vp-c-bg-alt: #1f293d;
+  --vp-c-border: rgba(255, 255, 255, 0.08);
 }
 
 body {
   padding-bottom: env(safe-area-inset-bottom, 0px);
-  -webkit-tap-highlight-color: rgba(100, 108, 255, 0.15);
+  -webkit-tap-highlight-color: rgba(99, 102, 241, 0.15);
   overscroll-behavior-y: contain;
 }
 
 /* Custom styles for the app layout */
 .VPDoc {
-  padding-top: 1rem !important;
+  padding-top: 0.5rem !important;
 }
 
-.VPDoc h4 {
-  color: var(--vp-c-brand-1);
-  margin-top: 3rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--vp-c-brand-2);
+.VPDoc h1 {
+  font-size: 1.45rem !important;
+  font-weight: 750 !important;
+  margin-top: 0.2rem !important;
+  margin-bottom: 0.8rem !important;
+  letter-spacing: -0.02em !important;
+  border: none !important;
+  padding-bottom: 0 !important;
 }
 
-/* Make sure MathJax renders correctly inside the blurred container */
-.quiz-answer-container.blurred .MathJax {
-  opacity: 0.2;
+.VPDoc .container {
+  max-width: 980px !important;
 }
 
-/* Scrollbar styling for better aesthetics */
+/* Scrollbar styling */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
@@ -50,7 +53,7 @@ body {
   background: var(--vp-c-text-3);
 }
 
-/* KaTeX math formula styling adjustments - Mobile scrollable protection */
+/* KaTeX math formula styling adjustments */
 .katex {
   font-size: 1.05em;
   text-rendering: auto;
@@ -61,30 +64,28 @@ body {
   margin: 0.8rem 0;
   overflow-x: auto;
   overflow-y: hidden;
-  padding: 0.4rem 0;
+  padding: 0.3rem 0;
   -webkit-overflow-scrolling: touch;
   max-width: 100%;
 }
 
 .katex-display::-webkit-scrollbar {
-  height: 4px;
-}
-
-/* Ensure blurred answer container blurs KaTeX too */
-.quiz-answer-container.blurred .katex {
-  filter: blur(4px);
-  opacity: 0.25;
+  height: 3px;
 }
 
 /* Mobile Screen Layout Tweaks */
 @media (max-width: 768px) {
   .VPDoc {
-    padding-top: 0.5rem !important;
+    padding-top: 0.25rem !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
+  .VPDoc h1 {
+    font-size: 1.25rem !important;
+    margin-bottom: 0.5rem !important;
+  }
   .VPDoc .container {
-    padding: 0 8px !important;
+    padding: 0 10px !important;
     max-width: 100% !important;
   }
   .VPDoc .content {
@@ -92,4 +93,3 @@ body {
     max-width: 100% !important;
   }
 }
-

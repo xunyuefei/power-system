@@ -1,0 +1,3712 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>⚡ 华电《电力系统分析》全真题库·智能刷题系统</title>
+  <meta name="description" content="华北电力大学《电力系统分析》历年期末试卷与历年考研真题选择题、判断题智能沉浸式刷题平台">
+  <!-- Google Fonts (with graceful system fallback) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       1. CSS VARIABLES & DESIGN TOKENS
+       ========================================================================== */
+    :root {
+      --bg-main: #0a0e17;
+      --bg-secondary: #0f172a;
+      --bg-card: rgba(19, 27, 46, 0.82);
+      --bg-card-hover: rgba(30, 41, 69, 0.92);
+      --bg-input: #151f38;
+      --border-subtle: rgba(255, 255, 255, 0.09);
+      --border-active: rgba(56, 189, 248, 0.5);
+      --border-glow: rgba(56, 189, 248, 0.25);
+
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+
+      --primary: #38bdf8;
+      --primary-gradient: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+      --accent-indigo: #818cf8;
+      --success: #10b981;
+      --success-bg: rgba(16, 185, 129, 0.16);
+      --success-border: rgba(16, 185, 129, 0.5);
+      --danger: #f43f5e;
+      --danger-bg: rgba(244, 63, 94, 0.16);
+      --danger-border: rgba(244, 63, 94, 0.5);
+      --warning: #f59e0b;
+      --warning-bg: rgba(245, 158, 11, 0.16);
+      --warning-border: rgba(245, 158, 11, 0.5);
+      --conflict: #ea580c;
+      --conflict-bg: rgba(234, 88, 12, 0.16);
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 26px;
+
+      --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.55);
+      --shadow-glow: 0 0 25px rgba(56, 189, 248, 0.25);
+
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      --font-heading: 'Outfit', 'Inter', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', Consolas, "Courier New", monospace;
+
+      --app-font-scale: 1rem;
+      --mobile-bottom-nav-height: 64px;
+    }
+
+    [data-font-size="large"] {
+      --app-font-scale: 1.12rem;
+    }
+    [data-font-size="huge"] {
+      --app-font-scale: 1.25rem;
+    }
+
+    /* ==========================================================================
+       2. RESET & BASE STYLES
+       ========================================================================== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: var(--app-font-scale);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(99, 102, 241, 0.08) 0%, transparent 45%);
+      background-attachment: fixed;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      color: inherit;
+    }
+
+    /* ==========================================================================
+       3. MATH FORMULA TYPOGRAPHY (BUILT-IN BEAUTIFIER)
+       ========================================================================== */
+    .math-expr {
+      font-family: var(--font-mono);
+      font-style: normal;
+      font-weight: 500;
+      display: inline-block;
+      padding: 0 4px;
+      color: #7dd3fc; /* electric cyan */
+      background: rgba(56, 189, 248, 0.09);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: 4px;
+      margin: 0 2px;
+      vertical-align: baseline;
+      word-break: break-word;
+    }
+
+    .math-expr sub {
+      font-size: 0.76em;
+      vertical-align: -0.25em;
+      margin-left: 1px;
+      color: #bae6fd;
+    }
+
+    .math-expr sup {
+      font-size: 0.76em;
+      vertical-align: 0.35em;
+      margin-left: 1px;
+      color: #bae6fd;
+    }
+
+    .math-var {
+      font-style: italic;
+      font-family: "Cambria Math", "Times New Roman", serif;
+      padding: 0 1px;
+    }
+
+    .math-unit {
+      font-style: normal;
+      font-family: var(--font-mono);
+      margin-left: 2px;
+      color: #38bdf8;
+    }
+
+    /* ==========================================================================
+       4. TOP NAVBAR (DESKTOP & MOBILE HEADER)
+       ========================================================================== */
+    .navbar {
+      height: 68px;
+      background: rgba(10, 14, 23, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--primary-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.35);
+    }
+
+    .brand-title {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-badge {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 20px;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--primary);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    /* Desktop Navigation Tabs */
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 4px;
+      border-radius: 12px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .nav-btn {
+      background: transparent;
+      border: none;
+      padding: 7px 13px;
+      border-radius: 8px;
+      font-size: 0.86rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-btn:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .nav-btn.active {
+      background: var(--primary-gradient);
+      color: #ffffff;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(56, 189, 248, 0.25);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.05rem;
+      transition: all 0.2s ease;
+    }
+
+    .icon-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-primary);
+      border-color: var(--primary);
+    }
+
+    /* ==========================================================================
+       5. MOBILE BOTTOM NAVIGATION (手机端专属底部栏)
+       ========================================================================== */
+    .mobile-bottom-nav {
+      display: none; /* hidden on desktop */
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: var(--mobile-bottom-nav-height);
+      background: rgba(15, 23, 42, 0.94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid var(--border-subtle);
+      z-index: 150;
+      justify-content: space-around;
+      align-items: center;
+      padding: 0 6px;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .mob-tab-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      font-size: 0.72rem;
+      font-weight: 500;
+      gap: 3px;
+      flex: 1;
+      height: 100%;
+      cursor: pointer;
+      position: relative;
+      transition: color 0.15s ease;
+    }
+
+    .mob-tab-icon {
+      font-size: 1.25rem;
+      line-height: 1;
+    }
+
+    .mob-tab-btn.active {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .mob-badge {
+      position: absolute;
+      top: 6px;
+      right: 18%;
+      background: var(--danger);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 1px 5px;
+      border-radius: 10px;
+      line-height: 1.2;
+    }
+
+    /* ==========================================================================
+       6. MAIN CONTENT WRAPPER
+       ========================================================================== */
+    .app-container {
+      flex: 1;
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .view-panel {
+      display: none;
+      animation: fadeIn 0.2s ease-out;
+    }
+
+    .view-panel.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ==========================================================================
+       7. DASHBOARD VIEW (题库大厅)
+       ========================================================================== */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 26px;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-active);
+    }
+
+    .stat-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 70px;
+      height: 70px;
+      background: radial-gradient(circle, var(--stat-glow, rgba(56, 189, 248, 0.15)) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .stat-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .stat-label {
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .stat-icon {
+      font-size: 1.25rem;
+    }
+
+    .stat-value {
+      font-family: var(--font-heading);
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .stat-sub {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    /* Section Title */
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 24px 0 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 16px;
+      border-radius: 4px;
+      background: var(--primary);
+    }
+
+    /* Practice Mode Cards */
+    .mode-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .mode-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+
+    .mode-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--border-active);
+      box-shadow: 0 10px 25px -8px rgba(56, 189, 248, 0.25);
+    }
+
+    .mode-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .mode-content {
+      flex: 1;
+    }
+
+    .mode-name {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mode-badge {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-secondary);
+    }
+
+    .mode-desc {
+      font-size: 0.83rem;
+      color: var(--text-secondary);
+      line-height: 1.45;
+      margin-bottom: 10px;
+    }
+
+    .mode-action {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    /* Chapter breakdown grid */
+    .chapter-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 14px;
+      margin-bottom: 30px;
+    }
+
+    .chapter-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 16px 18px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .chapter-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      background: var(--bg-card-hover);
+    }
+
+    .chapter-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .chapter-num {
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .chapter-count {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .chapter-title {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .progress-bar-wrap {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--primary-gradient);
+      border-radius: 4px;
+      transition: width 0.4s ease;
+    }
+
+    /* Filter Panel */
+    .filter-panel {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      margin-bottom: 30px;
+    }
+
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .filter-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .filter-label {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      width: 72px;
+      flex-shrink: 0;
+    }
+
+    .filter-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      flex: 1;
+    }
+
+    .chip {
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(255, 255, 255, 0.035);
+      color: var(--text-secondary);
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      user-select: none;
+    }
+
+    .chip:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-primary);
+    }
+
+    .chip.active {
+      background: rgba(56, 189, 248, 0.18);
+      border-color: var(--primary);
+      color: var(--primary);
+      font-weight: 600;
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+    }
+
+    .search-input-wrap {
+      flex: 1;
+      min-width: 240px;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 10px 14px 10px 38px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+    }
+
+    .search-icon-inside {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    .filter-action-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .filter-count-info {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+
+    .filter-count-info strong {
+      color: var(--primary);
+    }
+
+    .btn-primary {
+      background: var(--primary-gradient);
+      color: #ffffff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: var(--radius-md);
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-primary:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* ==========================================================================
+       8. PRACTICE VIEW (答题核心区 - 移动端&电脑端自适应)
+       ========================================================================== */
+    .practice-container {
+      max-width: 900px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .practice-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      gap: 10px;
+    }
+
+    .practice-mode-tag {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary);
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      padding: 4px 12px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .practice-progress-text {
+      font-family: var(--font-mono);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .practice-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .practice-progress-bar {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .practice-progress-fill {
+      height: 100%;
+      background: var(--primary-gradient);
+      width: 0%;
+      transition: width 0.3s ease;
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+    }
+
+    /* Question Card */
+    .question-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      box-shadow: var(--shadow-card);
+      position: relative;
+      margin-bottom: 22px;
+      transition: all 0.2s ease;
+    }
+
+    .q-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .q-id-badge {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      padding: 3px 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      color: var(--text-secondary);
+    }
+
+    .q-type-badge {
+      font-size: 0.74rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 6px;
+    }
+
+    .badge-single { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+    .badge-multiple { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
+    .badge-indefinite { background: rgba(244, 63, 94, 0.15); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.3); }
+    .badge-judge { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+
+    .q-chapter-badge {
+      font-size: 0.74rem;
+      padding: 3px 10px;
+      border-radius: 6px;
+      background: rgba(245, 158, 11, 0.12);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.25);
+    }
+
+    .q-verified-badge {
+      font-size: 0.72rem;
+      padding: 2px 7px;
+      border-radius: 6px;
+      background: rgba(16, 185, 129, 0.1);
+      color: #10b981;
+    }
+
+    .q-paper-title {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      width: 100%;
+      margin-top: 2px;
+    }
+
+    .q-topic-line {
+      font-size: 0.86rem;
+      color: var(--primary);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .q-stem {
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      line-height: 1.7;
+      margin-bottom: 24px;
+      word-break: break-word;
+    }
+
+    /* Options */
+    .options-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .option-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      user-select: none;
+    }
+
+    .option-card:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(56, 189, 248, 0.35);
+      transform: translateX(3px);
+    }
+
+    .option-card:active {
+      transform: scale(0.99);
+    }
+
+    .option-card.selected {
+      background: rgba(56, 189, 248, 0.14);
+      border-color: var(--primary);
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.22);
+    }
+
+    /* Post-submit states */
+    .option-card.correct-answer {
+      background: var(--success-bg) !important;
+      border-color: var(--success) !important;
+      color: #ffffff;
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.28);
+    }
+
+    .option-card.wrong-selected {
+      background: var(--danger-bg) !important;
+      border-color: var(--danger) !important;
+      color: #ffffff;
+      box-shadow: 0 0 15px rgba(244, 63, 94, 0.28);
+    }
+
+    .option-badge {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+
+    .option-card.selected .option-badge {
+      background: var(--primary);
+      color: #000000;
+      border-color: var(--primary);
+    }
+
+    .option-card.correct-answer .option-badge {
+      background: var(--success);
+      color: #ffffff;
+      border-color: var(--success);
+    }
+
+    .option-card.wrong-selected .option-badge {
+      background: var(--danger);
+      color: #ffffff;
+      border-color: var(--danger);
+    }
+
+    .option-text {
+      flex: 1;
+      font-size: 1rem;
+      line-height: 1.55;
+      padding-top: 3px;
+      word-break: break-word;
+    }
+
+    /* Judge specific big cards */
+    .judge-options-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .judge-card {
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      gap: 10px;
+      user-select: none;
+    }
+
+    .judge-card:hover {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .judge-card:active {
+      transform: scale(0.98);
+    }
+
+    .judge-card.selected {
+      background: rgba(56, 189, 248, 0.16);
+      border-color: var(--primary);
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.25);
+    }
+
+    .judge-card.correct-answer {
+      background: var(--success-bg) !important;
+      border-color: var(--success) !important;
+    }
+
+    .judge-card.wrong-selected {
+      background: var(--danger-bg) !important;
+      border-color: var(--danger) !important;
+    }
+
+    .judge-symbol {
+      font-size: 2.2rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .judge-label {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    /* Practice Action Bar */
+    .practice-action-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .practice-hint {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+
+    /* Feedback & Explanation */
+    .feedback-panel {
+      display: none;
+      margin-top: 24px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border-subtle);
+      animation: fadeIn 0.25s ease;
+    }
+
+    .feedback-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 13px 18px;
+      border-radius: var(--radius-md);
+      margin-bottom: 18px;
+      font-weight: 600;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .feedback-banner.correct {
+      background: var(--success-bg);
+      border: 1px solid var(--success-border);
+      color: #34d399;
+    }
+
+    .feedback-banner.wrong {
+      background: var(--danger-bg);
+      border: 1px solid var(--danger-border);
+      color: #fb7185;
+    }
+
+    .feedback-banner.pending {
+      background: var(--warning-bg);
+      border: 1px solid var(--warning-border);
+      color: #fbbf24;
+    }
+
+    .explanation-box {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 16px 18px;
+      margin-bottom: 16px;
+    }
+
+    .exp-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .exp-body {
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      line-height: 1.7;
+      word-break: break-word;
+    }
+
+    .conflict-box {
+      background: var(--conflict-bg);
+      border: 1px solid rgba(234, 88, 12, 0.45);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      margin-bottom: 16px;
+    }
+
+    .conflict-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #fb923c;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .conflict-body {
+      font-size: 0.86rem;
+      color: #fdba74;
+      line-height: 1.6;
+    }
+
+    .user-note-box {
+      margin-top: 14px;
+    }
+
+    .note-toggle-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      font-size: 0.84rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 0;
+    }
+
+    .note-toggle-btn:hover {
+      color: var(--primary);
+    }
+
+    .note-textarea {
+      width: 100%;
+      height: 70px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      color: var(--text-primary);
+      font-size: 0.88rem;
+      margin-top: 8px;
+      outline: none;
+      resize: vertical;
+    }
+
+    .note-textarea:focus {
+      border-color: var(--primary);
+    }
+
+    /* Bottom Practice Navigation */
+    .practice-nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .btn-nav {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      padding: 11px 22px;
+      border-radius: var(--radius-md);
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .btn-nav:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--primary);
+    }
+
+    .btn-nav:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .btn-bookmark {
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      color: #fbbf24;
+      padding: 7px 14px;
+      border-radius: var(--radius-md);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-bookmark.bookmarked {
+      background: #f59e0b;
+      color: #000000;
+      border-color: #f59e0b;
+      box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+    }
+
+    /* ==========================================================================
+       9. ANSWER SHEET DRAWER (答题卡)
+       ========================================================================== */
+    .drawer-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(8px);
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .drawer-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .drawer {
+      position: fixed;
+      top: 0; right: 0; bottom: 0;
+      width: 100%;
+      max-width: 440px;
+      background: var(--bg-secondary);
+      border-left: 1px solid var(--border-subtle);
+      z-index: 201;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .drawer-overlay.active .drawer {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .drawer-title {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .drawer-body {
+      flex: 1;
+      padding: 18px 22px;
+      overflow-y: auto;
+    }
+
+    .drawer-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 0.8rem;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 4px;
+    }
+
+    .sheet-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+
+    .sheet-cell {
+      height: 44px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      cursor: pointer;
+      position: relative;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+
+    .sheet-cell:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--primary);
+      color: var(--text-primary);
+    }
+
+    .sheet-cell.current {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px var(--primary);
+      color: var(--primary);
+      background: rgba(56, 189, 248, 0.12);
+    }
+
+    .sheet-cell.correct {
+      background: var(--success-bg);
+      border-color: var(--success-border);
+      color: #34d399;
+    }
+
+    .sheet-cell.wrong {
+      background: var(--danger-bg);
+      border-color: var(--danger-border);
+      color: #fb7185;
+    }
+
+    .sheet-cell.bookmarked::after {
+      content: '★';
+      position: absolute;
+      top: 2px;
+      right: 3px;
+      font-size: 0.65rem;
+      color: #f59e0b;
+    }
+
+    /* ==========================================================================
+       10. EXAM VIEW & MODALS
+       ========================================================================== */
+    .exam-timer-bar {
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .exam-timer {
+      font-family: var(--font-mono);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .exam-timer.urgent {
+      color: var(--danger);
+      animation: pulseUrgent 1s infinite;
+    }
+
+    @keyframes pulseUrgent {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    /* Modals */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 300;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      max-width: 560px;
+      width: 100%;
+      padding: 28px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      position: relative;
+      animation: modalSlide 0.22s ease;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    @keyframes modalSlide {
+      from { transform: scale(0.96); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .modal-title {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .report-score-box {
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      text-align: center;
+      margin-bottom: 20px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .report-big-score {
+      font-family: var(--font-heading);
+      font-size: 3.4rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .report-stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .report-stat-val {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .report-stat-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Global Search Modal */
+    .global-search-modal {
+      max-width: 720px;
+    }
+
+    .search-results-list {
+      max-height: 380px;
+      overflow-y: auto;
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .search-result-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .search-result-item:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--primary);
+    }
+
+    .s-item-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 4px;
+      font-size: 0.78rem;
+    }
+
+    .s-item-title {
+      font-size: 0.92rem;
+      color: var(--text-primary);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Toast component */
+    .toast-container {
+      position: fixed;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid var(--primary);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(56, 189, 248, 0.3);
+      color: #f1f5f9;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      z-index: 500;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toast-container.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-6px);
+      pointer-events: auto;
+    }
+
+    /* ==========================================================================
+       11. MOBILE & TABLET RESPONSIVE ADAPTATIONS
+       ========================================================================== */
+    @media (max-width: 768px) {
+      body {
+        padding-bottom: var(--mobile-bottom-nav-height);
+      }
+
+      .navbar {
+        height: 58px;
+        padding: 0 14px;
+      }
+
+      .brand-title span:last-child {
+        display: none;
+      }
+
+      .brand-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 18px;
+      }
+
+      .nav-menu {
+        display: none; /* Replaced by bottom nav */
+      }
+
+      .mobile-bottom-nav {
+        display: flex;
+      }
+
+      .app-container {
+        padding: 14px 12px;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-bottom: 18px;
+      }
+
+      .stat-card {
+        padding: 14px 12px;
+        border-radius: var(--radius-md);
+      }
+
+      .stat-value {
+        font-size: 1.6rem;
+      }
+
+      .stat-label {
+        font-size: 0.78rem;
+      }
+
+      .mode-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .mode-card {
+        padding: 16px;
+      }
+
+      .mode-icon {
+        width: 42px;
+        height: 42px;
+        font-size: 1.3rem;
+      }
+
+      .chapter-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .filter-panel {
+        padding: 16px 14px;
+      }
+
+      .filter-label {
+        width: 100%;
+        margin-bottom: 2px;
+      }
+
+      .question-card {
+        padding: 18px 14px;
+        border-radius: var(--radius-lg);
+        margin-bottom: 16px;
+      }
+
+      .q-stem {
+        font-size: 1.05rem;
+        line-height: 1.6;
+        margin-bottom: 18px;
+      }
+
+      .option-card {
+        padding: 12px 14px;
+        gap: 10px;
+      }
+
+      .option-badge {
+        width: 28px;
+        height: 28px;
+        font-size: 0.88rem;
+      }
+
+      .option-text {
+        font-size: 0.94rem;
+      }
+
+      .judge-options-grid {
+        gap: 10px;
+      }
+
+      .judge-card {
+        padding: 16px;
+      }
+
+      .judge-symbol {
+        font-size: 1.8rem;
+      }
+
+      .practice-action-bar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn-primary {
+        width: 100%;
+        padding: 12px;
+      }
+
+      .practice-nav-bar {
+        position: sticky;
+        bottom: calc(var(--mobile-bottom-nav-height) + 8px);
+        background: rgba(10, 14, 23, 0.92);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        padding: 8px 12px;
+        border-radius: 16px;
+        border: 1px solid var(--border-subtle);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        z-index: 90;
+      }
+
+      .btn-nav {
+        flex: 1;
+        padding: 10px 14px;
+        justify-content: center;
+        font-size: 0.86rem;
+      }
+
+      /* Drawer in mobile */
+      .drawer {
+        max-width: 100%;
+        border-left: none;
+      }
+
+      /* Modal as bottom sheet in mobile */
+      .modal-card {
+        border-radius: 20px 20px 0 0;
+        position: fixed;
+        bottom: 0;
+        max-height: 85vh;
+        margin: 0;
+        padding: 22px 18px;
+      }
+
+      .toast-container {
+        bottom: 74px;
+      }
+    }
+
+    /* Scrollbars */
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- TOP NAVBAR -->
+  <header class="navbar">
+    <div class="nav-brand" onclick="switchView('dashboard')">
+      <div class="brand-icon">⚡</div>
+      <div class="brand-title">
+        <span>华电电分刷题宝</span>
+        <span class="brand-badge" id="totalQuestionsBadge">789题·全汇编</span>
+      </div>
+    </div>
+
+    <!-- Desktop Nav Menu -->
+    <nav class="nav-menu" id="topNavMenu">
+      <button class="nav-btn active" data-view="dashboard" onclick="switchView('dashboard')">🏠 大厅</button>
+      <button class="nav-btn" data-mode="sequential" onclick="startPracticeMode('sequential')">📝 顺序</button>
+      <button class="nav-btn" data-mode="random" onclick="startPracticeMode('random')">🎲 随机</button>
+      <button class="nav-btn" data-mode="wrong" onclick="startPracticeMode('wrong')">❌ 错题 (<span id="topWrongCount">0</span>)</button>
+      <button class="nav-btn" data-mode="bookmarks" onclick="startPracticeMode('bookmarks')">⭐ 收藏 (<span id="topBookmarkCount">0</span>)</button>
+      <button class="nav-btn" data-mode="chapters" onclick="scrollToChapters()">📊 章节</button>
+      <button class="nav-btn" data-mode="exam" onclick="openExamSetupModal()">📋 模考</button>
+    </nav>
+
+    <!-- Top Action Icons -->
+    <div class="nav-actions">
+      <button class="icon-btn" title="全局搜索 (快捷键 /)" onclick="openSearchModal()">🔍</button>
+      <button class="icon-btn" title="个性化设置与数据同步" onclick="openSettingsModal()">⚙️</button>
+    </div>
+  </header>
+
+  <!-- MAIN VIEW CONTAINER -->
+  <main class="app-container">
+
+    <!-- ==========================================
+         VIEW 1: DASHBOARD (题库大厅)
+         ========================================== -->
+    <section id="view-dashboard" class="view-panel active">
+      <!-- Top Stat Metric Cards -->
+      <div class="stats-grid">
+        <div class="stat-card" style="--stat-glow: rgba(56, 189, 248, 0.2);">
+          <div class="stat-header">
+            <span class="stat-label">题库收录总数</span>
+            <span class="stat-icon">📚</span>
+          </div>
+          <div class="stat-value" id="statTotalQ">789</div>
+          <div class="stat-sub">期末 317 题 + 考研 472 题</div>
+        </div>
+
+        <div class="stat-card" style="--stat-glow: rgba(99, 102, 241, 0.2);">
+          <div class="stat-header">
+            <span class="stat-label">累计已刷题目</span>
+            <span class="stat-icon">🎯</span>
+          </div>
+          <div class="stat-value" id="statAttempted">0</div>
+          <div class="stat-sub" id="statAttemptedRate">完成度 0.0%</div>
+        </div>
+
+        <div class="stat-card" style="--stat-glow: rgba(16, 185, 129, 0.2);">
+          <div class="stat-header">
+            <span class="stat-label">综合答题正确率</span>
+            <span class="stat-icon">🏆</span>
+          </div>
+          <div class="stat-value" id="statAccuracy" style="color: var(--success);">0%</div>
+          <div class="stat-sub" id="statCorrectCount">答对 0 题</div>
+        </div>
+
+        <div class="stat-card" style="--stat-glow: rgba(244, 63, 94, 0.2);">
+          <div class="stat-header">
+            <span class="stat-label">错题攻坚本</span>
+            <span class="stat-icon">❌</span>
+          </div>
+          <div class="stat-value" id="statWrongCount" style="color: var(--danger);">0</div>
+          <div class="stat-sub">重练正确后自动消除</div>
+        </div>
+      </div>
+
+      <!-- Quick Mode Cards Grid -->
+      <h2 class="section-title">六大核心练习模式</h2>
+      <div class="mode-cards-grid">
+        <!-- 1. 顺序刷题 -->
+        <div class="mode-card" onclick="startPracticeMode('sequential')">
+          <div class="mode-icon" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8;">📝</div>
+          <div class="mode-content">
+            <div class="mode-name">
+              <span>顺序狂刷</span>
+              <span class="mode-badge">按试卷年序</span>
+            </div>
+            <div class="mode-desc">按历年试卷年份次序逐题突破，做一题判定一题，沉浸专注。</div>
+            <div class="mode-action">开始顺序刷题 <span>➔</span></div>
+          </div>
+        </div>
+
+        <!-- 2. 随机刷题 -->
+        <div class="mode-card" onclick="startPracticeMode('random')">
+          <div class="mode-icon" style="background: rgba(168, 85, 247, 0.15); color: #c084fc;">🎲</div>
+          <div class="mode-content">
+            <div class="mode-name">
+              <span>随机突击</span>
+              <span class="mode-badge">打乱顺序</span>
+            </div>
+            <div class="mode-desc">全库或指定范围随机抽选，避免形成位置记忆，培养真硬实力。</div>
+            <div class="mode-action">随机抽题练习 <span>➔</span></div>
+          </div>
+        </div>
+
+        <!-- 3. 错题消灭 -->
+        <div class="mode-card" onclick="startPracticeMode('wrong')">
+          <div class="mode-icon" style="background: rgba(244, 63, 94, 0.15); color: #fb7185;">❌</div>
+          <div class="mode-content">
+            <div class="mode-name">
+              <span>错题消灭营</span>
+              <span class="mode-badge" id="cardWrongBadge">0 题待攻克</span>
+            </div>
+            <div class="mode-desc">自动归集以往做错题，再次答对即移出错题本，精准攻坚弱项。</div>
+            <div class="mode-action">攻克薄弱错题 <span>➔</span></div>
+          </div>
+        </div>
+
+        <!-- 4. 重点收藏 -->
+        <div class="mode-card" onclick="startPracticeMode('bookmarks')">
+          <div class="mode-icon" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24;">⭐</div>
+          <div class="mode-content">
+            <div class="mode-name">
+              <span>重点收藏夹</span>
+              <span class="mode-badge" id="cardBookmarkBadge">0 题</span>
+            </div>
+            <div class="mode-desc">自主标星的经典、易混淆核心题目集合，考前反复咀嚼巩固。</div>
+            <div class="mode-action">查看重点题目 <span>➔</span></div>
+          </div>
+        </div>
+
+        <!-- 5. 模拟考试 -->
+        <div class="mode-card" onclick="openExamSetupModal()">
+          <div class="mode-icon" style="background: rgba(16, 185, 129, 0.15); color: #34d399;">📋</div>
+          <div class="mode-content">
+            <div class="mode-name">
+              <span>全真模拟考</span>
+              <span class="mode-badge">限时·统一批改</span>
+            </div>
+            <div class="mode-desc">仿真真实考场体验，答题过程不露答案，交卷生成多维成绩单。</div>
+            <div class="mode-action">配置并开考 <span>➔</span></div>
+          </div>
+        </div>
+
+        <!-- 6. 争议与待核定专项 -->
+        <div class="mode-card" onclick="startConflictMode()">
+          <div class="mode-icon" style="background: rgba(234, 88, 12, 0.15); color: #fb923c;">⚠️</div>
+          <div class="mode-content">
+            <div class="mode-name">
+              <span>争议与精校专区</span>
+              <span class="mode-badge">精校研读</span>
+            </div>
+            <div class="mode-desc">专项刷题包含答案争议提示与视频讲解来源的题目，扫除知识盲区。</div>
+            <div class="mode-action">专项透彻钻研 <span>➔</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter Breakdown Section -->
+      <h2 class="section-title" id="chaptersSection">八大核心知识模块·章节专练</h2>
+      <div class="chapter-grid" id="chapterCardsContainer">
+        <!-- Populated dynamically -->
+      </div>
+
+      <!-- Instant Filter & Custom Practice Panel -->
+      <h2 class="section-title">题库多维筛选与自由组题</h2>
+      <div class="filter-panel">
+        <div class="filter-row">
+          <span class="filter-label">试卷来源</span>
+          <div class="filter-chips" id="filterSource">
+            <button class="chip active" data-val="all">全部来源</button>
+            <button class="chip" data-val="期末">期末考试 (317)</button>
+            <button class="chip" data-val="考研">考研真题 (472)</button>
+          </div>
+        </div>
+
+        <div class="filter-row">
+          <span class="filter-label">试卷题型</span>
+          <div class="filter-chips" id="filterType">
+            <button class="chip active" data-val="all">全部题型</button>
+            <button class="chip" data-val="single">单项选择 (319)</button>
+            <button class="chip" data-val="multiple">多项选择 (93)</button>
+            <button class="chip" data-val="indefinite">不定项选择 (58)</button>
+            <button class="chip" data-val="judge">是非判断 (319)</button>
+          </div>
+        </div>
+
+        <div class="filter-row">
+          <span class="filter-label">答题状态</span>
+          <div class="filter-chips" id="filterStatus">
+            <button class="chip active" data-val="all">全部状态</button>
+            <button class="chip" data-val="unanswered">未作答</button>
+            <button class="chip" data-val="correct">已答对</button>
+            <button class="chip" data-val="wrong">已答错</button>
+          </div>
+        </div>
+
+        <div class="filter-row">
+          <span class="filter-label">答案校核</span>
+          <div class="filter-chips" id="filterVerified">
+            <button class="chip active" data-val="all">全部</button>
+            <button class="chip" data-val="verified">已校核答案</button>
+            <button class="chip" data-val="conflict">含争议/校核说明</button>
+          </div>
+        </div>
+
+        <div class="filter-row">
+          <span class="filter-label">关键字</span>
+          <div class="search-input-wrap">
+            <span class="search-icon-inside">🔍</span>
+            <input type="text" id="filterKeyword" class="search-input" placeholder="输入知识点/题号/关键词 (例如：零序、牛拉法、分接头、2025)..." oninput="onFilterChange()">
+          </div>
+        </div>
+
+        <div class="filter-action-bar">
+          <div class="filter-count-info">
+            符合当前筛选条件：<strong id="filteredCount">789</strong> 题
+          </div>
+          <button class="btn-primary" id="btnStartFiltered" onclick="startFilteredPractice()">
+            以此条件开始练习 ( <span id="filteredBtnCount">789</span> 题 ) ➔
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         VIEW 2: PRACTICE INTERFACE (沉浸式答题界面)
+         ========================================== -->
+    <section id="view-practice" class="view-panel">
+      <div class="practice-container">
+        <!-- Top header info -->
+        <div class="practice-header">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <button class="icon-btn" title="返回题库大厅" onclick="switchView('dashboard')">◀</button>
+            <span class="practice-mode-tag" id="curModeTag">📝 顺序刷题</span>
+          </div>
+          <div class="practice-progress-text" id="curProgressText">1 / 789</div>
+          <div class="practice-header-actions">
+            <button class="btn-bookmark" id="btnBookmark" onclick="toggleCurrentBookmark()">
+              <span id="bookmarkStarIcon">☆</span> <span id="bookmarkText">收藏</span>
+            </button>
+            <button class="icon-btn" title="查看答题卡" onclick="openDrawer()">📋</button>
+          </div>
+        </div>
+
+        <!-- Smooth Progress Bar -->
+        <div class="practice-progress-bar">
+          <div class="practice-progress-fill" id="curProgressFill"></div>
+        </div>
+
+        <!-- The Question Card -->
+        <div class="question-card" id="questionCard">
+          <div class="q-meta-row">
+            <span class="q-id-badge" id="qIdBadge">2025-2026-期末A-单选-01</span>
+            <span class="q-type-badge badge-single" id="qTypeBadge">单项选择题</span>
+            <span class="q-chapter-badge" id="qChapterBadge">⚡ 第1章 电力网基本概念</span>
+            <span class="q-verified-badge" id="qVerifiedBadge">【已核定】</span>
+            <div class="q-paper-title" id="qPaperTitle">华北电力大学 2025-2026 学年第一学期期末试卷(A)</div>
+          </div>
+
+          <div class="q-topic-line" id="qTopicLine">
+            <span>🎯 考查要点：</span><span id="qTopicText">电力网基本概念与组成</span>
+          </div>
+
+          <!-- Question Stem -->
+          <div class="q-stem" id="qStem">以下不属于电力网作用的是（ ）</div>
+
+          <!-- Options Container -->
+          <div id="optionsContainer">
+            <!-- Populated dynamically -->
+          </div>
+
+          <!-- Submit Button & Action Bar -->
+          <div class="practice-action-bar">
+            <div class="practice-hint" id="practiceHint">单选题：点击选项后确认提交</div>
+            <button class="btn-primary" id="btnSubmitAnswer" onclick="submitCurrentAnswer()">
+              确认提交 (Enter)
+            </button>
+          </div>
+
+          <!-- FEEDBACK & EXPLANATION PANEL (Submitted View) -->
+          <div class="feedback-panel" id="feedbackPanel">
+            <div class="feedback-banner" id="feedbackBanner">
+              <span id="feedbackBannerText">🎉 回答正确！</span>
+              <span id="feedbackCorrectAnswerText">标准答案: A</span>
+            </div>
+
+            <!-- Explanation -->
+            <div class="explanation-box" id="explanationBox">
+              <div class="exp-title">📖 官方与校核解析说明</div>
+              <div class="exp-body" id="explanationText"></div>
+            </div>
+
+            <!-- Conflict / Warning Box if exists -->
+            <div class="conflict-box" id="conflictBox" style="display: none;">
+              <div class="conflict-title">⚠️ 答案争议与校核备忘</div>
+              <div class="conflict-body" id="conflictText"></div>
+            </div>
+
+            <!-- User Note -->
+            <div class="user-note-box">
+              <button class="note-toggle-btn" onclick="toggleNoteInput()">
+                <span>📝 编写随题笔记</span>
+              </button>
+              <textarea id="userNoteInput" class="note-textarea" placeholder="记录你自己的思考、助记口诀或公式推导..." oninput="saveCurrentNote()"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Navigation Buttons -->
+        <div class="practice-nav-bar">
+          <button class="btn-nav" id="btnPrevQ" onclick="gotoPrevQuestion()">
+            <span>◀</span> 上一题 (A)
+          </button>
+          <button class="btn-nav" id="btnNextQ" onclick="gotoNextQuestion()">
+            下一题 (D) <span>▶</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         VIEW 3: EXAM RUNNING VIEW (全真模拟考试中)
+         ========================================== -->
+    <section id="view-exam" class="view-panel">
+      <div class="practice-container">
+        <!-- Exam Timer Bar -->
+        <div class="exam-timer-bar">
+          <div>
+            <span style="font-weight: 700;">📋 全真模拟考试</span>
+            <span style="font-size: 0.82rem; color: var(--text-muted); margin-left: 8px;" id="examPaperName">综合仿真卷</span>
+          </div>
+          <div class="exam-timer" id="examClock">
+            <span>⏱️</span> <span id="examTimerDigits">45:00</span>
+          </div>
+          <button class="btn-primary" style="background: var(--danger); padding: 7px 14px; font-size: 0.86rem;" onclick="confirmFinishExam()">
+            交卷评分
+          </button>
+        </div>
+
+        <!-- Exam Question View -->
+        <div id="examQuestionMount"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MOBILE BOTTOM NAVIGATION (手机端专属底部栏) -->
+  <nav class="mobile-bottom-nav">
+    <button class="mob-tab-btn active" data-tab="dashboard" onclick="switchView('dashboard')">
+      <span class="mob-tab-icon">🏠</span>
+      <span>大厅</span>
+    </button>
+    <button class="mob-tab-btn" data-tab="sequential" onclick="startPracticeMode('sequential')">
+      <span class="mob-tab-icon">📝</span>
+      <span>顺序</span>
+    </button>
+    <button class="mob-tab-btn" data-tab="random" onclick="startPracticeMode('random')">
+      <span class="mob-tab-icon">🎲</span>
+      <span>随机</span>
+    </button>
+    <button class="mob-tab-btn" data-tab="wrong" onclick="startPracticeMode('wrong')">
+      <span class="mob-tab-icon">❌</span>
+      <span>错题</span>
+      <span class="mob-badge" id="mobWrongBadge" style="display: none;">0</span>
+    </button>
+    <button class="mob-tab-btn" data-tab="bookmarks" onclick="startPracticeMode('bookmarks')">
+      <span class="mob-tab-icon">⭐</span>
+      <span>收藏</span>
+    </button>
+    <button class="mob-tab-btn" data-tab="drawer" onclick="openDrawer()">
+      <span class="mob-tab-icon">📋</span>
+      <span>答题卡</span>
+    </button>
+  </nav>
+
+  <!-- ANSWER SHEET DRAWER (答题卡抽屉) -->
+  <div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer(event)">
+    <div class="drawer" onclick="event.stopPropagation()">
+      <div class="drawer-header">
+        <div class="drawer-title">
+          <span>📋</span> <span>全题答题卡</span>
+        </div>
+        <button class="icon-btn" onclick="closeDrawer()">✕</button>
+      </div>
+
+      <div class="drawer-body">
+        <div class="drawer-legend">
+          <div class="legend-item"><div class="legend-dot" style="background: rgba(255,255,255,0.06); border: 1px solid var(--border-subtle);"></div> 未做</div>
+          <div class="legend-item"><div class="legend-dot" style="background: var(--success);"></div> 正确</div>
+          <div class="legend-item"><div class="legend-dot" style="background: var(--danger);"></div> 错误</div>
+          <div class="legend-item"><div class="legend-dot" style="background: var(--primary);"></div> 当前</div>
+          <div class="legend-item"><span style="color: #f59e0b;">★</span> 收藏</div>
+        </div>
+
+        <div class="sheet-grid" id="sheetGrid">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXAM SETUP MODAL -->
+  <div class="modal-overlay" id="examSetupModal">
+    <div class="modal-card">
+      <div class="modal-title">
+        <span>📋</span> <span>全真模拟考试配置</span>
+      </div>
+      <p style="font-size: 0.86rem; color: var(--text-secondary); margin-bottom: 18px;">
+        模拟真实考试环境，答题过程中不显示对错与解析，交卷后统一自动批改评分并生成成绩分析报告。
+      </p>
+
+      <div style="margin-bottom: 14px;">
+        <label style="font-size: 0.84rem; font-weight: 600; color: var(--text-secondary); display: block; margin-bottom: 6px;">考试范围</label>
+        <select id="examSetupSource" style="width: 100%; padding: 10px; background: var(--bg-input); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); color: var(--text-primary);">
+          <option value="all">全真混合题库 (期末 + 考研)</option>
+          <option value="期末">历年期末试卷专攻</option>
+          <option value="考研">历年考研真题特训</option>
+        </select>
+      </div>
+
+      <div style="margin-bottom: 14px;">
+        <label style="font-size: 0.84rem; font-weight: 600; color: var(--text-secondary); display: block; margin-bottom: 6px;">试卷题量</label>
+        <select id="examSetupCount" style="width: 100%; padding: 10px; background: var(--bg-input); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); color: var(--text-primary);">
+          <option value="20">20 题 (快速小测)</option>
+          <option value="30" selected>30 题 (标准期末模拟)</option>
+          <option value="50">50 题 (深度冲刺模拟)</option>
+        </select>
+      </div>
+
+      <div style="margin-bottom: 22px;">
+        <label style="font-size: 0.84rem; font-weight: 600; color: var(--text-secondary); display: block; margin-bottom: 6px;">考试限时 (分钟)</label>
+        <select id="examSetupTime" style="width: 100%; padding: 10px; background: var(--bg-input); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); color: var(--text-primary);">
+          <option value="30">30 分钟</option>
+          <option value="45" selected>45 分钟</option>
+          <option value="60">60 分钟</option>
+          <option value="0">不设倒计时</option>
+        </select>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 10px;">
+        <button class="btn-nav" onclick="closeModal('examSetupModal')">取消</button>
+        <button class="btn-primary" onclick="startExam()">开始全真模拟考 ➔</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXAM RESULT REPORT MODAL -->
+  <div class="modal-overlay" id="examResultModal">
+    <div class="modal-card">
+      <div class="modal-title">
+        <span>🏆</span> <span>模拟考试成绩报告</span>
+      </div>
+
+      <div class="report-score-box">
+        <div class="report-big-score" id="reportScore">86</div>
+        <div style="font-size: 0.95rem; font-weight: 600;" id="reportEvalText">成绩优秀，稳操胜券！</div>
+
+        <div class="report-stat-row">
+          <div>
+            <div class="report-stat-val" id="reportAccuracy">86.7%</div>
+            <div class="report-stat-label">正确率</div>
+          </div>
+          <div>
+            <div class="report-stat-val" id="reportRightWrong">26 / 30</div>
+            <div class="report-stat-label">答对 / 总题</div>
+          </div>
+          <div>
+            <div class="report-stat-val" id="reportTimeUsed">28分15秒</div>
+            <div class="report-stat-label">实际用时</div>
+          </div>
+        </div>
+      </div>
+
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">
+        本场错题已自动录入您的「错题消灭营」，建议立即回顾批改明细！
+      </p>
+
+      <div style="display: flex; justify-content: flex-end; gap: 10px;">
+        <button class="btn-nav" onclick="reviewExamQuestions()">逐题复盘批改</button>
+        <button class="btn-primary" onclick="closeModal('examResultModal'); switchView('dashboard');">返回题库大厅</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- GLOBAL SEARCH MODAL -->
+  <div class="modal-overlay" id="globalSearchModal">
+    <div class="modal-card global-search-modal">
+      <div class="modal-title">
+        <span>🔍</span> <span>全题库瞬时检索</span>
+      </div>
+      <div class="search-input-wrap">
+        <span class="search-icon-inside">🔍</span>
+        <input type="text" id="globalSearchInput" class="search-input" placeholder="输入知识点、关键词或题号快速跳转..." oninput="handleGlobalSearch(this.value)">
+      </div>
+
+      <div class="search-results-list" id="searchResultsList">
+        <div style="text-align: center; color: var(--text-muted); padding: 30px 0;">请输入关键词进行检索...</div>
+      </div>
+
+      <div style="margin-top: 16px; text-align: right;">
+        <button class="btn-nav" onclick="closeModal('globalSearchModal')">关闭</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SETTINGS & DATA MODAL (100% FUNCTIONAL) -->
+  <div class="modal-overlay" id="settingsModal">
+    <div class="modal-card">
+      <div class="modal-title">
+        <span>⚙️</span> <span>个性化设置与数据管理</span>
+      </div>
+
+      <!-- 1. 字体大小调节 -->
+      <div style="margin-bottom: 20px;">
+        <label style="font-size: 0.88rem; font-weight: 600; display: block; margin-bottom: 8px;">答题字体大小</label>
+        <div style="display: flex; gap: 8px;" id="fontSizeChips">
+          <button class="chip" data-size="normal" onclick="setFontScale('normal')">标准字体</button>
+          <button class="chip" data-size="large" onclick="setFontScale('large')">中等偏大</button>
+          <button class="chip" data-size="huge" onclick="setFontScale('huge')">超大护眼</button>
+        </div>
+      </div>
+
+      <!-- 2. 答题偏好 -->
+      <div style="margin-bottom: 20px;">
+        <label style="font-size: 0.88rem; font-weight: 600; display: block; margin-bottom: 8px;">答题偏好</label>
+        <div style="display: flex; flex-direction: column; gap: 10px; font-size: 0.86rem; color: var(--text-secondary);">
+          <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+            <input type="checkbox" id="settingAutoNext" onchange="updateSettings()"> 答对后自动切入下一题 (延迟 1.2 秒)
+          </label>
+          <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+            <input type="checkbox" id="settingInstantSubmit" onchange="updateSettings()"> 单选题点击即判（无需再次点击确认提交按钮）
+          </label>
+          <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+            <input type="checkbox" id="settingShortcuts" onchange="updateSettings()"> 开启键盘快捷键 (A/B/C/D 选答案, Enter 提交, ←/→ 翻题)
+          </label>
+        </div>
+      </div>
+
+      <!-- 3. 数据备份与同步 (支持电脑与手机互通) -->
+      <div style="border-top: 1px solid var(--border-subtle); padding-top: 16px; margin-bottom: 20px;">
+        <label style="font-size: 0.88rem; font-weight: 600; display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+          <span>数据备份与手机端同步</span>
+          <span style="font-size: 0.75rem; color: var(--primary);">多端互通</span>
+        </label>
+        <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 12px;">
+          支持通过「一键同步口令」在电脑与手机微信/QQ之间快速互传刷题进度，无需服务器！
+        </p>
+
+        <!-- 一键同步口令组 -->
+        <div style="display: flex; gap: 8px; margin-bottom: 10px;">
+          <button class="btn-nav" style="flex: 1; border-color: rgba(56, 189, 248, 0.4); color: var(--primary);" onclick="generateAndCopySyncCode()">
+            📋 复制同步口令
+          </button>
+          <button class="btn-nav" style="flex: 1;" onclick="openPasteSyncCodePrompt()">
+            📥 粘贴口令恢复
+          </button>
+        </div>
+
+        <!-- 传统文件备份组 -->
+        <div style="display: flex; gap: 8px;">
+          <button class="btn-nav" style="flex: 1; font-size: 0.82rem;" onclick="exportUserData()">
+            💾 导出 JSON 文件
+          </button>
+          <button class="btn-nav" style="flex: 1; font-size: 0.82rem;" onclick="triggerImportUserData()">
+            📁 导入 JSON 文件
+          </button>
+          <input type="file" id="importFileInput" accept=".json" style="display: none;" onchange="importUserDataFile(event)">
+        </div>
+      </div>
+
+      <!-- 4. 危险区 -->
+      <div style="border-top: 1px solid var(--border-subtle); padding-top: 16px; margin-bottom: 22px;">
+        <label style="font-size: 0.88rem; font-weight: 600; color: var(--danger); display: block; margin-bottom: 8px;">危险区</label>
+        <button class="btn-nav" style="width: 100%; border-color: var(--danger-border); color: var(--danger); justify-content: center;" onclick="confirmResetAllProgress()">
+          🗑️ 清空所有刷题记录与错题本
+        </button>
+      </div>
+
+      <div style="text-align: right;">
+        <button class="btn-primary" onclick="closeModal('settingsModal'); showToast('设置已保存！');">保存并关闭</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING TOAST COMPONENT -->
+  <div id="toast" class="toast-container">
+    <span id="toastIcon">✨</span>
+    <span id="toastMsg">操作成功</span>
+  </div>
+
+  <!-- LOAD QUESTION DATA -->
+  <script src="questions_data.js"></script>
+
+  <!-- APPLICATION CORE SCRIPT -->
+  <script>
+    /* ==========================================================================
+       CHAPTER METADATA DEFINITIONS
+       ========================================================================== */
+    const CHAPTER_META = {
+      1: { name: '电力系统基本概念与电力网结构', icon: '🌐' },
+      2: { name: '输电线路与变压器参数及等值电路', icon: '⚡' },
+      3: { name: '简单电力网的潮流分析与手算', icon: '〰️' },
+      4: { name: '电力系统潮流的计算机算法', icon: '💻' },
+      5: { name: '有功功率平衡与系统频率调整', icon: '⏱️' },
+      6: { name: '无功功率平衡与系统电压调整', icon: '🔋' },
+      7: { name: '电力系统三相对称短路分析', icon: '💥' },
+      8: { name: '电力系统不对称故障分析', icon: '⚡' },
+    };
+
+    /* ==========================================================================
+       LOCALSTORAGE STATE ENGINE
+       ========================================================================== */
+    const STORAGE_KEY = 'hpu_power_system_quiz_state_v1';
+
+    let appState = {
+      progress: {},   // question_id -> { selected: ['A'], correct: true, attempts: 1, time: '' }
+      bookmarks: {},  // question_id -> true
+      notes: {},      // question_id -> text
+      settings: {
+        fontSize: 'normal',
+        autoNext: false,
+        instantSubmit: false,
+        shortcuts: true,
+      },
+      examHistory: []
+    };
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          appState = Object.assign(appState, parsed);
+        }
+      } catch (e) {
+        console.warn('Failed to load localStorage:', e);
+      }
+      applyLoadedSettings();
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+      } catch (e) {
+        console.warn('Failed to save localStorage:', e);
+      }
+    }
+
+    function applyLoadedSettings() {
+      setFontScale(appState.settings.fontSize || 'normal');
+      syncSettingsUI();
+    }
+
+    function syncSettingsUI() {
+      // Font chip highlights
+      const curSize = appState.settings.fontSize || 'normal';
+      document.querySelectorAll('#fontSizeChips .chip').forEach(chip => {
+        if (chip.dataset.size === curSize) {
+          chip.classList.add('active');
+        } else {
+          chip.classList.remove('active');
+        }
+      });
+
+      // Checkboxes
+      const autoNextCheck = document.getElementById('settingAutoNext');
+      if (autoNextCheck) autoNextCheck.checked = !!appState.settings.autoNext;
+
+      const instantCheck = document.getElementById('settingInstantSubmit');
+      if (instantCheck) instantCheck.checked = !!appState.settings.instantSubmit;
+
+      const shortcutsCheck = document.getElementById('settingShortcuts');
+      if (shortcutsCheck) shortcutsCheck.checked = appState.settings.shortcuts !== false;
+    }
+
+    function updateSettings() {
+      appState.settings.autoNext = document.getElementById('settingAutoNext').checked;
+      appState.settings.instantSubmit = document.getElementById('settingInstantSubmit').checked;
+      appState.settings.shortcuts = document.getElementById('settingShortcuts').checked;
+      saveState();
+    }
+
+    function setFontScale(size) {
+      appState.settings.fontSize = size;
+      document.body.removeAttribute('data-font-size');
+      if (size === 'large') document.body.setAttribute('data-font-size', 'large');
+      if (size === 'huge') document.body.setAttribute('data-font-size', 'huge');
+
+      document.querySelectorAll('#fontSizeChips .chip').forEach(chip => {
+        if (chip.dataset.size === size) {
+          chip.classList.add('active');
+        } else {
+          chip.classList.remove('active');
+        }
+      });
+      saveState();
+    }
+
+    /* ==========================================================================
+       BUILT-IN ZERO-DEPENDENCY FORMULA RENDERER
+       ========================================================================== */
+    function renderMathBuiltin(latex) {
+      if (!latex) return '';
+      let s = latex.trim();
+      if (s.startsWith('$') && s.endsWith('$')) {
+        s = s.slice(1, -1).trim();
+      }
+
+      // 1. Units and text formatting
+      s = s.replace(/\\mathrm\s*\{\s*~?\s*([^}]+)\}/g, '<span class="math-unit">$1</span>');
+      s = s.replace(/\\mathrm\s*([a-zA-Z0-9]+)/g, '<span class="math-unit">$1</span>');
+      s = s.replace(/\\text\s*\{([^}]+)\}/g, '$1');
+
+      // 2. Greek and mathematical symbols
+      s = s.replace(/\\Delta/g, 'Δ').replace(/\\triangle/g, 'Δ');
+      s = s.replace(/\\delta/g, 'δ');
+      s = s.replace(/\\Pi/g, 'Π').replace(/\\pi/g, 'π');
+      s = s.replace(/\\Omega/g, 'Ω');
+      s = s.replace(/\\Sigma/g, 'Σ');
+      s = s.replace(/\\times/g, '×');
+      s = s.replace(/\\pm/g, '±');
+      s = s.replace(/\\leq/g, '≤').replace(/\\leqslant/g, '≤');
+      s = s.replace(/\\geq/g, '≥').replace(/\\geqslant/g, '≥');
+      s = s.replace(/\\angle/g, '∠');
+      s = s.replace(/\^\{\\circ\}/g, '°').replace(/\^\\circ/g, '°').replace(/\\circ/g, '°');
+      s = s.replace(/\\prime/g, '′');
+      s = s.replace(/\\sim/g, '~');
+      s = s.replace(/\\mu/g, 'μ');
+      s = s.replace(/\\lambda/g, 'λ');
+      s = s.replace(/\\theta/g, 'θ');
+      s = s.replace(/\\infty/g, '∞');
+      s = s.replace(/\\left\(/g, '(').replace(/\\right\)/g, ')');
+      s = s.replace(/\\left\[/g, '[').replace(/\\right\]/g, ']');
+
+      // 3. Fractions & Square Roots
+      s = s.replace(/\\frac\{([^}]+)\}\{([^}]+)\}/g, '($1 / $2)');
+      s = s.replace(/\\sqrt\{([^}]+)\}/g, '√($1)');
+
+      // 4. Subscripts & Superscripts
+      s = s.replace(/_\{([^}]+)\}/g, '<sub>$1</sub>');
+      s = s.replace(/_([a-zA-Z0-9])/g, '<sub>$1</sub>');
+      s = s.replace(/\^\{([^}]+)\}/g, '<sup>$1</sup>');
+      s = s.replace(/\^([a-zA-Z0-9])/g, '<sup>$1</sup>');
+
+      // 5. Clean any residual backslashes
+      s = s.replace(/\\/g, '');
+
+      return `<span class="math-expr">${s}</span>`;
+    }
+
+    function formatMathText(str) {
+      if (!str) return '';
+      // Escape HTML brackets safely while keeping formulas
+      let s = str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+
+      // Replace bold markdown **text**
+      s = s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+
+      // Convert ALL $...$ LaTeX formulas to clean HTML typography!
+      s = s.replace(/\$([^\$]+)\$/g, (match, formula) => {
+        return renderMathBuiltin(formula);
+      });
+
+      return s;
+    }
+
+    /* ==========================================================================
+       GLOBAL RUNTIME VARIABLES
+       ========================================================================== */
+    let allQuestions = [];
+    let currentQuestionsQueue = [];
+    let currentQuestionIndex = 0;
+    let currentSelectedAnswers = [];
+    let currentMode = 'sequential';
+    let isCurrentAnswerSubmitted = false;
+    let autoNextTimer = null;
+
+    // Exam specific
+    let isExamRunning = false;
+    let examTimeSeconds = 0;
+    let examTimerInterval = null;
+    let examUserAnswers = {};
+
+    /* ==========================================================================
+       TOUCH SWIPE GESTURE SUPPORT (MOBILE)
+       ========================================================================== */
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    function initTouchGestures() {
+      const qCard = document.getElementById('view-practice');
+      if (!qCard) return;
+
+      qCard.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+      }, { passive: true });
+
+      qCard.addEventListener('touchend', e => {
+        const touchEndX = e.changedTouches[0].screenX;
+        const touchEndY = e.changedTouches[0].screenY;
+        const dx = touchEndX - touchStartX;
+        const dy = touchEndY - touchStartY;
+
+        // Ensure horizontal swipe
+        if (Math.abs(dx) > 60 && Math.abs(dy) < 50) {
+          if (dx < 0) {
+            // Swiped left -> Next
+            gotoNextQuestion();
+          } else {
+            // Swiped right -> Prev
+            gotoPrevQuestion();
+          }
+        }
+      }, { passive: true });
+    }
+
+    /* ==========================================================================
+       INITIALIZATION
+       ========================================================================== */
+    document.addEventListener('DOMContentLoaded', () => {
+      loadState();
+      initQuestionsData();
+      renderDashboard();
+      setupKeyboardShortcuts();
+      initTouchGestures();
+    });
+
+    function initQuestionsData() {
+      if (typeof QUESTIONS_DB !== 'undefined' && Array.isArray(QUESTIONS_DB)) {
+        allQuestions = QUESTIONS_DB;
+      } else {
+        console.error('QUESTIONS_DB not found! Please ensure questions_data.js is present.');
+        allQuestions = [];
+      }
+      document.getElementById('totalQuestionsBadge').textContent = `${allQuestions.length}题·全汇编`;
+      document.getElementById('statTotalQ').textContent = allQuestions.length;
+    }
+
+    /* ==========================================================================
+       VIEW MANAGEMENT
+       ========================================================================== */
+    function switchView(viewId) {
+      if (isExamRunning && viewId !== 'exam') {
+        if (!confirm('模拟考试正在进行中，离开将取消当前考试。确定返回吗？')) {
+          return;
+        }
+        stopExamTimer();
+        isExamRunning = false;
+      }
+
+      document.querySelectorAll('.view-panel').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('#topNavMenu .nav-btn').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.mobile-bottom-nav .mob-tab-btn').forEach(el => el.classList.remove('active'));
+
+      const target = document.getElementById(`view-${viewId}`);
+      if (target) {
+        target.classList.add('active');
+      }
+
+      const activeBtn = document.querySelector(`#topNavMenu .nav-btn[data-view="${viewId}"]`);
+      if (activeBtn) activeBtn.classList.add('active');
+
+      const mobBtn = document.querySelector(`.mobile-bottom-nav .mob-tab-btn[data-tab="${viewId}"]`);
+      if (mobBtn) mobBtn.classList.add('active');
+
+      if (viewId === 'dashboard') {
+        renderDashboard();
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function scrollToChapters() {
+      switchView('dashboard');
+      setTimeout(() => {
+        const el = document.getElementById('chaptersSection');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+
+    /* ==========================================================================
+       DASHBOARD METRICS & RENDERING
+       ========================================================================== */
+    function renderDashboard() {
+      const progressKeys = Object.keys(appState.progress);
+      const totalAttempted = progressKeys.length;
+      let totalCorrect = 0;
+      let wrongCount = 0;
+
+      progressKeys.forEach(id => {
+        const item = appState.progress[id];
+        if (item.correct) {
+          totalCorrect++;
+        } else {
+          wrongCount++;
+        }
+      });
+
+      const bookmarkCount = Object.keys(appState.bookmarks).filter(id => appState.bookmarks[id]).length;
+
+      document.getElementById('statAttempted').textContent = totalAttempted;
+      const rate = allQuestions.length > 0 ? ((totalAttempted / allQuestions.length) * 100).toFixed(1) : 0;
+      document.getElementById('statAttemptedRate').textContent = `完成度 ${rate}%`;
+
+      const accuracy = totalAttempted > 0 ? ((totalCorrect / totalAttempted) * 100).toFixed(1) : 0;
+      document.getElementById('statAccuracy').textContent = `${accuracy}%`;
+      document.getElementById('statCorrectCount').textContent = `答对 ${totalCorrect} 题`;
+
+      document.getElementById('statWrongCount').textContent = wrongCount;
+      document.getElementById('cardWrongBadge').textContent = `${wrongCount} 题待攻克`;
+      document.getElementById('cardBookmarkBadge').textContent = `${bookmarkCount} 题`;
+      document.getElementById('topWrongCount').textContent = wrongCount;
+      document.getElementById('topBookmarkCount').textContent = bookmarkCount;
+
+      // Mobile badge
+      const mobWrong = document.getElementById('mobWrongBadge');
+      if (mobWrong) {
+        if (wrongCount > 0) {
+          mobWrong.style.display = 'block';
+          mobWrong.textContent = wrongCount;
+        } else {
+          mobWrong.style.display = 'none';
+        }
+      }
+
+      renderChapterCards();
+      onFilterChange();
+    }
+
+    function renderChapterCards() {
+      const container = document.getElementById('chapterCardsContainer');
+      container.innerHTML = '';
+
+      for (let ch = 1; ch <= 8; ch++) {
+        const meta = CHAPTER_META[ch];
+        const chapterQs = allQuestions.filter(q => q.chapter === ch);
+        const count = chapterQs.length;
+
+        let attemptedInCh = 0;
+        chapterQs.forEach(q => {
+          if (appState.progress[q.id]) attemptedInCh++;
+        });
+
+        const percent = count > 0 ? Math.round((attemptedInCh / count) * 100) : 0;
+
+        const card = document.createElement('div');
+        card.className = 'chapter-card';
+        card.onclick = () => startChapterPractice(ch);
+
+        card.innerHTML = `
+          <div>
+            <div class="chapter-header">
+              <span class="chapter-num">CHAPTER 0${ch}</span>
+              <span class="chapter-count">${attemptedInCh}/${count} 题 (${percent}%)</span>
+            </div>
+            <div class="chapter-title">${meta.icon} ${meta.name}</div>
+          </div>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar-fill" style="width: ${percent}%;"></div>
+          </div>
+        `;
+        container.appendChild(card);
+      }
+    }
+
+    /* ==========================================================================
+       FILTERING LOGIC
+       ========================================================================== */
+    document.querySelectorAll('.filter-chips').forEach(container => {
+      container.addEventListener('click', e => {
+        if (e.target.classList.contains('chip')) {
+          container.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+          e.target.classList.add('active');
+          onFilterChange();
+        }
+      });
+    });
+
+    function getSelectedFilterValue(containerId) {
+      const active = document.querySelector(`#${containerId} .chip.active`);
+      return active ? active.dataset.val : 'all';
+    }
+
+    function getFilteredQuestions() {
+      const sourceVal = getSelectedFilterValue('filterSource');
+      const typeVal = getSelectedFilterValue('filterType');
+      const statusVal = getSelectedFilterValue('filterStatus');
+      const verifiedVal = getSelectedFilterValue('filterVerified');
+      const keyword = (document.getElementById('filterKeyword').value || '').trim().toLowerCase();
+
+      return allQuestions.filter(q => {
+        if (sourceVal !== 'all' && q.source !== sourceVal) return false;
+        if (typeVal !== 'all' && q.type !== typeVal) return false;
+
+        if (statusVal === 'unanswered' && appState.progress[q.id]) return false;
+        if (statusVal === 'correct' && (!appState.progress[q.id] || !appState.progress[q.id].correct)) return false;
+        if (statusVal === 'wrong' && (!appState.progress[q.id] || appState.progress[q.id].correct)) return false;
+
+        if (verifiedVal === 'verified' && !q.verified) return false;
+        if (verifiedVal === 'conflict' && !q.conflict) return false;
+
+        if (keyword) {
+          const matchId = (q.id || '').toLowerCase().includes(keyword);
+          const matchStem = (q.stem || '').toLowerCase().includes(keyword);
+          const matchTopic = (q.topic || '').toLowerCase().includes(keyword);
+          const matchPaper = (q.paper || '').toLowerCase().includes(keyword);
+          const matchOptions = (q.options || []).some(o => (o.text || '').toLowerCase().includes(keyword));
+          if (!matchId && !matchStem && !matchTopic && !matchPaper && !matchOptions) {
+            return false;
+          }
+        }
+
+        return true;
+      });
+    }
+
+    function onFilterChange() {
+      const filtered = getFilteredQuestions();
+      document.getElementById('filteredCount').textContent = filtered.length;
+      document.getElementById('filteredBtnCount').textContent = filtered.length;
+      document.getElementById('btnStartFiltered').disabled = filtered.length === 0;
+    }
+
+    function startFilteredPractice() {
+      const filtered = getFilteredQuestions();
+      if (filtered.length === 0) return;
+      currentMode = 'filtered';
+      currentQuestionsQueue = [...filtered];
+      startPracticeQueue('🔍 自定义筛选');
+    }
+
+    /* ==========================================================================
+       PRACTICE MODES INITIALIZERS
+       ========================================================================== */
+    function startPracticeMode(mode) {
+      currentMode = mode;
+
+      // Update mobile nav highlight
+      document.querySelectorAll('.mobile-bottom-nav .mob-tab-btn').forEach(b => b.classList.remove('active'));
+      const activeMob = document.querySelector(`.mobile-bottom-nav .mob-tab-btn[data-tab="${mode}"]`);
+      if (activeMob) activeMob.classList.add('active');
+
+      if (mode === 'sequential') {
+        currentQuestionsQueue = [...allQuestions];
+        startPracticeQueue('📝 顺序狂刷');
+      } else if (mode === 'random') {
+        currentQuestionsQueue = [...allQuestions].sort(() => Math.random() - 0.5);
+        startPracticeQueue('🎲 随机突击');
+      } else if (mode === 'wrong') {
+        const wrongQs = allQuestions.filter(q => appState.progress[q.id] && !appState.progress[q.id].correct);
+        if (wrongQs.length === 0) {
+          showToast('🎉 错题本为空！太棒了，请继续练习！');
+          return;
+        }
+        currentQuestionsQueue = [...wrongQs];
+        startPracticeQueue('❌ 错题消灭营');
+      } else if (mode === 'bookmarks') {
+        const bookmarkedQs = allQuestions.filter(q => appState.bookmarks[q.id]);
+        if (bookmarkedQs.length === 0) {
+          showToast('收藏夹为空！可在答题时点击「☆ 收藏」加入重点题。');
+          return;
+        }
+        currentQuestionsQueue = [...bookmarkedQs];
+        startPracticeQueue('⭐ 重点收藏夹');
+      }
+    }
+
+    function startChapterPractice(chapterNum) {
+      currentMode = 'chapter';
+      const chapterQs = allQuestions.filter(q => q.chapter === chapterNum);
+      if (chapterQs.length === 0) return;
+      currentQuestionsQueue = [...chapterQs];
+      startPracticeQueue(`⚡ 第${chapterNum}章专练`);
+    }
+
+    function startConflictMode() {
+      currentMode = 'conflict';
+      const conflictQs = allQuestions.filter(q => q.conflict || q.answerPending);
+      if (conflictQs.length === 0) return;
+      currentQuestionsQueue = [...conflictQs];
+      startPracticeQueue('⚠️ 争议与精校专区');
+    }
+
+    function startPracticeQueue(modeTitle) {
+      currentQuestionIndex = 0;
+      document.getElementById('curModeTag').textContent = modeTitle;
+      switchView('practice');
+      renderCurrentQuestion();
+    }
+
+    /* ==========================================================================
+       QUESTION RENDERING & INTERACTION
+       ========================================================================== */
+    function renderCurrentQuestion() {
+      if (currentQuestionsQueue.length === 0) return;
+
+      const q = currentQuestionsQueue[currentQuestionIndex];
+      isCurrentAnswerSubmitted = false;
+      currentSelectedAnswers = [];
+
+      // Update Top Status
+      document.getElementById('curProgressText').textContent = `${currentQuestionIndex + 1} / ${currentQuestionsQueue.length}`;
+      const fillPercent = ((currentQuestionIndex + 1) / currentQuestionsQueue.length) * 100;
+      document.getElementById('curProgressFill').style.width = `${fillPercent}%`;
+
+      // Update Nav Buttons
+      document.getElementById('btnPrevQ').disabled = currentQuestionIndex === 0;
+      document.getElementById('btnNextQ').disabled = currentQuestionIndex === currentQuestionsQueue.length - 1;
+
+      // Bookmark Button Status
+      const isBookmarked = !!appState.bookmarks[q.id];
+      const btnBookmark = document.getElementById('btnBookmark');
+      if (isBookmarked) {
+        btnBookmark.classList.add('bookmarked');
+        document.getElementById('bookmarkStarIcon').textContent = '★';
+        document.getElementById('bookmarkText').textContent = '已收藏';
+      } else {
+        btnBookmark.classList.remove('bookmarked');
+        document.getElementById('bookmarkStarIcon').textContent = '☆';
+        document.getElementById('bookmarkText').textContent = '收藏';
+      }
+
+      // Metadata
+      document.getElementById('qIdBadge').textContent = q.id;
+      document.getElementById('qPaperTitle').textContent = q.paper || '华北电力大学真题汇编';
+      document.getElementById('qTopicText').textContent = q.topic || '电力系统分析基础核心考点';
+
+      // Type Badge
+      const typeBadge = document.getElementById('qTypeBadge');
+      typeBadge.className = 'q-type-badge';
+      if (q.type === 'single') {
+        typeBadge.classList.add('badge-single');
+        typeBadge.textContent = '单项选择题';
+      } else if (q.type === 'multiple') {
+        typeBadge.classList.add('badge-multiple');
+        typeBadge.textContent = '多项选择题';
+      } else if (q.type === 'indefinite') {
+        typeBadge.classList.add('badge-indefinite');
+        typeBadge.textContent = '不定项选择题';
+      } else if (q.type === 'judge') {
+        typeBadge.classList.add('badge-judge');
+        typeBadge.textContent = '是非判断题';
+      }
+
+      // Chapter badge
+      const chMeta = CHAPTER_META[q.chapter] || { name: '综合基础' };
+      document.getElementById('qChapterBadge').textContent = `⚡ 第${q.chapter}章 ${chMeta.name.split('与')[0]}`;
+
+      // Verified badge
+      const verBadge = document.getElementById('qVerifiedBadge');
+      if (q.verified) {
+        verBadge.style.display = 'inline-block';
+        verBadge.textContent = '【已核定】';
+      } else {
+        verBadge.style.display = 'none';
+      }
+
+      // Stem (Formatted with built-in math engine!)
+      document.getElementById('qStem').innerHTML = formatMathText(q.stem);
+
+      // Hint
+      const hintEl = document.getElementById('practiceHint');
+      if (q.type === 'single') {
+        hintEl.textContent = appState.settings.instantSubmit ? '单选题：点击选项立即判定' : '单选题：点击选项后确认提交';
+      } else if (q.type === 'multiple' || q.type === 'indefinite') {
+        hintEl.textContent = '多选题：请勾选所有正确选项后提交';
+      } else if (q.type === 'judge') {
+        hintEl.textContent = '判断题：请选择正确 √ 或 错误 ×';
+      }
+
+      // Render Options
+      const optionsContainer = document.getElementById('optionsContainer');
+      optionsContainer.innerHTML = '';
+
+      if (q.type === 'judge') {
+        const grid = document.createElement('div');
+        grid.className = 'judge-options-grid';
+        grid.innerHTML = `
+          <div class="judge-card" data-val="√" onclick="selectJudgeOption('√')">
+            <div class="judge-symbol" style="color: #10b981;">√</div>
+            <div class="judge-label">正确</div>
+          </div>
+          <div class="judge-card" data-val="×" onclick="selectJudgeOption('×')">
+            <div class="judge-symbol" style="color: #f43f5e;">×</div>
+            <div class="judge-label">错误</div>
+          </div>
+        `;
+        optionsContainer.appendChild(grid);
+      } else {
+        const list = document.createElement('div');
+        list.className = 'options-container';
+
+        q.options.forEach(opt => {
+          const optCard = document.createElement('div');
+          optCard.className = 'option-card';
+          optCard.dataset.label = opt.label;
+          optCard.onclick = () => selectChoiceOption(opt.label);
+
+          optCard.innerHTML = `
+            <div class="option-badge">${opt.label}</div>
+            <div class="option-text">${formatMathText(opt.text)}</div>
+          `;
+          list.appendChild(optCard);
+        });
+        optionsContainer.appendChild(list);
+      }
+
+      // Reset feedback panel
+      document.getElementById('feedbackPanel').style.display = 'none';
+      document.getElementById('btnSubmitAnswer').style.display = 'inline-flex';
+      document.getElementById('btnSubmitAnswer').disabled = false;
+
+      // Note
+      const noteInput = document.getElementById('userNoteInput');
+      noteInput.value = (appState.notes && appState.notes[q.id]) || '';
+    }
+
+    function selectChoiceOption(label) {
+      if (isCurrentAnswerSubmitted) return;
+      const q = currentQuestionsQueue[currentQuestionIndex];
+
+      if (q.type === 'single') {
+        currentSelectedAnswers = [label];
+        document.querySelectorAll('.option-card').forEach(card => {
+          if (card.dataset.label === label) {
+            card.classList.add('selected');
+          } else {
+            card.classList.remove('selected');
+          }
+        });
+
+        // Instant submit if enabled
+        if (appState.settings.instantSubmit) {
+          submitCurrentAnswer();
+        }
+      } else {
+        // multiple or indefinite
+        const idx = currentSelectedAnswers.indexOf(label);
+        if (idx > -1) {
+          currentSelectedAnswers.splice(idx, 1);
+        } else {
+          currentSelectedAnswers.push(label);
+        }
+        currentSelectedAnswers.sort();
+
+        document.querySelectorAll('.option-card').forEach(card => {
+          if (currentSelectedAnswers.includes(card.dataset.label)) {
+            card.classList.add('selected');
+          } else {
+            card.classList.remove('selected');
+          }
+        });
+      }
+    }
+
+    function selectJudgeOption(val) {
+      if (isCurrentAnswerSubmitted) return;
+      currentSelectedAnswers = [val];
+      document.querySelectorAll('.judge-card').forEach(card => {
+        if (card.dataset.val === val) {
+          card.classList.add('selected');
+        } else {
+          card.classList.remove('selected');
+        }
+      });
+
+      // For judge questions, submit immediately for rapid flow
+      submitCurrentAnswer();
+    }
+
+    /* ==========================================================================
+       ANSWER SUBMISSION & FEEDBACK LOGIC
+       ========================================================================== */
+    function submitCurrentAnswer() {
+      if (isCurrentAnswerSubmitted) return;
+      if (currentSelectedAnswers.length === 0) {
+        showToast('请先选择你的答案！', '⚠️');
+        return;
+      }
+
+      const q = currentQuestionsQueue[currentQuestionIndex];
+      isCurrentAnswerSubmitted = true;
+      document.getElementById('btnSubmitAnswer').style.display = 'none';
+
+      // Check correctness
+      let isCorrect = false;
+      const correctAnsArray = (q.answer || []).map(a => a.trim().toUpperCase());
+      const userAnsArray = currentSelectedAnswers.map(a => a.trim().toUpperCase());
+
+      if (q.answerPending || correctAnsArray.length === 0) {
+        isCorrect = true; // neutral
+      } else {
+        const sortedCorrect = [...correctAnsArray].sort().join('');
+        const sortedUser = [...userAnsArray].sort().join('');
+        isCorrect = (sortedCorrect === sortedUser);
+      }
+
+      // Record to appState
+      if (!appState.progress[q.id]) {
+        appState.progress[q.id] = {
+          selected: userAnsArray,
+          correct: isCorrect,
+          attempts: 1,
+          time: new Date().toISOString()
+        };
+      } else {
+        appState.progress[q.id].selected = userAnsArray;
+        appState.progress[q.id].correct = isCorrect;
+        appState.progress[q.id].attempts += 1;
+        appState.progress[q.id].time = new Date().toISOString();
+      }
+      saveState();
+
+      // Highlight options in UI
+      if (q.type === 'judge') {
+        document.querySelectorAll('.judge-card').forEach(card => {
+          const val = card.dataset.val;
+          if (correctAnsArray.includes(val)) {
+            card.classList.add('correct-answer');
+          }
+          if (userAnsArray.includes(val) && !correctAnsArray.includes(val)) {
+            card.classList.add('wrong-selected');
+          }
+        });
+      } else {
+        document.querySelectorAll('.option-card').forEach(card => {
+          const l = card.dataset.label;
+          if (correctAnsArray.includes(l)) {
+            card.classList.add('correct-answer');
+          }
+          if (userAnsArray.includes(l) && !correctAnsArray.includes(l)) {
+            card.classList.add('wrong-selected');
+          }
+        });
+      }
+
+      // Render Feedback Banner & Explanation
+      const feedbackPanel = document.getElementById('feedbackPanel');
+      const banner = document.getElementById('feedbackBanner');
+      const bannerText = document.getElementById('feedbackBannerText');
+      const correctAnsEl = document.getElementById('feedbackCorrectAnswerText');
+
+      feedbackPanel.style.display = 'block';
+
+      if (q.answerPending) {
+        banner.className = 'feedback-banner pending';
+        bannerText.textContent = 'ℹ️ 原真题未附文字答案（详见视频解析）';
+        correctAnsEl.textContent = '答案待补充';
+      } else if (isCorrect) {
+        banner.className = 'feedback-banner correct';
+        bannerText.textContent = '🎉 回答正确！';
+        correctAnsEl.textContent = `标准答案: ${correctAnsArray.join(', ')}`;
+      } else {
+        banner.className = 'feedback-banner wrong';
+        bannerText.textContent = '❌ 回答错误！';
+        correctAnsEl.textContent = `正确答案: ${correctAnsArray.join(', ')} (你的选择: ${userAnsArray.join(', ')})`;
+      }
+
+      // Explanation (formatted with math renderer)
+      const expText = q.explanation || '详见教材或考研标准解析。';
+      document.getElementById('explanationText').innerHTML = formatMathText(expText);
+
+      // Conflict Notice
+      const conflictBox = document.getElementById('conflictBox');
+      if (q.conflict) {
+        conflictBox.style.display = 'block';
+        document.getElementById('conflictText').innerHTML = formatMathText(q.conflict);
+      } else {
+        conflictBox.style.display = 'none';
+      }
+
+      // Auto-next timer if setting enabled and user was correct
+      if (appState.settings.autoNext && isCorrect && currentQuestionIndex < currentQuestionsQueue.length - 1) {
+        if (autoNextTimer) clearTimeout(autoNextTimer);
+        autoNextTimer = setTimeout(() => {
+          gotoNextQuestion();
+        }, 1200);
+      }
+    }
+
+    /* ==========================================================================
+       NAVIGATION & KEYBOARD
+       ========================================================================== */
+    function gotoPrevQuestion() {
+      if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        renderCurrentQuestion();
+      }
+    }
+
+    function gotoNextQuestion() {
+      if (currentQuestionIndex < currentQuestionsQueue.length - 1) {
+        currentQuestionIndex++;
+        renderCurrentQuestion();
+      }
+    }
+
+    function toggleCurrentBookmark() {
+      const q = currentQuestionsQueue[currentQuestionIndex];
+      if (!q) return;
+      appState.bookmarks[q.id] = !appState.bookmarks[q.id];
+      saveState();
+
+      const isBookmarked = appState.bookmarks[q.id];
+      const btnBookmark = document.getElementById('btnBookmark');
+      if (isBookmarked) {
+        btnBookmark.classList.add('bookmarked');
+        document.getElementById('bookmarkStarIcon').textContent = '★';
+        document.getElementById('bookmarkText').textContent = '已收藏';
+        showToast('已加入重点收藏夹！', '⭐');
+      } else {
+        btnBookmark.classList.remove('bookmarked');
+        document.getElementById('bookmarkStarIcon').textContent = '☆';
+        document.getElementById('bookmarkText').textContent = '收藏';
+        showToast('已移出收藏夹');
+      }
+    }
+
+    function toggleNoteInput() {
+      const input = document.getElementById('userNoteInput');
+      input.focus();
+    }
+
+    function saveCurrentNote() {
+      const q = currentQuestionsQueue[currentQuestionIndex];
+      if (!q) return;
+      const text = document.getElementById('userNoteInput').value;
+      appState.notes[q.id] = text;
+      saveState();
+    }
+
+    function setupKeyboardShortcuts() {
+      window.addEventListener('keydown', e => {
+        if (!appState.settings.shortcuts) return;
+        if (['INPUT', 'TEXTAREA'].includes(e.target.tagName)) return;
+
+        const key = e.key.toUpperCase();
+
+        if (['A', 'B', 'C', 'D'].includes(key)) {
+          selectChoiceOption(key);
+        } else if (key === 'ENTER') {
+          if (!isCurrentAnswerSubmitted) {
+            submitCurrentAnswer();
+          } else {
+            gotoNextQuestion();
+          }
+        } else if (e.key === 'ArrowLeft') {
+          gotoPrevQuestion();
+        } else if (e.key === 'ArrowRight') {
+          gotoNextQuestion();
+        } else if (e.key === '/') {
+          e.preventDefault();
+          openSearchModal();
+        }
+      });
+    }
+
+    /* ==========================================================================
+       ANSWER SHEET DRAWER (答题卡)
+       ========================================================================== */
+    function openDrawer() {
+      renderSheetGrid();
+      document.getElementById('drawerOverlay').classList.add('active');
+    }
+
+    function closeDrawer(e) {
+      if (e && e.target !== e.currentTarget && !e.target.classList.contains('drawer-overlay') && !e.target.closest('.icon-btn')) {
+        return;
+      }
+      document.getElementById('drawerOverlay').classList.remove('active');
+    }
+
+    function renderSheetGrid() {
+      const grid = document.getElementById('sheetGrid');
+      grid.innerHTML = '';
+
+      currentQuestionsQueue.forEach((q, idx) => {
+        const cell = document.createElement('div');
+        cell.className = 'sheet-cell';
+        cell.textContent = idx + 1;
+
+        if (idx === currentQuestionIndex) {
+          cell.classList.add('current');
+        }
+
+        const prog = appState.progress[q.id];
+        if (prog) {
+          if (prog.correct) cell.classList.add('correct');
+          else cell.classList.add('wrong');
+        }
+
+        if (appState.bookmarks[q.id]) {
+          cell.classList.add('bookmarked');
+        }
+
+        cell.onclick = () => {
+          currentQuestionIndex = idx;
+          renderCurrentQuestion();
+          closeDrawer();
+        };
+
+        grid.appendChild(cell);
+      });
+    }
+
+    /* ==========================================================================
+       EXAM ENGINE (全真模拟考)
+       ========================================================================== */
+    function openExamSetupModal() {
+      document.getElementById('examSetupModal').classList.add('active');
+    }
+
+    function startExam() {
+      closeModal('examSetupModal');
+      const source = document.getElementById('examSetupSource').value;
+      const count = parseInt(document.getElementById('examSetupCount').value, 10);
+      const minutes = parseInt(document.getElementById('examSetupTime').value, 10);
+
+      let pool = allQuestions;
+      if (source !== 'all') {
+        pool = allQuestions.filter(q => q.source === source);
+      }
+
+      currentQuestionsQueue = [...pool].sort(() => Math.random() - 0.5).slice(0, count);
+      currentQuestionIndex = 0;
+      isExamRunning = true;
+      examUserAnswers = {};
+
+      if (minutes > 0) {
+        examTimeSeconds = minutes * 60;
+        document.getElementById('examTimerDigits').textContent = formatSeconds(examTimeSeconds);
+        startExamTimer();
+      } else {
+        document.getElementById('examTimerDigits').textContent = '自由计时';
+      }
+
+      switchView('exam');
+      renderExamQuestion();
+    }
+
+    function startExamTimer() {
+      if (examTimerInterval) clearInterval(examTimerInterval);
+      examTimerInterval = setInterval(() => {
+        examTimeSeconds--;
+        document.getElementById('examTimerDigits').textContent = formatSeconds(examTimeSeconds);
+
+        if (examTimeSeconds <= 300) {
+          document.getElementById('examClock').classList.add('urgent');
+        }
+
+        if (examTimeSeconds <= 0) {
+          clearInterval(examTimerInterval);
+          alert('考试时间到！系统正在自动交卷并生成成绩单...');
+          finishExam();
+        }
+      }, 1000);
+    }
+
+    function stopExamTimer() {
+      if (examTimerInterval) clearInterval(examTimerInterval);
+    }
+
+    function formatSeconds(sec) {
+      const m = Math.floor(sec / 60);
+      const s = sec % 60;
+      return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+    }
+
+    function renderExamQuestion() {
+      const mount = document.getElementById('examQuestionMount');
+      mount.innerHTML = '';
+
+      const q = currentQuestionsQueue[currentQuestionIndex];
+      const card = document.createElement('div');
+      card.className = 'question-card';
+
+      card.innerHTML = `
+        <div class="q-meta-row">
+          <span class="q-id-badge">${q.id}</span>
+          <span class="q-type-badge badge-single">${q.typeName || '选择题'}</span>
+          <div class="q-paper-title">全真模拟题 第 ${currentQuestionIndex + 1} / ${currentQuestionsQueue.length} 题</div>
+        </div>
+        <div class="q-stem">${formatMathText(q.stem)}</div>
+        <div id="examOptsBox"></div>
+        <div class="practice-action-bar" style="margin-top: 22px;">
+          <button class="btn-nav" ${currentQuestionIndex === 0 ? 'disabled' : ''} onclick="gotoPrevExamQ()">◀ 上一题</button>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">${currentQuestionIndex + 1} / ${currentQuestionsQueue.length}</span>
+          <button class="btn-nav" ${currentQuestionIndex === currentQuestionsQueue.length - 1 ? 'disabled' : ''} onclick="gotoNextExamQ()">下一题 ▶</button>
+        </div>
+      `;
+      mount.appendChild(card);
+
+      const optsBox = card.querySelector('#examOptsBox');
+      const savedAns = examUserAnswers[currentQuestionIndex] || [];
+
+      if (q.type === 'judge') {
+        const grid = document.createElement('div');
+        grid.className = 'judge-options-grid';
+        grid.innerHTML = `
+          <div class="judge-card ${savedAns.includes('√') ? 'selected' : ''}" onclick="selectExamJudge('√')">
+            <div class="judge-symbol" style="color: #10b981;">√</div>
+            <div class="judge-label">正确</div>
+          </div>
+          <div class="judge-card ${savedAns.includes('×') ? 'selected' : ''}" onclick="selectExamJudge('×')">
+            <div class="judge-symbol" style="color: #f43f5e;">×</div>
+            <div class="judge-label">错误</div>
+          </div>
+        `;
+        optsBox.appendChild(grid);
+      } else {
+        const list = document.createElement('div');
+        list.className = 'options-container';
+
+        q.options.forEach(opt => {
+          const optCard = document.createElement('div');
+          optCard.className = `option-card ${savedAns.includes(opt.label) ? 'selected' : ''}`;
+          optCard.onclick = () => selectExamChoice(opt.label);
+          optCard.innerHTML = `
+            <div class="option-badge">${opt.label}</div>
+            <div class="option-text">${formatMathText(opt.text)}</div>
+          `;
+          list.appendChild(optCard);
+        });
+        optsBox.appendChild(list);
+      }
+    }
+
+    function selectExamChoice(label) {
+      const q = currentQuestionsQueue[currentQuestionIndex];
+      let cur = examUserAnswers[currentQuestionIndex] || [];
+
+      if (q.type === 'single') {
+        examUserAnswers[currentQuestionIndex] = [label];
+      } else {
+        const idx = cur.indexOf(label);
+        if (idx > -1) cur.splice(idx, 1);
+        else cur.push(label);
+        cur.sort();
+        examUserAnswers[currentQuestionIndex] = cur;
+      }
+      renderExamQuestion();
+    }
+
+    function selectExamJudge(val) {
+      examUserAnswers[currentQuestionIndex] = [val];
+      renderExamQuestion();
+    }
+
+    function gotoPrevExamQ() {
+      if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        renderExamQuestion();
+      }
+    }
+
+    function gotoNextExamQ() {
+      if (currentQuestionIndex < currentQuestionsQueue.length - 1) {
+        currentQuestionIndex++;
+        renderExamQuestion();
+      }
+    }
+
+    function confirmFinishExam() {
+      const answeredCount = Object.keys(examUserAnswers).filter(k => examUserAnswers[k].length > 0).length;
+      const un = currentQuestionsQueue.length - answeredCount;
+      if (un > 0) {
+        if (!confirm(`尚有 ${un} 道题未作答，确定立即交卷吗？`)) return;
+      } else {
+        if (!confirm('所有题目已作答完毕，确定交卷评分吗？')) return;
+      }
+      finishExam();
+    }
+
+    function finishExam() {
+      stopExamTimer();
+      isExamRunning = false;
+
+      let rightCount = 0;
+      currentQuestionsQueue.forEach((q, idx) => {
+        const userAns = examUserAnswers[idx] || [];
+        const correctAns = (q.answer || []).map(a => a.trim().toUpperCase());
+        const isRight = ([...correctAns].sort().join('') === [...userAns].sort().join(''));
+
+        if (isRight) rightCount++;
+
+        appState.progress[q.id] = {
+          selected: userAns,
+          correct: isRight,
+          attempts: (appState.progress[q.id] ? appState.progress[q.id].attempts + 1 : 1),
+          time: new Date().toISOString()
+        };
+      });
+      saveState();
+
+      const total = currentQuestionsQueue.length;
+      const score = Math.round((rightCount / total) * 100);
+      document.getElementById('reportScore').textContent = score;
+      document.getElementById('reportAccuracy').textContent = `${((rightCount / total) * 100).toFixed(1)}%`;
+      document.getElementById('reportRightWrong').textContent = `${rightCount} / ${total}`;
+
+      const evalEl = document.getElementById('reportEvalText');
+      if (score >= 90) evalEl.textContent = '🎉 卓越精湛！考研电分有望斩获高分！';
+      else if (score >= 80) evalEl.textContent = '👍 扎实良好，继续稳固错题必能冲顶！';
+      else if (score >= 60) evalEl.textContent = '⚠️ 基础合格，仍需攻坚薄弱章节！';
+      else evalEl.textContent = '🚨 存在较多知识漏洞，建议开启顺序狂刷地毯式过关！';
+
+      document.getElementById('examResultModal').classList.add('active');
+    }
+
+    function reviewExamQuestions() {
+      closeModal('examResultModal');
+      currentMode = 'review';
+      currentQuestionIndex = 0;
+      document.getElementById('curModeTag').textContent = '📋 模考复盘';
+      switchView('practice');
+      renderCurrentQuestion();
+    }
+
+    /* ==========================================================================
+       GLOBAL SEARCH MODAL
+       ========================================================================== */
+    function openSearchModal() {
+      document.getElementById('globalSearchModal').classList.add('active');
+      const input = document.getElementById('globalSearchInput');
+      input.value = '';
+      input.focus();
+      document.getElementById('searchResultsList').innerHTML = '<div style="text-align: center; color: var(--text-muted); padding: 30px 0;">请输入关键词进行检索...</div>';
+    }
+
+    function handleGlobalSearch(query) {
+      const q = query.trim().toLowerCase();
+      const list = document.getElementById('searchResultsList');
+
+      if (!q) {
+        list.innerHTML = '<div style="text-align: center; color: var(--text-muted); padding: 30px 0;">请输入关键词进行检索...</div>';
+        return;
+      }
+
+      const matches = allQuestions.filter(item => {
+        return (item.id || '').toLowerCase().includes(q) ||
+               (item.stem || '').toLowerCase().includes(q) ||
+               (item.topic || '').toLowerCase().includes(q) ||
+               (item.paper || '').toLowerCase().includes(q);
+      }).slice(0, 30);
+
+      if (matches.length === 0) {
+        list.innerHTML = '<div style="text-align: center; color: var(--text-muted); padding: 30px 0;">未找到相关题目</div>';
+        return;
+      }
+
+      list.innerHTML = '';
+      matches.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'search-result-item';
+        div.onclick = () => {
+          closeModal('globalSearchModal');
+          currentQuestionsQueue = [item];
+          currentQuestionIndex = 0;
+          currentMode = 'search';
+          document.getElementById('curModeTag').textContent = '🔍 搜索定位';
+          switchView('practice');
+          renderCurrentQuestion();
+        };
+
+        div.innerHTML = `
+          <div class="s-item-header">
+            <span style="font-family: var(--font-mono); color: var(--primary);">${item.id}</span>
+            <span style="color: var(--text-muted);">${item.typeName || ''} | ${item.paper || ''}</span>
+          </div>
+          <div class="s-item-title">${formatMathText(item.stem)}</div>
+        `;
+        list.appendChild(div);
+      });
+    }
+
+    /* ==========================================================================
+       SETTINGS & CROSS-DEVICE DATA SYNC (100% FUNCTIONAL)
+       ========================================================================== */
+    function openSettingsModal() {
+      syncSettingsUI();
+      document.getElementById('settingsModal').classList.add('active');
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).classList.remove('active');
+    }
+
+    // 1. One-Click Sync Code (PC <-> Phone via WeChat/QQ/Notes)
+    function generateAndCopySyncCode() {
+      const syncObj = {
+        v: 1,
+        time: new Date().toISOString(),
+        p: appState.progress,
+        b: appState.bookmarks,
+        n: appState.notes,
+        s: appState.settings
+      };
+
+      try {
+        const jsonStr = JSON.stringify(syncObj);
+        // Base64 encode UTF-8
+        const encoded = btoa(encodeURIComponent(jsonStr));
+        const syncCode = 'HPU_QUIZ#' + encoded;
+
+        // Copy to clipboard
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(syncCode).then(() => {
+            showToast('📋 同步口令已复制！可在手机粘贴恢复', '🎉');
+          }).catch(() => {
+            promptCopyFallback(syncCode);
+          });
+        } else {
+          promptCopyFallback(syncCode);
+        }
+      } catch (e) {
+        showToast('生成同步口令失败，请使用JSON文件导出', '⚠️');
+      }
+    }
+
+    function promptCopyFallback(code) {
+      const ta = document.createElement('textarea');
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      showToast('📋 同步口令已复制到剪贴板！', '🎉');
+    }
+
+    function openPasteSyncCodePrompt() {
+      const input = prompt('请粘贴你的「HPU_QUIZ#...」同步口令：');
+      if (!input || !input.trim()) return;
+
+      const trimmed = input.trim();
+      if (!trimmed.startsWith('HPU_QUIZ#')) {
+        alert('无效的同步口令格式！请确保以 HPU_QUIZ# 开头。');
+        return;
+      }
+
+      try {
+        const base64 = trimmed.replace('HPU_QUIZ#', '').trim();
+        const jsonStr = decodeURIComponent(atob(base64));
+        const data = JSON.parse(jsonStr);
+
+        if (data && data.p) {
+          appState.progress = Object.assign(appState.progress, data.p);
+          if (data.b) appState.bookmarks = Object.assign(appState.bookmarks, data.b);
+          if (data.n) appState.notes = Object.assign(appState.notes, data.n);
+          if (data.s) appState.settings = Object.assign(appState.settings, data.s);
+
+          saveState();
+          applyLoadedSettings();
+          renderDashboard();
+          showToast('🎉 同步恢复成功！所有刷题记录已同步！', '🚀');
+          closeModal('settingsModal');
+        } else {
+          alert('口令未能解析出有效刷题进度。');
+        }
+      } catch (err) {
+        alert('同步口令解析失败，请检查是否完整复制！');
+      }
+    }
+
+    // 2. Traditional JSON file export
+    function exportUserData() {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(appState, null, 2));
+      const downloadAnchor = document.createElement('a');
+      downloadAnchor.setAttribute("href", dataStr);
+      downloadAnchor.setAttribute("download", `hpu_power_system_quiz_backup_${new Date().toISOString().slice(0,10)}.json`);
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+      showToast('备份文件已下载！');
+    }
+
+    function triggerImportUserData() {
+      document.getElementById('importFileInput').click();
+    }
+
+    function importUserDataFile(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const parsed = JSON.parse(e.target.result);
+          if (parsed && (parsed.progress || parsed.p)) {
+            appState.progress = Object.assign(appState.progress, parsed.progress || parsed.p || {});
+            appState.bookmarks = Object.assign(appState.bookmarks, parsed.bookmarks || parsed.b || {});
+            appState.notes = Object.assign(appState.notes, parsed.notes || parsed.n || {});
+            if (parsed.settings || parsed.s) {
+              appState.settings = Object.assign(appState.settings, parsed.settings || parsed.s || {});
+            }
+            saveState();
+            applyLoadedSettings();
+            renderDashboard();
+            showToast('🎉 数据导入成功！所有历史刷题已恢复！', '🚀');
+            closeModal('settingsModal');
+          } else {
+            alert('文件格式不正确，未能找到有效刷题数据。');
+          }
+        } catch (err) {
+          alert('读取文件失败，请确保选择的是有效的 JSON 备份文件。');
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    function confirmResetAllProgress() {
+      if (confirm('⚠️ 警告：确定清空所有刷题进度、错题本与笔记吗？此操作无法恢复！')) {
+        appState.progress = {};
+        appState.bookmarks = {};
+        appState.notes = {};
+        saveState();
+        renderDashboard();
+        showToast('刷题进度已全部清空，重新启航！', '🗑️');
+        closeModal('settingsModal');
+      }
+    }
+
+    // Floating Toast Notification
+    let toastTimeout = null;
+    function showToast(msg, icon = '✨') {
+      const toast = document.getElementById('toast');
+      document.getElementById('toastMsg').textContent = msg;
+      document.getElementById('toastIcon').textContent = icon;
+      toast.classList.add('show');
+
+      if (toastTimeout) clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2400);
+    }
+  </script>
+</body>
+</html>

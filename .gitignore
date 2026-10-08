@@ -33,3 +33,7 @@ Thumbs.db
 .gemini/
 .system_generated/
 scratch/
+__pycache__/
+*.pyc
+temp_inspect/
+

@@ -75,6 +75,7 @@ export default withPwa(defineConfig({
   themeConfig: {
     nav: [
       { text: '首页', link: '/' },
+      { text: '⚡ 选择/判断题刷题宝', link: '/quiz/index.html', target: '_blank' },
       { text: '开始复习', link: '/chapter1' },
       { text: '🔥 今日复习 (Anki Mode)', link: '/review' },
       { text: '📝 考研笔记本', link: '/notes' }
