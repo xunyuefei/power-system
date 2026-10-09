@@ -24903,7 +24903,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2009 年硕士生入学考试初试试题",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "标幺制下相电压与线电压标幺值关系",
     "stem": "当采用标幺值计算时, 相电压的标幺值和线电压的标幺值关系为 ( )",
     "options": [
       {
@@ -24923,10 +24923,12 @@ const QUESTIONS_DATA = [
         "text": "不能确定"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "标幺制基准值选取满足相、线欧姆定律（$U_{B,相} = U_{B,线}/\\sqrt{3}$），归算后相电压标幺值与线电压标幺值数值完全相等。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2009",
@@ -24937,7 +24939,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2009 年硕士生入学考试初试试题",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "最大负荷利用小时数定义公式",
     "stem": "一年中负荷消耗的电能 W 除以一年中的最大负荷消耗 Pmax 称为 ( )",
     "options": [
       {
@@ -24957,10 +24959,12 @@ const QUESTIONS_DATA = [
         "text": "最大负荷损耗时间"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "全年月用电量/年用电量 $W$ 与最大负荷 $P_{max}$ 的比值 $T_{max} = W / P_{max}$，定义为最大负荷利用小时数。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2009",
@@ -24971,7 +24975,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2009 年硕士生入学考试初试试题",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "三绕组变压器短路损耗容量归算",
     "stem": "对容量比 $S_{1} / S_{2} / S_{3}$ 为 100/50/100 类型的变压器 $P_{k(1-3)}$ 与 $P_{k(1-3)}^{\\prime}$ 的关系为（）",
     "options": [
       {
@@ -24991,10 +24995,12 @@ const QUESTIONS_DATA = [
         "text": "$P_{k(1-3)} = 4P'_{k(1-3)}$"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "三绕组变压器容量比为 100/50/100 时，第 2 绕组实测损耗归算至 100% 额定容量需乘以容量比平方 $(100/50)^2 = 4$，即 $P_{k(1-3)} = 4 P_{k(1-3)}^{\\prime}$。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2009",
@@ -25005,7 +25011,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2009 年硕士生入学考试初试试题",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "闭式环网潮流自然分布决定规律",
     "stem": "环网潮流的自然分布取决于线路的（）",
     "options": [
       {
@@ -25025,10 +25031,12 @@ const QUESTIONS_DATA = [
         "text": "阻抗"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "无串联加压器等控制设备时，闭式电网自然潮流严格按照各并联支路等值复阻抗成反比（即等值阻抗的倒数）分布。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2009",
@@ -25039,7 +25047,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2009 年硕士生入学考试初试试题",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "潮流计算中平衡节点的已知状态量",
     "stem": "电力系统潮流的计算机算法中, 平衡节点的特点是 ( )",
     "options": [
       {
@@ -25059,10 +25067,12 @@ const QUESTIONS_DATA = [
         "text": "P 和 Q 已知"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "平衡节点（松弛节点）在潮流计算中给定电压幅值 $V$ 和参考相角 $\\theta = 0^\\circ$，待求注入有功功率 $P$ 与无功功率 $Q$。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2009",
@@ -25073,7 +25083,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2009 年硕士生入学考试初试试题",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "发电设备比耗量概念",
     "stem": "单位时间内输入能量和输出功率之比称为（）",
     "options": [
       {
@@ -25093,10 +25103,12 @@ const QUESTIONS_DATA = [
         "text": "等耗量微增率"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "单位时间内发电设备消耗的能量 $F$ 与发出的有功功率 $P$ 之比（$F/P$）定义为比耗量；输入能量对功率的导数 $dF/dP$ 为耗量微增率。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2009",
@@ -25107,7 +25119,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2009 年硕士生入学考试初试试题",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "电力系统一次调频与二次调频特性比较",
     "stem": "以下说法正确的是（）",
     "options": [
       {
@@ -25127,10 +25139,12 @@ const QUESTIONS_DATA = [
         "text": "频率的一次调整和频率的二次调整都不能使系统做到无差调节"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "一次调频依靠发电机调速器有差静态特性，属于有差调节；二次调频通过调频器平移静态特性曲线，可实现系统频率无差调节。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2009",
@@ -25141,7 +25155,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2009 年硕士生入学考试初试试题",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "超高压长线路轻载容升效应与并联电抗器补偿",
     "stem": "对于轻载超高压线路，以下说法正确的是（）",
     "options": [
       {
@@ -25161,10 +25175,12 @@ const QUESTIONS_DATA = [
         "text": "充电功率小，需要使用并联电抗器进行补偿"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "超高压长距离输电线路轻载或空载时对地充电功率极大，引发末端电压升高的容升效应，必须在末端装设并联电抗器吸收多余容性无功。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2009",
@@ -25175,7 +25191,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2009 年硕士生入学考试初试试题",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "50Hz系统短路冲击电流出现时刻",
     "stem": "由无限大电源供电的系统发生三相短路时, 短路电流最大瞬时值出现的时刻是( )",
     "options": [
       {
@@ -25195,10 +25211,12 @@ const QUESTIONS_DATA = [
         "text": "短路后 0.02 秒"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "50Hz 工频系统周期为 20ms，短路发生半个周期（0.01s / 10ms）时直流分量与周期分量同相叠加达到瞬时最大冲击值。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2009",
@@ -25209,7 +25227,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2009 年硕士生入学考试初试试题",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "短路电流对电气设备的直接危害",
     "stem": "下面哪项属于短路电流对系统的危害（）",
     "options": [
       {
@@ -25229,10 +25247,12 @@ const QUESTIONS_DATA = [
         "text": "无功功率过剩"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "短路电流远超额定运行电流，巨大的热效应（$I^2 R t$）会破坏电气设备绝缘，直接导致设备过热烧毁。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2009",
@@ -25243,7 +25263,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2008 年硕士生入学考试初试试题",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "衡量电能质量的核心指标",
     "stem": "衡量电能质量的指标有（ ）",
     "options": [
       {
@@ -25263,10 +25283,13 @@ const QUESTIONS_DATA = [
         "text": "频率"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "衡量电能质量的三大核心指标为：电压偏移、频率偏移、波形畸变率。电流和功率属于系统运行与负荷指标。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2008",
@@ -25277,7 +25300,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2008 年硕士生入学考试初试试题",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "不同电压等级电网中性点接地方式",
     "stem": "我国规定 $110 \\mathrm{kV}$ 及以上的电网中性点的运行方式采用 ( ), $6 \\sim 10 \\mathrm{kV}$ 的电网中性点的运行方式采用 ( )。",
     "options": [
       {
@@ -25289,10 +25312,13 @@ const QUESTIONS_DATA = [
         "text": "中性点非直接接地"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "110kV及以上高压超高压电网绝缘投资巨大，采用中性点直接接地（A）以降低绝缘水平；6~10kV中低压电网采用中性点不接地或经消弧线圈接地（非直接接地 B）以保证供电可靠性。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2008",
@@ -25303,7 +25329,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2008 年硕士生入学考试初试试题",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "标幺制下相电压与线电压标幺值关系",
     "stem": "当采用标幺值计算时, 相电压的标幺值和线电压的标幺值关系为 ( )。",
     "options": [
       {
@@ -25319,10 +25345,12 @@ const QUESTIONS_DATA = [
         "text": "相等"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "选定基准值满足 $U_{B,相} = U_{B,线}/\\sqrt{3}$，归算后相电压标幺值与线电压标幺值在数值上完全相等。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2008",
@@ -25333,7 +25361,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2008 年硕士生入学考试初试试题",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "可能产生零序电流的短路故障类型",
     "stem": "可能产生零序电流的短路形式有（ ）。",
     "options": [
       {
@@ -25353,10 +25381,13 @@ const QUESTIONS_DATA = [
         "text": "两相接地短路"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "短路电流中产生零序电流必须满足两个条件：系统发生不对称故障且具有接地回路。故仅单相接地短路（A）与两相接地短路（D）能产生零序电流。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2008",
@@ -25367,7 +25398,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2008 年硕士生入学考试初试试题",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "无限大功率电源的物理特性",
     "stem": "无限大功率电源的特点是（ ）。",
     "options": [
       {
@@ -25387,10 +25418,13 @@ const QUESTIONS_DATA = [
         "text": "频率恒定"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "无限大功率电源是指内阻为零、容量无限大的理想电源，其基本特征是母线电压幅值恒定（B）且频率恒定（D）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2008",
@@ -25401,7 +25435,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2008 年硕士生入学考试初试试题",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "两相接地短路故障点正序与负序电流大小比较",
     "stem": "电力系统发生两相接地短路时可以肯定的是（ ）",
     "options": [
       {
@@ -25421,11 +25455,13 @@ const QUESTIONS_DATA = [
         "text": "正序电流大于等于负序电流"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
-    "conflict": "",
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "两相接地短路复合序网为正序、负序与零序网并联连接，负序分流支路电流 $I_{(2)} = I_{(1)} \\frac{X_0}{X_2 + X_0} < I_{(1)}$，故故障点正序电流必大于负序电流。",
+    "verified": true,
+    "conflict": "【复合序网定理】根据两相接地短路边界条件，复合序网为三序并联，总正序电流为负序与零序电流之和，在发电机端及故障点均满足正序电流大于负序电流（选A）。",
     "source": "考研",
     "year": "2008",
     "chapter": 8
@@ -25435,7 +25471,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2008 年硕士生入学考试初试试题",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "不对称短路负序电压空间沿线分布规律",
     "stem": "电力系统发生不对称短路时, 离短路点越近, 则负序电压 ( )。",
     "options": [
       {
@@ -25455,10 +25491,12 @@ const QUESTIONS_DATA = [
         "text": "可能变大也可能变小"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "负序网络中无旋转发电机内部源，短路故障点为虚拟负序电源。因此短路点负序电压最高，离短路点越近，负序电压幅值越大。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2008",
@@ -25469,7 +25507,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2008 年硕士生入学考试初试试题",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "发电设备耗量微增率概念",
     "stem": "单位时间内输入能量增量与输出功率增量的比值叫（ ）。",
     "options": [
       {
@@ -25489,10 +25527,12 @@ const QUESTIONS_DATA = [
         "text": "等耗量微增率"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "单位时间内输入能量增量与输出功率增量的微分比值 $dF/dP$ 定义为耗量微增率；$F/P$ 为比耗量；$F=f(P)$ 为耗量特性。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2008",
@@ -25503,7 +25543,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2008 年硕士生入学考试初试试题",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "有无架空地线输电线路零序阻抗大小比较",
     "stem": "单回输电线零序阻抗 $Z_{(0)}$ 和带架空线的输电线零序阻抗的关系为（ ）",
     "options": [
       {
@@ -25519,10 +25559,12 @@ const QUESTIONS_DATA = [
         "text": "$Z_{(0)}$ 等于 $Z_{(0)}^{W}$"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "架空地线中感应反向零序电流削弱导线零序磁链，使等值零序电抗降低，故无架空地线时的零序阻抗 $Z_{(0)}$ 大于有架空地线时的零序阻抗 $Z_{(0)}^{(w)}$。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2008",
@@ -25533,7 +25575,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2007 年硕士生入学考试初试试题 (科目代码：811)",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "分裂导线电抗参数计算",
     "stem": "分裂导线的电抗比普通钢芯铝绞线的电抗（）",
     "options": [
       {
@@ -25549,10 +25591,12 @@ const QUESTIONS_DATA = [
         "text": "相等"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "分裂导线相当于增大了导线自几何均距/等效半径 $r_{eq}$，公式 $x_1 = 0.1445\\lg\\frac{D_m}{r_{eq}} + 0.0157$，等值电抗变小。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2007",
@@ -25563,7 +25607,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2007 年硕士生入学考试初试试题 (科目代码：811)",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "电力系统无功电源类型",
     "stem": "电力系统中可以作为无功功率的设备有（）。",
     "options": [
       {
@@ -25580,13 +25624,22 @@ const QUESTIONS_DATA = [
       },
       {
         "label": "D",
-        "text": "电抗器 E. 静止补偿器"
+        "text": "电抗器"
+      },
+      {
+        "label": "E",
+        "text": "静止补偿器"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "B",
+      "C",
+      "E"
+    ],
+    "answerPending": false,
+    "explanation": "同步发电机（过励）、调相机、并联电容器、静止无功补偿器（SVC）均可向系统发出无功功率，作为无功电源；并联电抗器用于吸收容性无功。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2007",
@@ -25597,7 +25650,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2007 年硕士生入学考试初试试题 (科目代码：811)",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "标幺制下三相与单相功率标幺值关系",
     "stem": "当采用标么值计算时，三相功率的标么值和单相功率的标么值关系为（）。",
     "options": [
       {
@@ -25613,10 +25666,12 @@ const QUESTIONS_DATA = [
         "text": "相等"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "选定基准容量 $S_B$ 和基准电压 $U_B$ 后，单相基准容量为 $S_{B,单相} = S_B/3$，归算后三相功率标幺值与单相功率标幺值在数值上完全相等。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2007",
@@ -25627,7 +25682,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2007 年硕士生入学考试初试试题 (科目代码：811)",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "变压器分接头档位总数计算",
     "stem": "某变压器铭牌上标示电压为 $220 \\pm 3 \\times 2.5\\%$ ，它共有（）个分接头。",
     "options": [
       {
@@ -25647,10 +25702,12 @@ const QUESTIONS_DATA = [
         "text": "7 个"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "铭牌标示 $220 \\pm 3 \\times 2.5\\%$，表示额定主抽头两侧各有 3 个增减档分接头，分接头总数为 $1 + 3 + 3 = 7$ 个。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2007",
@@ -25661,7 +25718,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2007 年硕士生入学考试初试试题 (科目代码：811)",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "电晕损耗与输电线路电导参数",
     "stem": "电晕损耗影响输电线路的哪个参数（）。",
     "options": [
       {
@@ -25681,10 +25738,12 @@ const QUESTIONS_DATA = [
         "text": "电纳"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "高压电晕放电引发强电场空气电离和寄生高频有功损耗，在等值电路中主要用电导 $G$ 参数表征（$\\Delta P_G = U^2 G$）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2007",
@@ -25695,7 +25754,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2007 年硕士生入学考试初试试题 (科目代码：811)",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "负荷变动对系统频率的影响",
     "stem": "如果发电机不参加调频，当负荷增加时，系统的频率会（）。",
     "options": [
       {
@@ -25711,10 +25770,12 @@ const QUESTIONS_DATA = [
         "text": "不变"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "发电机不参加调频时输出有功 $P_G$ 恒定，负荷增加使 $P_G < P_L$，转子旋转动能释放减速，导致系统稳态频率降低。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2007",
@@ -25725,31 +25786,33 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2007 年硕士生入学考试初试试题 (科目代码：811)",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
-    "stem": "短路冲击电流是指（），短路冲击电流在（）时刻出现。\n(1)",
+    "topic": "短路冲击电流定义与出现时刻",
+    "stem": "短路冲击电流是指短路全电流的（），短路冲击电流在（）时刻出现。",
     "options": [
       {
         "label": "A",
-        "text": "短路电流瞬时值"
+        "text": "短路全电流瞬时值，短路后 0 秒"
       },
       {
         "label": "B",
-        "text": "短路电流有效值"
+        "text": "短路全电流最大瞬时值，短路后半个周期（0.01s）"
       },
       {
         "label": "C",
-        "text": "短路电流最大瞬时值"
+        "text": "短路全电流最大有效值，短路后半个周期（0.01s）"
       },
       {
         "label": "D",
-        "text": "短路电流最大有效值 (2) A. 0 秒 B. 半个周期 C. 一个周期"
+        "text": "短路全电流最大有效值，短路后一个周期（0.02s）"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
-    "conflict": "",
+    "answer": [
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "短路冲击电流定义为短路全电流的最大瞬时值（第1问选C）；在 50Hz 工频系统中于短路发生后半个周期（0.01s / 10ms）时出现（第2问选B）。",
+    "verified": true,
+    "conflict": "【双空题题型规整】原真题为双空选择题：第(1)空短路冲击电流定义为短路全电流最大瞬时值（选C）；第(2)空工频系统中在短路后半个周期（0.01s/10ms）出现（选B）。规整选项为单选 B 项（最大瞬时值，半个周期）。",
     "source": "考研",
     "year": "2007",
     "chapter": 7
@@ -25759,7 +25822,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2007 年硕士生入学考试初试试题 (科目代码：811)",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "变压器中性线上流过的零序电流",
     "stem": "当电力系统发生不对称短路时, 变压器中性线上通过的电流为 ( )。",
     "options": [
       {
@@ -25776,13 +25839,19 @@ const QUESTIONS_DATA = [
       },
       {
         "label": "D",
-        "text": "三倍零序电流 E. 三倍正序电流"
+        "text": "三倍零序电流"
+      },
+      {
+        "label": "E",
+        "text": "三倍正序电流"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "三相正序与负序电流对称平衡，在中性线上代数和为 0；而三相零序电流同相叠加，故变压器中性线上流过的电流为 3 倍零序电流（$3I_0$）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2007",
@@ -25793,7 +25862,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2007 年硕士生入学考试初试试题 (科目代码：811)",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "架空地线对线路零序阻抗的影响",
     "stem": "单回输电线零序阻抗 $Z_{(0)}$ 和有架空地线的单回输电线零序阻抗 $Z_{(0)}^{\\mathrm{(w)}}$ 的关系为（）",
     "options": [
       {
@@ -25809,10 +25878,12 @@ const QUESTIONS_DATA = [
         "text": "$Z_{(0)}$ 等于 $Z_{(0)}^{\\mathrm{(w)}}$"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "架空地线（避雷线）中感应的逆向零序电流起去磁屏蔽作用，使得有地线时的线路零序阻抗减小，故无架空地线时线路零序阻抗 $Z_{(0)} > Z_{(0)}^{(w)}$。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2007",
