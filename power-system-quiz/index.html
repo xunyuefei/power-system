@@ -2136,6 +2136,417 @@
       border-color: #a78bfa;
       background: linear-gradient(135deg, rgba(139, 92, 246, 0.14) 0%, rgba(56, 189, 248, 0.08) 100%);
     }
+
+    /* ==========================================================================
+       MOBILE-OPTIMIZED FLOATING SCRATCHPAD & SNIPPET CLIPPER
+       ========================================================================== */
+    /* 1. Edge-Docked Slim Tab (移动端侧边吸附半隐藏微胶囊) */
+    .scratchpad-dock-tab {
+      position: fixed;
+      right: 0;
+      top: 62%;
+      transform: translateY(-50%);
+      z-index: 850;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(139, 92, 246, 0.4);
+      border-right: none;
+      border-radius: 20px 0 0 20px;
+      padding: 7px 10px 7px 11px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
+      box-shadow: -2px 4px 14px rgba(0, 0, 0, 0.35);
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease, border-color 0.2s ease;
+      touch-action: none;
+    }
+    .scratchpad-dock-tab:hover {
+      border-color: #a78bfa;
+      background: rgba(30, 41, 59, 0.95);
+    }
+    .scratchpad-dock-tab:active {
+      transform: translateY(-50%) scale(0.96);
+    }
+    .dock-tab-icon {
+      font-size: 1.05rem;
+      line-height: 1;
+    }
+    .dock-tab-count {
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: #c084fc;
+      background: rgba(139, 92, 246, 0.2);
+      border-radius: 10px;
+      padding: 1px 6px;
+      min-width: 16px;
+      text-align: center;
+    }
+
+    /* 2. Micro Confirmation Prompt Toast (复制后的轻量确认微气泡) */
+    .scratchpad-prompt-toast {
+      position: fixed;
+      bottom: 84px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 890;
+      width: min(92vw, 420px);
+      background: rgba(15, 23, 42, 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(139, 92, 246, 0.45);
+      border-radius: 14px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(139, 92, 246, 0.2);
+      animation: promptSlideUp 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes promptSlideUp {
+      from { opacity: 0; transform: translate(-50%, 20px); }
+      to { opacity: 1; transform: translate(-50%, 0); }
+    }
+    .prompt-toast-content {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+      flex: 1;
+    }
+    .prompt-toast-icon {
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .prompt-toast-text {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      flex: 1;
+    }
+    .prompt-toast-title {
+      font-size: 0.76rem;
+      color: #c084fc;
+      font-weight: 700;
+    }
+    .prompt-toast-snippet {
+      font-size: 0.8rem;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 190px;
+    }
+    .prompt-toast-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+    .btn-prompt-save {
+      background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 6px 11px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-prompt-save:hover {
+      filter: brightness(1.1);
+    }
+    .btn-prompt-dismiss {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.82rem;
+      cursor: pointer;
+    }
+
+    /* 3. Explanation One-Tap Clip Button (解析卡片一键摘录按钮) */
+    .btn-clip-exp {
+      background: rgba(139, 92, 246, 0.12);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      color: #c084fc;
+      border-radius: 6px;
+      padding: 3px 8px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .btn-clip-exp:hover {
+      background: rgba(139, 92, 246, 0.22);
+      border-color: #a78bfa;
+    }
+
+    /* 4. Bottom Sheet Drawer (移动端半屏抽屉 / 桌面端侧边抽屉) */
+    .scratchpad-drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 950;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .scratchpad-drawer-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+    .scratchpad-drawer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      max-height: 75vh;
+      height: auto;
+      background: var(--bg-surface);
+      border-top: 1px solid rgba(139, 92, 246, 0.35);
+      border-radius: 20px 20px 0 0;
+      box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      transform: translateY(100%);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 960;
+      padding: 16px 18px 24px 18px;
+    }
+    .scratchpad-drawer-overlay.active .scratchpad-drawer {
+      transform: translateY(0);
+    }
+    @media (min-width: 768px) {
+      .scratchpad-drawer {
+        left: auto;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        max-height: 100vh;
+        width: 420px;
+        border-radius: 18px 0 0 18px;
+        border-top: none;
+        border-left: 1px solid rgba(139, 92, 246, 0.35);
+        transform: translateX(100%);
+      }
+      .scratchpad-drawer-overlay.active .scratchpad-drawer {
+        transform: translateX(0);
+      }
+    }
+
+    .scratchpad-drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 12px;
+    }
+    .drawer-header-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.98rem;
+    }
+    .drawer-count-badge {
+      font-size: 0.74rem;
+      background: rgba(139, 92, 246, 0.18);
+      color: #c084fc;
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-radius: 10px;
+      padding: 1px 7px;
+      font-weight: 600;
+    }
+    .btn-drawer-close {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.88rem;
+      cursor: pointer;
+    }
+
+    .scratchpad-quick-bar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .btn-quick-paste, .btn-quick-new {
+      flex: 1;
+      padding: 7px 10px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--border-subtle);
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+    .btn-quick-paste {
+      background: rgba(139, 92, 246, 0.1);
+      color: #c084fc;
+      border-color: rgba(139, 92, 246, 0.3);
+    }
+    .btn-quick-new {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-secondary);
+    }
+
+    .scratchpad-list {
+      flex: 1;
+      overflow-y: auto;
+      max-height: calc(75vh - 160px);
+      padding-right: 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    @media (min-width: 768px) {
+      .scratchpad-list {
+        max-height: calc(100vh - 180px);
+      }
+    }
+
+    /* Individual Snippet Card */
+    .scratchpad-card {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 3px solid #8b5cf6;
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      transition: border-color 0.2s ease;
+      position: relative;
+    }
+    .scratchpad-card:hover {
+      border-color: rgba(139, 92, 246, 0.4);
+    }
+    .snippet-meta-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .snippet-tag {
+      background: rgba(139, 92, 246, 0.15);
+      color: #c084fc;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+      max-width: 240px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .snippet-actions {
+      display: flex;
+      gap: 6px;
+    }
+    .btn-snippet-act {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      cursor: pointer;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    .btn-snippet-act:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .btn-snippet-act.danger:hover {
+      color: #fb7185;
+      background: rgba(244, 63, 94, 0.15);
+    }
+    .snippet-content {
+      font-size: 0.85rem;
+      color: var(--text-primary);
+      line-height: 1.5;
+      margin-bottom: 8px;
+      word-break: break-word;
+      white-space: pre-wrap;
+    }
+    .snippet-memo-input {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px dashed rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+      padding: 6px 8px;
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .snippet-memo-input:focus {
+      border-color: #8b5cf6;
+      color: var(--text-primary);
+    }
+
+    .scratchpad-empty-state {
+      text-align: center;
+      padding: 30px 10px;
+      color: var(--text-muted);
+      font-size: 0.84rem;
+      line-height: 1.6;
+    }
+
+    .scratchpad-drawer-footer {
+      display: flex;
+      gap: 8px;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 12px;
+      margin-top: 12px;
+    }
+    .btn-drawer-act {
+      flex: 1;
+      padding: 7px 10px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--border-subtle);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-secondary);
+      transition: all 0.2s ease;
+    }
+    .btn-drawer-act:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-primary);
+    }
+    .btn-drawer-act.danger {
+      border-color: rgba(244, 63, 94, 0.3);
+      color: #fb7185;
+      background: rgba(244, 63, 94, 0.06);
+    }
+    .btn-drawer-act.danger:hover {
+      background: rgba(244, 63, 94, 0.2);
+    }
   </style>
 </head>
 
@@ -2448,7 +2859,12 @@
 
             <!-- Explanation -->
             <div class="explanation-box" id="explanationBox">
-              <div class="exp-title">📖 官方与校核解析说明</div>
+              <div class="exp-title" style="display:flex; justify-content:space-between; align-items:center;">
+                <span>📖 官方与校核解析说明</span>
+                <button type="button" class="btn-clip-exp" onclick="clipCurrentQuestionToScratchpad()" title="一键摘录本题考点到便签">
+                  📝 摘录至便签
+                </button>
+              </div>
               <div class="exp-body" id="explanationText"></div>
             </div>
 
@@ -2705,6 +3121,9 @@
           <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
             <input type="checkbox" id="settingShortcuts" onchange="updateSettings()"> 开启键盘快捷键 (A/B/C/D 选答案, Enter 提交, ←/→ 翻题)
           </label>
+          <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+            <input type="checkbox" id="settingScratchpad" onchange="updateSettings()"> 开启贴边快捷便签与复制收纳提示 (移动端吸附)
+          </label>
         </div>
       </div>
 
@@ -2773,6 +3192,61 @@
     </div>
   </div>
 
+  <!-- 1. MOBILE EDGE-DOCKED SLIM TAB -->
+  <div id="scratchpadDockTab" class="scratchpad-dock-tab" onclick="toggleScratchpadDrawer()" title="点击展开便签备忘录 (按住可边缘拖动)">
+    <span class="dock-tab-icon">📝</span>
+    <span class="dock-tab-count" id="dockTabCount">0</span>
+  </div>
+
+  <!-- 2. MICRO CONFIRMATION PROMPT TOAST (复制后轻量询问) -->
+  <div id="scratchpadPromptToast" class="scratchpad-prompt-toast" style="display: none;">
+    <div class="prompt-toast-content">
+      <span class="prompt-toast-icon">📋</span>
+      <div class="prompt-toast-text">
+        <span class="prompt-toast-title">检测到复制内容</span>
+        <span class="prompt-toast-snippet" id="promptToastSnippet">...</span>
+      </div>
+    </div>
+    <div class="prompt-toast-actions">
+      <button type="button" class="btn-prompt-save" onclick="confirmSaveSnippetToScratchpad()">📥 存入便签</button>
+      <button type="button" class="btn-prompt-dismiss" onclick="dismissSnippetPrompt()">✕</button>
+    </div>
+  </div>
+
+  <!-- 3. BOTTOM SHEET DRAWER (移动端半屏抽屉 / 桌面端侧边面板) -->
+  <div id="scratchpadDrawerOverlay" class="scratchpad-drawer-overlay" onclick="closeScratchpadDrawer(event)">
+    <div class="scratchpad-drawer" id="scratchpadDrawer" onclick="event.stopPropagation()">
+      <div class="scratchpad-drawer-header">
+        <div class="drawer-header-left">
+          <span style="font-size:1.1rem;">📝</span>
+          <strong>刷题便签备忘录</strong>
+          <span class="drawer-count-badge" id="drawerSnippetCount">0 条</span>
+        </div>
+        <div class="drawer-header-right">
+          <button type="button" class="btn-drawer-close" onclick="closeScratchpadDrawer()">✕</button>
+        </div>
+      </div>
+
+      <!-- Quick Actions Bar -->
+      <div class="scratchpad-quick-bar">
+        <button type="button" class="btn-quick-paste" onclick="pasteClipboardToScratchpad()">📋 粘贴剪贴板最新内容</button>
+        <button type="button" class="btn-quick-new" onclick="addNewManualNote()">✏️ 手动速记</button>
+      </div>
+
+      <!-- Snippet Card List -->
+      <div class="scratchpad-list" id="scratchpadList">
+        <!-- Populated dynamically -->
+      </div>
+
+      <!-- Footer Actions -->
+      <div class="scratchpad-drawer-footer">
+        <button type="button" class="btn-drawer-act" onclick="copyAllScratchpad()">📋 一键全拷 (Markdown)</button>
+        <button type="button" class="btn-drawer-act" onclick="exportScratchpadMarkdown()">💾 导出 .md</button>
+        <button type="button" class="btn-drawer-act danger" onclick="clearAllScratchpad()">🗑️ 全部清空</button>
+      </div>
+    </div>
+  </div>
+
   <!-- FLOATING TOAST COMPONENT -->
   <div id="toast" class="toast-container">
     <span id="toastIcon">✨</span>
@@ -2828,12 +3302,14 @@
       progress: {},   // question_id -> { selected: ['A'], correct: true, attempts: 1, time: '', ... }
       bookmarks: {},  // question_id -> true
       notes: {},      // question_id -> text
+      scratchpad: [], // [ { id, time, paper, qId, topic, content, memo } ]
       settings: {
         fontSize: 'normal',
         autoNext: false,
         instantSubmit: false,
         shortcuts: true,
         dailyReviewCap: 25,
+        enableScratchpad: true,
       },
       examHistory: []
     };
@@ -2842,7 +3318,9 @@
     function migrateState() {
       if (!appState.progress) appState.progress = {};
       if (!appState.settings) appState.settings = {};
+      if (!Array.isArray(appState.scratchpad)) appState.scratchpad = [];
       if (!appState.settings.dailyReviewCap) appState.settings.dailyReviewCap = 25;
+      if (appState.settings.enableScratchpad === undefined) appState.settings.enableScratchpad = true;
 
       const now = Date.now();
       Object.keys(appState.progress).forEach(id => {
@@ -2902,6 +3380,8 @@
       }
       migrateState();
       applyLoadedSettings();
+      updateScratchpadBadge();
+      updateScratchpadVisibility();
     }
 
     function saveState() {
@@ -2938,6 +3418,9 @@
       const shortcutsCheck = document.getElementById('settingShortcuts');
       if (shortcutsCheck) shortcutsCheck.checked = appState.settings.shortcuts !== false;
 
+      const scratchpadCheck = document.getElementById('settingScratchpad');
+      if (scratchpadCheck) scratchpadCheck.checked = appState.settings.enableScratchpad !== false;
+
       // Daily review cap chips
       const curCap = appState.settings.dailyReviewCap || 25;
       document.querySelectorAll('#reviewCapChips .chip').forEach(chip => {
@@ -2953,7 +3436,10 @@
       appState.settings.autoNext = document.getElementById('settingAutoNext').checked;
       appState.settings.instantSubmit = document.getElementById('settingInstantSubmit').checked;
       appState.settings.shortcuts = document.getElementById('settingShortcuts').checked;
+      const scCheck = document.getElementById('settingScratchpad');
+      if (scCheck) appState.settings.enableScratchpad = scCheck.checked;
       saveState();
+      updateScratchpadVisibility();
     }
 
     function setFontScale(size) {
@@ -2970,6 +3456,394 @@
         }
       });
       saveState();
+    }
+
+    /* ==========================================================================
+       MOBILE-OPTIMIZED FLOATING SCRATCHPAD ENGINE
+       ========================================================================== */
+    let pendingSnippetText = '';
+    let promptToastTimer = null;
+    let isDockDragging = false;
+    let dockStartY = 0;
+    let dockStartTop = 0;
+
+    function initScratchpadEngine() {
+      initScratchpadDockDrag();
+      initCopyDetection();
+      updateScratchpadBadge();
+      updateScratchpadVisibility();
+
+      // Keyboard shortcut: Alt + N toggles scratchpad drawer
+      window.addEventListener('keydown', (e) => {
+        if (e.altKey && (e.key === 'n' || e.key === 'N')) {
+          e.preventDefault();
+          toggleScratchpadDrawer();
+        }
+      });
+    }
+
+    function initScratchpadDockDrag() {
+      const tab = document.getElementById('scratchpadDockTab');
+      if (!tab) return;
+
+      const onTouchStart = (e) => {
+        isDockDragging = true;
+        dockStartY = e.touches ? e.touches[0].clientY : e.clientY;
+        dockStartTop = tab.getBoundingClientRect().top;
+      };
+
+      const onTouchMove = (e) => {
+        if (!isDockDragging) return;
+        const curY = e.touches ? e.touches[0].clientY : e.clientY;
+        const dy = curY - dockStartY;
+        let newTop = dockStartTop + dy;
+        const maxTop = window.innerHeight - 80;
+        const minTop = 60;
+        newTop = Math.max(minTop, Math.min(maxTop, newTop));
+        tab.style.top = newTop + 'px';
+        tab.style.transform = 'none';
+      };
+
+      const onTouchEnd = () => {
+        if (isDockDragging) {
+          isDockDragging = false;
+          const topPct = (tab.offsetTop / window.innerHeight) * 100;
+          try {
+            localStorage.setItem('hpu_scratchpad_top_pct', topPct.toFixed(1) + '%');
+          } catch (e) {}
+        }
+      };
+
+      tab.addEventListener('touchstart', onTouchStart, { passive: true });
+      window.addEventListener('touchmove', onTouchMove, { passive: true });
+      window.addEventListener('touchend', onTouchEnd, { passive: true });
+
+      tab.addEventListener('mousedown', onTouchStart);
+      window.addEventListener('mousemove', onTouchMove);
+      window.addEventListener('mouseup', onTouchEnd);
+
+      // Restore saved vertical position
+      try {
+        const savedTop = localStorage.getItem('hpu_scratchpad_top_pct');
+        if (savedTop) {
+          tab.style.top = savedTop;
+          tab.style.transform = 'none';
+        }
+      } catch (e) {}
+    }
+
+    function initCopyDetection() {
+      document.addEventListener('copy', () => {
+        if (appState.settings && appState.settings.enableScratchpad === false) return;
+
+        // Get selected text
+        const sel = window.getSelection();
+        const selected = sel ? sel.toString().trim() : '';
+        if (!selected || selected.length < 2) return;
+
+        // Ignore copies inside input/textarea or the scratchpad drawer itself
+        const activeEl = document.activeElement;
+        if (activeEl && (activeEl.tagName === 'INPUT' || activeEl.tagName === 'TEXTAREA' || (activeEl.closest && activeEl.closest('#scratchpadDrawer')))) {
+          return;
+        }
+
+        pendingSnippetText = selected;
+        showCopyPromptToast(selected);
+      });
+    }
+
+    function showCopyPromptToast(text) {
+      const toast = document.getElementById('scratchpadPromptToast');
+      const snippetEl = document.getElementById('promptToastSnippet');
+      if (!toast || !snippetEl) return;
+
+      snippetEl.textContent = text.length > 32 ? text.slice(0, 32) + '...' : text;
+      toast.style.display = 'flex';
+
+      if (promptToastTimer) clearTimeout(promptToastTimer);
+      promptToastTimer = setTimeout(() => {
+        dismissSnippetPrompt();
+      }, 3800);
+    }
+
+    function dismissSnippetPrompt() {
+      const toast = document.getElementById('scratchpadPromptToast');
+      if (toast) toast.style.display = 'none';
+      pendingSnippetText = '';
+      if (promptToastTimer) clearTimeout(promptToastTimer);
+    }
+
+    function confirmSaveSnippetToScratchpad() {
+      if (!pendingSnippetText) return;
+      addSnippetToScratchpad(pendingSnippetText);
+      dismissSnippetPrompt();
+      showToast('🎉 已格式化存入便签！', '📝');
+    }
+
+    function addSnippetToScratchpad(content, customMeta) {
+      if (!appState.scratchpad) appState.scratchpad = [];
+
+      let qMeta = customMeta || null;
+      if (!qMeta && currentQuestionsQueue && currentQuestionsQueue.length > 0 && currentMode !== 'dashboard') {
+        const q = currentQuestionsQueue[currentQuestionIndex];
+        if (q) {
+          qMeta = {
+            paper: q.paper || '华电题库',
+            qId: q.id || '',
+            topic: q.topic || `第${q.chapter}章`
+          };
+        }
+      }
+
+      const snippet = {
+        id: 'snip_' + Date.now() + '_' + Math.random().toString(36).substr(2, 4),
+        time: new Date().toISOString(),
+        paper: qMeta ? qMeta.paper : '',
+        qId: qMeta ? qMeta.qId : '',
+        topic: qMeta ? qMeta.topic : '',
+        content: content.trim(),
+        memo: ''
+      };
+
+      appState.scratchpad.unshift(snippet);
+      saveState();
+      updateScratchpadBadge();
+      renderScratchpadList();
+    }
+
+    function clipCurrentQuestionToScratchpad() {
+      if (!currentQuestionsQueue || currentQuestionsQueue.length === 0) return;
+      const q = currentQuestionsQueue[currentQuestionIndex];
+      if (!q) return;
+
+      const correctAns = (q.answer || []).join(', ');
+      let content = `【题干】${q.stem}\n【标准答案】${correctAns}`;
+      if (q.explanation) {
+        content += `\n【核心解析】${q.explanation}`;
+      }
+      if (q.conflict) {
+        content += `\n【核定备忘】${q.conflict}`;
+      }
+
+      addSnippetToScratchpad(content, {
+        paper: q.paper || '',
+        qId: q.id || '',
+        topic: q.topic || `第${q.chapter}章`
+      });
+
+      showToast('🎉 已一键摘录本题考点到便签！', '📝');
+    }
+
+    function updateScratchpadVisibility() {
+      const enabled = !appState.settings || appState.settings.enableScratchpad !== false;
+      const tab = document.getElementById('scratchpadDockTab');
+      if (tab) {
+        tab.style.display = enabled ? 'flex' : 'none';
+      }
+    }
+
+    function updateScratchpadBadge() {
+      const count = (appState.scratchpad || []).length;
+      const badgeEl = document.getElementById('dockTabCount');
+      if (badgeEl) badgeEl.textContent = count;
+      const drawerCountEl = document.getElementById('drawerSnippetCount');
+      if (drawerCountEl) drawerCountEl.textContent = `${count} 条`;
+    }
+
+    function toggleScratchpadDrawer() {
+      const overlay = document.getElementById('scratchpadDrawerOverlay');
+      if (!overlay) return;
+      if (overlay.classList.contains('active')) {
+        closeScratchpadDrawer();
+      } else {
+        overlay.style.display = 'flex';
+        requestAnimationFrame(() => {
+          overlay.classList.add('active');
+        });
+        renderScratchpadList();
+      }
+    }
+
+    function closeScratchpadDrawer(e) {
+      const overlay = document.getElementById('scratchpadDrawerOverlay');
+      if (!overlay) return;
+      overlay.classList.remove('active');
+      setTimeout(() => {
+        overlay.style.display = 'none';
+      }, 280);
+    }
+
+    function renderScratchpadList() {
+      const listEl = document.getElementById('scratchpadList');
+      if (!listEl) return;
+      const items = appState.scratchpad || [];
+
+      if (items.length === 0) {
+        listEl.innerHTML = `
+          <div class="scratchpad-empty-state">
+            <div style="font-size: 2rem; margin-bottom: 8px;">📝</div>
+            <strong>便签备忘录暂无内容</strong>
+            <div style="font-size: 0.78rem; margin-top: 6px; color: var(--text-muted);">
+              在题目或解析区选中复制文字，或点击题目解析旁的「📝 摘录」，要点即可自动整理存入此处！
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      listEl.innerHTML = items.map((item, idx) => {
+        const srcTag = [item.paper, item.qId, item.topic].filter(Boolean).join(' · ') || '摘录片段';
+        const timeStr = item.time ? new Date(item.time).toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' }) : '';
+        const num = items.length - idx;
+
+        return `
+          <div class="scratchpad-card" id="card_${item.id}">
+            <div class="snippet-meta-line">
+              <span class="snippet-tag">#${num} ${escapeSnippetHtml(srcTag)}</span>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span>${timeStr}</span>
+                <div class="snippet-actions">
+                  <button type="button" class="btn-snippet-act" onclick="copySnippetContent('${item.id}')" title="复制此条">📋</button>
+                  <button type="button" class="btn-snippet-act danger" onclick="deleteSnippet('${item.id}')" title="删除此条">✕</button>
+                </div>
+              </div>
+            </div>
+            <div class="snippet-content">${escapeSnippetHtml(item.content)}</div>
+            <input type="text" class="snippet-memo-input" placeholder="💭 补记心得/助记口诀..." value="${escapeSnippetHtml(item.memo || '')}" oninput="updateSnippetMemo('${item.id}', this.value)">
+          </div>
+        `;
+      }).join('');
+    }
+
+    function escapeSnippetHtml(str) {
+      if (!str) return '';
+      return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    function deleteSnippet(id) {
+      if (!appState.scratchpad) return;
+      appState.scratchpad = appState.scratchpad.filter(s => s.id !== id);
+      saveState();
+      updateScratchpadBadge();
+      renderScratchpadList();
+    }
+
+    function updateSnippetMemo(id, memo) {
+      if (!appState.scratchpad) return;
+      const item = appState.scratchpad.find(s => s.id === id);
+      if (item) {
+        item.memo = memo;
+        saveState();
+      }
+    }
+
+    function copySnippetContent(id) {
+      const item = (appState.scratchpad || []).find(s => s.id === id);
+      if (!item) return;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(item.content).then(() => {
+          showToast('已复制该条便签', '📋');
+        });
+      } else {
+        promptCopyFallback(item.content);
+      }
+    }
+
+    function addNewManualNote() {
+      const note = prompt('请输入你要速记的考点或公式备忘：');
+      if (note && note.trim()) {
+        addSnippetToScratchpad(note.trim(), { topic: '随手速记' });
+        showToast('速记已添加！', '✏️');
+      }
+    }
+
+    function pasteClipboardToScratchpad() {
+      if (navigator.clipboard && navigator.clipboard.readText) {
+        navigator.clipboard.readText().then(text => {
+          if (text && text.trim()) {
+            addSnippetToScratchpad(text.trim());
+            showToast('已从剪贴板存入便签！', '📥');
+          } else {
+            showToast('剪贴板为空');
+          }
+        }).catch(() => {
+          addNewManualNote();
+        });
+      } else {
+        addNewManualNote();
+      }
+    }
+
+    function copyAllScratchpad() {
+      if (!appState.scratchpad || appState.scratchpad.length === 0) {
+        showToast('便签暂无内容');
+        return;
+      }
+      let md = '# 华电《电力系统分析》刷题便签备忘录\n\n';
+      appState.scratchpad.forEach((s, idx) => {
+        const timeStr = s.time ? new Date(s.time).toLocaleString('zh-CN', { hour12: false }) : '';
+        const src = [s.paper, s.qId, s.topic].filter(Boolean).join(' · ');
+        md += `### 片段 0${idx + 1} ${src ? '【' + src + '】' : ''} (${timeStr})\n\n`;
+        md += `> ${s.content.replace(/\n/g, '\n> ')}\n\n`;
+        if (s.memo) {
+          md += `*备忘笔记*: ${s.memo}\n\n`;
+        }
+        md += '---\n\n';
+      });
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(md).then(() => {
+          showToast('📋 全部便签已复制为 Markdown！', '🎉');
+        }).catch(() => {
+          promptCopyFallback(md);
+        });
+      } else {
+        promptCopyFallback(md);
+      }
+    }
+
+    function exportScratchpadMarkdown() {
+      if (!appState.scratchpad || appState.scratchpad.length === 0) {
+        showToast('便签暂无内容');
+        return;
+      }
+      let md = '# 华电《电力系统分析》刷题便签备忘录\n\n';
+      appState.scratchpad.forEach((s, idx) => {
+        const timeStr = s.time ? new Date(s.time).toLocaleString('zh-CN', { hour12: false }) : '';
+        const src = [s.paper, s.qId, s.topic].filter(Boolean).join(' · ');
+        md += `### 片段 0${idx + 1} ${src ? '【' + src + '】' : ''} (${timeStr})\n\n`;
+        md += `> ${s.content.replace(/\n/g, '\n> ')}\n\n`;
+        if (s.memo) {
+          md += `*备忘笔记*: ${s.memo}\n\n`;
+        }
+        md += '---\n\n';
+      });
+
+      try {
+        const blob = new Blob([md], { type: 'text/markdown;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `电力系统刷题便签_${new Date().toISOString().slice(0, 10)}.md`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        showToast('💾 Markdown 便签已导出！');
+      } catch (e) {
+        copyAllScratchpad();
+      }
+    }
+
+    function clearAllScratchpad() {
+      if (!appState.scratchpad || appState.scratchpad.length === 0) return;
+      if (confirm('确定清空当前所有便签内容吗？此操作无法撤销。')) {
+        appState.scratchpad = [];
+        saveState();
+        updateScratchpadBadge();
+        renderScratchpadList();
+        showToast('便签已全部清空', '🗑️');
+      }
     }
 
     /* ==========================================================================
@@ -3110,6 +3984,7 @@
       renderDashboard();
       setupKeyboardShortcuts();
       initTouchGestures();
+      initScratchpadEngine();
       registerServiceWorker();
 
       // 初始化移动端单页路由状态栈（防止在主页按返回直接退出浏览器）
@@ -4909,6 +5784,7 @@
         p: appState.progress,
         b: appState.bookmarks,
         n: appState.notes,
+        sc: appState.scratchpad,
         s: appState.settings
       };
 
@@ -4962,6 +5838,7 @@
           appState.progress = Object.assign(appState.progress, data.p);
           if (data.b) appState.bookmarks = Object.assign(appState.bookmarks, data.b);
           if (data.n) appState.notes = Object.assign(appState.notes, data.n);
+          if (data.sc) appState.scratchpad = data.sc;
           if (data.s) appState.settings = Object.assign(appState.settings, data.s);
 
           saveState();
@@ -5006,6 +5883,7 @@
             appState.progress = Object.assign(appState.progress, parsed.progress || parsed.p || {});
             appState.bookmarks = Object.assign(appState.bookmarks, parsed.bookmarks || parsed.b || {});
             appState.notes = Object.assign(appState.notes, parsed.notes || parsed.n || {});
+            if (parsed.scratchpad || parsed.sc) appState.scratchpad = parsed.scratchpad || parsed.sc || [];
             if (parsed.settings || parsed.s) {
               appState.settings = Object.assign(appState.settings, parsed.settings || parsed.s || {});
             }
