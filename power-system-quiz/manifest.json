@@ -1,0 +1,57 @@
+{
+  "id": "ncepu-power-system-quiz-app",
+  "name": "华电《电力系统分析》全真题库",
+  "short_name": "电分刷题宝",
+  "description": "华北电力大学《电力系统分析》历年期末与考研真题789题智能全真题库与离线刷题系统",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0a0e17",
+  "theme_color": "#0a0e17",
+  "lang": "zh-CN",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "顺序刷题",
+      "short_name": "顺序",
+      "description": "按历年试卷年份次序逐题突破",
+      "url": "./index.html?mode=sequential",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "错题攻坚",
+      "short_name": "错题",
+      "description": "集中消灭做错的疑难题目",
+      "url": "./index.html?mode=wrong",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "仿真模考",
+      "short_name": "模考",
+      "description": "30题计时全真模拟考试",
+      "url": "./index.html?mode=exam",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "categories": ["education", "utilities"]
+}
