@@ -1982,6 +1982,160 @@
       background: rgba(255, 255, 255, 0.15);
       border-radius: 4px;
     }
+
+    /* ==========================================================================
+       FOUR-STATE HEATMAP PROGRESS BAR & CHAPTER CARDS
+       ========================================================================== */
+    .progress-heatmap-bar {
+      display: flex;
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 10px 0 12px 0;
+    }
+    .seg-mastered {
+      background: #10b981;
+      height: 100%;
+      transition: width 0.3s ease;
+    }
+    .seg-reviewing {
+      background: #f59e0b;
+      height: 100%;
+      transition: width 0.3s ease;
+    }
+    .seg-wrong {
+      background: #ef4444;
+      height: 100%;
+      transition: width 0.3s ease;
+    }
+    .seg-unattempted {
+      background: rgba(255, 255, 255, 0.08);
+      height: 100%;
+      transition: width 0.3s ease;
+    }
+
+    .chapter-stats-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+    }
+    .chapter-stats-meta .metric-val {
+      font-weight: 700;
+    }
+
+    .chapter-card-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: auto;
+    }
+    .btn-chapter-action {
+      flex: 1;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-align: center;
+      border: 1px solid var(--border-subtle);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-chapter-action:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-primary);
+    }
+    .btn-chapter-action.primary {
+      border-color: rgba(56, 189, 248, 0.3);
+      color: var(--primary);
+      background: rgba(56, 189, 248, 0.08);
+    }
+    .btn-chapter-action.primary:hover {
+      background: rgba(56, 189, 248, 0.18);
+    }
+    .btn-chapter-action.danger {
+      border-color: rgba(244, 63, 94, 0.3);
+      color: #fb7185;
+      background: rgba(244, 63, 94, 0.08);
+    }
+    .btn-chapter-action.danger:hover {
+      background: rgba(244, 63, 94, 0.2);
+    }
+
+    /* ==========================================================================
+       WEAKNESS RADAR (TOP 3)
+       ========================================================================== */
+    .weakness-radar-container {
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.07) 0%, rgba(245, 158, 11, 0.04) 50%, rgba(15, 23, 42, 0.6) 100%);
+      border: 1px solid rgba(239, 68, 68, 0.25);
+      border-radius: var(--radius-lg);
+      padding: 16px 18px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .weakness-radar-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .weakness-radar-title {
+      font-size: 1.02rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #fca5a5;
+    }
+    .weakness-radar-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+    }
+    .weakness-rank-card {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+    }
+    .weakness-rank-card:hover {
+      border-color: rgba(239, 68, 68, 0.4);
+      transform: translateY(-2px);
+    }
+
+    /* Ebbinghaus Mode Badges */
+    .badge-ebbinghaus {
+      background: rgba(139, 92, 246, 0.18) !important;
+      color: #c084fc !important;
+      border: 1px solid rgba(139, 92, 246, 0.35) !important;
+    }
+    .badge-hard {
+      background: rgba(244, 63, 94, 0.18) !important;
+      color: #fb7185 !important;
+      border: 1px solid rgba(244, 63, 94, 0.45) !important;
+    }
+    .mode-card.highlight-ebbinghaus {
+      border-color: rgba(139, 92, 246, 0.4);
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(56, 189, 248, 0.04) 100%);
+    }
+    .mode-card.highlight-ebbinghaus:hover {
+      border-color: #a78bfa;
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.14) 0%, rgba(56, 189, 248, 0.08) 100%);
+    }
   </style>
 </head>
 
@@ -2001,6 +2155,7 @@
       <button class="nav-btn active" data-view="dashboard" onclick="switchView('dashboard')">🏠 大厅</button>
       <button class="nav-btn" data-mode="sequential" onclick="startPracticeMode('sequential')">📝 顺序</button>
       <button class="nav-btn" data-mode="random" onclick="startPracticeMode('random')">🎲 随机</button>
+      <button class="nav-btn" data-mode="ebbinghaus" onclick="startEbbinghausReview()" style="color: #c084fc; border-color: rgba(139, 92, 246, 0.4);">🧠 艾宾浩斯 (<span id="topEbbinghausCount">0</span>)</button>
       <button class="nav-btn" data-mode="wrong" onclick="startPracticeMode('wrong')">❌ 错题 (<span id="topWrongCount">0</span>)</button>
       <button class="nav-btn" data-mode="bookmarks" onclick="startPracticeMode('bookmarks')">⭐ 收藏 (<span id="topBookmarkCount">0</span>)</button>
       <button class="nav-btn" data-mode="chapters" onclick="scrollToChapters()">📊 章节</button>
@@ -2062,7 +2217,7 @@
       </div>
 
       <!-- Quick Mode Cards Grid -->
-      <h2 class="section-title">六大核心练习模式</h2>
+      <h2 class="section-title">七大核心练习模式</h2>
       <div class="mode-cards-grid">
         <!-- 1. 顺序刷题 -->
         <div class="mode-card" onclick="startPracticeMode('sequential')">
@@ -2090,7 +2245,20 @@
           </div>
         </div>
 
-        <!-- 3. 错题消灭 -->
+        <!-- 3. 艾宾浩斯抗遗忘营 -->
+        <div class="mode-card highlight-ebbinghaus" onclick="startEbbinghausReview()">
+          <div class="mode-icon" style="background: rgba(139, 92, 246, 0.2); color: #a78bfa;">🧠</div>
+          <div class="mode-content">
+            <div class="mode-name">
+              <span>艾宾浩斯抗遗忘营</span>
+              <span class="mode-badge" id="ebbinghausDueBadge" style="background: rgba(139, 92, 246, 0.2); color: #c084fc; border-color: rgba(139, 92, 246, 0.4);">今日待复习 0 题</span>
+            </div>
+            <div class="mode-desc">基于遗忘曲线动态阶段排期，错题降级缓冲，高阶双连对验证，告别重复刷题与复习雪崩。</div>
+            <div class="mode-action" style="color: #c084fc;">智能抗遗忘复习 <span>➔</span></div>
+          </div>
+        </div>
+
+        <!-- 4. 错题消灭 -->
         <div class="mode-card" onclick="startPracticeMode('wrong')">
           <div class="mode-icon" style="background: rgba(244, 63, 94, 0.15); color: #fb7185;">❌</div>
           <div class="mode-content">
@@ -2145,6 +2313,8 @@
 
       <!-- Chapter Breakdown Section -->
       <h2 class="section-title" id="chaptersSection">八大核心知识模块·章节专练</h2>
+      <!-- Weakness Radar & Diagnostic Banner -->
+      <div id="weaknessRadarMount"></div>
       <div class="chapter-grid" id="chapterCardsContainer">
         <!-- Populated dynamically -->
       </div>
@@ -2242,6 +2412,7 @@
             <span class="q-type-badge badge-single" id="qTypeBadge">单项选择题</span>
             <span class="q-chapter-badge" id="qChapterBadge">⚡ 第1章 电力网基本概念</span>
             <span class="q-verified-badge" id="qVerifiedBadge">【已核定】</span>
+            <span class="q-type-badge badge-ebbinghaus" id="qEbbinghausBadge" style="display: none;">🧠 Stage 1</span>
             <div class="q-paper-title" id="qPaperTitle">华北电力大学 2025-2026 学年第一学期期末试卷(A)</div>
           </div>
 
@@ -2511,6 +2682,16 @@
         </div>
       </div>
 
+      <!-- 1.5 艾宾浩斯每日复习上限 -->
+      <div style="margin-bottom: 20px;">
+        <label style="font-size: 0.88rem; font-weight: 600; display: block; margin-bottom: 8px;">🧠 艾宾浩斯每日复习上限</label>
+        <div class="filter-chips" id="reviewCapChips">
+          <button class="chip" data-cap="15" onclick="setDailyReviewCap(15)">15 题 (轻量)</button>
+          <button class="chip active" data-cap="25" onclick="setDailyReviewCap(25)">25 题 (标准·推荐)</button>
+          <button class="chip" data-cap="40" onclick="setDailyReviewCap(40)">40 题 (高强度冲刺)</button>
+        </div>
+      </div>
+
       <!-- 2. 答题偏好 -->
       <div style="margin-bottom: 20px;">
         <label style="font-size: 0.88rem; font-weight: 600; display: block; margin-bottom: 8px;">答题偏好</label>
@@ -2622,8 +2803,29 @@
        ========================================================================== */
     const STORAGE_KEY = 'hpu_power_system_quiz_state_v1';
 
+    // 艾宾浩斯抗遗忘记忆模型常量
+    const STAGE_NAMES = [
+      'Stage 0 · 待初纠 (0.5天)',
+      'Stage 1 · 初步纠偏 (1天)',
+      'Stage 2 · 短期巩固 (2天)',
+      'Stage 3 · 中期强化 (4天)',
+      'Stage 4 · 长期固化 (7天)',
+      'Stage 5 · 考前冲刺 (15天)',
+      'Stage 6 · 稳固掌握 (30天)'
+    ];
+
+    const STAGE_INTERVALS_MS = [
+      12 * 3600 * 1000,
+      24 * 3600 * 1000,
+      48 * 3600 * 1000,
+      96 * 3600 * 1000,
+      7 * 24 * 3600 * 1000,
+      15 * 24 * 3600 * 1000,
+      30 * 24 * 3600 * 1000
+    ];
+
     let appState = {
-      progress: {},   // question_id -> { selected: ['A'], correct: true, attempts: 1, time: '' }
+      progress: {},   // question_id -> { selected: ['A'], correct: true, attempts: 1, time: '', ... }
       bookmarks: {},  // question_id -> true
       notes: {},      // question_id -> text
       settings: {
@@ -2631,9 +2833,62 @@
         autoNext: false,
         instantSubmit: false,
         shortcuts: true,
+        dailyReviewCap: 25,
       },
       examHistory: []
     };
+    if (typeof window !== 'undefined') window.appState = appState;
+
+    function migrateState() {
+      if (!appState.progress) appState.progress = {};
+      if (!appState.settings) appState.settings = {};
+      if (!appState.settings.dailyReviewCap) appState.settings.dailyReviewCap = 25;
+
+      const now = Date.now();
+      Object.keys(appState.progress).forEach(id => {
+        const item = appState.progress[id];
+        if (!item) return;
+
+        item.attempts = item.attempts || 1;
+        if (item.totalMistakes === undefined) {
+          item.totalMistakes = item.correct ? 0 : 1;
+        }
+        if (item.firstAttemptWrong === undefined) {
+          item.firstAttemptWrong = !item.correct;
+        }
+        if (item.streak === undefined) {
+          item.streak = item.correct ? 1 : 0;
+        }
+        if (item.consecutiveWrong === undefined) {
+          item.consecutiveWrong = item.correct ? 0 : 1;
+        }
+        if (item.stage === undefined) {
+          item.stage = item.correct ? 3 : 0;
+        }
+        if (item.isHard === undefined) {
+          item.isHard = (item.totalMistakes >= 2);
+        }
+        const lastRev = item.time ? new Date(item.time).getTime() : now;
+        if (!item.lastReview) item.lastReview = lastRev;
+        if (!item.nextDue) {
+          const interval = STAGE_INTERVALS_MS[item.stage] || STAGE_INTERVALS_MS[0];
+          item.nextDue = item.correct ? (lastRev + interval) : lastRev;
+        }
+      });
+    }
+
+    function setDailyReviewCap(cap) {
+      appState.settings.dailyReviewCap = parseInt(cap) || 25;
+      document.querySelectorAll('#reviewCapChips .chip').forEach(c => {
+        if (parseInt(c.dataset.cap) === appState.settings.dailyReviewCap) {
+          c.classList.add('active');
+        } else {
+          c.classList.remove('active');
+        }
+      });
+      saveState();
+      renderDashboard();
+    }
 
     function loadState() {
       try {
@@ -2645,6 +2900,7 @@
       } catch (e) {
         console.warn('Failed to load localStorage:', e);
       }
+      migrateState();
       applyLoadedSettings();
     }
 
@@ -2681,6 +2937,16 @@
 
       const shortcutsCheck = document.getElementById('settingShortcuts');
       if (shortcutsCheck) shortcutsCheck.checked = appState.settings.shortcuts !== false;
+
+      // Daily review cap chips
+      const curCap = appState.settings.dailyReviewCap || 25;
+      document.querySelectorAll('#reviewCapChips .chip').forEach(chip => {
+        if (parseInt(chip.dataset.cap) === curCap) {
+          chip.classList.add('active');
+        } else {
+          chip.classList.remove('active');
+        }
+      });
     }
 
     function updateSettings() {
@@ -2902,6 +3168,7 @@
       }
 
       allQuestions = db;
+      if (typeof window !== 'undefined') window.allQuestions = allQuestions;
 
       const alertEl = document.getElementById('emptyDataAlert');
       if (alertEl) {
@@ -3042,6 +3309,32 @@
       document.getElementById('topWrongCount').textContent = wrongCount;
       document.getElementById('topBookmarkCount').textContent = bookmarkCount;
 
+      // Ebbinghaus Due Count
+      const ebData = getEbbinghausDueQueue();
+      const ebDueCount = ebData.dueQuestions.length;
+      const topEbEl = document.getElementById('topEbbinghausCount');
+      if (topEbEl) topEbEl.textContent = ebDueCount;
+
+      const ebCardBadge = document.getElementById('ebbinghausDueBadge');
+      if (ebCardBadge) {
+        if (ebDueCount > 0) {
+          ebCardBadge.textContent = `今日待复习 ${ebDueCount} 题`;
+          ebCardBadge.style.background = 'rgba(239, 68, 68, 0.15)';
+          ebCardBadge.style.color = '#fb7185';
+          ebCardBadge.style.borderColor = 'rgba(239, 68, 68, 0.4)';
+        } else if (ebData.dailyQueue.length > 0) {
+          ebCardBadge.textContent = `巩固复习 ${ebData.dailyQueue.length} 题`;
+          ebCardBadge.style.background = 'rgba(139, 92, 246, 0.15)';
+          ebCardBadge.style.color = '#c084fc';
+          ebCardBadge.style.borderColor = 'rgba(139, 92, 246, 0.4)';
+        } else {
+          ebCardBadge.textContent = '今日已清空 🎉';
+          ebCardBadge.style.background = 'rgba(16, 185, 129, 0.15)';
+          ebCardBadge.style.color = '#34d399';
+          ebCardBadge.style.borderColor = 'rgba(16, 185, 129, 0.4)';
+        }
+      }
+
       // Mobile badge
       const mobWrong = document.getElementById('mobWrongBadge');
       if (mobWrong) {
@@ -3053,25 +3346,245 @@
         }
       }
 
-      renderChapterCards();
+      // Calculate Chapter Diagnostics and Render Radar + 4-State Cards
+      const chDiagnostics = calculateChapterDiagnostics();
+      renderWeaknessRadar(chDiagnostics);
+      renderChapterCards(chDiagnostics);
       onFilterChange();
     }
 
-    function renderChapterCards() {
-      const container = document.getElementById('chapterCardsContainer');
-      container.innerHTML = '';
+    function calculateChapterDiagnostics() {
+      const chStats = [];
 
       for (let ch = 1; ch <= 8; ch++) {
-        const meta = CHAPTER_META[ch];
+        const meta = CHAPTER_META[ch] || { name: `第${ch}章`, icon: '⚡' };
         const chapterQs = allQuestions.filter(q => q.chapter === ch);
-        const count = chapterQs.length;
+        const totalCount = chapterQs.length;
 
-        let attemptedInCh = 0;
+        let attempted = 0;
+        let firstWrongCount = 0;
+        let activeWrongCount = 0;
+        let masteredCount = 0;
+        let reviewingCount = 0;
+        let totalMistakes = 0;
+        let totalAttempts = 0;
+
         chapterQs.forEach(q => {
-          if (appState.progress[q.id]) attemptedInCh++;
+          const p = appState.progress[q.id];
+          if (p && p.attempts > 0) {
+            attempted++;
+            totalAttempts += (p.attempts || 1);
+            totalMistakes += (p.totalMistakes !== undefined ? p.totalMistakes : (!p.correct ? 1 : 0));
+
+            if (p.firstAttemptWrong) {
+              firstWrongCount++;
+            }
+
+            if (!p.correct || (p.stage !== undefined && p.stage <= 1)) {
+              activeWrongCount++;
+            } else if (p.stage !== undefined && p.stage >= 4) {
+              masteredCount++;
+            } else {
+              reviewingCount++;
+            }
+          }
         });
 
-        const percent = count > 0 ? Math.round((attemptedInCh / count) * 100) : 0;
+        const unattempted = totalCount - attempted;
+        const firstErrorRate = attempted > 0 ? (firstWrongCount / attempted) * 100 : 0;
+        const activeFlawRate = attempted > 0 ? (activeWrongCount / attempted) * 100 : 0;
+        const cumErrorRate = totalAttempts > 0 ? (totalMistakes / totalAttempts) * 100 : 0;
+
+        // Sample guard & status badge
+        let sampleStatus = 'insufficient';
+        let statusBadgeText = `⚪ 样本不足 (${attempted}/5题)`;
+        let statusBadgeColor = '#94a3b8';
+        let statusSeverity = 'none';
+
+        if (attempted < 5) {
+          sampleStatus = 'insufficient';
+          statusBadgeText = `⚪ 样本不足 (${attempted}/5题)`;
+          statusBadgeColor = '#94a3b8';
+          statusSeverity = 'none';
+        } else if (attempted <= 10) {
+          sampleStatus = 'preliminary';
+          if (firstErrorRate >= 30) {
+            statusBadgeText = `🟡 初步参考 (较高 ${firstErrorRate.toFixed(1)}%)`;
+            statusBadgeColor = '#f59e0b';
+            statusSeverity = 'medium';
+          } else {
+            statusBadgeText = `🟡 初步参考 (${firstErrorRate.toFixed(1)}%)`;
+            statusBadgeColor = '#eab308';
+            statusSeverity = 'medium';
+          }
+        } else {
+          sampleStatus = 'formal';
+          if (firstErrorRate >= 30) {
+            statusBadgeText = `🔴 严重薄弱 (${firstErrorRate.toFixed(1)}%)`;
+            statusBadgeColor = '#ef4444';
+            statusSeverity = 'severe';
+          } else if (firstErrorRate >= 15) {
+            statusBadgeText = `🟡 需巩固 (${firstErrorRate.toFixed(1)}%)`;
+            statusBadgeColor = '#f59e0b';
+            statusSeverity = 'medium';
+          } else {
+            statusBadgeText = `🟢 掌握良好 (${firstErrorRate.toFixed(1)}%)`;
+            statusBadgeColor = '#10b981';
+            statusSeverity = 'good';
+          }
+        }
+
+        // Bayesian Weakness Index (Score for ranking TOP 3 weakest chapters)
+        let weaknessScore = 0;
+        if (attempted >= 2 && (firstErrorRate > 0 || activeWrongCount > 0)) {
+          weaknessScore = (firstErrorRate / 100) * Math.log(activeWrongCount + 2) * (totalCount / 90.0);
+        }
+
+        chStats.push({
+          ch,
+          meta,
+          totalCount,
+          attempted,
+          unattempted,
+          firstWrongCount,
+          activeWrongCount,
+          masteredCount,
+          reviewingCount,
+          totalMistakes,
+          totalAttempts,
+          firstErrorRate,
+          activeFlawRate,
+          cumErrorRate,
+          sampleStatus,
+          statusBadgeText,
+          statusBadgeColor,
+          statusSeverity,
+          weaknessScore
+        });
+      }
+
+      return chStats;
+    }
+
+    function renderWeaknessRadar(diagnostics) {
+      const mount = document.getElementById('weaknessRadarMount');
+      if (!mount) return;
+
+      const ranked = [...diagnostics]
+        .filter(d => d.attempted >= 2 && (d.activeWrongCount > 0 || d.firstErrorRate >= 15))
+        .sort((a, b) => b.weaknessScore - a.weaknessScore);
+
+      const top3 = ranked.slice(0, 3);
+
+      if (top3.length === 0) {
+        const totalAttempted = diagnostics.reduce((acc, d) => acc + d.attempted, 0);
+        if (totalAttempted < 5) {
+          mount.innerHTML = `
+            <div class="weakness-radar-container" style="border-color: rgba(56, 189, 248, 0.2); background: linear-gradient(135deg, rgba(56, 189, 248, 0.05) 0%, rgba(15, 23, 42, 0.6) 100%);">
+              <div style="display:flex; align-items:center; gap:12px;">
+                <div style="font-size:1.8rem;">🎯</div>
+                <div>
+                  <div style="font-weight:700; color:var(--text-primary); font-size:0.95rem; margin-bottom:4px;">
+                    知识薄弱攻坚雷达已启动
+                  </div>
+                  <div style="font-size:0.82rem; color:var(--text-muted); line-height:1.4;">
+                    当前已作答 ${totalAttempted} 题。随着你继续刷题，系统将自动基于贝叶斯对数权重模型实时诊断薄弱章节，并在此处生成 TOP 3 错题攻坚靶向入口！
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+        } else {
+          mount.innerHTML = `
+            <div class="weakness-radar-container" style="border-color: rgba(16, 185, 129, 0.3); background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(15, 23, 42, 0.6) 100%);">
+              <div style="display:flex; align-items:center; gap:12px;">
+                <div style="font-size:1.8rem;">🎉</div>
+                <div>
+                  <div style="font-weight:700; color:#34d399; font-size:0.95rem; margin-bottom:4px;">
+                    目前知识体系掌握优秀，无显著薄弱章节！
+                  </div>
+                  <div style="font-size:0.82rem; color:var(--text-muted); line-height:1.4;">
+                    已刷章节首次正确率均保持在优良区间，且无遗留错题。建议开启「🎲 随机突击」或「📋 全真模拟考」进行综合实战强化！
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+        return;
+      }
+
+      const cardsHtml = top3.map((d, idx) => {
+        const rankNum = idx + 1;
+        const rankColors = ['#f43f5e', '#f97316', '#eab308'];
+        const rankBadgeColor = rankColors[idx] || '#eab308';
+
+        return `
+          <div class="weakness-rank-card">
+            <div>
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
+                <span style="font-size:0.75rem; font-weight:800; color:${rankBadgeColor}; background:rgba(255,255,255,0.06); padding:2px 8px; border-radius:4px; border:1px solid ${rankBadgeColor}40;">
+                  TOP 0${rankNum} 优先攻坚
+                </span>
+                <span style="font-size:0.74rem; color:${d.statusBadgeColor}; font-weight:600;">
+                  ${d.statusBadgeText}
+                </span>
+              </div>
+              <div style="font-size:0.92rem; font-weight:700; color:var(--text-primary); margin-bottom:8px; line-height:1.35;">
+                ${d.meta.icon} 第${d.ch}章 ${d.meta.name.split('与')[0]}
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:0.78rem; color:var(--text-secondary); margin-bottom:12px; background:rgba(0,0,0,0.25); padding:6px 10px; border-radius:6px;">
+                <span>首次失误率: <strong style="color:#fb7185;">${d.firstErrorRate.toFixed(1)}%</strong></span>
+                <span>当前待攻克: <strong style="color:${d.activeWrongCount > 0 ? '#fb7185' : '#34d399'};">${d.activeWrongCount} 题</strong></span>
+              </div>
+            </div>
+            <div class="chapter-card-actions">
+              ${d.activeWrongCount > 0 ? `
+                <button class="btn-chapter-action danger" type="button" onclick="startChapterWrongPractice(${d.ch})">
+                  ⚡ 攻坚本章错题 (${d.activeWrongCount})
+                </button>
+              ` : ''}
+              <button class="btn-chapter-action primary" type="button" onclick="startChapterPractice(${d.ch})">
+                📖 章节专练
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      mount.innerHTML = `
+        <div class="weakness-radar-container">
+          <div class="weakness-radar-header">
+            <div class="weakness-radar-title">
+              <span>🎯 知识薄弱攻坚雷达 · TOP 3 重点攻防</span>
+            </div>
+            <div style="font-size: 0.78rem; color: var(--text-muted);">
+              首次错误率 × 当前未掌握题量加权诊断
+            </div>
+          </div>
+          <div class="weakness-radar-grid">
+            ${cardsHtml}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderChapterCards(diagnostics) {
+      const container = document.getElementById('chapterCardsContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      const diagList = diagnostics || calculateChapterDiagnostics();
+
+      diagList.forEach(d => {
+        const ch = d.ch;
+        const meta = d.meta;
+        const total = d.totalCount;
+
+        const pMastered = total > 0 ? ((d.masteredCount / total) * 100).toFixed(1) : 0;
+        const pReviewing = total > 0 ? ((d.reviewingCount / total) * 100).toFixed(1) : 0;
+        const pWrong = total > 0 ? ((d.activeWrongCount / total) * 100).toFixed(1) : 0;
+        const pUnattempted = Math.max(0, 100 - parseFloat(pMastered) - parseFloat(pReviewing) - parseFloat(pWrong)).toFixed(1);
 
         const card = document.createElement('div');
         card.className = 'chapter-card';
@@ -3081,16 +3594,52 @@
           <div>
             <div class="chapter-header">
               <span class="chapter-num">CHAPTER 0${ch}</span>
-              <span class="chapter-count">${attemptedInCh}/${count} 题 (${percent}%)</span>
+              <span style="font-size: 0.74rem; font-weight: 600; color: ${d.statusBadgeColor};">
+                ${d.statusBadgeText}
+              </span>
             </div>
             <div class="chapter-title">${meta.icon} ${meta.name}</div>
+
+            <!-- 4-State Heatmap Progress Bar -->
+            <div class="progress-heatmap-bar" title="🟢已掌握: ${d.masteredCount} | 🟡巩固中: ${d.reviewingCount} | 🔴未攻克: ${d.activeWrongCount} | ⚪未做: ${d.unattempted}">
+              <div class="seg-mastered" style="width: ${pMastered}%;"></div>
+              <div class="seg-reviewing" style="width: ${pReviewing}%;"></div>
+              <div class="seg-wrong" style="width: ${pWrong}%;"></div>
+              <div class="seg-unattempted" style="width: ${pUnattempted}%;"></div>
+            </div>
+
+            <!-- Chapter Metrics Info Row -->
+            <div class="chapter-stats-meta">
+              <div>
+                <span>首次失误率: </span>
+                <strong class="metric-val" style="color: ${d.firstErrorRate >= 30 ? '#fb7185' : (d.firstErrorRate >= 15 ? '#fbbf24' : '#34d399')};">
+                  ${d.attempted > 0 ? d.firstErrorRate.toFixed(1) + '%' : '--'}
+                </strong>
+              </div>
+              <div>
+                <span>当前待攻克: </span>
+                <strong class="metric-val" style="color: ${d.activeWrongCount > 0 ? '#fb7185' : '#34d399'};">
+                  ${d.activeWrongCount > 0 ? d.activeWrongCount + ' 题' : '已全克 ✔️'}
+                </strong>
+              </div>
+              <div class="chapter-count">${d.attempted}/${total} 题</div>
+            </div>
           </div>
-          <div class="progress-bar-wrap">
-            <div class="progress-bar-fill" style="width: ${percent}%;"></div>
+
+          <!-- Action Buttons -->
+          <div class="chapter-card-actions">
+            ${d.activeWrongCount > 0 ? `
+              <button class="btn-chapter-action danger" type="button" onclick="event.stopPropagation(); startChapterWrongPractice(${ch});">
+                ⚡ 攻坚错题 (${d.activeWrongCount})
+              </button>
+            ` : ''}
+            <button class="btn-chapter-action primary" type="button" onclick="event.stopPropagation(); startChapterPractice(${ch});">
+              📖 全章专练
+            </button>
           </div>
         `;
         container.appendChild(card);
-      }
+      });
     }
 
     /* ==========================================================================
@@ -3162,6 +3711,74 @@
     /* ==========================================================================
        PRACTICE MODES INITIALIZERS
        ========================================================================== */
+    function getEbbinghausDueQueue() {
+      const now = Date.now();
+      const scored = [];
+
+      allQuestions.forEach(q => {
+        const p = appState.progress[q.id];
+        if (!p) return;
+
+        const isDue = (p.nextDue <= now) || !p.correct;
+        const overdueHours = Math.max(0, (now - (p.nextDue || now)) / 3600000);
+        const mistakes = p.totalMistakes !== undefined ? p.totalMistakes : (!p.correct ? 1 : 0);
+        const st = p.stage !== undefined ? p.stage : 0;
+
+        let score = 3.0 * Math.min(48, overdueHours)
+                  + 2.0 * mistakes
+                  - 1.5 * st
+                  + (p.isHard ? 5 : 0)
+                  + (!p.correct ? 10 : 0);
+
+        if (isDue) {
+          score += 100;
+        }
+
+        if (isDue || mistakes > 0 || st < 6) {
+          scored.push({ q, score, isDue });
+        }
+      });
+
+      scored.sort((a, b) => b.score - a.score);
+
+      const cap = appState.settings.dailyReviewCap || 25;
+      return {
+        dueQuestions: scored.filter(s => s.isDue).map(s => s.q),
+        dailyQueue: scored.slice(0, cap).map(s => s.q),
+        totalEligible: scored.length
+      };
+    }
+
+    function startEbbinghausReview() {
+      const eb = getEbbinghausDueQueue();
+      if (eb.dailyQueue.length === 0) {
+        showToast('🎉 太棒了！当前没有待复习的错题或巩固题，快去刷更多新题吧！');
+        return;
+      }
+      currentMode = 'ebbinghaus';
+      currentQuestionsQueue = eb.dailyQueue;
+      startPracticeQueue(`🧠 艾宾浩斯抗遗忘 (${eb.dailyQueue.length}题)`);
+    }
+
+    function startChapterWrongPractice(chapterNum) {
+      const chapterQs = allQuestions.filter(q => q.chapter === chapterNum);
+      const wrongQs = chapterQs.filter(q => {
+        const p = appState.progress[q.id];
+        return p && (!p.correct || (p.stage !== undefined && p.stage <= 1));
+      });
+
+      if (wrongQs.length === 0) {
+        showToast(`第${chapterNum}章暂无未攻克错题！为你开启该章节全量专练。`);
+        startChapterPractice(chapterNum);
+        return;
+      }
+
+      currentMode = 'chapter_wrong';
+      currentQuestionsQueue = wrongQs;
+      const meta = CHAPTER_META[chapterNum] || { name: `第${chapterNum}章` };
+      startPracticeQueue(`⚡ 攻坚第${chapterNum}章错题 (${wrongQs.length}题)`);
+    }
+
     function startPracticeMode(mode) {
       currentMode = mode;
 
@@ -3176,6 +3793,8 @@
       } else if (mode === 'random') {
         currentQuestionsQueue = [...allQuestions].sort(() => Math.random() - 0.5);
         startPracticeQueue('🎲 随机突击');
+      } else if (mode === 'ebbinghaus') {
+        startEbbinghausReview();
       } else if (mode === 'wrong') {
         const wrongQs = allQuestions.filter(q => appState.progress[q.id] && !appState.progress[q.id].correct);
         if (wrongQs.length === 0) {
@@ -3283,6 +3902,21 @@
         verBadge.textContent = '【已核定】';
       } else {
         verBadge.style.display = 'none';
+      }
+
+      // Ebbinghaus Stage Badge
+      const ebbinghausBadge = document.getElementById('qEbbinghausBadge');
+      if (ebbinghausBadge) {
+        const p = appState.progress[q.id];
+        if (p && p.stage !== undefined) {
+          ebbinghausBadge.style.display = 'inline-block';
+          const stageDesc = STAGE_NAMES[p.stage] || `Stage ${p.stage}`;
+          const hardTag = p.isHard ? '🔥 困难 ' : '';
+          ebbinghausBadge.textContent = `🧠 ${hardTag}${stageDesc} · 连对 ${p.streak || 0}`;
+          ebbinghausBadge.className = `q-type-badge ${p.isHard ? 'badge-hard' : 'badge-ebbinghaus'}`;
+        } else {
+          ebbinghausBadge.style.display = 'none';
+        }
       }
 
       // Stem (Formatted with built-in math engine!)
@@ -3615,20 +4249,94 @@
         isCorrect = (sortedCorrect === sortedUser);
       }
 
-      // Record to appState
-      if (!appState.progress[q.id]) {
-        appState.progress[q.id] = {
-          selected: userAnsArray,
-          correct: isCorrect,
-          attempts: 1,
-          time: new Date().toISOString()
-        };
+      // Record to appState with Ebbinghaus memory model
+      const existing = appState.progress[q.id] || null;
+      const isFirst = !existing || !existing.attempts;
+      const firstAttemptWrong = isFirst ? !isCorrect : (existing.firstAttemptWrong !== undefined ? existing.firstAttemptWrong : !existing.correct);
+
+      let totalMistakes = existing ? (existing.totalMistakes || 0) : 0;
+      let streak = existing ? (existing.streak || 0) : 0;
+      let stage = existing ? (existing.stage !== undefined ? existing.stage : (isCorrect ? 1 : 0)) : (isCorrect ? 1 : 0);
+      let consecutiveWrong = existing ? (existing.consecutiveWrong || 0) : 0;
+      let isHard = existing ? (existing.isHard || false) : false;
+      let stageChangeNotice = '';
+
+      if (isFirst) {
+        if (!isCorrect) {
+          stage = 0;
+          totalMistakes = 1;
+          consecutiveWrong = 1;
+          streak = 0;
+          isHard = false;
+          stageChangeNotice = '首次未答对，归入 Stage 0 (0.5天后初纠)';
+        } else {
+          stage = 1;
+          totalMistakes = 0;
+          consecutiveWrong = 0;
+          streak = 1;
+          isHard = false;
+          stageChangeNotice = '首次答对，建档 Stage 1 (1天后巩固)';
+        }
       } else {
-        appState.progress[q.id].selected = userAnsArray;
-        appState.progress[q.id].correct = isCorrect;
-        appState.progress[q.id].attempts += 1;
-        appState.progress[q.id].time = new Date().toISOString();
+        if (!isCorrect) {
+          totalMistakes += 1;
+          consecutiveWrong += 1;
+          streak = 0;
+
+          if (consecutiveWrong >= 2) {
+            stage = 0;
+            stageChangeNotice = '连续答错，重置至 Stage 0 待初纠';
+          } else {
+            if (stage <= 2) {
+              stage = 0;
+              stageChangeNotice = '答错降级至 Stage 0 待初纠';
+            } else if (stage <= 4) {
+              stage = Math.max(1, stage - 2);
+              stageChangeNotice = `答错缓冲降级至 Stage ${stage}`;
+            } else {
+              stage = 2;
+              isHard = true;
+              stageChangeNotice = '高阶答错降至 Stage 2 巩固期 (标记为困难题)';
+            }
+          }
+          if (totalMistakes >= 2) isHard = true;
+        } else {
+          consecutiveWrong = 0;
+          streak += 1;
+
+          if (stage < 4) {
+            stage = Math.min(6, stage + 1);
+            stageChangeNotice = `记忆晋级 ➔ Stage ${stage}`;
+          } else if (stage === 4 || stage === 5) {
+            if (streak >= 2) {
+              stage = Math.min(6, stage + 1);
+              stageChangeNotice = `双连对验证通过！晋级 ➔ Stage ${stage}`;
+            } else {
+              stageChangeNotice = '已连对 1 次，高阶需再对 1 次方可晋级';
+            }
+          } else if (stage >= 6) {
+            stage = 6;
+            stageChangeNotice = '稳固掌握，进入 30 天休眠复查期';
+          }
+        }
       }
+
+      const nextDue = Date.now() + (STAGE_INTERVALS_MS[stage] || STAGE_INTERVALS_MS[0]);
+
+      appState.progress[q.id] = {
+        selected: userAnsArray,
+        correct: isCorrect,
+        attempts: (existing ? (existing.attempts || 0) : 0) + 1,
+        totalMistakes,
+        streak,
+        stage,
+        consecutiveWrong,
+        isHard,
+        firstAttemptWrong,
+        lastReview: Date.now(),
+        nextDue,
+        time: new Date().toISOString()
+      };
       saveState();
 
       // Highlight options in UI
@@ -3668,9 +4376,9 @@
         correctAnsEl.textContent = '答案待补充';
       } else if (isCorrect) {
         banner.className = 'feedback-banner correct';
-        bannerText.textContent = '🎉 回答正确！';
+        bannerText.textContent = `🎉 回答正确！【${stageChangeNotice}】`;
         correctAnsEl.textContent = `标准答案: ${correctAnsArray.join(', ')}`;
-        
+
         // 成功攻克错题时，即时更新错题横幅
         const wrongMount = document.getElementById('wrongHistoryMount');
         if (wrongMount && wrongMount.style.display === 'block') {
@@ -3685,7 +4393,7 @@
         }
       } else {
         banner.className = 'feedback-banner wrong';
-        bannerText.textContent = '❌ 回答错误！';
+        bannerText.textContent = `❌ 回答错误！【${stageChangeNotice}】`;
         correctAnsEl.textContent = `正确答案: ${correctAnsArray.join(', ')} (你的选择: ${userAnsArray.join(', ')})`;
       }
 
@@ -4027,10 +4735,56 @@
 
         if (isRight) rightCount++;
 
+        const existing = appState.progress[q.id] || null;
+        const isFirst = !existing || !existing.attempts;
+        const firstAttemptWrong = isFirst ? !isRight : (existing.firstAttemptWrong !== undefined ? existing.firstAttemptWrong : !existing.correct);
+
+        let totalMistakes = existing ? (existing.totalMistakes || 0) : 0;
+        let streak = existing ? (existing.streak || 0) : 0;
+        let stage = existing ? (existing.stage !== undefined ? existing.stage : (isRight ? 1 : 0)) : (isRight ? 1 : 0);
+        let consecutiveWrong = existing ? (existing.consecutiveWrong || 0) : 0;
+        let isHard = existing ? (existing.isHard || false) : false;
+
+        if (isFirst) {
+          if (!isRight) {
+            stage = 0; totalMistakes = 1; consecutiveWrong = 1; streak = 0;
+          } else {
+            stage = 1; totalMistakes = 0; consecutiveWrong = 0; streak = 1;
+          }
+        } else {
+          if (!isRight) {
+            totalMistakes += 1;
+            consecutiveWrong += 1;
+            streak = 0;
+            if (consecutiveWrong >= 2) stage = 0;
+            else if (stage <= 2) stage = 0;
+            else if (stage <= 4) stage = Math.max(1, stage - 2);
+            else { stage = 2; isHard = true; }
+            if (totalMistakes >= 2) isHard = true;
+          } else {
+            consecutiveWrong = 0;
+            streak += 1;
+            if (stage < 4) stage = Math.min(6, stage + 1);
+            else if (stage === 4 || stage === 5) {
+              if (streak >= 2) stage = Math.min(6, stage + 1);
+            }
+          }
+        }
+
+        const nextDue = Date.now() + (STAGE_INTERVALS_MS[stage] || STAGE_INTERVALS_MS[0]);
+
         appState.progress[q.id] = {
           selected: userAns,
           correct: isRight,
-          attempts: (appState.progress[q.id] ? appState.progress[q.id].attempts + 1 : 1),
+          attempts: (existing ? (existing.attempts || 0) : 0) + 1,
+          totalMistakes,
+          streak,
+          stage,
+          consecutiveWrong,
+          isHard,
+          firstAttemptWrong,
+          lastReview: Date.now(),
+          nextDue,
           time: new Date().toISOString()
         };
       });
@@ -4211,6 +4965,7 @@
           if (data.s) appState.settings = Object.assign(appState.settings, data.s);
 
           saveState();
+          migrateState();
           applyLoadedSettings();
           renderDashboard();
           showToast('🎉 同步恢复成功！所有刷题记录已同步！', '🚀');
@@ -4255,6 +5010,7 @@
               appState.settings = Object.assign(appState.settings, parsed.settings || parsed.s || {});
             }
             saveState();
+            migrateState();
             applyLoadedSettings();
             renderDashboard();
             showToast('🎉 数据导入成功！所有历史刷题已恢复！', '🚀');

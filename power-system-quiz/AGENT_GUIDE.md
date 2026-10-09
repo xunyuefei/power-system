@@ -329,3 +329,37 @@ jobs:
    使用 GitHub API 轮询确认 Actions 运行状态：
    `GET https://api.github.com/repos/xunyuefei/power-system-quiz/actions/runs`
    直到状态变为 `completed success`。
+
+---
+
+## 9. 智能复习引擎与多维诊断系统设计架构
+
+### 9.1 艾宾浩斯自适应抗遗忘引擎 (Spaced Repetition Engine)
+- **多阶段记忆排期**：Stage 0 (0.5天)、Stage 1 (1天)、Stage 2 (2天)、Stage 3 (4天)、Stage 4 (7天)、Stage 5 (15天)、Stage 6 (30天休眠复查)。
+- **抗雪崩缓冲降级矩阵 (Anti-Avalanche Graceful Degradation)**：
+  - Stage 1~2 答错：降至 Stage 0；
+  - Stage 3~4 答错：缓冲降 1~2 级至 Stage 1 或 2；
+  - Stage 5~6 答错：平滑回落至 Stage 2 并打上 `🔥 困难题` 标记；
+  - 只有**连续两次答错**才重置回 Stage 0。
+- **高阶双连对验证机制 (Confidence Verification)**：Stage 4 与 Stage 5 要求 `streak >= 2` 方可晋升下一阶段，防止侥幸蒙对。
+- **每日动态切片与优先级公式**：
+  $$\text{Priority} = 3.0 \times \min(48, \Delta t_{\text{overdue}}) + 2.0 \times N_{\text{mistakes}} - 1.5 \times \text{stage} + (\text{isHard} ? 5 : 0) + (!\text{correct} ? 10 : 0) + (\text{isDue} ? 100 : 0)$$
+  每日默认上限 25 题（用户可在设置中自由切换 15 / 25 / 40 题），避免题目堆积雪崩。
+
+### 9.2 章节多维量化与贝叶斯薄弱雷达 (Chapter Weakness Diagnostics)
+- **指标体系解耦**：
+  1. **首次错误率 (First-Attempt Error Rate)**：不可变基线，记录初次接触知识点的掌握盲区；
+  2. **当前未掌握率 (Active Flaw Rate)**：当前未攻克题数与低阶段题数，驱动实时靶向练习；
+  3. **总失误率 (Cumulative Error Rate)**：总做错次数 / 作答总次数。
+- **小样本置信度守卫**：
+  - $< 5$ 题：`⚪ 样本不足 (<5题)`，做题量少时避免误导焦虑；
+  - $5 \sim 10$ 题：`🟡 初步参考`；
+  - $> 10$ 题：正式评级（`🔴 严重薄弱` $\ge 30\%$，`🟡 需巩固` $15\%\sim 30\%$，`🟢 掌握良好` $<15\%$）。
+- **四态分段热力进度条**：
+  - 🟢 已掌握（Stage $\ge 4$ 且无遗留错题）
+  - 🟡 巩固强化中（Stage 1~3）
+  - 🔴 当前未攻克（Stage 0 或当前错题）
+  - ⚪ 未作答
+- **贝叶斯对数权重 TOP 3 薄弱雷达**：
+  $$\text{WeaknessScore} = \text{FirstErrorRate} \times \ln(N_{\text{active\_wrong}} + 2) \times (N_{\text{total}} / 90.0)$$
+  在章节专练区顶部高亮呈现 TOP 3 薄弱知识模块，并提供 `[⚡ 攻坚本章错题 (N题)]` 一键靶向突破入口。
