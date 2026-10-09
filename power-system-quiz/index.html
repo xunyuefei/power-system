@@ -2867,14 +2867,24 @@
     });
 
     function initQuestionsData() {
+      let db = [];
       if (typeof QUESTIONS_DB !== 'undefined' && Array.isArray(QUESTIONS_DB)) {
-        allQuestions = QUESTIONS_DB;
-      } else {
-        console.error('QUESTIONS_DB not found! Please ensure questions_data.js is present.');
-        allQuestions = [];
+        db = QUESTIONS_DB;
+      } else if (typeof window !== 'undefined' && Array.isArray(window.QUESTIONS_DB)) {
+        db = window.QUESTIONS_DB;
+      } else if (typeof QUESTIONS_DATA !== 'undefined' && Array.isArray(QUESTIONS_DATA)) {
+        db = QUESTIONS_DATA;
+      } else if (typeof window !== 'undefined' && Array.isArray(window.QUESTIONS_DATA)) {
+        db = window.QUESTIONS_DATA;
       }
-      document.getElementById('totalQuestionsBadge').textContent = `${allQuestions.length}题·全汇编`;
-      document.getElementById('statTotalQ').textContent = allQuestions.length;
+      allQuestions = db;
+      if (allQuestions.length === 0) {
+        console.error('QUESTIONS_DB / QUESTIONS_DATA not found! Please ensure questions_data.js is present.');
+      }
+      const badge = document.getElementById('totalQuestionsBadge');
+      if (badge) badge.textContent = `${allQuestions.length}题·全汇编`;
+      const statTotal = document.getElementById('statTotalQ');
+      if (statTotal) statTotal.textContent = allQuestions.length;
     }
 
     /* ==========================================================================

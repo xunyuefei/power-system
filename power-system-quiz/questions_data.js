@@ -1,5 +1,5 @@
 // 电力系统分析基础 789题全真题库数据集
-const QUESTIONS_DATA = [
+const QUESTIONS_DB = [
   {
     "id": "2025-2026-期末A-单选-01",
     "paper": "华北电力大学 2025-2026 学年第一学期期末试卷(A)",
@@ -25891,6 +25891,16 @@ const QUESTIONS_DATA = [
   }
 ];
 
+const QUESTIONS_DATA = QUESTIONS_DB;
+
+if (typeof window !== "undefined") {
+  window.QUESTIONS_DB = QUESTIONS_DB;
+  window.QUESTIONS_DATA = QUESTIONS_DB;
+}
+if (typeof globalThis !== "undefined") {
+  globalThis.QUESTIONS_DB = QUESTIONS_DB;
+  globalThis.QUESTIONS_DATA = QUESTIONS_DB;
+}
 if (typeof module !== "undefined" && module.exports) {
-  module.exports = QUESTIONS_DATA;
+  module.exports = QUESTIONS_DB;
 }
