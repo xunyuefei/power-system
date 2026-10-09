@@ -972,6 +972,198 @@
       box-shadow: 0 0 15px rgba(244, 63, 94, 0.28);
     }
 
+    /* Previous wrong selection indicator */
+    .option-card.prev-wrong-picked {
+      border: 1px dashed rgba(244, 63, 94, 0.7) !important;
+      background: rgba(244, 63, 94, 0.05);
+    }
+
+    .badge-prev-wrong {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      margin-left: 8px;
+      padding: 2px 7px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      border-radius: 4px;
+      background: rgba(244, 63, 94, 0.18);
+      color: #fb7185;
+      border: 1px solid rgba(244, 63, 94, 0.45);
+      vertical-align: middle;
+    }
+
+    .badge-user-picked {
+      display: inline-flex;
+      align-items: center;
+      margin-left: 8px;
+      padding: 2px 7px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      border-radius: 4px;
+      background: rgba(56, 189, 248, 0.18);
+      color: var(--primary);
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      vertical-align: middle;
+    }
+
+    .badge-user-picked.wrong {
+      background: rgba(244, 63, 94, 0.22);
+      color: #fb7185;
+      border-color: rgba(244, 63, 94, 0.55);
+    }
+
+    .badge-user-picked.correct {
+      background: rgba(16, 185, 129, 0.22);
+      color: #34d399;
+      border-color: rgba(16, 185, 129, 0.55);
+    }
+
+    /* Wrong Question & Exam Review Callouts */
+    .wrong-history-banner {
+      background: rgba(244, 63, 94, 0.08);
+      border: 1px solid rgba(244, 63, 94, 0.32);
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .wrong-history-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 8px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      border-radius: 4px;
+      background: rgba(244, 63, 94, 0.2);
+      color: #fb7185;
+      border: 1px solid rgba(244, 63, 94, 0.45);
+    }
+
+    .wrong-history-desc {
+      font-size: 0.92rem;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .user-wrong-tag {
+      color: #fb7185;
+      background: rgba(244, 63, 94, 0.15);
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      border: 1px solid rgba(244, 63, 94, 0.35);
+    }
+
+    .actual-correct-tag {
+      color: #34d399;
+      background: rgba(16, 185, 129, 0.15);
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      border: 1px solid rgba(16, 185, 129, 0.35);
+    }
+
+    .history-sep {
+      color: var(--text-muted);
+      margin: 0 4px;
+    }
+
+    .btn-toggle-wrong-exp {
+      padding: 5px 12px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-toggle-wrong-exp:hover {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: var(--primary);
+    }
+
+    /* Exam Review Callout */
+    .exam-review-callout {
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .exam-review-callout.is-correct {
+      background: var(--success-bg);
+      border: 1px solid var(--success-border);
+      color: #34d399;
+    }
+
+    .exam-review-callout.is-wrong {
+      background: var(--danger-bg);
+      border: 1px solid var(--danger-border);
+      color: #fb7185;
+    }
+
+    .exam-review-callout.is-unanswered {
+      background: var(--warning-bg);
+      border: 1px solid var(--warning-border);
+      color: #fbbf24;
+    }
+
+    .review-callout-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.92rem;
+      color: var(--text-main);
+      flex-wrap: wrap;
+    }
+
+    .review-choice-tag {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      margin-left: 4px;
+    }
+
+    .review-choice-tag.good {
+      background: rgba(16, 185, 129, 0.2);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+
+    .review-choice-tag.bad {
+      background: rgba(244, 63, 94, 0.2);
+      color: #fb7185;
+      border: 1px solid rgba(244, 63, 94, 0.4);
+    }
+
+    .review-choice-tag.gray {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-muted);
+      border: 1px solid var(--border-subtle);
+    }
+
     .option-badge {
       width: 32px;
       height: 32px;
@@ -2057,6 +2249,9 @@
             <span>🎯 考查要点：</span><span id="qTopicText">电力网基本概念与组成</span>
           </div>
 
+          <!-- Wrong History / Exam Review Banner -->
+          <div id="wrongHistoryMount" style="display: none;"></div>
+
           <!-- Question Stem -->
           <div class="q-stem" id="qStem">以下不属于电力网作用的是（ ）</div>
 
@@ -2105,10 +2300,10 @@
         <!-- Bottom Navigation Buttons -->
         <div class="practice-nav-bar">
           <button class="btn-nav" id="btnPrevQ" onclick="gotoPrevQuestion()">
-            <span>◀</span> 上一题 (A)
+            <span>◀</span> 上一题
           </button>
           <button class="btn-nav" id="btnNextQ" onclick="gotoNextQuestion()">
-            下一题 (D) <span>▶</span>
+            下一题 <span>▶</span>
           </button>
         </div>
       </div>
@@ -3037,7 +3232,9 @@
 
       // Hint
       const hintEl = document.getElementById('practiceHint');
-      if (q.type === 'single') {
+      if (currentMode === 'review') {
+        hintEl.textContent = '📋 模考复盘模式：已为你批改并展示考场作答与解析';
+      } else if (q.type === 'single') {
         hintEl.textContent = appState.settings.instantSubmit ? '单选题：点击选项立即判定' : '单选题：点击选项后确认提交';
       } else if (q.type === 'multiple' || q.type === 'indefinite') {
         hintEl.textContent = '多选题：请勾选所有正确选项后提交';
@@ -3053,11 +3250,11 @@
         const grid = document.createElement('div');
         grid.className = 'judge-options-grid';
         grid.innerHTML = `
-          <div class="judge-card" data-val="√" onclick="selectJudgeOption('√')">
+          <div class="judge-card" data-val="√" onclick="${currentMode === 'review' ? '' : 'selectJudgeOption(\'√\')'}">
             <div class="judge-symbol" style="color: #10b981;">√</div>
             <div class="judge-label">正确</div>
           </div>
-          <div class="judge-card" data-val="×" onclick="selectJudgeOption('×')">
+          <div class="judge-card" data-val="×" onclick="${currentMode === 'review' ? '' : 'selectJudgeOption(\'×\')'}">
             <div class="judge-symbol" style="color: #f43f5e;">×</div>
             <div class="judge-label">错误</div>
           </div>
@@ -3071,7 +3268,9 @@
           const optCard = document.createElement('div');
           optCard.className = 'option-card';
           optCard.dataset.label = opt.label;
-          optCard.onclick = () => selectChoiceOption(opt.label);
+          if (currentMode !== 'review') {
+            optCard.onclick = () => selectChoiceOption(opt.label);
+          }
 
           optCard.innerHTML = `
             <div class="option-badge">${opt.label}</div>
@@ -3082,14 +3281,200 @@
         optionsContainer.appendChild(list);
       }
 
-      // Reset feedback panel
-      document.getElementById('feedbackPanel').style.display = 'none';
-      document.getElementById('btnSubmitAnswer').style.display = 'inline-flex';
-      document.getElementById('btnSubmitAnswer').disabled = false;
+      // State check for Exam Review or Wrong History
+      const wrongMount = document.getElementById('wrongHistoryMount');
+      const isReviewMode = (currentMode === 'review');
+      const prevProg = appState.progress[q.id];
+      const correctAnsArray = (q.answer || []).map(a => a.trim().toUpperCase());
+
+      if (isReviewMode) {
+        // ==========================================
+        // 模考复盘模式 (逐题批改已交试卷)
+        // ==========================================
+        isCurrentAnswerSubmitted = true;
+        const examAns = (examUserAnswers && examUserAnswers[currentQuestionIndex]) || (prevProg ? prevProg.selected : []) || [];
+        const isRight = (examAns.length > 0 && [...correctAnsArray].sort().join('') === [...examAns].sort().join(''));
+        const isUnanswered = (examAns.length === 0);
+
+        if (wrongMount) {
+          wrongMount.style.display = 'block';
+          wrongMount.innerHTML = `
+            <div class="exam-review-callout ${isRight ? 'is-correct' : (isUnanswered ? 'is-unanswered' : 'is-wrong')}">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span style="font-size:1.2rem;">${isRight ? '🎉' : (isUnanswered ? '⚪' : '❌')}</span>
+                <strong style="font-size: 0.96rem;">${isRight ? '考场作答正确' : (isUnanswered ? '考场未作答' : '考场作答错误')}</strong>
+              </div>
+              <div class="review-callout-info">
+                <span>你的考场选择：<strong class="review-choice-tag ${isRight ? 'good' : (isUnanswered ? 'gray' : 'bad')}">${isUnanswered ? '未作答' : examAns.join(', ')}</strong></span>
+                <span class="callout-sep">|</span>
+                <span>标准参考答案：<strong class="review-choice-tag good">${correctAnsArray.join(', ') || '待定'}</strong></span>
+              </div>
+            </div>
+          `;
+        }
+
+        // 标亮选项状态
+        if (q.type === 'judge') {
+          optionsContainer.querySelectorAll('.judge-card').forEach(card => {
+            const val = card.dataset.val;
+            if (correctAnsArray.includes(val)) {
+              card.classList.add('correct-answer');
+            }
+            if (examAns.includes(val) && !correctAnsArray.includes(val)) {
+              card.classList.add('wrong-selected');
+            }
+          });
+        } else {
+          optionsContainer.querySelectorAll('.option-card').forEach(card => {
+            const l = card.dataset.label;
+            if (correctAnsArray.includes(l)) {
+              card.classList.add('correct-answer');
+            }
+            if (examAns.includes(l) && !correctAnsArray.includes(l)) {
+              card.classList.add('wrong-selected');
+            }
+            if (examAns.includes(l)) {
+              const badge = document.createElement('span');
+              badge.className = `badge-user-picked ${isRight ? 'correct' : 'wrong'}`;
+              badge.textContent = isRight ? '你的选择 ✔️' : '你的选择 ❌';
+              const textDiv = card.querySelector('.option-text');
+              if (textDiv) textDiv.appendChild(badge);
+            }
+          });
+        }
+
+        // 显示解析面板
+        const feedbackPanel = document.getElementById('feedbackPanel');
+        feedbackPanel.style.display = 'block';
+        document.getElementById('btnSubmitAnswer').style.display = 'none';
+
+        const banner = document.getElementById('feedbackBanner');
+        const bannerText = document.getElementById('feedbackBannerText');
+        const correctAnsEl = document.getElementById('feedbackCorrectAnswerText');
+
+        if (q.answerPending) {
+          banner.className = 'feedback-banner pending';
+          bannerText.textContent = 'ℹ️ 官方原卷未附文字答案（详见视频精析）';
+          correctAnsEl.textContent = '答案待补充';
+        } else if (isRight) {
+          banner.className = 'feedback-banner correct';
+          bannerText.textContent = '🎉 考场回答正确！';
+          correctAnsEl.textContent = `标准答案: ${correctAnsArray.join(', ')}`;
+        } else if (isUnanswered) {
+          banner.className = 'feedback-banner pending';
+          bannerText.textContent = '⚪ 考场未作答！';
+          correctAnsEl.textContent = `标准答案: ${correctAnsArray.join(', ')}`;
+        } else {
+          banner.className = 'feedback-banner wrong';
+          bannerText.textContent = '❌ 考场作答错误！';
+          correctAnsEl.textContent = `标准答案: ${correctAnsArray.join(', ')} (你的考场选择: ${examAns.join(', ')})`;
+        }
+
+        document.getElementById('explanationText').innerHTML = formatMathText(q.explanation || '详见教材或考研标准解析。');
+        const conflictBox = document.getElementById('conflictBox');
+        if (q.conflict) {
+          conflictBox.style.display = 'block';
+          document.getElementById('conflictText').innerHTML = formatMathText(q.conflict);
+        } else {
+          conflictBox.style.display = 'none';
+        }
+
+      } else if (prevProg && !prevProg.correct && prevProg.selected && prevProg.selected.length > 0) {
+        // ==========================================
+        // 错题档案展示 (错题本或曾经答错过的题目)
+        // ==========================================
+        if (wrongMount) {
+          wrongMount.style.display = 'block';
+          wrongMount.innerHTML = `
+            <div class="wrong-history-banner" id="wrongHistoryBanner">
+              <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                <span class="wrong-history-badge">📌 错题档案</span>
+                <div class="wrong-history-desc">
+                  你上次做错选择了：<strong class="user-wrong-tag">${prevProg.selected.join(', ')} ❌</strong>
+                  <span class="history-sep">|</span>
+                  标准答案：<strong class="actual-correct-tag">${correctAnsArray.join(', ')} ✔️</strong>
+                </div>
+              </div>
+              <button class="btn-toggle-wrong-exp" type="button" onclick="toggleWrongExplanation()">📖 查看解析</button>
+            </div>
+          `;
+        }
+
+        // 在选项卡上标注用户上次选错的选项，防止重蹈覆辙
+        if (q.type === 'judge') {
+          optionsContainer.querySelectorAll('.judge-card').forEach(card => {
+            const val = card.dataset.val;
+            if (prevProg.selected.includes(val)) {
+              card.style.borderColor = 'rgba(244, 63, 94, 0.7)';
+              const b = document.createElement('span');
+              b.className = 'badge-prev-wrong';
+              b.textContent = '上次错选 ❌';
+              card.appendChild(b);
+            }
+          });
+        } else {
+          optionsContainer.querySelectorAll('.option-card').forEach(card => {
+            const l = card.dataset.label;
+            if (prevProg.selected.includes(l)) {
+              card.classList.add('prev-wrong-picked');
+              const b = document.createElement('span');
+              b.className = 'badge-prev-wrong';
+              b.textContent = '上次错选 ❌';
+              const textDiv = card.querySelector('.option-text');
+              if (textDiv) textDiv.appendChild(b);
+            }
+          });
+        }
+
+        // 允许重新提交作答来攻克此题
+        document.getElementById('feedbackPanel').style.display = 'none';
+        document.getElementById('btnSubmitAnswer').style.display = 'inline-flex';
+        document.getElementById('btnSubmitAnswer').disabled = false;
+
+      } else {
+        // 正常未作答或已答对题目
+        if (wrongMount) {
+          wrongMount.innerHTML = '';
+          wrongMount.style.display = 'none';
+        }
+        document.getElementById('feedbackPanel').style.display = 'none';
+        document.getElementById('btnSubmitAnswer').style.display = 'inline-flex';
+        document.getElementById('btnSubmitAnswer').disabled = false;
+      }
 
       // Note
       const noteInput = document.getElementById('userNoteInput');
       noteInput.value = (appState.notes && appState.notes[q.id]) || '';
+    }
+
+    function toggleWrongExplanation() {
+      const p = document.getElementById('feedbackPanel');
+      const btn = document.querySelector('.btn-toggle-wrong-exp');
+      if (p.style.display === 'block') {
+        p.style.display = 'none';
+        if (btn) btn.textContent = '📖 查看解析';
+      } else {
+        const q = currentQuestionsQueue[currentQuestionIndex];
+        const correctAnsArray = (q.answer || []).map(a => a.trim().toUpperCase());
+        const banner = document.getElementById('feedbackBanner');
+        const bannerText = document.getElementById('feedbackBannerText');
+        const correctAnsEl = document.getElementById('feedbackCorrectAnswerText');
+
+        banner.className = 'feedback-banner pending';
+        bannerText.textContent = '📖 标准理论解析与依据';
+        correctAnsEl.textContent = `标准答案: ${correctAnsArray.join(', ')}`;
+
+        document.getElementById('explanationText').innerHTML = formatMathText(q.explanation || '详见教材或考研标准解析。');
+        const conflictBox = document.getElementById('conflictBox');
+        if (q.conflict) {
+          conflictBox.style.display = 'block';
+          document.getElementById('conflictText').innerHTML = formatMathText(q.conflict);
+        } else {
+          conflictBox.style.display = 'none';
+        }
+        p.style.display = 'block';
+        if (btn) btn.textContent = '收起解析 🔼';
+      }
     }
 
     function selectChoiceOption(label) {
@@ -3227,6 +3612,19 @@
         banner.className = 'feedback-banner correct';
         bannerText.textContent = '🎉 回答正确！';
         correctAnsEl.textContent = `标准答案: ${correctAnsArray.join(', ')}`;
+        
+        // 成功攻克错题时，即时更新错题横幅
+        const wrongMount = document.getElementById('wrongHistoryMount');
+        if (wrongMount && wrongMount.style.display === 'block') {
+          wrongMount.innerHTML = `
+            <div class="wrong-history-banner" style="background: rgba(16, 185, 129, 0.12); border-color: rgba(16, 185, 129, 0.4); color: #34d399;">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span style="font-size:1.15rem;">🎉</span>
+                <strong>太棒了！本次回答正确，成功攻克该错题！已移出错题本！</strong>
+              </div>
+            </div>
+          `;
+        }
       } else {
         banner.className = 'feedback-banner wrong';
         bannerText.textContent = '❌ 回答错误！';

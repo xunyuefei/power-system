@@ -1,9 +1,9 @@
 /* ==========================================================================
    ⚡ 华电《电力系统分析》全真题库 - PWA Service Worker (离线缓存引擎)
-   Cache Version: ncepu-quiz-pwa-v1.0.3
+   Cache Version: ncepu-quiz-pwa-v1.0.4
    ========================================================================== */
 
-const CACHE_NAME = 'ncepu-quiz-pwa-v1.0.3';
+const CACHE_NAME = 'ncepu-quiz-pwa-v1.0.4';
 
 // 核心预缓存文件列表（确保全题库与交互离线可用）
 const PRECACHE_ASSETS = [

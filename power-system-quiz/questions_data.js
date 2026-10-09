@@ -1,6 +1,4 @@
-// 华北电力大学《电力系统分析》选择题与判断题全真题库数据集
-// 包含本科期末试卷与历年考研真题（共 789 道题）
-
+// 电力系统分析基础 789题全真题库数据集
 const QUESTIONS_DATA = [
   {
     "id": "2025-2026-期末A-单选-01",
@@ -1779,7 +1777,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023-2024 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "500kV长距离空载线路末端电压大于首端电压",
     "stem": "500kV 长距离输电线路空载充电时，末端电压可能大于首端电压。",
     "options": [
       {
@@ -1791,10 +1789,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "超高压长距离线路对地充电电容产生强容性功率，流过线路电抗引发皮尔逊容升效应（$\\Delta U = \\frac{PR+QX}{U} < 0$），使空载末端电压高于首端电压。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2023-2024",
@@ -1805,7 +1805,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023-2024 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "电力系统故障中发生概率最高的是两相短路",
     "stem": "电力系统故障中发生概率最高的是两相短路。",
     "options": [
       {
@@ -1817,10 +1817,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "电力系统故障中发生概率最高的是**单相接地短路**（约占全网故障总数的 65%~70%），两相短率远低于单相接地。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2023-2024",
@@ -1831,7 +1833,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023-2024 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "相较于配电线路，输电线路空间跨度大、电压高",
     "stem": "相较于配电线路，输电线路空间跨度大、电压等级高。",
     "options": [
       {
@@ -1843,10 +1845,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "输电网（110kV及以上）负责大容量跨区域电能输送，跨度大、电压高；配电网（35kV及以下）负责向终端用户配电。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2023-2024",
@@ -1857,7 +1861,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023-2024 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "变压器等值电路四项参数可通过模型计算得到",
     "stem": "变压器等值电路中四项参数可以通过模型计算得到。",
     "options": [
       {
@@ -1869,10 +1873,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "变压器四项等值参数（$R_T, X_T, G_T, B_T$）必须由出厂**短路试验（$P_k, U_k\\%$）和空载试验（$P_0, I_0\\%$）铭牌实测数据**归算导出，而非模型直接计算。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2023-2024",
@@ -1883,7 +1889,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023-2024 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "降压变压器变比向下调整低压侧电压降低",
     "stem": "降压变压器变比向下调整，低压侧电压将降低。",
     "options": [
       {
@@ -1895,10 +1901,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "变比 $k = U_{1N}/U_{2N}$，低压侧电压 $U_2 = U_1/k$。分接头向下调（抽头减小致变比 $k$ 减小），低压侧输出电压 $U_2$ 将**升高**。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2023-2024",
@@ -1909,7 +1917,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023-2024 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "高压输电线路电晕现象主要用电抗表征",
     "stem": "高压输电线路的电晕现象主要用电抗参数表征。",
     "options": [
       {
@@ -1921,10 +1929,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "电晕放电产生高频寄生电流并引发空气电离有功损耗，在等值电路中主要用**电导 G** 参数表征（$\\Delta P = U^2 G$），而非电抗 X。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2023-2024",
@@ -1935,7 +1945,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023-2024 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "有功功率(MW)、无功功率(MVA)、阻抗(S)单位匹配",
     "stem": "以下电气量与单位均匹配：有功功率-MW、无功功率-MVA、阻抗-S。",
     "options": [
       {
@@ -1947,10 +1957,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "无功功率单位为 **Mvar**（MVA 为视在功率单位）；阻抗单位为 **$\\Omega$**（S 为电导/电纳单位西门子）。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2023-2024",
@@ -1961,7 +1973,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023-2024 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "有架空地线 X0=4.0X1 则无架空地线可能为 X0=2.0X1",
     "stem": "如果有钢质架空地线的线路每相等值零序电抗 $X_0 = 4.0X_1$ （ $X_1$ 为正序阻抗），则无架空地时每相等值零序电抗 $X_0$ 可能为 $2.0X_1$ 。",
     "options": [
       {
@@ -1973,10 +1985,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "架空地线感应逆向电流起去磁作用，**减小**线路零序电抗。若有地线时 $X_0 = 4.0X_1$，则无地线时零序电抗必**大于 4.0$X_1$**（绝不可能缩小为 $2.0X_1$）。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2023-2024",
@@ -1987,7 +2001,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023-2024 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "负荷突然增大计及一次调频系统频率降低",
     "stem": "某交流系统中负荷突然增大，若仅计及系统一次调频作用，系统的频率将降低。",
     "options": [
       {
@@ -1999,10 +2013,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "负荷增大致功率缺口，一次调频依靠发电机调速器有差静态特性（$\\Delta f = -\\Delta P_L / (K_G + K_L)$），仅能减小跌幅，**系统稳态频率依然降低**。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2023-2024",
@@ -2013,7 +2029,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023-2024 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "无限大电源短路全电流包含强迫分量和周期分量",
     "stem": "无限大电源系统三相短路的全电流包括两部分，分别是强迫分量和周期分量。",
     "options": [
       {
@@ -2025,10 +2041,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "全电流由 **工频周期分量（即强迫分量）** 与 **按时间常数衰减的自由直流非周期分量** 组成，“强迫分量”与“周期分量”指同一种分量。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2023-2024",
@@ -2039,7 +2057,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "中性点接地阻抗对正负序电流无影响",
     "stem": "中性点接地阻抗只会影响零序电流，对正序电流和负序电流没有影响。（）",
     "options": [
       {
@@ -2051,10 +2069,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "复合序网中三序网相互串并联，零序阻抗（含 $3Z_g$）改变会改变复合序网总阻抗，从而**间接影响正序和负序电流**。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -2065,7 +2085,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "变压器二次绕组额定电压等于电网标称",
     "stem": "变压器二次绕组的额定电压通常等于接入点的电网标称电压。（）",
     "options": [
       {
@@ -2077,10 +2097,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "变压器二次绕组为电源供给端，其额定电压通常比电网标称电压高 5% 或 10%（用于补偿内部压降与线路压降）。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -2091,7 +2113,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "无论铁芯结构零序激磁电抗均为无穷大",
     "stem": "无论变压器为何种铁芯结构, 当有零序电流流通时, 他的零序激磁电抗都可以看作无穷大。( )",
     "options": [
       {
@@ -2103,11 +2125,13 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
-    "conflict": "",
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "三相三柱式变压器零序磁通只能经油箱壁闭合，磁阻极大，零序激磁电抗较小（约 $0.3\\sim 1.0\\,\\text{p.u.}$），**不能看作无穷大**。",
+    "verified": true,
+    "conflict": "【变压器结构辨析】三相五柱式或单相变压器组零序磁通可在铁芯闭合，零序激磁电抗很大；但三相三柱式变压器零序磁通无法在铁芯闭合，只能通过油介质与箱壁闭合，磁阻大，零序激磁电抗较小（约 0.3~1.0 p.u.），绝不能视为无穷大。",
     "source": "期末",
     "year": "2022-2023",
     "chapter": 2
@@ -2117,7 +2141,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "线路交流电阻略小于直流电阻",
     "stem": "同等截面积和同等长度的线路其交流电阻略小于直流电阻。（）",
     "options": [
       {
@@ -2129,10 +2153,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "受集肤效应和邻近效应影响，交流电流趋向于导线表面分布致有效截面减小，故**交流电阻略大于直流电阻**（$R_{AC} > R_{DC}$）。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -2143,7 +2169,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "无功不足时优先改变变压器变比调压",
     "stem": "对于无功电源不足导致整体电压水平下降的电力系统应优先考虑改变变压器变比调压，因为它不需要增加任何投资费用。（）",
     "options": [
       {
@@ -2155,10 +2181,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "无功不足时改变变压器变比无法解决无功缺额，盲目调压会恶化无功分布甚至引发电压崩溃，**必须优先增设无功补偿设备**。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -2169,7 +2197,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "发电机与负荷的单位调节功率均可整定",
     "stem": "发电机的单位调节功率可以整定，负荷的单位调节功率也可以整定。（）",
     "options": [
       {
@@ -2181,10 +2209,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "发电机 $K_G$ 可通过调速器人为整定；但**负荷单位调节功率 $K_L$ 由用电设备固有静态频率特性决定，不可人为整定**。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -2195,7 +2225,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "次暂态电流 I'' 是求解直流分量的起始值",
     "stem": "求解三相短路电流的次暂态电流 I”是求解短路电流直流分量的起始值。（）",
     "options": [
       {
@@ -2207,10 +2237,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "发生短路时定子磁链不突变，交流周期分量初始有效值为 $I''$，其最大瞬时幅值 $\\sqrt{2}I''$ 即为直流非周期分量的最大初始值。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -2221,7 +2253,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "无功不足时不能调整变压器分接头调压",
     "stem": "无功不足时，不能通过调整变压器分接头改善电压水平。（）",
     "options": [
       {
@@ -2233,10 +2265,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "全网无功电源严重不足时，改变变压器变比无法增加无功总量，盲目升压会加大无功损耗，无法根本改善电压水平。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -2247,7 +2281,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "改变电压相位主要改变网络中有功分布",
     "stem": "改变电压相位，主要改变网络中有功功率的分布。（）",
     "options": [
       {
@@ -2259,10 +2293,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "高压网中 $X \\gg R$，有功功率主要由节点电压相角差决定（$\\Delta P \\approx \\frac{U_1 U_2}{X}\\sin\\delta$），改变电压相位主要改变有功分布。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -2273,7 +2309,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "不对称短路时线电压中可能出现零序",
     "stem": "发生不对称短路时，不仅相电压中可能出现零序电压分量，线电压中也可能出现零序电压分量。（）",
     "options": [
       {
@@ -2285,10 +2321,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "线电压为两相相电压之差（$\\dot{U}_{ab} = \\dot{U}_a - \\dot{U}_b$），零序分量三相同相位（$\\dot{U}_{a0} = \\dot{U}_{b0}$）相减抵消，**线电压中绝无零序分量**。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -2299,7 +2337,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "单相接地中性点电压升至线电压故高压接地",
     "stem": "由于单相接地故障时中性点电压升高为线电压，故我国 $110 \\mathrm{kV}$ 以上电网采用中性点接地方式。（）",
     "options": [
       {
@@ -2311,10 +2349,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "单相接地时中性点电压升高为**相电压**（$U_N/\\sqrt{3}$），而非线电压。110kV以上采用中性点直接接地主要为降低绝缘成本。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -2325,7 +2365,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "正常负荷越大三相短路冲击电流越大",
     "stem": "正常运行时负荷越大，电流越大，发生三相短路时短路电流的最大瞬时值也越大。（）",
     "options": [
       {
@@ -2337,10 +2377,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "短路电流主要由电源电动势和网络阻抗决定，正常负荷电流叠加影响极小，且冲击峰值主要由合闸初相角决定。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -2351,7 +2393,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "架空导线存在电容可看作无功电源",
     "stem": "因为架空导线存在电容，所以架空导线可以看做是系统的无功电源。（）",
     "options": [
       {
@@ -2363,10 +2405,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "高压架空线路对地电纳 $B$ 产生容性充电功率 $Q_c = U^2 B$，在轻载/高电压运行时可向系统供给容性无功，充当无功电源。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -2377,7 +2421,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "牛顿-拉夫逊法线性修正方程求解电压值",
     "stem": "用牛顿一拉夫逊法进行潮流计算时，线性修正方程求解的是节点的电压值。（）",
     "options": [
       {
@@ -2389,10 +2433,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "牛顿-拉夫逊法线性修正方程求解的是状态变量的**修正量**（$\\Delta \\delta$ 和 $\\Delta U$），并非电压值本身。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -2403,7 +2449,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "高压网电压降落横分量数值可能大于纵分量",
     "stem": "高压电网中，电压降落中的横分量在数值上可能大于纵分量。（）",
     "options": [
       {
@@ -2415,10 +2461,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "高压网电抗远大于电阻，有功传输产生的横分量 $\\delta U$ 极小，无功传输产生的纵分量 $\\Delta U$ 较大，通常**纵分量远大于横分量**。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -2429,7 +2477,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "只要三相电流之和不为零就包含零序",
     "stem": "只要三相电流之和不为零，电流中就一定包含有零序分量。（）",
     "options": [
       {
@@ -2441,10 +2489,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "根据对称分量法变换原理 $\\dot{I}_{a0} = \\frac{1}{3}(\\dot{I}_a + \\dot{I}_b + \\dot{I}_c)$，只要三相相量和不为 0，零序分量即存在。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -2455,7 +2505,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "不对称短路各序电流经变压器相位变与组别有关",
     "stem": "当电力系统发生不对称短路时，各序电流经变压器后的相位变化与变压器的连接组别有关。（）",
     "options": [
       {
@@ -2467,10 +2517,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "变压器接线组别（如 $Y/\\Delta-11$）会引起正序电流超前 30°、负序电流滞后 30°，旋转相位与变压器组别密切相关。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -2481,7 +2533,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "在 50±0.5Hz 内频率越低有功负荷越小",
     "stem": "电力系统的综合有功负荷和频率相关，在 $50 \\pm 0.5 \\mathrm{~Hz}$ 范围内，频率越低，有功负荷越小。（）",
     "options": [
       {
@@ -2493,10 +2545,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "由负荷静态频率特性 $P_L(f)$，系统频率下降时，感应电动机等旋转负荷吸收的功率随之减小。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -2507,7 +2561,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "架空线空载/轻载运行末端电压一定比首端高",
     "stem": "架空输电线路在空载或轻载运行时末端电压一定比首端电压高。（）",
     "options": [
       {
@@ -2519,10 +2573,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "陈述过于绝对。只有在高压/超高压长线路空载或轻载（容升效应显著）时末端电压才高于首端；若末端加装并联电抗器则不一定高。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -2533,7 +2589,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "不属于无穷大电源特点的是",
     "stem": "不属于无穷大电源特点的是（ ）",
     "options": [
       {
@@ -2553,10 +2609,12 @@ const QUESTIONS_DATA = [
         "text": "电流恒定"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "无限大电源内阻为零、电压和频率恒定；发生短路时**短路电流由外部回路阻抗决定，并非恒定**。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -2567,7 +2625,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "无限大电源三相短路幅值不变的分量",
     "stem": "无限大容量电源供电的系统发生三相短路，短路电流中幅值大小不变的分量是（）。",
     "options": [
       {
@@ -2587,10 +2645,12 @@ const QUESTIONS_DATA = [
         "text": "直流分量"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "无限大电源母线电压恒定，短路电流**强迫工频周期分量**幅值保持恒定不衰减。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -2601,7 +2661,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "年最大负荷曲线是制定什么的依据",
     "stem": "年最大负荷曲线是制定（）的依据。",
     "options": [
       {
@@ -2621,10 +2681,12 @@ const QUESTIONS_DATA = [
         "text": "电源规划"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "年最大负荷曲线反映一年内各月/周最大负荷变化趋势，是安排**发电设备检修计划**的核心依据。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -2635,7 +2697,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "同型号导线用在高电压等级线路电抗值",
     "stem": "同一种型号的导线，用在电压等级高的线路中要比用在电压等级低的线路中，其电抗值（ ）",
     "options": [
       {
@@ -2655,10 +2717,12 @@ const QUESTIONS_DATA = [
         "text": "不变"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "高电压等级线路相间安全距离大，几何均距 $D_m$ 增大，由 $x_1 = 0.1445\\lg(D_m/r) + 0.0157$ 可知**电抗变大**。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -2669,7 +2733,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "可能有零序电流穿过变压器的接线形式",
     "stem": "可能有零序电流穿过变压器的接线形式是（ ）",
     "options": [
       {
@@ -2689,10 +2753,12 @@ const QUESTIONS_DATA = [
         "text": "Y0/Y"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "只有两侧中性点均接地的变压器绕组（如 **$Y_0/Y_0$**）才允许零序电流从一侧穿过流向另一侧外电路。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -2703,7 +2769,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "负荷增加时增发功率相对较多的发电机",
     "stem": "当负荷增加某一固定数值时, 如果不考虑二次调频和满载, 以下哪一种发电机增发的功率相对较多 (   )。",
     "options": [
       {
@@ -2723,10 +2789,12 @@ const QUESTIONS_DATA = [
         "text": "调整容量大的发电机"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "发电机单位调节功率 $K_G = 1/R$，**调差系数 $R$ 越小**的发电机 $K_G$ 越大，同等频率下降时承担/增发的功率越多。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -2737,7 +2805,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "电力系统供电负荷与厂用电之和称为",
     "stem": "电力系统的供电负荷与厂用电之和，称为（）",
     "options": [
       {
@@ -2757,10 +2825,12 @@ const QUESTIONS_DATA = [
         "text": "工业负荷"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "**发电负荷 = 供电负荷 + 厂用电负荷**；综合用电负荷 + 输配电线损 = 供电负荷。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -2771,7 +2841,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "关于牛拉法潮流计算说法错误的是",
     "stem": "关于潮流计算的牛顿-拉夫逊法以下说法错误的是（）",
     "options": [
       {
@@ -2791,10 +2861,12 @@ const QUESTIONS_DATA = [
         "text": "牛顿-拉夫逊法是将非线性的代数方程变换为代数方程求解"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "牛拉法是将非线性代数方程组在当前迭代点泰勒展开**线性化为线性代数方程组求解**，并非“变换为代数方程”。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -2805,7 +2877,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "阻抗 Z 流过电流 I 消耗的功率公式",
     "stem": "如果线路阻抗为 Z，电流为 I，线路始端电压为 U，则该阻抗支路消耗的功率为（）。",
     "options": [
       {
@@ -2825,10 +2897,12 @@ const QUESTIONS_DATA = [
         "text": "阻抗 $Z$ 乘以电压模值U的平方"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "阻抗支路电能损耗/功率消耗表达式为 $\\Delta \\tilde{S} = I^2 Z = \\mathbf{\\",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -2839,7 +2913,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "高峰升高低谷降低的中枢点调压方式",
     "stem": "高峰负荷时将中枢点电压升高, 低谷负荷时将其降低的调压方式是 ( )。",
     "options": [
       {
@@ -2859,10 +2933,12 @@ const QUESTIONS_DATA = [
         "text": "逆调压"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "高峰负荷升压（如 $+5\\%U_N$）、低谷负荷降压（如 $U_N$）属于标准的**逆调压**定义。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -2873,7 +2949,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "不接地系统发生单相接地接地点相电压",
     "stem": "当中性点不接地系统中发生单相接地时，接地点的三相相电压（ ）",
     "options": [
       {
@@ -2893,10 +2969,12 @@ const QUESTIONS_DATA = [
         "text": "保持不变"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "单相接地时，故障相对地电压降为0，非故障相对地电压升为线电压，**三相相电压破坏对称（不再对称）**。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -2907,7 +2985,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "电力系统最大负荷与各用户最大负荷之和",
     "stem": "电力系统的最大负荷，总是（）各用户最大负荷的总和。",
     "options": [
       {
@@ -2927,10 +3005,12 @@ const QUESTIONS_DATA = [
         "text": "小于"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "由于各用户最大负荷出现的时间不一致（错峰效应），系统综合最大负荷**总是小于**各用户最大负荷之代数和。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -2941,7 +3021,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "牛拉法线性修正方程求解的是",
     "stem": "用牛顿-拉夫逊法进行潮流计算时, 线性修正方程求解的是 ( )。",
     "options": [
       {
@@ -2961,10 +3041,12 @@ const QUESTIONS_DATA = [
         "text": "节点电压的修正量"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "修正方程求解的是节点电压相角与幅值的**修正量（$\\Delta \\delta$ 和 $\\Delta U$）**。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -2975,7 +3057,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "潮流计算中 PV 节点的待求量",
     "stem": "在电力系统潮流计算中，PV节点的待求量是（ ）",
     "options": [
       {
@@ -2995,10 +3077,12 @@ const QUESTIONS_DATA = [
         "text": "P、V"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "PV 节点已知注入有功 $P$ 和电压幅值 $V$，待求状态变量为**无功功率 $Q$ 和电压相角 $\\delta$**。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -3009,7 +3093,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "110kV/6kV 直连电动机降压变压器变比",
     "stem": "某降压变压器由 $110 \\mathrm{kV}$ 降到 $6 \\mathrm{kV}$ , $6 \\mathrm{kV}$ 直接与电动机相连, 则变压器变比应该是",
     "options": [
       {
@@ -3029,10 +3113,12 @@ const QUESTIONS_DATA = [
         "text": "$121 / 6.6$"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "一次侧接 110kV 电网额定 110kV；二次侧直连电动机额定高于标称 6kV 的 10%（$6\\times 1.1=6.6\\text{kV}$），变比为 **110/6.6kV**。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -3043,7 +3129,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "线路首末端电压的相量差称为",
     "stem": "线路首末端电压的相量差是（ ）",
     "options": [
       {
@@ -3063,10 +3149,12 @@ const QUESTIONS_DATA = [
         "text": "电压偏移"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "首末端电压相量差 $\\Delta \\dot{U} = \\dot{U}_1 - \\dot{U}_2$ 定义为**电压降落**；代数数值差 $U_1 - U_2$ 为电压损耗。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -3077,7 +3165,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "属于纵向故障的类型",
     "stem": "在下列各种故障类型中, 属于纵向故障的是 ( )。",
     "options": [
       {
@@ -3097,10 +3185,12 @@ const QUESTIONS_DATA = [
         "text": "两相断线"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "串联在输电线路上的开路故障（如**两相断线**）属于纵向故障；相间或相对地短路属横向故障。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -3111,7 +3201,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "单位时间内输入能量与输出功率的比值",
     "stem": "单位时间内输入能量与输出功率的比值称为（ ）",
     "options": [
       {
@@ -3131,10 +3221,12 @@ const QUESTIONS_DATA = [
         "text": "比耗量"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "公式 $F/P$ 定义为发电设备的**比耗量**；微分 $dF/dP$ 为耗量微增率。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -3145,7 +3237,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "正序增广网络中三相短路的附加阻抗",
     "stem": "在正序增广网络中, 三相短路的附加阻抗为 ( )。",
     "options": [
       {
@@ -3165,10 +3257,12 @@ const QUESTIONS_DATA = [
         "text": "零序阻抗和负序阻抗并联"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "三相短路为完全对称短路，故障点无负序和零序分量，正序增广网络**附加阻抗为 0**。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -3179,7 +3273,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "电力系统改变变压器变比实质上是",
     "stem": "电力系统改变变压器变比，实质上是（）。",
     "options": [
       {
@@ -3199,10 +3293,12 @@ const QUESTIONS_DATA = [
         "text": "改变电网的无功功率分布"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "改变变压器变比改变了网络中的变比不匹配调压，实质上是**重新分配和改变电网的无功功率分布**。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -3213,7 +3309,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "可以吸收感性无功功率的设备",
     "stem": "以下哪些设备属于可以吸收感性无功功率的设备（）",
     "options": [
       {
@@ -3233,10 +3329,14 @@ const QUESTIONS_DATA = [
         "text": "静止补偿器"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "C",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "**并联电抗器**（A）、**同步调相机欠励运行**（C）、**静止无功补偿器（SVC/TCR）**（D）均可吸收感性无功。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -3247,7 +3347,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "架空导线采用分裂导线的作用",
     "stem": "架空导线采用分裂导线的作用有（ ）。",
     "options": [
       {
@@ -3267,10 +3367,14 @@ const QUESTIONS_DATA = [
         "text": "减小线路电抗"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "C",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "增大等效半径，作用为**抑制电晕（A）、减小线路电抗（D）、减小电抗降压降从而减小电压损耗（C）**。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -3281,7 +3385,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "会引起电网电压变化的因素",
     "stem": "下列哪些因素会引起电网电压的变化（ ）",
     "options": [
       {
@@ -3301,10 +3405,15 @@ const QUESTIONS_DATA = [
         "text": "系统故障"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "**负荷波动（A）、风电跳闸（B）、运行方式改变（C）、系统故障（D）** 均会引起全网节点电压波动。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -3315,7 +3424,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "输电线路等值电路中消耗有功功率的是",
     "stem": "输电线路等值电路中消耗有功功率的是（ ）",
     "options": [
       {
@@ -3335,10 +3444,13 @@ const QUESTIONS_DATA = [
         "text": "电抗"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "**线路电阻 $R$** 流过电流产生发热损耗（A）；**线路电导 $G$** 产生电晕和泄漏有功损耗（B）。电纳与电抗仅交换无功。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -3349,7 +3461,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "短路点非故障相电压随零序阻抗增大而升高的故障",
     "stem": "当系统发生（）短路故障时，短路点处非故障相的电压随零序阻抗的增大而升高。",
     "options": [
       {
@@ -3369,10 +3481,13 @@ const QUESTIONS_DATA = [
         "text": "两相"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "**两相接地短路（A）** 和 **单相接地短路（C）** 的复合序网均包含零序网，零序阻抗增大致故障点零序分压增大，非故障相电压升高。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -3383,7 +3498,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "降低输电线路电压损耗的措施",
     "stem": "降低输电线路电压损耗的措施主要有（）",
     "options": [
       {
@@ -3403,10 +3518,14 @@ const QUESTIONS_DATA = [
         "text": "增大输电线路参数"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "B",
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "公式 $\\Delta U \\approx \\frac{PR+QX}{U}$：**并联无功补偿减小 Q（A）、提高电压等级 U（B）、串联电容补偿减小 X（C）**。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -3417,7 +3536,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "考核电力系统运行经济性的重要指标",
     "stem": "考核电力系统运行经济性的重要指标为（ ）",
     "options": [
       {
@@ -3437,10 +3556,13 @@ const QUESTIONS_DATA = [
         "text": "年负荷率"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B",
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "**煤耗率**（发电侧能耗，B）与 **线损率**（网侧输配电损耗，C）是衡量电力系统运行经济性的核心指标。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -3451,7 +3573,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "对架空线路导线材料的要求",
     "stem": "对架空线路的导线材料要求（ ）",
     "options": [
       {
@@ -3471,10 +3593,14 @@ const QUESTIONS_DATA = [
         "text": "机械强度高"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "C",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "导线材料要求**抗化学腐蚀（A）、导电性能好（低电阻率，C）、机械强度高（抗拉，D）**。不需要导磁性能。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -3485,7 +3611,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "导线交流电阻与直流电阻不同的影响因素",
     "stem": "导线的交流电阻和直流电阻不同，其主要影响因素为（ ）",
     "options": [
       {
@@ -3505,10 +3631,13 @@ const QUESTIONS_DATA = [
         "text": "集肤效应"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "交流交变磁场引起**集肤效应（D）** 与 **邻近效应（A）**，使交流有效截面积减小，交流电阻大于直流电阻。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -3519,7 +3648,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022-2023 学年第一学期期末试卷(A)",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "同步调相机作为无功补偿装置的特点",
     "stem": "调相机作为无功补偿装置具有以下特点（ ）。",
     "options": [
       {
@@ -3539,10 +3668,13 @@ const QUESTIONS_DATA = [
         "text": "维护方便"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B",
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "优点是**既可发出也可吸收感性无功（B）、可平滑无级调节无功（C）**；缺点是旋转机械有功损耗大、维护复杂。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2022-2023",
@@ -4149,7 +4281,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2020-2021 学年第一学期期末试卷(A)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "参数归算基本级选择的一般规则",
     "stem": "无限大容量电源供电的简单系统三相短路暂态过程中（ ）",
     "options": [
       {
@@ -4169,10 +4301,12 @@ const QUESTIONS_DATA = [
         "text": "短路电流有2倍频分量"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "在多电压等级网络参数归算中，基本级的选择是任意的；但在没有明确要求的情况下，习惯**选择最高电压等级作为基本级**。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2020-2021",
@@ -4183,7 +4317,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2020-2021 学年第一学期期末试卷(A)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "变压器分接头调整对无功总量的影响",
     "stem": "变压器分接头的调整（）改变系统中无功功率的大小。",
     "options": [
       {
@@ -4203,10 +4337,12 @@ const QUESTIONS_DATA = [
         "text": "其它三个选项都不是"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "变压器分接头调整**不能改变系统中无功功率的总量**，其实质是重新分配和改变电网内部无功功率的分布。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2020-2021",
@@ -4217,7 +4353,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2020-2021 学年第一学期期末试卷(A)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "发电机单位时间消耗能源与有功功率关系",
     "stem": "发电机单位时间内消耗的能源与发出的有功功率的关系称为（）",
     "options": [
       {
@@ -4237,10 +4373,12 @@ const QUESTIONS_DATA = [
         "text": "单位调节功率"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "单位时间内消耗的能源 $F$ 与发出的有功功率 $P$ 的函数关系 $F=f(P)$ 称为**耗量特性**；输入能量与输出功率之比 $F/P$ 为比耗量，微分 $dF/dP$ 为耗量微增率。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2020-2021",
@@ -4251,7 +4389,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2020-2021 学年第一学期期末试卷(A)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "极坐标形式牛顿-拉夫逊法雅可比矩阵阶数",
     "stem": "电力网有 n 个节点，其中 m 个节点为 PQ 节点，极坐标形式的雅可比矩阵的阶数为（）。",
     "options": [
       {
@@ -4271,11 +4409,13 @@ const QUESTIONS_DATA = [
         "text": "$n + m$"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
-    "conflict": "",
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "系统有 $n$ 个节点（含 1 个平衡节点），$m$ 个 PQ 节点，待求状态变量为 $n-1$ 个相角与 $m$ 个电压幅值，雅可比矩阵阶数为 **$n + m - 1$**。",
+    "verified": true,
+    "conflict": "【疑义与口径标注】极坐标牛拉法：待求相角为 n-1 个，待求幅值为 m 个（PQ节点），标准总阶数为 n+m-1（选项C）。",
     "source": "期末",
     "year": "2020-2021",
     "chapter": 4
@@ -4285,7 +4425,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2020-2021 学年第一学期期末试卷(A)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "紧凑型输电线路降低电抗的结构手段",
     "stem": "紧凑型输电线路就是改变输电线路本身的结构，主要是（）以降低线路电抗。",
     "options": [
       {
@@ -4305,10 +4445,12 @@ const QUESTIONS_DATA = [
         "text": "降低导线对地距离"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "紧凑型线路通过**缩小导线相间距离 $D_m$**，使几何均距减小，从而降低线路单位电抗 $x_1 = 0.1445\\lg(D_m/r) + 0.0157$。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2020-2021",
@@ -4319,7 +4461,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2020-2021 学年第一学期期末试卷(A)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "中性点非直接接地系统设备绝缘水平",
     "stem": "中性点非直接接地系统中用电设备的绝缘水平应该按照（）考虑。",
     "options": [
       {
@@ -4339,10 +4481,12 @@ const QUESTIONS_DATA = [
         "text": "$\\sqrt{3}$ 线电压"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "中性点不接地系统发生单相接地时，故障相对地电压降为0，非故障相对地电压升高为线电压，因此电气设备绝缘水平必须**按线电压考虑**。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2020-2021",
@@ -4353,7 +4497,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2020-2021 学年第一学期期末试卷(A)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "电网标称电压 220kV 的物理含义",
     "stem": "电网的标称电压为 $220 k V$ ，是指（ ）",
     "options": [
       {
@@ -4373,10 +4517,12 @@ const QUESTIONS_DATA = [
         "text": "线电压有效值"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "我国及国际电网标称电压（额定电压）均统一指三相交流电路的**线电压有效值**。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2020-2021",
@@ -4387,7 +4533,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2020-2021 学年第一学期期末试卷(A)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "直角坐标牛拉法 PV 节点雅可比矩阵子块形式",
     "stem": "节点导纳矩阵中 $Y_{ij}$ 不等于 0, j 节点为 PV 节点，则直角坐标下的雅可比矩阵中对应分块阵的形式是（X 表示非零元素）（ ）。",
     "options": [
       {
@@ -4407,10 +4553,12 @@ const QUESTIONS_DATA = [
         "text": "$\\begin{bmatrix} 0 & 0 \\\\ \\times & \\times \\end{bmatrix}$"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "直角坐标下节点为 PV 节点时，电压实部与虚部均参与迭代计算，其对应的雅可比子阵分块形式为 **$\\begin{bmatrix} \\times & \\times \\\\ \\times & \\times \\end{bmatrix}$**（全部为非零元素）。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2020-2021",
@@ -4421,7 +4569,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2020-2021 学年第一学期期末试卷(A)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "无功补偿设备在电网中的配置原则",
     "stem": "无功补偿设备（）集中装设在电网的电源侧。",
     "options": [
       {
@@ -4441,10 +4589,12 @@ const QUESTIONS_DATA = [
         "text": "以上都有可能"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "无功补偿应遵循“分层分区、就地平衡”原则，**不应该**集中装设在电网电源侧，以避免无功长距离传输带来网损与压降。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2020-2021",
@@ -4455,7 +4605,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2020-2021 学年第一学期期末试卷(A)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "两相短路故障相电流与正序分量的关系",
     "stem": "两相短路的故障相电流的大小为正序分量的（）倍。",
     "options": [
       {
@@ -4475,10 +4625,12 @@ const QUESTIONS_DATA = [
         "text": "$\\sqrt{3}/2$"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "两相短路边界条件下，故障相电流 $I_k = \\sqrt{3} I_{(1)}$，即故障相电流大小为正序电流分量的 **$\\sqrt{3}$ 倍**。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2020-2021",
@@ -4489,7 +4641,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2020-2021 学年第一学期期末试卷(A)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "各种工程系统中包含设备种类最多的系统",
     "stem": "下列系统中，包括的设备种类最多的是（）。",
     "options": [
       {
@@ -4509,10 +4661,12 @@ const QUESTIONS_DATA = [
         "text": "配电网"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "包含范围层次为：**动力系统 > 电力系统 > 电力网 > 配电网**，动力系统还包含热力、水力等热工与动力设备，种类最多。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2020-2021",
@@ -4523,7 +4677,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2020-2021 学年第一学期期末试卷(A)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "220/121/11kV 降压变压器接线组别形式",
     "stem": "一台 220/121/11 的降压变压器的接线形式是（）",
     "options": [
       {
@@ -4543,10 +4697,12 @@ const QUESTIONS_DATA = [
         "text": "$Y_{0}/Y_{0}/Y$"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "110kV 及以上高压与中压侧均需接地，接成中性点直接接地的星形 $Y_0$；低压侧为消除三次谐波接成三角形 $\\Delta$，接线形式为 **$Y_0/Y_0/\\Delta$**。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2020-2021",
@@ -4557,7 +4713,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2020-2021 学年第一学期期末试卷(A)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "潮流计算中 PV 节点的待求状态变量",
     "stem": "在电力系统潮流计算中，PV 节点的待求量是（ ）",
     "options": [
       {
@@ -4577,10 +4733,12 @@ const QUESTIONS_DATA = [
         "text": "P、V"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "PV 节点已知注入有功功率 $P$ 和电压幅值 $V$，待求未知量为**无功功率 $Q$ 与电压相角 $\\delta$**。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2020-2021",
@@ -4591,7 +4749,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2020-2021 学年第一学期期末试卷(A)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "有功负荷变动分类中可预测的负荷",
     "stem": "有功功率负荷的变动一般分为三种，可预测的是（ ）。",
     "options": [
       {
@@ -4611,10 +4769,12 @@ const QUESTIONS_DATA = [
         "text": "都不能"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "**第三种负荷**（变动幅度大、周期较长的高峰/低谷负荷）变化规律明显，属于**可预测负荷**；第一种为随机微小波动，第二种为冲击负荷。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2020-2021",
@@ -4625,7 +4785,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2020-2021 学年第一学期期末试卷(A)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "同步调相机欠励（进相）运行无功特性",
     "stem": "调相机欠激运行（进相运行）时向系统（ ）。",
     "options": [
       {
@@ -4645,10 +4805,12 @@ const QUESTIONS_DATA = [
         "text": "都不能"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "调相机欠励磁（进相）运行时相当于感性负荷，向电网**吸收感性无功功率**；过励运行发出感性无功。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2020-2021",
@@ -4659,7 +4821,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2020-2021 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "不接地系统与直接接地系统供电可靠性比较",
     "stem": "不接地系统的供电可靠性比直接接地系统的供电可靠性差。（）",
     "options": [
       {
@@ -4671,10 +4833,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "中性点不接地系统发生单相接地故障时无金属性短路回路，允许带故障运行 1~2 小时，**供电可靠性高于直接接地系统**。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2020-2021",
@@ -4685,7 +4849,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2020-2021 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "电气设备额定电压与接入点电网额定电压",
     "stem": "电力设备的额定电压与接入点的电网额定电压相等。（）",
     "options": [
       {
@@ -4697,10 +4861,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "用电设备额定电压等于电网额定电压；但发电机额定电压高于电网 5%，变压器二次侧高于电网 5% 或 10%，**并非完全相等**。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2020-2021",
@@ -4711,7 +4877,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2020-2021 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "分裂导线增大等效半径及减小电抗与防电晕",
     "stem": "分裂导线的优点是能够有效增大导线的等效半径，从而减小了导线的电抗值，并提高了电晕临界电压。（）",
     "options": [
       {
@@ -4723,10 +4889,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "分裂导线相当于增大了导线等效自几何均距 $r_{eq}$，能够**有效减小线路电抗**，并降低表面电场强度以**提高电晕临界电压**。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2020-2021",
@@ -4737,7 +4905,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2020-2021 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "相同收敛判据下 PQ 分解法与牛拉法精度",
     "stem": "改变电压相位，主要改变网络中有功功率的分布。（）",
     "options": [
       {
@@ -4749,10 +4917,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "PQ 分解法虽然对雅可比矩阵进行了简化解耦，但只要**收敛判据相同，最终迭代收敛结果与牛顿-拉夫逊法精度完全相同**。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2020-2021",
@@ -4763,7 +4933,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2020-2021 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "有功冷备用概念及检修设备归属",
     "stem": "在收敛判据相同时，PQ分解法虽然忽略了很多因素，但和牛拉法的计算结果精度是一样的。（）",
     "options": [
       {
@@ -4775,10 +4945,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "冷备用是指完好无故障、随时可启动投入运行的备用机组；**检修中的设备处于不可用状态，不属于冷备用**。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2020-2021",
@@ -4789,7 +4961,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2020-2021 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "有功功率最优分配的按比耗量分配陈述",
     "stem": "所谓有功功率的冷备用是指未运转的发电设备可能发出的最大功率，所以检修中的发电设备属于备用容量。（）",
     "options": [
       {
@@ -4801,10 +4973,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "有功功率最优分配遵循的是**等耗量微增率准则**（输入能量微分 $dF/dP$ 相等），而非比耗量 $F/P$ 相等。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2020-2021",
@@ -4815,7 +4989,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2020-2021 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "大容量电动机对短路点稳态短路电流的影响",
     "stem": "有功功率最优分配实质上是按照机组的单位时间内输入的能量和输出功率之比相等来分配负荷的。（）",
     "options": [
       {
@@ -4827,10 +5001,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "电动机反电动势供给的短路电流随旋转磁场衰减，仅影响次暂态短路电流与冲击电流；**计算稳态短路电流时不计电动机影响**。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2020-2021",
@@ -4841,7 +5017,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2020-2021 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "避雷线对架空输电线路零序阻抗的影响",
     "stem": "若短路点附近有大容量电动机，则计算短路点的稳态短路电流时必须计及其影响。（）",
     "options": [
       {
@@ -4853,10 +5029,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "避雷线（架空地线）中感应的逆向零序电流起去磁屏蔽作用，使得**线路零序阻抗变小**，而不是增大。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2020-2021",
@@ -4867,7 +5045,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2020-2021 学年第一学期期末试卷(A)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "避雷线对架空输电线路零序阻抗的影响",
     "stem": "架空输电线的避雷线对线路的零序阻抗有重要影响，一般使线路的零序阻抗增大。（）",
     "options": [
       {
@@ -4879,10 +5057,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "避雷线（架空地线）中感应的逆向零序电流起去磁屏蔽作用，使得线路零序阻抗变小，而不是增大。",
+    "verified": true,
     "conflict": "",
     "source": "期末",
     "year": "2020-2021",
@@ -10839,7 +11019,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2025 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "不定项选择题",
     "type": "indefinite",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "现代电力系统说法错误的是",
     "stem": "关于现代电力系统，以下说法错误的是（）。",
     "options": [
       {
@@ -10859,10 +11039,12 @@ const QUESTIONS_DATA = [
         "text": "电力系统主体是以异步机为主的机械电磁系统"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "现代电力系统主体是以**同步发电机**为主的交流电磁系统，原题“以异步机为主”错误。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2025",
@@ -10873,7 +11055,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2025 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "不定项选择题",
     "type": "indefinite",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "影响架空线路电抗大小的因素",
     "stem": "影响架空线路电抗大小的因素是（）。",
     "options": [
       {
@@ -10893,10 +11075,14 @@ const QUESTIONS_DATA = [
         "text": "导线材料"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "B",
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "线路电抗 $x_1 = 0.1445\\lg\\frac{D_m}{r} + 0.0157$，取决于系统频率 $f$、几何均距 $D_m$ 和导线半径 $r$，与材质无关。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2025",
@@ -10907,7 +11093,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2025 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "不定项选择题",
     "type": "indefinite",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "可能会产生循环功率的情形",
     "stem": "以下可能会产生循环功率的有（）。",
     "options": [
       {
@@ -10927,11 +11113,14 @@ const QUESTIONS_DATA = [
         "text": "双回路辐射网"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
-    "conflict": "",
+    "answer": [
+      "A",
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "两端供电网首末端电压不相等会产生循环功率；环网中加装串联加压器可强制产生循环功率。电磁环网变比不匹配才产生循环功率。",
+    "verified": true,
+    "conflict": "【核心考点与辨析】两端供电网首末端电压不相等产生循环功率（A对）；闭式环网加装串联加压器可强制产生循环功率（B对）。电磁环网中只有当闭环内变压器变比不匹配时才会产生循环功率，若变比匹配则不产生，故标准答案为 AB。",
     "source": "考研",
     "year": "2025",
     "chapter": 3
@@ -10941,7 +11130,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2025 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "不定项选择题",
     "type": "indefinite",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "关于 PQ 分解法正确的说法",
     "stem": "关于 PQ 分解法，正确的是（）。",
     "options": [
       {
@@ -10961,10 +11150,15 @@ const QUESTIONS_DATA = [
         "text": "系数矩阵B. '、B. '' 是常数矩阵"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "修正方程解耦简化**不损失收敛精度**；$B'$、$B''$ 为常数矩阵且去掉了电容与电阻影响；单步计算快但迭代次数多于牛拉法。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2025",
@@ -10975,7 +11169,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2025 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "不定项选择题",
     "type": "indefinite",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "枯水期选择较合适的调频厂",
     "stem": "枯水期中选择以下哪些机组作为调频厂较合适（）。",
     "options": [
       {
@@ -10995,10 +11189,13 @@ const QUESTIONS_DATA = [
         "text": "核电厂"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B",
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "枯水期水电需限制用水防弃水，核电带基荷；应选择具备调节能力的中温中压火电厂或抽水蓄能电厂调频。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2025",
@@ -11009,7 +11206,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2025 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "不定项选择题",
     "type": "indefinite",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "局部电压过高可采取的调压措施",
     "stem": "无功充裕的电力系统，局部电压过高，可以采取的调压措施有（）。",
     "options": [
       {
@@ -11029,10 +11226,14 @@ const QUESTIONS_DATA = [
         "text": "发电机进相运行"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B",
+      "C",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "电压偏高需吸收感性无功或减小容性无功：切除并联电容器、发电机进相运行、调节变压器分接头。并联电抗器应投入而非退出。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2025",
@@ -11043,7 +11244,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2025 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "不定项选择题",
     "type": "indefinite",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "无限大电源三相短路电流包含分量",
     "stem": "无限大电源供电系统发生三相短路时，短路电流包含（）。",
     "options": [
       {
@@ -11063,10 +11264,13 @@ const QUESTIONS_DATA = [
         "text": "150Hz 电流分量"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "三相短路电流由工频强迫周期分量 $i_p$ 与按时间常数 $T_a$ 指数衰减的直流非周期分量 $i_a$ 组成。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2025",
@@ -11077,7 +11281,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2025 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "不定项选择题",
     "type": "indefinite",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "属于电力系统横向故障的是",
     "stem": "属于电力系统横向故障的是（）。",
     "options": [
       {
@@ -11097,10 +11301,13 @@ const QUESTIONS_DATA = [
         "text": "单相断线"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "相间短路或相对地短路（三相短路、两相短路）属于横向故障；断线属于纵向故障。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2025",
@@ -11111,7 +11318,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2025 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "不定项选择题",
     "type": "indefinite",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "关于对称分量法正确的说法",
     "stem": "关于对称分量法，下列说法正确的是（）",
     "options": [
       {
@@ -11131,10 +11338,13 @@ const QUESTIONS_DATA = [
         "text": "负序网参数对正序电流无影响"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B",
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "对称分量法基于叠加定理仅适用于**线性电路**；三相对称网中各序网独立；零序分量三相同相位；复合序网中负序阻抗会影响正序电流。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2025",
@@ -11145,7 +11355,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2025 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "不定项选择题",
     "type": "indefinite",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "C 相金属性接地短路边界条件",
     "stem": "电力系统发生",
     "options": [
       {
@@ -11165,10 +11375,13 @@ const QUESTIONS_DATA = [
         "text": "B. 相故障电流为零"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "C 相单相接地边界条件为：故障相对地电压 $U_c = 0$，非故障相电流为零（$I_a = 0, I_b = 0$）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2025",
@@ -11179,7 +11392,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2025 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "我国最高交流/直流电压等级",
     "stem": "目前我国电网交流最高电压等级为 $1000 \\mathrm{kV}$ ，直流最高电压等级为 $\\pm 800 \\mathrm{kV}$ 。（）",
     "options": [
       {
@@ -11191,10 +11404,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "我国特高压直流最高电压等级已达 **$\\pm 1100\\text{kV}$**（如昌吉—古泉工程），并非 $\\pm 800\\text{kV}$。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2025",
@@ -11205,7 +11420,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2025 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "发电机高于额定功率因数运行限制",
     "stem": "发电机高于额定功率因数运行时，其运行范围取决于空载电动势。（）",
     "options": [
       {
@@ -11217,10 +11432,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "较高功率因数（过励侧）运行时限制来自**原动机额定功率（有功极限）**或定子电流，非空载电动势。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2025",
@@ -11231,7 +11448,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2025 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "线路首末端有功与无功功率大小比较",
     "stem": "线路首端输入的有功功率总大于末端输出的有功功率，但首端输入的无功功率却未必大于末端输出的无功功率。（）",
     "options": [
       {
@@ -11243,10 +11460,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "电阻发热致有功必有损耗（$P_1 > P_2$）；而轻载线路充电电容发出的无功大于电抗损耗，首端无功可能小于末端。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2025",
@@ -11257,7 +11476,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2025 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "阻抗矩阵与导纳矩阵稀疏性",
     "stem": "节点阻抗矩阵和节点导纳矩阵都是对称的稀疏矩阵。（）",
     "options": [
       {
@@ -11269,10 +11488,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "节点导纳矩阵 $Y$ 是**稀疏矩阵**，但节点阻抗矩阵 $Z = Y^{-1}$ 为**满矩阵**（密集矩阵）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2025",
@@ -11283,7 +11504,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2025 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "洪水季节应增大水煤换算系数",
     "stem": "在洪水季节，为充分利用水利资源应该增大水煤换算系数，从而给水电厂分配较大负荷。（）",
     "options": [
       {
@@ -11295,10 +11516,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "丰水期为鼓励水电多发少弃水，应**减小水煤换算系数**（降低水电等效微增耗量），优先给水电分配负荷。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2025",
@@ -11309,7 +11532,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2025 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "无功电源优化分布准则与目标",
     "stem": "电力系统无功功率电源优化分布的准则是最优网损微增率准则，其目的是降低网络中的有功功率损耗。（）",
     "options": [
       {
@@ -11321,10 +11544,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "无功优化的目标是使全网有功损耗 $\\Delta P_{loss}$ 最小，对应优化准则为**最优网损微增率准则**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2025",
@@ -11335,7 +11560,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2025 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "A相与B相负序电流相位差与接线组别",
     "stem": "电力系统发生不对称短路时，A相负序电流滞后于B相负序电流的相位与变压器接线组别无关。（）",
     "options": [
       {
@@ -11347,10 +11572,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "负序三相相对相位关系固定为 $I_{a(2)}$ 超前 $I_{b(2)}$ $120^\\circ$，变压器接线组别仅引起三相整体相位平移，不改变相间相位差。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2025",
@@ -11361,7 +11588,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2025 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "\\(Y_0/\\Delta-11\\) 变压器零序电流流通",
     "stem": "对于Y0/△-11接线变压器，零序短路电流可以在星形绕组中流通，但不能在三角形绕组中流通。（）",
     "options": [
       {
@@ -11373,10 +11600,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "$Y_0$ 侧零序电流可在 $Y_0$ 绕组流通，并经磁耦合在 $\\Delta$ 绕组**内部感应出零序环流**闭合流通（仅不能流出 $\\Delta$ 侧外电路）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2025",
@@ -11387,7 +11616,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2025 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "架空避雷线对负序电抗的影响",
     "stem": "架空输电线路有无避雷线对其负序电抗无影响。（）",
     "options": [
       {
@@ -11399,10 +11628,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "避雷线仅与零序回路磁耦合（减小零序电抗）；正序和负序电流三相对称，在地线中感应电流为零，无影响。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2025",
@@ -11413,7 +11644,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2025 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "50Hz系统短路冲击电流出现时间",
     "stem": "对于 50Hz 电力系统，短路冲击电流将在短路后 0.01 秒出现。（）",
     "options": [
       {
@@ -11425,10 +11656,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "50Hz 工频周期为 20ms，短路发生半个周期（10ms = 0.01s）时非周期与周期分量同相叠加达到最大冲击值。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2025",
@@ -11439,7 +11672,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2025 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "衡量电能质量的指标",
     "stem": "衡量电能质量指标包括（）。",
     "options": [
       {
@@ -11459,10 +11692,14 @@ const QUESTIONS_DATA = [
         "text": "网损"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "B",
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "电能质量三大指标为：**电压偏移、频率偏移、波形畸变率**。网损属于经济运行指标。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2025",
@@ -11473,7 +11710,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2025 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "属于降压变压器的是",
     "stem": "下列变比的变压器中,属于降压变压器的是(   )。",
     "options": [
       {
@@ -11493,10 +11730,13 @@ const QUESTIONS_DATA = [
         "text": "242kV/15.75kV"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "降压变压器高压侧额定电压等于电网标称电压（110kV、220kV）；升压变一次侧与发电机相连（10.5kV、15.75kV），二次侧比电网高10%（121kV、242kV）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2025",
@@ -11507,7 +11747,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2025 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "200节点导纳矩阵的特点",
     "stem": "当电网节点数为 200 时, 下列哪些矩阵特点是节点导纳矩阵的特点 ( )。",
     "options": [
       {
@@ -11527,10 +11767,14 @@ const QUESTIONS_DATA = [
         "text": "200 阶方阵"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "B",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "200 节点导纳矩阵为 **200 阶对称方阵**，且具有高度**稀疏性**（非满矩阵）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2025",
@@ -11541,7 +11785,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2025 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "主调频厂的选择原则",
     "stem": "主调频厂的选择原则有（）。",
     "options": [
       {
@@ -11561,10 +11805,14 @@ const QUESTIONS_DATA = [
         "text": "远离负荷中心"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "B",
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "调频厂需具备**足够的调整容量、较快的调整速度、较好的调整经济性**，且宜靠近负荷中心。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2025",
@@ -11575,7 +11823,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2025 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "潮流计算中平衡节点待求量",
     "stem": "电力系统潮流计算中, 平衡节点待求的是 ( )。",
     "options": [
       {
@@ -11595,10 +11843,13 @@ const QUESTIONS_DATA = [
         "text": "无功功率"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "平衡节点已知电压幅值 $U$ 和相角 $\\delta=0^\\circ$，待求注入**有功功率 $P$ 和无功功率 $Q$**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2025",
@@ -11609,7 +11860,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2025 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "年用电量 W 除以最大负荷 Pmax",
     "stem": "一年中负荷消耗的电能 W 除以一年中的最大负荷 Pmax 称为（）。",
     "options": [
       {
@@ -11629,10 +11880,12 @@ const QUESTIONS_DATA = [
         "text": "最大负荷利用小时数"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "公式定义 $T_{max} = \\frac{W}{P_{max}}$，即为**最大负荷利用小时数**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2025",
@@ -11643,7 +11896,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2025 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "电力系统中的无功电源",
     "stem": "电力系统中的无功电源包括（）。",
     "options": [
       {
@@ -11663,10 +11916,13 @@ const QUESTIONS_DATA = [
         "text": "串联电抗器"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "**发电机、并联电容器**（及调相机、SVG）为无功电源；串联电容器用于补偿线路电抗，不直接供给无功。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2025",
@@ -11677,7 +11933,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2025 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "短路电流周期分量有效值相关因素",
     "stem": "无限大电源供电的系统发生三相短路，短路电流中周期分量有效值大小与（）有关",
     "options": [
       {
@@ -11697,11 +11953,15 @@ const QUESTIONS_DATA = [
         "text": "电源电压"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
-    "conflict": "",
+    "answer": [
+      "A",
+      "C",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "周期分量有效值 $I = \\frac{E}{\\sqrt{R^2+(\\omega L)^2}}$，取决于**电源电压、回路阻抗与电源频率**。初相角仅影响非周期分量。",
+    "verified": true,
+    "conflict": "【考点辨析】周期分量稳态有效值 I = E / sqrt(R^2+(wL)^2)，取决于电源电动势、回路总阻抗与电源频率（ACD对）。合闸初相角仅决定直流非周期分量的初始幅值，与周期分量有效值无关。",
     "source": "考研",
     "year": "2025",
     "chapter": 7
@@ -11711,7 +11971,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2025 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "正序电抗与负序电抗相等的元件",
     "stem": "下列电力系统元件中，正序电抗与负序电抗相等的有（）。",
     "options": [
       {
@@ -11731,10 +11991,14 @@ const QUESTIONS_DATA = [
         "text": "有架空地线的输电线"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B",
+      "C",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "静止元件（**变压器、电抗器、输电线路**）$X_1 = X_2$；旋转元件（同步发电机）$X_1 \\neq X_2$。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2025",
@@ -11745,7 +12009,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2025 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "产生零序电流的必要条件",
     "stem": "电力系统发生不对称短路时, 产生零序电流的必要条件有 ( )。",
     "options": [
       {
@@ -11765,10 +12029,13 @@ const QUESTIONS_DATA = [
         "text": "发电机必须处于进相运行状态"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "产生零序电流需满足：① **故障接地**（单相接地或两相接地）；② **变压器中性点直接接地**提供零序流通回路。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2025",
@@ -11779,7 +12046,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2025 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "b、c 两相短路边界条件",
     "stem": "空载电力系统发生 B、C. 相金属性短路，属于该短路形式边界条件的是（）。",
     "options": [
       {
@@ -11795,10 +12062,14 @@ const QUESTIONS_DATA = [
         "text": "A. 相电压为零"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "B",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "b、c 两相短路边界条件为：$I_a = 0$（A对）、$U_b = U_c$（B对）、$I_b = -I_c$（D对）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2025",
@@ -11809,7 +12080,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2025 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "概念包含范围关系正确的",
     "stem": "以下几个概念的包含范围关系正确的是（）。",
     "options": [
       {
@@ -11829,10 +12100,13 @@ const QUESTIONS_DATA = [
         "text": "动力系统>电力系统>电网"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "包含层次为：**动力系统 > 电力系统 > 电力网**。动力系统包含热力/水力部分，电网仅指变配电与输电线路。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2025",
@@ -11843,7 +12117,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2025 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "输电线路发生电晕的影响因素",
     "stem": "下列哪些是输电线路发生电晕的影响因素（）。",
     "options": [
       {
@@ -11863,10 +12137,15 @@ const QUESTIONS_DATA = [
         "text": "空气密度"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "电晕临界电压取决于**导线半径（粗细）、表面粗糙度、空气相对密度（海拔）及气象状况**（雨雪雾）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2025",
@@ -11877,7 +12156,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2025 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "我国存在的中性点运行方式",
     "stem": "以下哪些是我国存在的中性点运行方式（）。",
     "options": [
       {
@@ -11897,10 +12176,15 @@ const QUESTIONS_DATA = [
         "text": "中性点经小电阻接地"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "包括：110kV及以上**直接接地**；35kV及以下**不接地/经消弧线圈接地**；配网及城网**经小电阻接地**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2025",
@@ -11911,7 +12195,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2025 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "多项选择题",
     "type": "multiple",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "当正负序阻抗相等时短路电流比较",
     "stem": "某空载电力系统中同一位置发生不同的金属性短路故障，当系统正序总阻抗等于负序总阻抗时，下列说法正确的是（）。",
     "options": [
       {
@@ -11931,10 +12215,13 @@ const QUESTIONS_DATA = [
         "text": "单相短路的短路电流大于两相短路的短路电流"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "当 $X_1 = X_2$ 时，$I^{(3)} = \\frac{E}{X_1}$，$I^{(2)} = \\frac{\\sqrt{3}}{2}I^{(3)} \\approx 0.866I^{(3)}$，故 $I^{(3)} > I^{(2)}$（A对）；且无论 $X_0$ 如何，$I^{(1)} > I^{(2)}$（D对）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2025",
@@ -11945,7 +12232,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "电力系统的调压措施包括",
     "stem": "电力系统的调压措施包括（ ）。",
     "options": [
       {
@@ -11965,10 +12252,14 @@ const QUESTIONS_DATA = [
         "text": "中性点经电抗接地"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "B",
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "调节发电机励磁（源）、并联电抗器/电容器（无功补偿）、串联电容（减小电抗降压降）均属调压手段；中性点经电抗接地用于限制接地电流。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -11979,7 +12270,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "系统频率降低的原因可能是",
     "stem": "如果电力系统频率降低, 则可能是 ( )。",
     "options": [
       {
@@ -11999,11 +12290,14 @@ const QUESTIONS_DATA = [
         "text": "有大的负荷投入"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
-    "conflict": "",
+    "answer": [
+      "A",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "发电机切除导致有功供给减少（AD），大负荷投入致有功需求增加，均使 $P_G < P_L$ 引起系统频率下降。",
+    "verified": true,
+    "conflict": "【考点辨析】系统频率下降根本原因为有功电源供给小于有功负荷需求（PG < PL）。发电机跳闸切除（电源减小）或大容量负荷投入（负荷增加）均会导致此现象。",
     "source": "考研",
     "year": "2024",
     "chapter": 5
@@ -12013,7 +12307,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "输电线末端电压高于始端的情况",
     "stem": "下列哪种情况下输电线的末端电压将可能高于始端",
     "options": [
       {
@@ -12033,10 +12327,13 @@ const QUESTIONS_DATA = [
         "text": "线路重载"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B",
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "线路轻载/空载时的皮尔逊容升效应（C），以及末端投入并联电容器发出容性无功（B），均可能导致末端电压高于始端电压。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -12047,7 +12344,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "关于节点导纳矩阵正确的是",
     "stem": "对于电力系统节点导纳矩阵，下列说法正确的是（ ）",
     "options": [
       {
@@ -12067,10 +12364,14 @@ const QUESTIONS_DATA = [
         "text": "矩阵元素一般为复数"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "C",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "自导纳元素 $Y_{ii}$ 必不为零（A）；网络对称时矩阵对称（C）；元素由电导与电纳组成复数（D）。非对角元仅相连节点不为零。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -12081,7 +12382,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "单位长度电缆线路与架空线对比",
     "stem": "与同电压等级的架空输电线路相比, 一般而言, 单位长度下的电缆线路 ( )。",
     "options": [
       {
@@ -12101,10 +12402,13 @@ const QUESTIONS_DATA = [
         "text": "故障概率大"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "电缆相间及对地距离小且绝缘介质介电常数大，故对地电容大（A）、电抗小、造价高（C）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -12115,7 +12419,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "关于牛-拉法潮流计算说法正确",
     "stem": "对于潮流计算的牛-拉法, 下列说法正确的是 ( )。",
     "options": [
       {
@@ -12135,10 +12439,12 @@ const QUESTIONS_DATA = [
         "text": "可以不设置平衡节点"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "牛-拉法具有二次收敛特性，迭代初值的选择直接影响迭代收敛性与收敛次数（A）。单步计算速度快于高斯法但慢于 PQ 分解法。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -12149,7 +12455,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "属于电力系统纵向故障的是",
     "stem": "属于电力系统纵向故障的是( )。",
     "options": [
       {
@@ -12169,10 +12475,13 @@ const QUESTIONS_DATA = [
         "text": "单相断线"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "短路故障（单相接地、两相短路等）发生在相间或相对地，属横向故障；断线故障（单相断线、两相断线）发生在回路纵向，属纵向故障。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -12183,7 +12492,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "无限大电源短路非周期分量特点",
     "stem": "无限大电源供电系统发生三相短路时, 短路电流非周期分量 ( )。",
     "options": [
       {
@@ -12203,10 +12512,13 @@ const QUESTIONS_DATA = [
         "text": "将衰减至零"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "直流非周期分量按时间常数 $T_a$ 指数衰减至零（D）；且由于三相合闸初相角不同，非周期分量初始值三相不相等（B）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -12217,7 +12529,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "50Hz系统短路冲击电流出现时间",
     "stem": "对于 $50 \\mathrm{~Hz}$ 电力系统, 短路冲击电流在短路后的 ( ) 出现。",
     "options": [
       {
@@ -12237,10 +12549,12 @@ const QUESTIONS_DATA = [
         "text": "0.05 秒"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "50Hz 系统工频周期为 20ms，短路发生半个周期（10ms 即 **0.01s**）时，直流分量与周期分量同相叠加达到冲击峰值。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -12251,7 +12565,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "会增大系统短路电流的因素",
     "stem": "下列情况中，会增大电力系统短路电流的是（ ）。",
     "options": [
       {
@@ -12271,10 +12585,14 @@ const QUESTIONS_DATA = [
         "text": "输电线采用分裂导线"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "B",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "加强网架结构减小等值阻抗（A）、增加装机容量减小电源内阻（B）、采用分裂导线减小线路电抗（D），均会使总阻抗减小致短路电流增大。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -12285,7 +12603,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "近似计算忽略电压降落纵分量",
     "stem": "近似计算中一般忽略电压降落的纵分量。（）",
     "options": [
       {
@@ -12297,10 +12615,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "电压降落 $\\Delta \\dot{U} = \\Delta U + j\\delta U$，高压网中 $\\delta U \\ll \\Delta U$，近似计算**忽略的是电压降落横分量 $\\delta U$**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -12311,7 +12631,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "220kV线路单位电抗高于110kV",
     "stem": "一般情况下 $220 \\mathrm{kV}$ 输电线的单位长度电抗比 $110 \\mathrm{kV}$ 输电线的要大。（）",
     "options": [
       {
@@ -12323,10 +12643,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "220kV 线路相间距离大于 110kV 线路，几何均距 $D_m$ 增大，故单位长度电抗 $x_1 = 0.1445\\lg\\frac{D_m}{r} + 0.0157$ 稍大。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -12337,7 +12659,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "变比 110kV/11kV 变压器为升压变",
     "stem": "如果一台变压器的变比为 $110 \\mathrm{kV} / 11 \\mathrm{kV}$ ，则这台变压器是升压变压器。（）",
     "options": [
       {
@@ -12349,10 +12671,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "一次侧接 110kV 电网，二次侧额定 11kV（电网标称 10kV 的 1.1 倍），属于**降压变压器**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -12363,7 +12687,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "架空地线使线路零序电抗变小",
     "stem": "有架空地线的输电线路每公里零序电抗要比没有架空地线的输电线路小。（）",
     "options": [
       {
@@ -12375,10 +12699,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "架空地线中感应的逆向零序电流起去磁作用，削弱磁链，使得有架空地线的线路零序电抗变小。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -12389,7 +12715,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "PQ节点已知P和Q待求U和相角",
     "stem": "已知节点注入的有功功率和无功功率，待求电压幅值和相位的节点为 PQ 节点。（",
     "options": [
       {
@@ -12401,10 +12727,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "概念完全正确，PQ 节点已知注入有功 $P$ 和无功 $Q$，待求状态变量为电压幅值 $U$ 和相角 $\\delta$。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -12415,7 +12743,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "只传输无功功率时无有功损耗",
     "stem": "如果输电线上只传输无功功率，则不会产生有功损耗。（）",
     "options": [
       {
@@ -12427,10 +12755,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "只要线路有电阻 $R$，无功电流 $I_Q = \\frac{Q}{U}$ 流过就会产生 $I_Q^2 R$ 的有功功率损耗。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -12441,7 +12771,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "中性点不接地单相接地中性点电压",
     "stem": "中性点不接地电力系统发生单相接地时，中性点电压为相电压。（）",
     "options": [
       {
@@ -12453,10 +12783,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "发生金属性接地时，故障相对地电压降为0，中性点对地电压升高为相电压 $\\frac{U_N}{\\sqrt{3}}$。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -12467,7 +12799,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "不对称断线分析适用对称分量法",
     "stem": "电力系统发生不对称断线时，也可以采用对称分量法进行分析。（）",
     "options": [
       {
@@ -12479,10 +12811,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "对称分量法是线性对称三相电路通用分析法，既适用于横向短路故障，也适用于纵向断线故障。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -12493,7 +12827,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "中性点接地系统三相接地有零序",
     "stem": "中性点直接接地电力系统发生三相接地短路时，将会出现零序电流。（）",
     "options": [
       {
@@ -12505,10 +12839,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "三相接地短路属于完全对称短路，只包含正序分量，负序与零序电流均为 0。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -12519,7 +12855,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "中性点接地只影响零序不影响正负序",
     "stem": "中性点接地与否，只影响零序电流，对正序和负序电流没有影响。（）",
     "options": [
       {
@@ -12531,10 +12867,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "复合序网中正、负、零序网串并联连接，零序阻抗改变会直接改变复合序网总阻抗，从而影响正序和负序电流。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -12545,7 +12883,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "220kV与110kV间降压变压器变比",
     "stem": "现考虑在 $220 \\mathrm{kV}$ 和 $110 \\mathrm{kV}$ 两个电压等级线路间使用两绕组变压器联络, 若为降压变压器, 则变比应为 ( )。",
     "options": [
       {
@@ -12565,10 +12903,12 @@ const QUESTIONS_DATA = [
         "text": "$242 / 121$"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "降压变压器高压侧额定电压等于电网标称电压（220kV），低压侧额定电压高于电网标称 10%（121kV），故变比为 **220/121kV**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -12579,7 +12919,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "消弧线圈过补偿残余电流性质",
     "stem": "消弧线圈采用过补偿, 当系统发生单相接地时, 流经接地点电流为 ( )",
     "options": [
       {
@@ -12599,10 +12939,12 @@ const QUESTIONS_DATA = [
         "text": "电阻性电流"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "过补偿时消弧线圈感性电流大于线路对地容性电流，接地点的残余电流为**感性电流**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -12613,7 +12955,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "几何均距与线路电抗的关系",
     "stem": "架空输电线路的电抗与导线之间几何平均距离的关系为（ ）",
     "options": [
       {
@@ -12633,10 +12975,12 @@ const QUESTIONS_DATA = [
         "text": "改变导线之间的几何平均距离可以明显改变线路电抗"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "公式 $x_1 = 0.1445\\lg\\frac{D_m}{r} + 0.0157$，几何均距 $D_m$ 越大，线路单位电抗越大。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -12647,7 +12991,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "变压器电纳 BT 计算依据",
     "stem": "变压器的电纳参数 $B_{T}$ 由实验数据（）确定。",
     "options": [
       {
@@ -12667,10 +13011,12 @@ const QUESTIONS_DATA = [
         "text": "$P_{k}$"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "变压器励磁电纳 $B_T = \\frac{I_0\\% S_N}{100 U_N^2}$，由空载试验中的**空载电流百分数 $I_0\\%$** 确定。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -12681,7 +13027,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "采用分裂导线的主要作用",
     "stem": "采用分裂导线可以实现（ ）。",
     "options": [
       {
@@ -12701,10 +13047,12 @@ const QUESTIONS_DATA = [
         "text": "增大电抗"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "分裂导线相当于增大了导线等效半径 $r_{eq}$，主要作用是**减小线路电抗**和抑制电晕。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -12715,7 +13063,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "首末端电压相角与幅值决定功率流向",
     "stem": "如果高压输电线路首末端电压之间关系为 $\\delta_{1} > \\delta_{2}$ , $U_{1} < U_{2}$ , 在忽略线路电阻影响情况下, 下列正确的是 ( )。",
     "options": [
       {
@@ -12735,10 +13083,12 @@ const QUESTIONS_DATA = [
         "text": "有功功率和无功功率都从末端流向首端"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "电压相角决定有功流向：$\\delta_1 > \\delta_2 \\implies P$ 从首端流向末端；幅值决定无功流向：$U_1 < U_2 \\implies Q$ 从末端流向首端。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -12749,7 +13099,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "两端电源电网初步潮流分析目的",
     "stem": "两端电源电网初步潮流计算分析的目的是求取（ ）。",
     "options": [
       {
@@ -12769,10 +13119,12 @@ const QUESTIONS_DATA = [
         "text": "功率损耗"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "初步潮流计算忽略功率损耗，主要目的是求取网络中的**有功分点**，以便将闭式网解拆为开式网计算。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -12783,7 +13135,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "两升压变压器变比不同并联运行",
     "stem": "如下图所示, 两个容量相同, 短路电压比相等的升压变压器 $T_{1}$ 和 $T_{2}$ 并联运行, 所带负荷为感性负荷, 如果 $k_{1} > k_{2} > 1$ , 则下列正确的是 ( )。",
     "options": [
       {
@@ -12803,10 +13155,12 @@ const QUESTIONS_DATA = [
         "text": "无法确定 $T_{1}$ 和 $T_{2}$ 视在功率关系"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "变比 $k_1 > k_2$，T1 低压侧输出电压低，在两变压器间产生**逆时针无功循环电流**，T2 承担更多无功，视在功率 $S_2 > S_1$。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -12817,7 +13171,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "1000节点导纳矩阵非零元素百分比",
     "stem": "对一个 1000 节点电力系统，若每个节点平均与 5 个相邻节点有直接联系，则导纳矩阵中非零元素所占百分比大致为（）。",
     "options": [
       {
@@ -12837,10 +13191,12 @@ const QUESTIONS_DATA = [
         "text": "0.6%"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "每行平均 1 个自导纳 + 5 个互导纳 = 6 个非零元。1000 节点共 6000 个非零元，占总元素 $1000 \\times 1000$ 的 **0.6%**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -12851,7 +13207,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "直角坐标牛拉法潮流方程行数",
     "stem": "复杂电力系统潮流计算中, 假设系统节点数为 $n$ , PV 节点数为 $m$ , 节点电压采用直角坐标表示时, 牛顿法潮流计算方程的行数为 ( )。",
     "options": [
       {
@@ -12871,10 +13227,12 @@ const QUESTIONS_DATA = [
         "text": "$2 n - m - 1$"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "不计平衡节点（消 2 个），每个 PV 节点已知 $U^2$ 少 1 个 $f$ 未知量方程，总行数为 **$2n - m - 2$**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -12885,7 +13243,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "牛拉法与高斯-塞德尔法相比优点",
     "stem": "计算潮流时牛-拉法与高-塞法相比主要优点是（ ）",
     "options": [
       {
@@ -12905,10 +13263,12 @@ const QUESTIONS_DATA = [
         "text": "简单"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "牛顿-拉夫逊法具有二次收敛性，**收敛性好、计算速度快**，且迭代次数与系统规模无关。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -12919,7 +13279,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "频率与电压控制特性对比",
     "stem": "根据电力系统频率特性和电压特性，可以得知（ ）",
     "options": [
       {
@@ -12939,10 +13299,12 @@ const QUESTIONS_DATA = [
         "text": "电压可以集中调整，频率不能"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "全网频率一致可**集中调整**；电压是局部指标，各节点不同，必须**分层分区就地调整**，不能集中控制。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -12953,7 +13315,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "频率一次与二次调整特性",
     "stem": "有关电力系统调频, 叙述正确的是 ( )。",
     "options": [
       {
@@ -12973,10 +13335,12 @@ const QUESTIONS_DATA = [
         "text": "频率的一次调整一定是无差调节"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "一次调频依靠发电机调速器静特性，属于**有差调节**；二次调频平移静特性，可实现无差调节。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -12987,7 +13351,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "耗量微增率不相等时负荷分配",
     "stem": "并网运行的机组耗量微增率不相等，则负荷增大时，应由（）的机组先出力。",
     "options": [
       {
@@ -13007,10 +13371,12 @@ const QUESTIONS_DATA = [
         "text": "比耗量大的机组"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "按照等耗量微增率准则，负荷增加时优先由**耗量微增率小的机组**先增发功率，全网经济性最佳。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -13021,7 +13387,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "无功电源最优分布原则",
     "stem": "电力系统无功电源最优分布的原则（ ）",
     "options": [
       {
@@ -13041,10 +13407,12 @@ const QUESTIONS_DATA = [
         "text": "等比耗量准则"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "无功电源优化分布的目标是全网有功网损最小，遵循的准则是**最优网损微增率准则**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -13055,7 +13423,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "逆调压中枢点电压调整要求",
     "stem": "逆调压中枢点电压为（ ）。",
     "options": [
       {
@@ -13075,10 +13443,12 @@ const QUESTIONS_DATA = [
         "text": "任何情况下，电压都在（1.02~1.05） $V_{N}$"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "逆调压要求在**高峰负荷时升高电压至 $1.05 U_N$**，在**低谷负荷时降低电压至 $U_N$**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -13089,7 +13459,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "系统无功电源不足导致整体低电压",
     "stem": "当大型电力系统由于无功功率电源不足而造成电压水平低下时，应采取的调压措施是( )。",
     "options": [
       {
@@ -13109,10 +13479,12 @@ const QUESTIONS_DATA = [
         "text": "改变输电线路参数"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "系统无功电源整体不足时，改变变压器变比无法解决无功缺额，根本调压措施是**补偿无功功率**（增设补偿设备）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -13123,7 +13495,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "不需要在运行中专门设置的备用",
     "stem": "系统有功备用容量中, 哪种可能不需要专门设置 ( )。",
     "options": [
       {
@@ -13143,10 +13515,12 @@ const QUESTIONS_DATA = [
         "text": "检修备用"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "**国民经济备用**属于宏观长期规划备用，不需要在系统运行调度中安排专门的备用机组。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -13157,7 +13531,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "产生最大短路冲击电流最恶劣条件",
     "stem": "高压系统中，只考虑系统电抗，最恶劣的短路情况是指（ ）",
     "options": [
       {
@@ -13177,10 +13551,12 @@ const QUESTIONS_DATA = [
         "text": "短路前负荷电流最大，短路发生在电源电动势瞬时值最大时"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "**短路前空载、且短路发生在电源电动势瞬时值过零时**，产生的直流非周期分量达到最大值，冲击电流最恶劣。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -13191,7 +13567,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "短路电流最大的短路类型比较",
     "stem": "短路电流最大的短路故障为（ ）。",
     "options": [
       {
@@ -13211,11 +13587,13 @@ const QUESTIONS_DATA = [
         "text": "不确定"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
-    "conflict": "",
+    "answer": [
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "工程上通常三相短路电流最大，但在发电机出口或 $X_0 < X_1$ 节点，单相短路可能更大，严谨考查选**不确定**。",
+    "verified": true,
+    "conflict": "【严谨性标注】三相短路电流通常最大；但在发电机端或系统零序电抗极小（X0 < X1）时单相接地短路电流可大于三相短路，故严谨考核时选'不确定'。",
     "source": "考研",
     "year": "2024",
     "chapter": 7
@@ -13225,7 +13603,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "不接地系统单相接地非故障相电压",
     "stem": "中性点不接地系统中，发生单相接地时，非故障相电压将升高至相电压的（）倍。",
     "options": [
       {
@@ -13245,10 +13623,12 @@ const QUESTIONS_DATA = [
         "text": "3"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "发生金属性单相接地时，非故障相对地电压由相电压升高为线电压，即升高至相电压的 **$\\sqrt{3}$ 倍**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -13259,7 +13639,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "短路冲击系数 kch 变化范围",
     "stem": "冲击系数 $k_{ch}$ 的数值变化范围是（ ）",
     "options": [
       {
@@ -13279,10 +13659,12 @@ const QUESTIONS_DATA = [
         "text": "$1 \\leqslant k_{ch} \\leqslant 3$"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "公式 $k_{ch} = 1 + e^{-0.01/T_a}$，因 $0 < e^{-0.01/T_a} \\le 1$，故 $k_{ch}$ 的数值变化范围为 **$1 \\le k_{ch} \\le 2$**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -13293,7 +13675,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "无限大电源三相短路暂态电流组成",
     "stem": "无限大容量电源供电的简单三相短路暂态过程中（ ）。",
     "options": [
       {
@@ -13313,10 +13695,12 @@ const QUESTIONS_DATA = [
         "text": "短路电流有2倍频分量"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "包含幅值恒定的**强迫工频周期分量**与按时间常数 $T_a$ 指数衰减的**自由直流非周期分量**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -13327,7 +13711,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "发电机转移电抗换算计算电抗",
     "stem": "运用运算曲线查短路电流标幺值时, 需要将发电机与短路点之间的转移电抗换算为发电机计算电抗, 其换算公式为 ( )。",
     "options": [
       {
@@ -13347,10 +13731,12 @@ const QUESTIONS_DATA = [
         "text": "$x_{js} = x \\left( \\frac{U_{B. }}{U_{GN}} \\right)^{2}$"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "发电机计算电抗等于以发电机额定容量为基准值的转移电抗标幺值，公式为 **$x_{js} = x \\frac{S_{GN}}{S_B}$**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -13361,7 +13747,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "关于元件正负零序阻抗错误说法",
     "stem": "关于电力系统元件的正负零序阻抗，下列说法中错误的是（ ）",
     "options": [
       {
@@ -13381,10 +13767,12 @@ const QUESTIONS_DATA = [
         "text": "电抗器正负零序阻抗相等"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "**静止元件（输电线路、变压器）的正序阻抗与负序阻抗完全相等**！选项 C 称其“都不相同”属于错误说法。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -13395,7 +13783,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "变压器正负零序励磁电抗特性",
     "stem": "在不对称短路分析时,关于电力变压器的励磁电抗,下列说法中正确的是( )。",
     "options": [
       {
@@ -13415,10 +13803,12 @@ const QUESTIONS_DATA = [
         "text": "对于三相壳式变压器，其正序负序零序励磁电抗可视为无限大"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "正序和负序励磁磁通均在铁芯闭合，磁阻极小，故**正序和负序励磁电抗均可视为无限大**；零序励磁电抗与结构有关。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -13429,7 +13819,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "关于架空线路零序阻抗错误说法",
     "stem": "关于架空输电线路的零序阻抗，下列说法中错误的是（ ）",
     "options": [
       {
@@ -13449,10 +13839,12 @@ const QUESTIONS_DATA = [
         "text": "架空地线的导电性能越好，输电线路零序阻抗越大"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "**架空地线导电性能越好**，感应去磁作用越强，**线路零序阻抗越小**。选项 D 称“越大大”为错误说法。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -13463,7 +13855,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "不接地系统两相短路与两相接地比较",
     "stem": "在中性点不接地系统中同一地点发生两相短路和两相短路接地时, 关于短路点故障相短路电流有效值, 下列说法正确 ( )。",
     "options": [
       {
@@ -13483,10 +13875,12 @@ const QUESTIONS_DATA = [
         "text": "无法确定哪种情况下短路电流更大"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "中性点不接地系统无零序通路，两相接地短路时由于悬空无法形成零序回路，**两种情况短路电流大小完全相等**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -13497,7 +13891,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "不对称故障各序电压分布规律",
     "stem": "关于短路故障时，正负零序电压的分布，下列正确（",
     "options": [
       {
@@ -13517,10 +13911,12 @@ const QUESTIONS_DATA = [
         "text": "发电机中性点负零序电压最高，正序电压最低"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "正序网有源，**发电机端正序电压最高**；负序和零序网无源，以短路点为虚拟电源，**短路点负序和零序电压最高**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -13531,7 +13927,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2024 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "单相接地短路电流与正序电流关系",
     "stem": "单相接地短路的短路电流大小为正序分量的( )倍。",
     "options": [
       {
@@ -13551,10 +13947,12 @@ const QUESTIONS_DATA = [
         "text": "3 二.(15分)某电力系统等值电路如图所示,已知节点1和节点2的电压分别为: $\\dot{U}_{1}=115\\angle0^{\\circ}kV$ , $\\dot{U}_{2}=114\\angle0^{\\circ}kV$ , 各段线路阻抗分别为 $Z_{12}=10+j40\\Omega$ , $Z_{13}=4+j16\\Omega$ , $Z_{23}=8+j32\\Omega$ ; 变压器T的额定容量为31.5MVA, 短路损耗为200kW, 空载损耗为86kW, 短路电压百分比为10.5, 空载电流百分比为1.5, 不计线路功率损耗, 计算各段线路的功率和电源 $G_{1}$ 、 $G_{2}$ 的注入功率。 (15 分) 两个火力发电厂组成的系统如图所示, 两个发电厂之间通过线路互联, 共同承担 $350 \\mathrm{MW}$ 负荷。两个发电厂的耗量特性如下式所示: $$ F _ {1} = 1 + 0. 1 P _ {G _ {1}} + 0. 0 0 1 P _ {G _ {1}} ^ {2} t / h \\quad 1 0 0 M W \\leq P _ {G _ {1}} \\leq 3 0 0 M W $$ $$ F _ {2} = 1 + 0. 1 P _ {G _ {2}} + 0. 0 0 2 P _ {G _ {2}} ^ {2} t / h \\quad 1 0 0 M W \\leq P _ {G _ {2}} \\leq 3 0 0 M W $$ （1）不计网络有功损耗，确定有功负荷的最优分配方案，并计算该方案下系统单位时间内的燃料消耗量。 (2) 假设线路有功损耗 $\\Delta P_{L}$ 和发电厂 2 的有功出力 $P_{G_{2}}$ 相关, 其关系为 $\\Delta P_{L} = 0.01 P_{G_{2}}$ , 试计算有功网损最小时的有功负荷分配方案, 并计算该方案下的有功损耗和系统单位时间内的燃料消耗量。 (3) 结合 (1)(2) 两问的计算结果, 关于电力系统经济运行问题, 你能总结出什么结论? 四. (15 分) AB 两个系统通过联线互联, 已知A. 系统机组的额定功率 $3000 \\mathrm{MW}$ , 机组调差系数 $\\sigma_{A. } \\% = 4$ , 正常运行时的负荷功率为 $2800 \\mathrm{MW}$ , 负荷的单位调节功率 $K_{LA. ^{*}} = 1.5$ ;B. 系统机组的额定功率为 $2000 \\mathrm{MW}$ , 机组调差系数 $\\sigma_{B. } \\% = 5$ , 正常运行时的负荷功率为 $1500 \\mathrm{MW}$ , 负荷的单位调节功率 $K_{LB. ^{*}} = 1.2$ 。正常运行时系统频率为额定频率 $50 \\mathrm{~Hz}$ , 联络线上没有交换功率。当A. 系统负荷增加某数值时, 若A. 系统不进行二次调频, 仅B. 系统进行二次调频, 实现无差调频联络线输出功率为 $300 \\mathrm{MW}$ , 试解答下述问题: (1) 当A. 系统负荷增加和题干同样数值时, 若 A、B. 两个系统均未进行二次调频, 系统的频率和联络线的功率各变为多少? (2) 当A. 系统负荷增加和题干同样数值时, 若 A、B. 两个系统均进行二次调频, 试制定二次调频方案, 在实现无差调频的同时, 使得联络线功率最小。(设 A、B. 两个系统的二次调频能力在各自机组出力范围内不受限制。) 五. (20 分) 一两节点系统如图所示, 系统中的参数均已归算到统一基准的标幺值参数, 已知节点 1 的电压相量为: $\\dot{U}_{1} = 1 + j0$ ; 节点 1 和节点 2 的负荷功率分别为: $\\tilde{S}_{LD1} = 1 + j0.2$ , $\\tilde{S}_{LD2} = 1 + j0$ , 两节点之间的线路阻抗为: $Z_{L} = 0 + j0.25$ , 忽略线路导纳参数。在某运行方式时, 要求节点 2 的电压满足: $\\left|\\dot{U}_{2}\\right| = 1$ , 试解答下述问题: (1) 求解点 2 无功补偿装置补偿的无功功率 $Q_{c}$ 及节点 1 电源发出的功率 $\\tilde{S}_{G}$ 。 (2) 利用计算机算法求解该系统潮流时, 节点 1、2 分别应设为什么类型的节点? 若设节点 2 的电压相量初值为: $\\dot{U}_{2}^{(0)} = 1 + j0$ , 试用直角坐标牛顿-拉夫逊法计算节点 2 的电压。(要求迭代 2 次, 保留小数点后二位) 六.（15 分）如图所示，一台降压变压器向某个城市的两个区域供电，变压器的电压参数标于图中，变压器归算到高压侧的阻抗为 $2.44 + j40\\Omega$ 。已知区域A. 的最大和最小负荷分别为： $\\tilde{S}_{Amax} = 15 + j9MVA$ ， $\\tilde{S}_{Amin} = 12 + j6MVA$ ，区域B. 的最大和最小负荷分别为： $\\tilde{S}_{Bmax} = 14 + j8MVA$ ， $\\tilde{S}_{Bmin} = 12 + j6MVA$ ，区域A. 和区域B. 的最大负荷和最小负荷均同时出现，区域A. 和区域B. 负荷允许的电压偏移均为 -5% - 0%，变压器低压母线和区域A. 之间线路上的电压损耗情况为：最大负荷时 7.5%，最小负荷时 6%，变压器低压母线和区域B. 之间线路上的电压损耗情况为：最大负荷时 7%，最小负荷时 6%。变压器高压侧母线电压维持 112kV 不变，试求取变压器低压母线的调压要求并选择变压器分接头。（忽略变压器和线路功率损耗，忽略变压器导纳） 七. (20 分) 某系统接线路及各元件参数如图所示, 双回输电线路参数相同 (忽略线路电阻), 每回输电线路电抗为 $0.38 \\Omega / k m$ , 每回线路长 $50 \\mathrm{~km}$ 。如发电机空载并网后, 输电线路首端发生三相短路, 选 $S_{B. } = 100 M VA. , U_{B. } =$ 平均额定电压, 试求解下述问题: (1) 计算短路时刻发电机出口线电压（有名值）。 (2) 计算短路点左侧和右侧的短路电流周期分量起始值（有名值）。 (3) 短路后至故障线路切除前这段时间内, 定性说明短路点左侧和右侧的短路电流周期分量变化规律有何不同? 八. (20 分) 如图所示某空载电力系统, 各元件参数标幺值已标于图中 ( $S_{B. }=100MVA$ , $U_{B. }$ =平均额定电压), 无穷大系统为中性点直接接地系统, 母线 1 的A. 相电压为 $1 \\angle 0^{\\circ}$ , 当母线 1 处发生 A、C. 相接地短路时, 试求解下述问题: (1) 计算流过发电机 G 各相的短路电流（标幺值）。 (2) 计算流过输电线 L 的各相电流（有名值） (3) 计算母线 2 处的各相电压 (有名值)。"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "单相接地短路边界 $I_{a(1)} = I_{a(2)} = I_{a(0)}$，故故障相短路电流 $I_a = 3 I_{a(1)}$，为正序分量的 **3 倍**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2024",
@@ -13565,7 +13963,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "中性点不接地发生单相接地流过故障点电流",
     "stem": "中性点不接地电力系统发生单相接地时，流过故障点的是（）",
     "options": [
       {
@@ -13585,10 +13983,12 @@ const QUESTIONS_DATA = [
         "text": "电流性质不确定"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "中性点不接地系统单相接地时无金属性回路，故障点电流是由全网非故障相对地电容充电形成的**容性无功电流**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -13599,7 +13999,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "复合序网为各序网串联的故障类型",
     "stem": "复合序网是各序网串联的故障类型有（）",
     "options": [
       {
@@ -13619,10 +14019,13 @@ const QUESTIONS_DATA = [
         "text": "两相接地短路"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "单相接地短路与单相断线故障的复合序网均为**正序、负序、零序网串联**连接。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -13633,7 +14036,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "输电线路上只流过无功功率时产生的损耗",
     "stem": "某架空输电线路上只流过无功功率时, 则该输电线路将产生 ( )",
     "options": [
       {
@@ -13653,11 +14056,15 @@ const QUESTIONS_DATA = [
         "text": "电流损耗"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
-    "conflict": "",
+    "answer": [
+      "A",
+      "B",
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "无功电流流过电阻产生 $I_Q^2 R$ 的**有功损耗**（A）；流过电抗产生 $I_Q^2 X$ 的**无功损耗**（B）；形成 $QX/U$ 的**电压损耗**（C）。",
+    "verified": true,
+    "conflict": "【经典概念陷阱】只要输电线路存在电阻 R，纯无功电流流过就会产生 I_Q^2 * R 的有功损耗（A对）；流过线路电抗产生 I_Q^2 * X 的无功损耗（B对）；并在阻抗上产生电压损耗（C对）。“只输无功无有功损耗”是常见错误观点。",
     "source": "考研",
     "year": "2023",
     "chapter": 6
@@ -13667,7 +14074,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "Y0/△-11变压器Y0侧有零序时△侧出口零序电流",
     "stem": "当系统发生不对称故障时，Y0/△-11接线的变压器Y0侧零序电流标幺值为 $1\\angle60^{\\circ}$ ，则△侧出口零序电流标幺值为（）",
     "options": [
       {
@@ -13687,10 +14094,12 @@ const QUESTIONS_DATA = [
         "text": "0"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "$Y_0$ 侧零序电流在 $\\Delta$ 绕组内部感应出闭合环流，但**零序电流无法流出 $\\Delta$ 侧外电路**，故出口零序电流为 **0**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -13701,7 +14110,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "最大负荷利用小时数 Tmax 的主要作用",
     "stem": "最大负荷利用小时数作用是（）",
     "options": [
       {
@@ -13721,10 +14130,12 @@ const QUESTIONS_DATA = [
         "text": "计算输电效率"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "公式 $W = P_{max} \\cdot T_{max}$，主要用于配合最大负荷损耗时间 $T_{\\tau}$ **计算全年电能消耗与电能损耗**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -13735,7 +14146,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "静止无功补偿器（SVC）的性能优点",
     "stem": "采用静止无功补偿器进行无功补偿的优点是",
     "options": [
       {
@@ -13755,10 +14166,14 @@ const QUESTIONS_DATA = [
         "text": "即可发出无功也可吸收无功"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B",
+      "C",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "SVC 具有**响应速度快**（毫秒级）、**调节平滑**连续无级、**既可发出也可吸收无功**的优点；但造价较高。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -13769,7 +14184,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "输电线路传输有功功率减少对电压降落横分量影响",
     "stem": "若输电线路上传输有功功率减少, 则电压降落横分量将",
     "options": [
       {
@@ -13789,10 +14204,12 @@ const QUESTIONS_DATA = [
         "text": "可能增大也可能减少"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "横分量 $\\delta U = \\frac{PX - QR}{U}$，在无功功率 $Q$ 不变时，传输有功 $P$ 减少致分子减小，故**横分量减小**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -13803,7 +14220,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "首端 \\(1.0\\angle 10^\\circ\\) 末端 \\(1.05\\angle 20^\\circ\\) 有功与无功流向",
     "stem": "如果输电线路首端电压为 $1.0 \\angle 10^{\\circ}$ , 末端电压为 $1.05 \\angle 20^{\\circ}$ , 则有功功率与无功功率流向 ( )",
     "options": [
       {
@@ -13823,10 +14240,12 @@ const QUESTIONS_DATA = [
         "text": "无法判断"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "相角 $\\delta_1 < \\delta_2 \\implies P$ 从末端流向首端；幅值 $U_1 < U_2 \\implies Q$ 也从未端流向首端，二者**流向相同**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -13837,7 +14256,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "发电机计算电抗 xjs 相关因素",
     "stem": "发电机计算电抗的大小与发电机（ ）有关",
     "options": [
       {
@@ -13857,10 +14276,13 @@ const QUESTIONS_DATA = [
         "text": "并网点"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "公式 $x_{js} = x_d'' \\cdot \\frac{S_B}{S_{GN}}$，取决于发电机**次暂态电抗 $x_d''$** 与 **额定容量/额定功率 $S_{GN}$**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -13871,7 +14293,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "电力系统发生两相短路时的负序电流分布",
     "stem": "电力系统发生两相短路时，说法正确的是（）",
     "options": [
       {
@@ -13891,10 +14313,13 @@ const QUESTIONS_DATA = [
         "text": "发生短路的两相中负序电流方向相反"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "两相短路为不对称故障，**三相中均会出现负序电流**（A）；且发生短路的两相中**负序电流方向相反**（D）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -13905,7 +14330,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "牛拉法收敛速度与迭代初值选取有关",
     "stem": "牛顿—拉夫逊潮流算法的收敛速度与迭代初值，选取有关。",
     "options": [
       {
@@ -13917,10 +14342,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "牛顿-拉夫逊法属于局部二次收敛算法，初值若偏离真值过远可能导致收敛变慢甚至迭代发散。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -13931,7 +14358,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "大规模系统节点导纳矩阵含有大量零元素",
     "stem": "大规模电力系统的导纳矩阵一定含有大量零元素。",
     "options": [
       {
@@ -13943,10 +14370,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "大型电网中各节点仅与少数相邻节点有物理连接，节点导纳矩阵具有高度的**稀疏性**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -13957,7 +14386,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "系统中所有发电机均参与一次调频",
     "stem": "电力系统中的发电机一般都要参于系统的一次调频。",
     "options": [
       {
@@ -13969,10 +14398,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "满载运行（无法再增发功率）或未装设调速器的机组无法参与频率一次调整。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -13983,7 +14414,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "近似计算中一般忽略电压降落横分量",
     "stem": "在电压近似计算时，一般忽略电压降落横分量。",
     "options": [
       {
@@ -13995,10 +14426,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "高压电网中电压降落纵分量 $\\Delta U \\gg \\delta U$，近似计算忽略横分量 $\\delta U$，用电压代数差近似代替相量差。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -14009,7 +14442,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "标幺制基准值选取可不符合电路欧姆定律",
     "stem": "阻抗、电压、电流基准值的选取可以不用符合电路的基本关系。",
     "options": [
       {
@@ -14021,10 +14454,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "选定功率基准 $S_B$ 与电压基准 $U_B$ 后，$I_B = \\frac{S_B}{\\sqrt{3}U_B}$ 与 $Z_B = \\frac{U_B^2}{S_B}$ **必须严格遵循三相电路欧姆定律**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -14035,7 +14470,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "50Hz系统短路冲击电流在短路后 0.1s 出现",
     "stem": "对于 $50 \\mathrm{~Hz}$ 电力系统, 短路冲击电流在短路后 $0.1 \\mathrm{~s}$ 出现。",
     "options": [
       {
@@ -14047,10 +14482,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "工频周期 20ms，短路冲击电流在短路后半个周期即 **0.01s（10ms）** 时出现，并非 0.1s。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -14061,7 +14498,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "系统无功不足时不宜调整变压器分接头调压",
     "stem": "当电力系统无功不足时，不宜采用调整变压器分接头的方式调压。",
     "options": [
       {
@@ -14073,10 +14510,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "变压器分接头不增加无功总量，无功严重不足时盲目升压会恶化无功缺额，甚至引发电压崩溃。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -14087,7 +14526,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "无穷大系统三相短路周期分量不衰减",
     "stem": "无穷大系统发生三相短路，其短路电流周期分量是不衰减的。",
     "options": [
       {
@@ -14099,10 +14538,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "无限大电源母线电压幅值恒定，短路电流强迫工频周期分量幅值保持恒定不衰减。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -14113,7 +14554,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "Y0/△变压器零序电流不能在△绕组流通",
     "stem": "对于星-三角接线变压器，零序短路电流可以在星形绕组中流通，但不能在角形绕组中流通。",
     "options": [
       {
@@ -14125,10 +14566,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "零序电流可在 $Y_0$ 绕组流通，并经磁耦合在 $\\Delta$ 绕组**内部闭合感应流通**（仅不能流出外电路）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -14139,7 +14582,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "架空地线使输电线路零序电抗变大",
     "stem": "架空地线存在将使输电线路零序电抗变大。",
     "options": [
       {
@@ -14151,10 +14594,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "架空地线中感应出逆向零序电流起去磁作用，削弱磁链，使线路零序电抗**变小**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -14165,7 +14610,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "10kV系统单相接地非故障相对地电压",
     "stem": "某 $10 \\mathrm{kV}$ 系统发生单相接地故障时, 非故障相对地电压为 ( )",
     "options": [
       {
@@ -14185,10 +14630,12 @@ const QUESTIONS_DATA = [
         "text": "7.07 \\mathrm{kV}$"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "中性点不接地系统单相接地时，非故障相对地电压由相电压 $5.77\\text{kV}$ 升高为线电压 **$10\\text{kV}$**（$\\sqrt{3}$倍）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -14199,7 +14646,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "发电机20kV直连变压器升至220kV网额定变比",
     "stem": "某变压器低压侧和发电机直接相连, 高压侧接入 $220 \\mathrm{kV}$ 系统, 发电机的额定电压为 $20 \\mathrm{kV}$ , 则变压器的额定电压为 ( )",
     "options": [
       {
@@ -14219,10 +14666,12 @@ const QUESTIONS_DATA = [
         "text": "$21 \\mathrm{kV} / 220 \\mathrm{kV}$"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "一次侧接发电机额定 **20kV**；二次侧接电网比标称高10%（$220 \\times 1.1 = \\mathbf{242\\text{kV}}$，变比为 **20/242kV**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -14233,7 +14682,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "容量100/100/50变压器Pk(1-3)'归算至100MVA",
     "stem": "容量比为 $100 / 100 / 50$ 的三绕组变压器, 若 $P_{k(1-3)}^{\\prime} = 100 \\mathrm{kW}$ , 则归算后的 $P_{k(1-3)} = ($",
     "options": [
       {
@@ -14253,10 +14702,12 @@ const QUESTIONS_DATA = [
         "text": "$25 \\mathrm{kW}$"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "第3绕组容量为 $50\\%S_N$，测得损耗归算至额定容量需乘以 $(1/0.5)^2 = 4$，即 $4 \\times 100\\text{kW} = \\mathbf{400\\text{kW}}$。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -14267,7 +14718,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "输电线路电导参数反映的物理效应",
     "stem": "电力线路的电导参数主要反映的是（）",
     "options": [
       {
@@ -14287,10 +14738,12 @@ const QUESTIONS_DATA = [
         "text": "电晕损耗"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "线路电导 $G$ 主要表征高压下空气电离产生的**电晕损耗**及绝缘子泄漏损耗。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -14301,7 +14754,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "输电线路线损率的定义公式",
     "stem": "线损率是指（）",
     "options": [
       {
@@ -14321,10 +14774,12 @@ const QUESTIONS_DATA = [
         "text": "线路电能损耗与末端输出之比"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "线损率定义为一定时间内**线路电能损耗量 $\\Delta W$ 与始端输入电能 $W_1$ 之比**（$\\Delta W / W_1$）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -14335,7 +14790,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "高压线路空载运行首末端电压及相位关系",
     "stem": "高压电力线路空载运行,忽略线路电阻和电导,则线路首端节点1与末端节点2的电压和相位关系为( )",
     "options": [
       {
@@ -14355,10 +14810,12 @@ const QUESTIONS_DATA = [
         "text": "$U > U_{2}$ ; $\\delta_{1} = \\delta_{2}$"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "空载容升效应使**末端电压高于首端（$U_1 < U_2$）**；无有功传输且无电阻损耗时，**首末端电压同相（$\\delta_1 = \\delta_2$）**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -14369,7 +14826,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "线路首末端电压与额定电压数值差",
     "stem": "线路首端、末端电压和额定电压的数值差为（）",
     "options": [
       {
@@ -14389,10 +14846,12 @@ const QUESTIONS_DATA = [
         "text": "电压偏移"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "某节点首端/末端电压与额定电压 $U_N$ 的代数差定义为**电压偏移**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -14403,7 +14862,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "n节点（m个PQ节点）极坐标牛拉法雅可比阶数",
     "stem": "电力网有 n 个独立节点，其中 m 个节点为 PQ，极坐标形式牛顿—拉夫逊法雅可比阶数为（）",
     "options": [
       {
@@ -14423,11 +14882,13 @@ const QUESTIONS_DATA = [
         "text": "n-m"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
-    "conflict": "",
+    "answer": [
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "未知相角 $n-1$ 个，未知电压幅值 $m$ 个（PQ节点），雅可比矩阵总阶数为 **$n + m - 2$**。",
+    "verified": true,
+    "conflict": "【疑义与口径标注】若题干 'n 个独立节点' 指包含平衡节点在内的全网节点，则未知相角为 n-1，未知幅值为 m，雅可比阶数为 n+m-1（选项C）；若 '独立节点' 定义已剔除平衡节点或平衡节点选自 m，部分答案选 B (n+m-2)。考场中请先审定 n 是否包含平衡节点。",
     "source": "考研",
     "year": "2023",
     "chapter": 1
@@ -14437,7 +14898,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "同步调相机过励磁运行输出特性",
     "stem": "调相机过励磁运行向系统（）",
     "options": [
       {
@@ -14457,10 +14918,12 @@ const QUESTIONS_DATA = [
         "text": "不确定"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "调相机过励磁运行相当于强无功电源，向系统**发出感性无功功率**（吸收容性无功）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -14471,7 +14934,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "环网经济功率分布决定因素",
     "stem": "环网经济功率分布（ ）",
     "options": [
       {
@@ -14491,10 +14954,12 @@ const QUESTIONS_DATA = [
         "text": "按电阻正比分布"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "环网潮流自然分布按阻抗成反比分布；使全网损耗最小的**经济功率分布按电阻成反比分布**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -14505,7 +14970,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "关于零序网络说法错误的是",
     "stem": "下列关于零序网络说法不正确的是（）",
     "options": [
       {
@@ -14525,10 +14990,12 @@ const QUESTIONS_DATA = [
         "text": "零序电流的流通与变压器接线形式无关"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "变压器的绕组接线方式（如 $Y_0/\\Delta$）直接决定零序通路的开闭，**零序电流流通与变压器接线密切相关**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -14539,7 +15006,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "正序增广网络中三相短路附加阻抗",
     "stem": "在正序增广网络中，三相短路的附加阻抗等于（）",
     "options": [
       {
@@ -14559,10 +15026,12 @@ const QUESTIONS_DATA = [
         "text": "0"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "三相短路为完全对称短路，正序增广网络中**附加阻抗 $Z_{\\Delta} = 0$**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -14573,7 +15042,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "关于两相短路特征说法错误的是",
     "stem": "假设正序阻抗和负序阻抗相等，下列关于两相短路说法不正确的是（）",
     "options": [
       {
@@ -14593,10 +15062,12 @@ const QUESTIONS_DATA = [
         "text": "故障相电压与非故障相电压的方向相同"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "两相短路时，故障两相电压相等且等于正序电压的 $-0.5$ 倍（方向与非故障相**相反**，非相同）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -14607,7 +15078,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "短路故障后正序电压沿线分布特征",
     "stem": "系统发生短路故障后，越靠近短路点，正序电压（）",
     "options": [
       {
@@ -14627,10 +15098,12 @@ const QUESTIONS_DATA = [
         "text": "都不对"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "正序网中发电机端为电源，短路点为正序电压最低点，故**越靠近短路点，正序电压越低**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -14641,7 +15114,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "枯水期调频厂首选中温中压火电厂",
     "stem": "在枯水期调频厂首选中温中压火电厂。（）",
     "options": [
       {
@@ -14653,10 +15126,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "枯水期水电需限制用水防弃水，调频任务由中温中压火电厂或抽水蓄能电厂承担。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -14667,7 +15142,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "电容器发出的无功随电压升高而增大为正调节",
     "stem": "电容器发出的无功功率随电压的升高而增大，因此具有正的电压调节特性。（）",
     "options": [
       {
@@ -14679,10 +15154,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "电容器无功 $Q \\propto U^2$，电压降低时发出无功急剧减少（加剧电压下降），具有**负的电压调节特性**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -14693,7 +15170,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "有载调压变压器在任何情况下都能改善电压",
     "stem": "有载调压变压器在任何情况下都能改善电压质量。（）",
     "options": [
       {
@@ -14705,10 +15182,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "全网无功严重不足导致整体低电压时，盲目调整变压器分接头会加剧无功缺额，引发电压崩溃。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -14719,7 +15198,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "电缆线路电抗远小于架空线而电纳远大于架空线",
     "stem": "相同截面积的电缆线路电抗远小于架空线路的电抗，而电纳远大于架空线路的电纳。（）",
     "options": [
       {
@@ -14731,10 +15210,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "电缆相间距离极小且介电常数大，故单位电抗小、电纳（对地电容）远大于架空线路。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -14745,7 +15226,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "预测负荷曲线可用于安排机组发电计划",
     "stem": "由生产、生活和气象条件决定的负荷是可以预测的，预测的负荷曲线用来安排机组的发电计划。（）",
     "options": [
       {
@@ -14757,10 +15238,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "可预测的第二、三类负荷曲线是编制日/年负荷曲线与安排机组发电/检修计划的依据。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -14771,7 +15254,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "一次调频由调速器实现只能做到有差调节",
     "stem": "一次调频是由调速器实现的，只能做到有差调节。（）",
     "options": [
       {
@@ -14783,10 +15266,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "一次调频依靠发电机调速器静特性（斜率 $K_G$），无法平移特性曲线，故属于有差调节。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -14797,7 +15282,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "输电线上只传输无功不产生有功损耗",
     "stem": "线路上只传输无功功率时，不会产生有功功率损耗。（）",
     "options": [
       {
@@ -14809,10 +15294,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "无功电流流过线路电阻 $R$ 会产生 $I_Q^2 R$ 的有功功率损耗。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -14823,7 +15310,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "三相系统中相电压标幺值等于线电压标幺值",
     "stem": "相电压的标幺值等无线电压的标幺值。（）",
     "options": [
       {
@@ -14835,10 +15322,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "基准值选择满足 $U_{B,相} = U_{B,线}/\\sqrt{3}$，归算后相电压标幺值与线电压标幺值完全相等。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -14849,7 +15338,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "高压网有功和无功均从高电压流向低电压",
     "stem": "高压电网有功功率和无功功率都是从高电压节点流向低电压节点。（）",
     "options": [
       {
@@ -14861,10 +15350,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "有功功率由**电压相角高**的节点流向相角低的节点；无功功率才由电压幅值高的节点流向幅值低的节点。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -14875,7 +15366,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "不对称短路故障中一定有零序电流",
     "stem": "三相短路故障中没有零序电流，不对称短路故障中一定有零序电流。（）",
     "options": [
       {
@@ -14887,10 +15378,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "两相短路属于不对称短路，但故障回路不接地且无中性点通路，短路电流中**没有零序电流**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -14901,7 +15394,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "两机转移电抗相同额定容量大者计算电抗大",
     "stem": "若两台发电机对短路点的转移电抗相同，额定容量大的发电机计算电抗大。",
     "options": [
       {
@@ -14913,10 +15406,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "发电机计算电抗 $x_{js} = x_{转移} \\cdot \\frac{S_{GN}}{S_B}$，转移电抗相同条件下，额定容量 $S_{GN}$ 越大，计算电抗 $x_{js}$ 越大。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -14927,7 +15422,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "不对称接地零序磁通对平行通信线有电磁干扰",
     "stem": "不对称接地短路所引起的不平衡电流, 产生的不平衡磁通, 会在临近的垂直布置的通信线路内感应出相当大的感应电动势, 造成对通信系统的干扰, 甚至危及设备和人身安全。 (   ) 14、 $Y_{0}/\\triangle$ 接线变压器的正序、负序和零序的等值漏抗近似相等。(   )",
     "options": [
       {
@@ -14939,10 +15434,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "单相接地等不对称接地短路时，零序电流经大地返回产生强电磁感应，威胁平行通信线安全。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -14953,7 +15450,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2023 年硕士生入学考试初试试题 (科目代码：816)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "中性点接地阻抗 Zg 对正负序电流无影响",
     "stem": "正序和负序电流不流过中性点接地阻 $Zg$ ，因此 $Zg$ 对正负序电流没影响。（）",
     "options": [
       {
@@ -14965,10 +15462,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "复合序网中正、负、零序网相互连接，零序阻抗（含 $3Z_g$）改变会改变总阻抗，从而**间接影响正负序电流**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2023",
@@ -14979,7 +15478,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "中性点不接地发生单相接地时中性点电压",
     "stem": "中性点不接地电力系统发生单相接地时，中性点电压为",
     "options": [
       {
@@ -14999,10 +15498,12 @@ const QUESTIONS_DATA = [
         "text": "零"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "单相金属性接地时，故障相对地电压降为 0，**中性点对地电压升高为相电压 $U_N/\\sqrt{3}$**（非故障相对地电压升高为线电压）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -15013,7 +15514,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "节点5和7间线路断开时导纳矩阵变化元素",
     "stem": "一个 10 节点电力系统, 如果节点 5 和 7 之间的输电线路断开, 则下列导纳矩阵元素发生变化的是",
     "options": [
       {
@@ -15033,10 +15534,14 @@ const QUESTIONS_DATA = [
         "text": "$Y_{77}$"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "B",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "线路开断仅改变线路两端节点的自导纳 **$Y_{55}, Y_{77}$** 以及相互间的互导纳 **$Y_{57}, Y_{75}$**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -15047,7 +15552,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "BC 相金属性短路边界条件",
     "stem": "电力系统发生 B、C. 相金属性短路，属于该短路形式的边界条件是",
     "options": [
       {
@@ -15067,10 +15572,12 @@ const QUESTIONS_DATA = [
         "text": "A. 相电压为零"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "BC 相两相短路相变量边界条件为：**故障相短路点电压相等 $U_b = U_c$**、非故障相电流 $I_a = 0$、故障相电流反相 $I_b = -I_c$。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -15081,7 +15588,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "三相短路电流周期分量有效值相关因素",
     "stem": "无限大电源供电系统发生三相短路时, 短路电流周期分量有效值与 ( )有关?",
     "options": [
       {
@@ -15101,10 +15608,14 @@ const QUESTIONS_DATA = [
         "text": "电源电压"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "C",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "周期分量有效值 $I = \\frac{E}{\\sqrt{R^2+X^2}}$，取决于**电源电压 $E$、回路电阻 $R$ 与回路电抗 $X$**。合闸初相角仅影响非周期分量。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -15115,7 +15626,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "不对称短路时发电机定子电流出现的谐波",
     "stem": "电力系统中发生不对称短路时，发电机定子电流中将出现",
     "options": [
       {
@@ -15135,10 +15646,12 @@ const QUESTIONS_DATA = [
         "text": "五次谐波"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "负序电流在转子绕组感应出 100Hz（倍频）电流，其旋转磁场切割定子绕组感应出**二次谐波电流**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -15149,7 +15662,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "输电线路采用分裂导线的作用",
     "stem": "输电线路采用分裂导线可以",
     "options": [
       {
@@ -15169,10 +15682,13 @@ const QUESTIONS_DATA = [
         "text": "减小线路对地电容"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "分裂导线相当于增大了导线等效半径 $r_{eq}$，主要作用是**减小线路电抗**（B）和**提高临界电压以减小电晕损失**（A）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -15183,7 +15699,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "降低电力系统网损的措施",
     "stem": "采用（）等措施，可以降低电力系统网损",
     "options": [
       {
@@ -15203,10 +15719,14 @@ const QUESTIONS_DATA = [
         "text": "并联电抗器"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "B",
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "**并联电容**减少无功传输（A）、**提高电压等级**降低运行电流（B）、**串联电容**补偿线路电抗改善功率分布（C），均能有效降低线损。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -15217,7 +15737,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "环网潮流自然分布的决定因素",
     "stem": "环网潮流的自然分布取决于线路的",
     "options": [
       {
@@ -15237,10 +15757,12 @@ const QUESTIONS_DATA = [
         "text": "阻抗角"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "无加压器等控制手段时，闭式环网的自然潮流严格按照**线路等值阻抗 $Z = R + jX$ 成反比**分布。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -15251,7 +15773,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "50Hz系统短路冲击电流出现时刻",
     "stem": "对于 $50 \\mathrm{~Hz}$ 电力系统, 短路冲击电流出现时刻是短路后的",
     "options": [
       {
@@ -15271,10 +15793,12 @@ const QUESTIONS_DATA = [
         "text": "1 秒"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "工频周期 20ms，短路发生后经过半个周期（**0.01 秒 / 10ms**），非周期分量与周期分量同相叠加达到冲击峰值。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -15285,7 +15809,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "复合序网分析不对称短路时有源的序网",
     "stem": "利用复合序网分析不对称短路时，有源的序网是",
     "options": [
       {
@@ -15305,10 +15829,12 @@ const QUESTIONS_DATA = [
         "text": "所有序网都无源"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "同步发电机仅产生正序对称电动势，故**仅正序网是有源网**，负序和零序网均为无源网（虚拟电源在故障点）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -15319,7 +15845,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "10kV架空线改电缆后弧光过电压风险减小",
     "stem": "某 10kV 系统，如果将该系统中的架空线路全部改为电缆线路，则单相接地后引起的弧光过电压风险会减小。",
     "options": [
       {
@@ -15331,10 +15857,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "电缆对地电容远大于架空线，单相接地容性电流剧增，**更容易引发间歇性弧光接地过电压**，风险显著增加。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -15345,7 +15873,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "线路只传输无功功率时不会产生有功损耗",
     "stem": "某输电线路上只流通无功功率时，该输电线路不会产生有功损耗。",
     "options": [
       {
@@ -15357,10 +15885,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "只要线路存在电阻 $R$，无功电流 $I_Q = Q/U$ 流过就会产生 $I_Q^2 R$ 的**有功功率损耗**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -15371,7 +15901,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "牛拉法比PQ分解法慢是因为需要形成雅可比矩阵",
     "stem": "同一个潮流计算问题，牛顿—拉夫逊法比 PQ 分解法计算速度慢的原因是需要形成雅克比矩阵。",
     "options": [
       {
@@ -15383,10 +15913,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "牛顿-拉夫逊法每次迭代需重新形成并求逆/分解雅可比矩阵，单步计算量大于系数矩阵恒定的 PQ 分解法。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -15397,7 +15929,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "根据具体情况电力系统可以不专门设置检修备用",
     "stem": "根据具体情况，电力系统可以不设置检修备用。",
     "options": [
       {
@@ -15409,10 +15941,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "检修备用可利用系统富余容量或安排在水电厂丰水期/负荷低谷期进行，**不需要专门留设独立机组**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -15423,7 +15957,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "500kV架空线高原地区比平原地区更容易发生电晕",
     "stem": "同样的 $500 \\mathrm{kV}$ 架空输电线在高原地区比平原地区更容易发生电晕。",
     "options": [
       {
@@ -15435,10 +15969,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "高原地区空气稀薄（空气相对密度 $\\delta$ 降低），电晕临界电压 $U_p \\propto \\delta$ 随之降低，故更容易发生电晕。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -15449,7 +15985,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "架空输电线路三相换位的目的是使铁塔受力均匀",
     "stem": "为了使铁塔受力均匀，架空输电线路的三相导线需要换位。",
     "options": [
       {
@@ -15461,10 +15997,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "整循环换位的目的是**减少三相线路阻抗与电纳参数的不对称**，消除对通信线的电磁干扰，而非机械受力。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -15475,7 +16013,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "架空输电线路避雷线使线路零序阻抗减小",
     "stem": "有避雷线的架空输电线路，避雷线将使输电线路的零序阻抗减小。",
     "options": [
       {
@@ -15487,10 +16025,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "避雷线中感应出反向零序电流起去磁作用，削弱零序磁链，使**线路等值零序电抗变小**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -15501,7 +16041,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "负序电流无法在发电机绕组中流通",
     "stem": "由于发电机只产生正序电流，所以负序电流无法在发电机绕组中流通。",
     "options": [
       {
@@ -15513,10 +16053,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "不对称短路产生的负序电流为对称三相逆序电流，**能够在发电机三相定子绕组中顺畅流通**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -15527,7 +16069,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "两相断线复合序网与单相接地短路复合序网类似",
     "stem": "电力系统发生两相断线时，其复合序网与单相接地短路的复合序网类似。",
     "options": [
       {
@@ -15539,10 +16081,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "**两相断线**（纵向故障）与**单相接地短路**（横向故障）的复合序网结构完全一致，均为**正、负、零序网串联**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -15553,7 +16097,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：813)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "电力系统中的每台发电机组都参与一次调频",
     "stem": "电力系统中的每台发电机组都将参与频率的一次调整。",
     "options": [
       {
@@ -15565,10 +16109,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "满载运行（无向上调节裕度）或未装设调速器的机组**无法参与频率一次调整**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -15579,7 +16125,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "可能有零序电流穿越的变压器接线形式",
     "stem": "可能有零序电流穿越的变压器接线形式是（ ）",
     "options": [
       {
@@ -15599,10 +16145,13 @@ const QUESTIONS_DATA = [
         "text": "$y_{0}/y_{0}$"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "只有中性点接地的 $Y_0$ 绕组能提供接地零序通路，**$Y_0/\\Delta$ 和 $Y_0/Y_0$** 均有零序电流穿越进入绕组。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -15613,7 +16162,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "短路电流有效值用于校验断路器的能力",
     "stem": "短路电流有效值用于校验断路器的（）",
     "options": [
       {
@@ -15633,10 +16182,13 @@ const QUESTIONS_DATA = [
         "text": "额定容量"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B",
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "短路电流周期分量有效值用于校验断路器的**开断能力**（C），全过程有效值用于校验**热稳定性**（B）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -15647,7 +16199,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "无限大电源供电三相短路暂态过程特点",
     "stem": "无限大容量电源供电的简单系统，三相短路暂态过程中（）",
     "options": [
       {
@@ -15667,10 +16219,13 @@ const QUESTIONS_DATA = [
         "text": "频率恒定"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "无限大电源系统核心特征为电源容量无限大、内阻为零，母线**电压幅值恒定（C）与频率恒定（D）**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -15681,7 +16236,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "\\(Y_0/\\Delta-11\\) 接线变压器两侧正序电压相位",
     "stem": "$y_{0} / \\Delta - 1$ 的变压器， $\\Delta$ 侧的",
     "options": [
       {
@@ -15701,10 +16256,12 @@ const QUESTIONS_DATA = [
         "text": "落后 30 度"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "根据标准接线组别，$Y_0/\\Delta-11$ 表示低压侧（$\\Delta$ 侧）正序相电压超前高压侧（$Y_0$ 侧）**30°**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -15715,7 +16272,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "单回输电线路与双回输电线路零序电抗比较",
     "stem": "有架空地线的单回输电线路的零序电抗比有架空地线的双回输电线路的零序电抗（）",
     "options": [
       {
@@ -15735,10 +16292,12 @@ const QUESTIONS_DATA = [
         "text": "不确定"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "双回路并行运行时两回线之间存在互感去磁与分流作用，使得**单回输电线路的零序电抗小于双回线路每回电抗**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -15749,7 +16308,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "220kV/110kV/10kV 自耦变压器接线形式",
     "stem": "220kV/110kV/10kV自耦变压器采用的接线形式为( )。",
     "options": [
       {
@@ -15769,10 +16328,12 @@ const QUESTIONS_DATA = [
         "text": "$y_{0}/\\Delta/y$"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "自耦变压器高压与中压绕组共用，中性点必须直接接地，低压绕组接成角形，接线形式为 **$Y_0/Y_0/\\Delta$**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -15783,7 +16344,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "电力系统有功日负荷曲线下所含面积的含义",
     "stem": "电力系统有功日负荷曲线下所含的面积代表了负荷的（）",
     "options": [
       {
@@ -15803,10 +16364,12 @@ const QUESTIONS_DATA = [
         "text": "不确定"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "日负荷曲线积分 $\\int_{0}^{24} P(t) dt = W_{日}$，其涵盖的物理面积代表**日用电量**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -15817,7 +16380,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "系统全年电能损耗与最大负荷功率损耗之比",
     "stem": "系统全年的电能损耗与最大负荷时的功率损耗之比是（）",
     "options": [
       {
@@ -15837,10 +16400,12 @@ const QUESTIONS_DATA = [
         "text": "最小负荷损耗利用小时数"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "公式 $\\Delta W = \\Delta P_{max} \\cdot T_\\tau$，电能损耗与最大功率损耗的比值定义为**最大负荷损耗时间 $T_\\tau$**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -15851,7 +16416,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "电力线路等值电纳 B 主要反映的物理效应",
     "stem": "电力系统中电纳B. 主要反映线路带电运行产生的（）",
     "options": [
       {
@@ -15871,10 +16436,12 @@ const QUESTIONS_DATA = [
         "text": "电晕效应"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "电纳 $B = \\omega C$，主要反映导线间及导线对地电容在交流电压作用下产生的**电场效应**（充电功率）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -15885,7 +16452,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "同型号导线用在 500kV 比 220kV 的线路电纳",
     "stem": "同一型号导线用在 $500 \\mathrm{kV}$ 比用在 $220 \\mathrm{kV}$ , 其线路电纳 ( )。",
     "options": [
       {
@@ -15905,10 +16472,12 @@ const QUESTIONS_DATA = [
         "text": "不确定"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "500kV 线路分裂根数多、导线等效半径 $r_{eq}$ 大，公式 $b = \\frac{2.98 \\times 10^{-6}}{\\lg(D_m/r_{eq})}$，故**电纳更大**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -15919,7 +16488,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "电力系统潮流计算方程的数学类型",
     "stem": "电力系统潮流计算的方程属于（）。",
     "options": [
       {
@@ -15939,10 +16508,12 @@ const QUESTIONS_DATA = [
         "text": "线性积分方程"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "节点功率与电压呈二次非线性三角/复数关系，潮流计算方程组属于**非线性代数方程组**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -15953,7 +16524,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "优化无功功率电源分布的优化目标",
     "stem": "优化无功功率电源分布的目的是降低网络中的（）",
     "options": [
       {
@@ -15973,10 +16544,12 @@ const QUESTIONS_DATA = [
         "text": "电气距离"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "无功电源优化的核心目标是在满足节点电压约束下，使全网**有功功率损耗 $\\Delta P_{loss}$ 最小**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -15987,7 +16560,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "单位时间内输入能量增量与输出功率增量比值",
     "stem": "单位时间内输入能量增量与输出功率增量的比值称为（）",
     "options": [
       {
@@ -16007,10 +16580,12 @@ const QUESTIONS_DATA = [
         "text": "能量微增率"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "表达式 $\\lambda = \\frac{dF}{dP}$，定义为发电设备的**耗量微增率**（或耗量微增率准则）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -16021,7 +16596,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "电力系统中无功功率严重过剩会导致",
     "stem": "电力系统中无功过剩时，会造成（）",
     "options": [
       {
@@ -16041,10 +16616,12 @@ const QUESTIONS_DATA = [
         "text": "电压下降"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "无功功率平衡直接决定系统电压水平，无功功率严重过剩会导致全网**电压普遍抬高/上升**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -16055,7 +16632,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "并联电容器组在电网中的无功补偿特性",
     "stem": "电容器组可以向系统中（）",
     "options": [
       {
@@ -16075,11 +16652,14 @@ const QUESTIONS_DATA = [
         "text": "不确定"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
-    "conflict": "",
+    "answer": [
+      "A",
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "静电电容器作为无功电源，向系统**发出容性无功功率**（A），等价于**吸收感性无功功率**（B）。",
+    "verified": true,
+    "conflict": "【双解/概念辨析】并联电容器在正弦交流电路中输出超前电流，物理上向系统供给容性无功功率（A对）；在电工理论等价描述中亦常表述为“吸收感性无功功率”（B对），两表述皆成立。",
     "source": "考研",
     "year": "2022",
     "chapter": 1
@@ -16089,7 +16669,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "中性点不接地发生单相接地接地点线电压对称",
     "stem": "中性点不接地系统中发生单向接地时，接地点的线电压仍然对称。（）",
     "options": [
       {
@@ -16101,10 +16681,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "金属性单相接地仅改变三相对地电压，**相间线电压幅值与相对相位关系依然保持对称**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -16115,7 +16697,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "导线换位目的是改善电场分布减小线路电抗",
     "stem": "架空线路三相换位的目的是改善导线周围的电场分布，减少线路的电抗值。（）",
     "options": [
       {
@@ -16127,10 +16709,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "导线换位的根本目的是**实现三相线路电气参数（阻抗与电纳）完全对称**，而非减小电抗。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -16141,7 +16725,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "LGJ-240 导线的电抗比 LGJ-185 导线电抗小",
     "stem": "同一线路如何采用 LGJ-240 的导线，其电抗比采用 LGJ-185 的导线电抗小。（）",
     "options": [
       {
@@ -16153,10 +16737,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "LGJ-240 截面积大，导线半径 $r$ 大，由 $x_1 = 0.1445\\lg\\frac{D_m}{r} + 0.0157$ 可知其**单位电抗较小**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -16167,7 +16753,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "年损耗电能除以最大有功功率称为最大负荷利用小时数",
     "stem": "一年中线路损耗的电能除以一年中的最大有功功率称为最大负荷利用小时数。（）6、用牛顿-拉夫逊法进行潮流计算时，线性修正方程求解的是节点的电压值。（）7、调差系数越大，则同等频率下降时，发电机所带负荷增大越多。（）8、发电设备单位时间内消耗的能源与发出有功功率的关系，称为比耗量。（）9、电网无功补偿的原则，一般按照分层分区和就地平衡原则考虑。（）",
     "options": [
       {
@@ -16179,10 +16765,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "年用电量除以最大负荷 $W/P_{max}$ 称为最大负荷利用小时数 $T_{max}$；损耗电能除以最大功率损耗为 $T_\\tau$。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -16193,7 +16781,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "改变电压幅值主要改变网络中的有功功率分布",
     "stem": "改变电压幅值，主要改变网络中有功功率的分布。（）",
     "options": [
       {
@@ -16205,10 +16793,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "改变电压幅值主要改变**无功功率分布**；改变电压相位（相角）主要改变**有功功率分布**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -16219,7 +16809,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "两相短路变压器中性点电抗以3倍值影响故障电流",
     "stem": "电力系统发生两相短路故障时，变压器中性点的电抗以三倍的值影响故障电流。（）",
     "options": [
       {
@@ -16231,10 +16821,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "两相短路不接地，故障电流中无零序分量，故**变压器中性点接地阻抗对两相短路电流无影响**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -16245,7 +16837,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "横向故障或纵向故障统称为不对称故障",
     "stem": "无论是横向故障还是纵向故障，统称为不对称故障。（）",
     "options": [
       {
@@ -16257,10 +16849,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "三相短路（横向）与三相断线（纵向）均属于**对称故障**，只有单相/两相类故障才是不对称故障。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -16271,7 +16865,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "三相三柱式变压器零序激磁电抗不能看作无穷大",
     "stem": "三相三柱式变压器的零序激磁电抗不可以看作是无穷大。（）",
     "options": [
       {
@@ -16283,10 +16877,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "三相三柱式变压器的零序磁通只能经油与油箱壁闭合，磁阻大，**零序激磁电抗较小**（约 0.3~1.0标幺值），不能视为无穷大。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -16297,7 +16893,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "中性点不接地单相接地中性点电位升高到线电压",
     "stem": "中性点不接地系统，发生单相接地短路时，中性点电位会升高到线电压。（）",
     "options": [
       {
@@ -16309,10 +16905,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "中性点电位升高到**相电压 $U_N/\\sqrt{3}$**，非故障相对地电压才升高到线电压。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -16323,7 +16921,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2022 年硕士生入学考试初试试题 (科目代码：815)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "双绕组自耦变压器中性线上通过的零序电流大小",
     "stem": "双绕组自耦变压器中性线上的零序电流是",
     "options": [
       {
@@ -16335,10 +16933,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "自耦变压器中性点接地时，中性线上流过的零序电流为高压侧与中压侧**零序电流的代数差（即 $3I_0$）**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2022",
@@ -16349,7 +16949,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：812)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "110kV/11kV 变压器是否为降压变压器",
     "stem": "如果一台变压器的变比为 $110 / 11\\mathrm{kV}$ ，则这台变压器是降压变压器。",
     "options": [
       {
@@ -16361,10 +16961,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "一次侧接 110kV 电网，二次侧额定 11kV（比电网标称 10kV 高 10% 补偿压降），属于**降压变压器**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -16375,7 +16977,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：812)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "导线半径越大越容易产生电晕",
     "stem": "架空导线的半径越大，则越容易产生电晕。",
     "options": [
       {
@@ -16387,10 +16989,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "导线半径 $r$ 越大，表面电场强度越小，电晕临界电压 $U_p \\propto r \\ln(D/r)$ 越高，**越不容易产生电晕**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -16401,7 +17005,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：812)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "架空导线对地存在电容可看作无功电源",
     "stem": "因为架空导线对地存在电容，所以架空导线可以看作是系统的无功电源。",
     "options": [
       {
@@ -16413,10 +17017,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "线路对地电纳 $B$ 产生充电功率 $Q_c = U^2 B$，高压/轻载时线路可充当**容性无功电源**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -16427,7 +17033,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：812)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "相同收敛判据下牛拉法与PQ分解法精度",
     "stem": "在收敛判据相同的情况下，牛顿—拉夫逊法和 PQ 分解法潮流计算的精度相同。",
     "options": [
       {
@@ -16439,10 +17045,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "求解相同的非线性代数方程组，只要收敛判据相同，**最终收敛精度完全相同**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -16453,7 +17061,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：812)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "检修中的发电设备属于冷备用",
     "stem": "电力系统中备用容量可分为热备用和冷备用，检修中的发电设备属于冷备用。",
     "options": [
       {
@@ -16465,10 +17073,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "冷备用指未运转但完好、随时可启动的设备；**检修中的设备处于不可用状态，不属于冷备用**（属检修备用）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -16479,7 +17089,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：812)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "节点电压降低时电容器提供无功变化",
     "stem": "电力系统某节点装有并联补偿电容器，当该节点电压降低时，电容器向系统提供的感性无功将减少。",
     "options": [
       {
@@ -16491,10 +17101,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "并联电容器无功 $Q = U^2 B$，电压降低时发出容性无功急剧减少；电容器本身不提供感性无功，调节特性为负。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -16505,7 +17117,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：812)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "回路电抗与电阻比值越大冲击系数越小",
     "stem": "计算冲击电流时用到冲击系数，回路中电抗与电阻的比值越大，则冲击系数越小。",
     "options": [
       {
@@ -16517,10 +17129,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "$X/R$ 越大，时间常数 $T_a = X/\\omega R$ 越大，衰减越慢，冲击系数 $k_{ch} = 1 + e^{-0.01/T_a}$ **越大**（接近2）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -16531,7 +17145,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：812)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "不对称接地短路零序电压在短路点最高",
     "stem": "一般电力系统发生不对称接地短路后，零序电压在短路点是最高的。",
     "options": [
       {
@@ -16543,10 +17157,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "零序网络无源，短路点相当于零序虚拟电源，**短路点零序电压最高**，越远离短路点零序电压越低。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -16557,7 +17173,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：812)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "不对称接地短路零序电压短路点最高",
     "stem": "电力系统发生不对称接地短路后，零序电压在短路点是最高的。",
     "options": [
       {
@@ -16569,10 +17185,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "原卷同题重复考查，零序电压在故障点最高，中性点或电源端降为 0。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -16583,7 +17201,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：812)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "同杆双回线同向零序电流使零序电抗增大",
     "stem": "同杆架设的双回输电线, 当流过方向相同的零序电流时, 将使每回输电线的零序电抗增大。",
     "options": [
       {
@@ -16595,10 +17213,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "同向零序电流产生互磁通，相互互感助磁增强磁链，使得**每回线路的零序电抗增大**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -16609,7 +17229,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：812)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "电力系统中性点接地方式包括",
     "stem": "电力系统中性点接地方式包括（）。",
     "options": [
       {
@@ -16629,10 +17249,14 @@ const QUESTIONS_DATA = [
         "text": "经电容器接地"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "B",
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "包括：**直接接地（A）、不接地（B）、经消弧线圈接地（C）** 以及经小电阻接地；不包括经电容器接地。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -16643,7 +17267,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：812)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "架空导线采用分裂导线的作用",
     "stem": "架空导线采用分裂导线的作用有（）。",
     "options": [
       {
@@ -16663,10 +17287,14 @@ const QUESTIONS_DATA = [
         "text": "减小电压损耗"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "B",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "相当于增大等效半径，作用为：**减小线路电抗（A）、抑制电晕（B）、减小电压损耗（D）**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -16677,7 +17305,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：812)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "电力线路有功损耗的相关参量",
     "stem": "电力线路上的有功损耗和以下哪些参量有关（）。",
     "options": [
       {
@@ -16697,10 +17325,14 @@ const QUESTIONS_DATA = [
         "text": "线路电抗"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "B",
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "公式 $\\Delta P = \\frac{P^2+Q^2}{U^2} R$，与**有功功率（A）、无功功率（B）、线路电阻（C）** 直接相关。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -16711,7 +17343,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：812)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "潮流计算中 PV 节点待求量",
     "stem": "电力系统潮流计算中，PV节点待求的是（）。",
     "options": [
       {
@@ -16731,10 +17363,13 @@ const QUESTIONS_DATA = [
         "text": "无功功率"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "PV 节点已知有功 $P$ 和电压幅值 $U$，待求量为**无功功率 $Q$（D）和电压相位 $\\delta$（B）**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -16745,7 +17380,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：812)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "电力系统互联并网运行的优点",
     "stem": "电力系统互联并网运行的优点是（）。",
     "options": [
       {
@@ -16765,10 +17400,15 @@ const QUESTIONS_DATA = [
         "text": "提高运行的经济型"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "互联能**减少备用容量（A）、合理利用水火资源（B）、提高供电可靠性（C）及运行经济性（D）**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -16779,7 +17419,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：812)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "中枢点逆调压方式的特点",
     "stem": "电力系统中枢点采用逆调压方式时, 其调压特点有 ( )。",
     "options": [
       {
@@ -16799,10 +17439,13 @@ const QUESTIONS_DATA = [
         "text": "低谷负荷时升高电压"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "逆调压要求：**高峰负荷时升高电压至 1.05Un（A）**，**低谷负荷时降低电压至 Un（C）**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -16813,7 +17456,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：812)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "单位时间内输入能量与输出能量/功率比值",
     "stem": "单位时间内输入能量和输出能量的比值称为（）。",
     "options": [
       {
@@ -16833,10 +17476,12 @@ const QUESTIONS_DATA = [
         "text": "等耗量微增率"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "公式 $F/P$ 定义为发电设备的**比耗量**（耗量微增率为微分 $dF/dP$）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -16847,7 +17492,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：812)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "负序电流经过变压器发生相位变化的组别",
     "stem": "负序电流经过变压器发生相位变化的联结组别是（）。",
     "options": [
       {
@@ -16867,10 +17512,12 @@ const QUESTIONS_DATA = [
         "text": "$Y_{0}/Y-12$"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "**$Y/\\Delta-11$ 组别**变压器使正序超前 30°、负序滞后 30°（发生相位变化）；$Y/Y-12$ 组别不改变相位。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -16881,7 +17528,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：812)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "可能产生零序电流的短路形式",
     "stem": "可能产生零序电流的短路形式有（）",
     "options": [
       {
@@ -16901,10 +17548,13 @@ const QUESTIONS_DATA = [
         "text": "两相接地短路"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "产生零序电流必须有接地通路，只有**单相接地短路（A）** 和 **两相接地短路（D）** 会产生零序电流。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -16915,7 +17565,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：812)",
     "typeName": "选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "无限大电源三相短路电流包含的分量",
     "stem": "无穷大电源供电的系统中, 发生三相短路时, 短路电流中包含的分量有 ( )。",
     "options": [
       {
@@ -16935,10 +17585,13 @@ const QUESTIONS_DATA = [
         "text": "非周期分量"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A",
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "包含幅值恒定的**工频周期分量（A）** 与按时间常数衰减的**直流非周期分量（D）**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -16949,7 +17602,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "输电线路上消耗的无功功率性质",
     "stem": "输电线路上消耗的无功功率为（）。",
     "options": [
       {
@@ -16969,10 +17622,12 @@ const QUESTIONS_DATA = [
         "text": "以上都有"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "线路电纳发出容性无功，电抗消耗感性无功，轻载呈容性、重载呈感性，净无功**以上都有可能（D）**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -16983,7 +17638,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "输电线路采用分裂导线的作用",
     "stem": "输电线路采用分裂导线可以（）",
     "options": [
       {
@@ -17003,10 +17658,12 @@ const QUESTIONS_DATA = [
         "text": "增大电阻"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "分裂导线增大了导线等效半径，主要作用是**减小线路电抗**（A）和抑制电晕。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -17017,7 +17674,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "电力线路按结构分类",
     "stem": "电力线路按结构可以分为两大类，即（）。",
     "options": [
       {
@@ -17037,10 +17694,12 @@ const QUESTIONS_DATA = [
         "text": "架空线路和电缆线路"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "电力线路按结构分为**架空线路和电缆线路**（D）两大类。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -17051,7 +17710,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "输电线路线损率的定义",
     "stem": "输电线路的线损率是指（）。",
     "options": [
       {
@@ -17071,10 +17730,12 @@ const QUESTIONS_DATA = [
         "text": "线路电能损耗与始端输入电能之比"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "定义为**线路电能损耗与始端输入电能之比**（$\\Delta W / W_1$）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -17085,7 +17746,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "电力系统潮流计算方程组类型",
     "stem": "电力系统潮流计算的方程组属于（）。",
     "options": [
       {
@@ -17105,10 +17766,12 @@ const QUESTIONS_DATA = [
         "text": "多元代数方程组"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "C"
+    ],
+    "answerPending": false,
+    "explanation": "节点功率与电压呈非线性二次关系，属于**非线性代数方程组**（C）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -17119,7 +17782,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "调频厂出力增加系统频率变化",
     "stem": "调频厂出力增加，系统频率会（）。",
     "options": [
       {
@@ -17139,10 +17802,12 @@ const QUESTIONS_DATA = [
         "text": "都有可能"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "发电机有功输出增加使得 $P_G > P_L$，系统频率将**上升**（B）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -17153,7 +17818,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "运行变压器无功损耗与有功损耗比较",
     "stem": "在电网中运行的变压器，无功功率损耗比有功功率损耗（）。",
     "options": [
       {
@@ -17173,10 +17838,12 @@ const QUESTIONS_DATA = [
         "text": "不确定"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "变压器励磁及漏抗无功损耗远大于绕组及铁芯有功损耗，无功损耗比有功损耗**大**（A）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -17187,7 +17854,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "同步调相机过激运行输出特性",
     "stem": "同步调相机过激运行时可以向系统（）。",
     "options": [
       {
@@ -17207,10 +17874,12 @@ const QUESTIONS_DATA = [
         "text": "以上说法都不对"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "同步调相机过励磁运行相当于强无功电源，向系统**发出感性无功功率**（B）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -17221,7 +17890,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "24个PQ、15个PV的40节点网雅可比阶数",
     "stem": "对于含有 24 个 PQ 节点，15 个 PV 节点的 40 节点网络，雅可比矩阵的阶数可以为（）",
     "options": [
       {
@@ -17241,11 +17910,13 @@ const QUESTIONS_DATA = [
         "text": "78"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
-    "conflict": "",
+    "answer": [
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "未知变量包括 39 个相角 + 24 个电压幅值 = 63，若直角坐标未消除 PV 节点为 2(n-1) = **78阶（D）**。",
+    "verified": true,
+    "conflict": "【题型换算标注】40节点网若为极坐标雅可比阶数为 39+24=63（选项中无63）；题干考查直角坐标形式，剔除平衡节点后 39 个非平衡节点各有 e,f 两个修正方程，总阶数为 2×39 = 78（选项D）。",
     "source": "考研",
     "year": "2021",
     "chapter": 4
@@ -17255,7 +17926,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "运转中的发电设备所留有的备用容量",
     "stem": "运转中的发电设备所留有的备用容量称为（）。",
     "options": [
       {
@@ -17275,10 +17946,12 @@ const QUESTIONS_DATA = [
         "text": "热备用"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "已并网且处于运转状态的发电设备所保留的裕度称为**热备用**（D）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -17289,7 +17962,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "属于电力系统纵向故障的是",
     "stem": "在下列各种故障类型中，属于纵向故障的是（）。",
     "options": [
       {
@@ -17309,10 +17982,12 @@ const QUESTIONS_DATA = [
         "text": "单相接地短路"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "发生在输电线路串联纵向上的开路断线（**两相断线 B**）属于纵向故障。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -17323,7 +17998,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "不属于无穷大电源特点的是",
     "stem": "不属于无穷大电源特点的是（）。",
     "options": [
       {
@@ -17343,10 +18018,12 @@ const QUESTIONS_DATA = [
         "text": "功率无限大"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "B"
+    ],
+    "answerPending": false,
+    "explanation": "无限大电源电压与频率恒定、内阻为零、功率无限，但**短路电流随外部阻抗变化，并非恒定（B）**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -17357,7 +18034,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "关于变压器零序电抗错误说法",
     "stem": "关于变压器的零序电抗，下列说法不正确的是（）",
     "options": [
       {
@@ -17377,10 +18054,12 @@ const QUESTIONS_DATA = [
         "text": "三角形联结的绕组中不会有零序电流"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "**$\\Delta$ 绕组内部可以流通感应零序环流**，选项 D 称“不会有零序电流”属于错误说法。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -17391,7 +18070,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "两相接地短路复合序网连接方式",
     "stem": "系统发生两相接地短路故障时，复合序网的连接方式为（）。",
     "options": [
       {
@@ -17411,10 +18090,12 @@ const QUESTIONS_DATA = [
         "text": "正序、负序、零序并联"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "D"
+    ],
+    "answerPending": false,
+    "explanation": "两相接地短路故障点正序、负序、零序网呈**正序、负序、零序并联**（D）连接。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -17425,7 +18106,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "单项选择题",
     "type": "single",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "不对称短路时负序电压沿线分布",
     "stem": "电力系统发生不对称短路时，离短路点越近，则负序电压（）。",
     "options": [
       {
@@ -17445,10 +18126,12 @@ const QUESTIONS_DATA = [
         "text": "不确定"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "A"
+    ],
+    "answerPending": false,
+    "explanation": "负序网无源（故障点为虚拟负序电源），**离短路点越近，负序电压越大**（A）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -17459,7 +18142,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "变压器中性点装消弧线圈用于调压",
     "stem": "变压器中性点装设消弧线圈目的是用于调压。",
     "options": [
       {
@@ -17471,10 +18154,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "消弧线圈用于补偿单相接地电容电流，防止弧光过电压，**不具有调压功能**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -17485,7 +18170,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "设备额定电压多种故设置多个电压等级",
     "stem": "因为电力系统设备的额定电压有多种，所以系统要设置多个电压等级。",
     "options": [
       {
@@ -17497,10 +18182,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "电压等级设置由**输送距离与输送容量的经济性**决定，而非设备额定电压种类。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -17511,7 +18198,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "超高压线路电纳大故充电功率很大",
     "stem": "超高压输电线路由于单位长度的电纳比一般线路大，所以电纳上充电功率很大。",
     "options": [
       {
@@ -17523,10 +18210,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "超高压线路分裂根数多致电纳大，且充电功率 $Q_c = U^2 B$ 与电压平方成正比，数值很大。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -17537,7 +18226,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "均一电网经济功率分布与自然分布相同",
     "stem": "环网计算中，均一电网功率的经济分布与其功率的自然分布相同。",
     "options": [
       {
@@ -17549,10 +18238,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "均一网各段 $R/X$ 比值相同，按阻抗反比的自然分布与按电阻反比的经济分布完全重合。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -17563,7 +18254,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "牛拉法每次更新雅可比矩阵故比PQ法慢",
     "stem": "潮流计算牛拉法每次迭代时都要计算雅可比矩阵的元素，所以计算速度比PQ分解法慢。",
     "options": [
       {
@@ -17575,10 +18266,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "牛拉法单步需重新计算并分解雅可比矩阵，单步计算时间长于系数矩阵恒定的 PQ 分解法。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -17589,7 +18282,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "PQ分解法改进依据为高压网P-δ与Q-U解耦",
     "stem": "PQ 分解法是对牛拉法的改进, 改进依据之一是高压电网中, 电压相角的变化主要影响电力系统的有功功率潮流分布, 从而改变节点注入有功功率; 电压大小变化主要影响电力系统无功功率潮流的分布, 从而改变节点注入无功功率。",
     "options": [
       {
@@ -17601,10 +18294,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "高压网 $X \\gg R$，有功与电压相角强相关、无功与电压幅值强相关，构成 PQ 分解法解耦基础。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -17615,7 +18310,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "发电机与负荷单位调节功率均可整定",
     "stem": "发电机单位调节功率可以整定，负荷的单位调节功率也可以整定。",
     "options": [
       {
@@ -17627,10 +18322,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "发电机 $K_G$ 可通过调速器整定；**负荷 $K_L$ 由设备固有静态频率特性决定，不可人为整定**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -17641,7 +18338,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "串联电容器通过提供无功达到调压目的",
     "stem": "串联电容器主要通过向系统提供无功功率来减少电压损耗，从而达到调压的目的。",
     "options": [
       {
@@ -17653,10 +18350,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "串联电容通过**补偿线路电抗 $X$ 减小线路电压降落**调压，不直接提供无功总量。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -17667,7 +18366,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "满载机组越多全系统等值调差系数越大",
     "stem": "在电力系统的一次调频中，满载的机组越多，全系统发电机组的等值调差系数越大。",
     "options": [
       {
@@ -17679,10 +18378,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "满载机组失去向上调节能力（$K_G=0$），全网等值 $K_G$ 减小，系统等值调差系数 $R = 1/K_G$ 增大。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -17693,7 +18394,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "考核经济性的指标为厂用电率与网损率",
     "stem": "考核电力系统运行经济性的重要指标是厂用电率和网损率。",
     "options": [
       {
@@ -17705,10 +18406,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "厂用电率反映发电厂内部能耗，网损率反映电网输配电损耗，均为核心经济指标。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -17719,7 +18422,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "无限大电源三相短路强制分量幅值不衰减",
     "stem": "无限大功率电源供电系统三相短路电流强制分量的幅值是不衰减的。",
     "options": [
       {
@@ -17731,10 +18434,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "强制分量即工频周期分量，因无限大电源母线电压幅值恒定，短路周期电流幅值恒定不衰减。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -17745,7 +18450,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "任一组三相不平衡相量均可分解为三序分量",
     "stem": "任一组三相不平衡相量均可分解为正序、负序和零序分量。",
     "options": [
       {
@@ -17757,10 +18462,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "对称分量法原理：任何三相不对称线性相量均可唯一分解为正序、负序和零序三组对称分量。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -17771,7 +18478,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "Y0/△变压器△侧接地短路绕组内无零序电流",
     "stem": "在 $Y_{0} / \\Delta$ 接线的变压器 $\\Delta$ 侧发生接地短路时， $\\Delta$ 侧内部不会有零序电流流通。",
     "options": [
       {
@@ -17783,10 +18490,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "$\\Delta$ 侧若发生接地短路，零序电流会在 $\\Delta$ 绕组**内部感应出闭合环流**（“不会有”陈述错误）。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -17797,7 +18506,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "接地阻抗 Zg 不流过正负序电流故无影响",
     "stem": "正序和负序电流不流过中性点接地阻抗 $Z_{g}$ ，因此 $Z_{g}$ 对正序、负序电流没有影响。",
     "options": [
       {
@@ -17809,10 +18518,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "×"
+    ],
+    "answerPending": false,
+    "explanation": "复合序网中三序网相互串并联，零序阻抗（含 $3Z_g$）改变会改变总阻抗，从而**间接影响正负序电流**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -17823,7 +18534,7 @@ const QUESTIONS_DATA = [
     "paper": "华北电力大学 2021 年硕士生入学考试初试试题 (科目代码：814)",
     "typeName": "判断题",
     "type": "judge",
-    "topic": "电力系统分析基础核心考点",
+    "topic": "两相短路接地故障非故障相电压可升至线电压",
     "stem": "发生两相短路接地故障时，非故障相的电压可能升高为线电压。",
     "options": [
       {
@@ -17835,10 +18546,12 @@ const QUESTIONS_DATA = [
         "text": "错误"
       }
     ],
-    "answer": [],
-    "answerPending": true,
-    "explanation": "详见火哥考研视频解析或标准教材对应定理。",
-    "verified": false,
+    "answer": [
+      "√"
+    ],
+    "answerPending": false,
+    "explanation": "两相接地短路时，故障两相对地拉低，零序阻抗很大时，**非故障相对地电压可能升高为线电压**。",
+    "verified": true,
     "conflict": "",
     "source": "考研",
     "year": "2021",
@@ -25107,6 +25820,6 @@ const QUESTIONS_DATA = [
   }
 ];
 
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== "undefined" && module.exports) {
   module.exports = QUESTIONS_DATA;
 }
