@@ -1,9 +1,9 @@
 /* ==========================================================================
    ⚡ 华电《电力系统分析》全真题库 - PWA Service Worker (离线缓存引擎)
-   Cache Version: ncepu-quiz-pwa-v1.0.6
+   Cache Version: ncepu-quiz-pwa-v1.0.7
    ========================================================================== */
 
-const CACHE_NAME = 'ncepu-quiz-pwa-v1.0.6';
+const CACHE_NAME = 'ncepu-quiz-pwa-v1.0.7';
 
 // 核心预缓存文件列表（确保全题库与交互离线可用）
 const PRECACHE_ASSETS = [
@@ -30,7 +30,7 @@ self.addEventListener('install', (event) => {
   );
 });
 
-// 2. 激活事件 (清理旧缓存并接管控制权)
+// 2. 激活事件 (彻底清理所有旧版本缓存并强制接管全部页面)
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keyList) => {
@@ -48,16 +48,44 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// 3. 网络请求拦截策略：Stale-While-Revalidate (优先高速本地缓存，后台静默拉取更新)
+// 3. 网络请求拦截策略
 self.addEventListener('fetch', (event) => {
-  // 仅处理 GET 请求与 http/https 协议
   if (event.request.method !== 'GET') return;
   const url = new URL(event.request.url);
 
-  // 跨域外链字体等资源：若失败则降级
+  // 关键：对于核心题库数据与主页面采用 Network-First (网络优先，成功则存入缓存；断网离线时自动走本地缓存)，确保更新零延迟生效！
+  const isCoreDataOrPage = url.pathname.includes('questions_data.js') || 
+                           url.pathname.endsWith('index.html') || 
+                           url.pathname.endsWith('/') ||
+                           event.request.mode === 'navigate';
+
+  if (isCoreDataOrPage) {
+    event.respondWith(
+      fetch(event.request, { cache: 'no-cache' }).then((networkResponse) => {
+        if (networkResponse && networkResponse.status === 200) {
+          const responseClone = networkResponse.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, responseClone);
+          });
+        }
+        return networkResponse;
+      }).catch(() => {
+        // 网络请求失败（离线/断网），从本地缓存读取
+        return caches.match(event.request).then((cached) => {
+          if (cached) return cached;
+          if (event.request.mode === 'navigate') {
+            return caches.match('./index.html');
+          }
+          return null;
+        });
+      })
+    );
+    return;
+  }
+
+  // 其他静态静态图片、图标等资源：采用 Stale-While-Revalidate
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
-      // 无论本地是否有缓存，均尝试在后台发起网络请求进行更新 (Stale-While-Revalidate)
       const fetchPromise = fetch(event.request).then((networkResponse) => {
         if (networkResponse && networkResponse.status === 200) {
           const responseClone = networkResponse.clone();
@@ -66,16 +94,8 @@ self.addEventListener('fetch', (event) => {
           });
         }
         return networkResponse;
-      }).catch((err) => {
-        // 网络不可用（离线状态）
-        // 如果是单页页面导航，返回离线主页
-        if (event.request.mode === 'navigate') {
-          return caches.match('./index.html');
-        }
-        return null;
-      });
+      }).catch(() => null);
 
-      // 如果本地缓存命中，立刻返回本地缓存（实现 0ms 瞬间响应）；否则等待网络响应
       return cachedResponse || fetchPromise;
     })
   );
