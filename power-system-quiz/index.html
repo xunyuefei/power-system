@@ -452,6 +452,45 @@
       color: var(--text-muted);
     }
 
+    .btn-clear-wrong-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 10px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      border-radius: 9999px;
+      background: rgba(244, 63, 94, 0.15);
+      border: 1px solid rgba(244, 63, 94, 0.4);
+      color: #fb7185;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 2;
+    }
+    .btn-clear-wrong-pill:hover, .btn-clear-wrong-pill:active {
+      background: rgba(244, 63, 94, 0.3);
+      border-color: #f43f5e;
+      color: #fff;
+      transform: scale(1.05);
+    }
+    .btn-clear-wrong-mini {
+      display: inline-flex;
+      align-items: center;
+      padding: 1px 7px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      border-radius: 4px;
+      background: rgba(244, 63, 94, 0.15);
+      border: 1px solid rgba(244, 63, 94, 0.35);
+      color: #fb7185;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-clear-wrong-mini:hover, .btn-clear-wrong-mini:active {
+      background: rgba(244, 63, 94, 0.35);
+      color: #fff;
+    }
+
     /* Section Title */
     .section-title {
       font-family: var(--font-heading);
@@ -2617,13 +2656,16 @@
           <div class="stat-sub" id="statCorrectCount">答对 0 题</div>
         </div>
 
-        <div class="stat-card" style="--stat-glow: rgba(244, 63, 94, 0.2);">
+        <div class="stat-card" style="--stat-glow: rgba(244, 63, 94, 0.2); cursor: pointer;" onclick="handleWrongStatCardClick()">
           <div class="stat-header">
             <span class="stat-label">错题攻坚本</span>
             <span class="stat-icon">❌</span>
           </div>
           <div class="stat-value" id="statWrongCount" style="color: var(--danger);">0</div>
-          <div class="stat-sub">重练正确后自动消除</div>
+          <div class="stat-sub" style="display: flex; justify-content: space-between; align-items: center;">
+            <span>重练正确后自动消除</span>
+            <button type="button" class="btn-clear-wrong-mini" id="btnStatClearWrong" onclick="quickClearWrongQuestions(event)" title="一键清空错题记录" style="display: none;">清空</button>
+          </div>
         </div>
       </div>
 
@@ -2678,7 +2720,12 @@
               <span class="mode-badge" id="cardWrongBadge">0 题待攻克</span>
             </div>
             <div class="mode-desc">自动归集以往做错题，再次答对即移出错题本，精准攻坚弱项。</div>
-            <div class="mode-action">攻克薄弱错题 <span>➔</span></div>
+            <div class="mode-action" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+              <span>攻克薄弱错题 <span>➔</span></span>
+              <button type="button" class="btn-clear-wrong-pill" id="btnQuickClearWrong" onclick="quickClearWrongQuestions(event)" title="清空全部错题记录" style="display: none;">
+                🗑️ 清空错题
+              </button>
+            </div>
           </div>
         </div>
 
@@ -3178,12 +3225,20 @@
         </div>
       </div>
 
-      <!-- 5. 危险区 -->
+      <!-- 5. 危险区 / 数据清理与重置 -->
       <div style="border-top: 1px solid var(--border-subtle); padding-top: 16px; margin-bottom: 22px;">
-        <label style="font-size: 0.88rem; font-weight: 600; color: var(--danger); display: block; margin-bottom: 8px;">危险区</label>
-        <button class="btn-nav" style="width: 100%; border-color: var(--danger-border); color: var(--danger); justify-content: center;" onclick="confirmResetAllProgress()">
-          🗑️ 清空所有刷题记录与错题本
-        </button>
+        <label style="font-size: 0.88rem; font-weight: 600; color: var(--danger); display: block; margin-bottom: 6px;">数据清理与状态同步 (解决手机电脑不一致)</label>
+        <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 10px; line-height: 1.4;">
+          做题数据保存在每台设备的本地浏览器中。如果手机端打开显示有遗留旧错题，可点击下方一键清空：
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <button class="btn-nav" style="width: 100%; border-color: rgba(244, 63, 94, 0.4); color: #fb7185; justify-content: center; font-size: 0.86rem;" onclick="quickClearWrongQuestions()">
+            ❌ 仅清空所有错题记录 (将待攻克错题重置为 0，保留其他答题)
+          </button>
+          <button class="btn-nav" style="width: 100%; border-color: var(--danger-border); color: var(--danger); justify-content: center; font-size: 0.86rem;" onclick="confirmResetAllProgress()">
+            🧹 彻底重置为全新状态 (清空所有做题记录，与电脑端完全一致干净)
+          </button>
+        </div>
       </div>
 
       <div style="text-align: right;">
@@ -3254,7 +3309,7 @@
   </div>
 
   <!-- LOAD QUESTION DATA -->
-  <script src="questions_data.js?v=1.0.7"></script>
+  <script src="questions_data.js?v=1.1.0"></script>
 
   <!-- APPLICATION CORE SCRIPT -->
   <script>
@@ -3995,8 +4050,33 @@
         console.warn('History routing init warning:', err);
       }
 
-      // Handle PWA shortcut URL parameter (?mode=sequential / wrong / exam)
+      // Handle URL parameters
       const urlParams = new URLSearchParams(window.location.search);
+
+      // 支持 URL 一键清空重置指令 (便于手机端秒级同步/重置纯净题库)
+      const resetParam = urlParams.get('reset') || urlParams.get('clean');
+      if (resetParam) {
+        if (resetParam === 'all' || resetParam === '1' || resetParam === 'true') {
+          appState.progress = {};
+          appState.bookmarks = {};
+          appState.notes = {};
+          appState.scratchpad = [];
+          appState.examHistory = [];
+          saveState();
+          showToast('🧹 手机本地数据已全部清空，恢复纯净初始状态！', '✨');
+        } else if (resetParam === 'wrong') {
+          const wrongKeys = Object.keys(appState.progress).filter(id => appState.progress[id] && !appState.progress[id].correct);
+          wrongKeys.forEach(id => delete appState.progress[id]);
+          saveState();
+          showToast(`🧹 手机本地已清空 ${wrongKeys.length} 道错题记录！`, '🎉');
+        }
+        try {
+          const cleanUrl = window.location.pathname;
+          window.history.replaceState({ view: 'dashboard' }, document.title, cleanUrl);
+        } catch (e) {}
+      }
+
+      // Handle PWA shortcut URL parameter (?mode=sequential / wrong / exam)
       const modeParam = urlParams.get('mode');
       if (modeParam && ['sequential', 'random', 'wrong', 'bookmarks', 'exam'].includes(modeParam)) {
         if (modeParam === 'exam') {
@@ -4219,6 +4299,17 @@
         } else {
           mobWrong.style.display = 'none';
         }
+      }
+
+      // Update quick clear wrong buttons
+      const btnQuickClearWrong = document.getElementById('btnQuickClearWrong');
+      if (btnQuickClearWrong) {
+        btnQuickClearWrong.style.display = (wrongCount > 0) ? 'inline-flex' : 'none';
+        btnQuickClearWrong.innerHTML = `🗑️ 清空错题 (${wrongCount})`;
+      }
+      const btnStatClearWrong = document.getElementById('btnStatClearWrong');
+      if (btnStatClearWrong) {
+        btnStatClearWrong.style.display = (wrongCount > 0) ? 'inline-flex' : 'none';
       }
 
       // Calculate Chapter Diagnostics and Render Radar + 4-State Cards
@@ -4959,7 +5050,9 @@
                 <div class="wrong-history-desc">
                   你上次做错选择了：<strong class="user-wrong-tag">${prevProg.selected.join(', ')} ❌</strong>
                   <span class="history-sep">|</span>
-                  标准答案：<strong class="actual-correct-tag">${correctAnsArray.join(', ')} ✔️</strong>
+                  标准答案：${correctAnsArray.length > 0 
+                    ? `<strong class="actual-correct-tag">${correctAnsArray.join(', ')} ✔️</strong>` 
+                    : `<strong class="user-wrong-tag" style="background:rgba(245,158,11,0.15); border-color:rgba(245,158,11,0.5); color:#fbbf24;">待官方补充 ⏳</strong>`}
                 </div>
               </div>
               <button class="btn-toggle-wrong-exp" type="button" onclick="toggleWrongExplanation()">📖 查看解析</button>
@@ -5903,15 +5996,47 @@
       reader.readAsText(file);
     }
 
+    function handleWrongStatCardClick() {
+      const wrongCount = Object.keys(appState.progress).filter(id => appState.progress[id] && !appState.progress[id].correct).length;
+      if (wrongCount > 0) {
+        startPracticeMode('wrong');
+      } else {
+        showToast('🎉 错题本为空！当前没有待攻克的错题！', '✨');
+      }
+    }
+
+    function quickClearWrongQuestions(event) {
+      if (event) {
+        event.stopPropagation();
+        event.preventDefault();
+      }
+      const wrongKeys = Object.keys(appState.progress).filter(id => appState.progress[id] && !appState.progress[id].correct);
+      if (wrongKeys.length === 0) {
+        showToast('当前错题本为空，没有待清理的错题！', '🎉');
+        return;
+      }
+      if (confirm(`确定要清空本地全部 ${wrongKeys.length} 道错题记录吗？\n清空后错题本将归零，恢复干净状态（已掌握答对的题目将保留）！`)) {
+        wrongKeys.forEach(id => {
+          delete appState.progress[id];
+        });
+        saveState();
+        renderDashboard();
+        showToast(`已清空 ${wrongKeys.length} 道错题，错题本已归零！`, '🧹');
+        if (typeof closeModal === 'function') closeModal('settingsModal');
+      }
+    }
+
     function confirmResetAllProgress() {
-      if (confirm('⚠️ 警告：确定清空所有刷题进度、错题本与笔记吗？此操作无法恢复！')) {
+      if (confirm('⚠️ 警告：确定清空手机/本地所有刷题进度、错题本与笔记吗？\n执行后手机端将恢复为与电脑端完全一致的初始纯净状态！')) {
         appState.progress = {};
         appState.bookmarks = {};
         appState.notes = {};
+        appState.scratchpad = [];
+        appState.examHistory = [];
         saveState();
         renderDashboard();
-        showToast('刷题进度已全部清空，重新启航！', '🗑️');
-        closeModal('settingsModal');
+        showToast('本地做题记录已全部清空，恢复纯净全新题库！', '🧹');
+        if (typeof closeModal === 'function') closeModal('settingsModal');
       }
     }
 
